@@ -88,7 +88,6 @@
 }
 
 <%--랭킹 --%> 
-
 #ranking-slide {
   position: relative;
   width: 1052px;

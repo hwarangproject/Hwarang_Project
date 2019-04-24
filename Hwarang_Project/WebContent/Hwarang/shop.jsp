@@ -28,7 +28,6 @@
 <link rel="apple-touch-icon-precomposed"
 	href="images/ico/apple-touch-icon-57-precomposed.png">
 
-
 <style type="text/css">
 .carousel-inner {
 	margin: 10px auto;

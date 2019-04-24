@@ -147,7 +147,9 @@
 	
 	<div class="container">
 		<div class="row">
+		<center>
 			<h3>브랜드 찾기</h3>
+		</center>
 			<div class="col-sm-3">
 				<div class="left-sidebar">
 					<h2>Category</h2>
