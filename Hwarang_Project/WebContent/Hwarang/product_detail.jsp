@@ -58,6 +58,148 @@
 #custom_pouch{
 	display: inline;
 }
+
+
+/* 평점 css*/
+.star-input>.input,
+.star-input>.input>label:hover,
+.star-input>.input>input:focus+label,
+.star-input>.input>input:checked+label{display: inline-block;vertical-align:middle;background:url('images/product-details/grade_final.png')no-repeat;}
+.star-input{display:inline-block; white-space:nowrap;width:225px;height:40px;padding:25px;line-height:30px;}
+.star-input>.input{display:inline-block;width:250px;background-size:150px;height:28px;white-space:nowrap;overflow:hidden;position: relative;}
+.star-input>.input>input{position:absolute;width:1px;height:1px;opacity:0;}
+star-input>.input.focus{outline:1px dotted #ddd;}
+.star-input>.input>label{width:30px;height:0;padding:28px 0 0 0;overflow: hidden;float:left;cursor: pointer;position: absolute;top: 0;left: 0;}
+.star-input>.input>label:hover,
+.star-input>.input>input:focus+label,
+.star-input>.input>input:checked+label{background-size: 150px;background-position: 0 bottom;}
+.star-input>.input>label:hover~label{background-image: none;}
+.star-input>.input>label[for="p1"]{width:30px;z-index:5;}
+.star-input>.input>label[for="p2"]{width:60px;z-index:4;}
+.star-input>.input>label[for="p3"]{width:90px;z-index:3;}
+.star-input>.input>label[for="p4"]{width:120px;z-index:2;}
+.star-input>.input>label[for="p5"]{width:150px;z-index:1;}
+.star-input>output{display:inline-block;width:60px; font-size:18px;text-align:left; vertical-align:middle;}
+
+
+/* 상세평점 출력 */
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,300,400);
+@import url(https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+body {
+  font-family: 'Roboto', Helvetica;
+  color: #737373;
+  font-weight: 300;
+}
+
+#rate-title{
+margin-left: 1.2em;
+}
+.con1 {
+  width: 800px;
+  margin: 0 auto;
+  margin-top: 1em;
+  margin-bottom: 3em;
+  background-color: #EFEFEF;
+  padding: 2px;
+}
+
+.inner {
+  padding: 1em;
+  background-color: white;
+  overflow: hidden;
+  position: relative;
+  -webkit-border-radius: 4px; 
+  -moz-border-radius: 4px; 
+  border-radius: 4px; 
+}
+
+.rating {
+  float: left;
+  width: 45%;
+  margin-top: 2%;
+  margin-right: 5%;
+  text-align: center;
+}
+
+.rating-num {
+  color: #333333;
+  font-size: 40px;
+  font-weight: 300;
+  line-height: 1em; 
+}
+
+.rating-stars {
+  font-size: 20px;
+  color: #E3E3E3;
+  margin-bottom: .5em;
+}
+.rating-stars .active {
+  color: #737373;
+}
+
+.rating-users {
+  font-size: 15px;
+}
+
+.histo {
+  float: left;
+  width: 50%;
+  font-size: 13px;
+}
+
+.histo-star {
+  float: left;
+  padding: 3px;
+
+}
+
+.histo-rate {
+  width: 100%;
+  display: block;
+  clear: both;
+}
+
+.bar-block {
+  margin-left: 5px;
+  color: black;
+  display: block;
+  float: left;
+  width: 75%;
+  position: relative;
+}
+
+.bar {
+  padding: 4px;
+  display: block;
+}
+
+#bar-five {
+  width: 0;
+  background-color: #9FC05A;
+}
+
+#bar-four {
+  width: 0;
+  background-color: #ADD633;
+}
+
+#bar-three {
+  width: 0;
+  background-color: #FFD834;
+}
+
+#bar-two {
+  width: 0;
+  background-color: #FFB234;
+}
+
+#bar-one {
+  width: 0;
+  background-color: #FF8B5A;
+}
+
+    
 </style>
 
 </head>
@@ -305,6 +447,7 @@
                </div>
             </div>
             
+            <!--/product-information-->
             <div class="col-sm-9 padding-right">
                <div class="product-details"><!--product-details-->
                   <div class="col-sm-5">
@@ -319,7 +462,7 @@
                         <img src="images/product-details/new.jpg" class="newarrival" alt="" />
                         <h2>상품명 : 리얼 아이 크림 포 페이스 30ml </h2>
                         <p>브랜드명 : Channel</p>
-                        <td><img src="images/product-details/rating.png" alt="" /> 평점: 4.5</td>
+                        
                         <span>
                            <span>가격: 50,000 원</span>
                            <button type="button" class="btn btn-fefault cart">
@@ -333,10 +476,86 @@
                         <p><b>컬러/타입:</b> E-SHOPPER</p>
                         <p><b>설명:</b> E-SHOPPER</p>
                         <p><b>태그:</b> E-SHOPPER</p>
-                        <a href="#"><heart></a>
-                     </div><!--/product-information-->
-                  </div>
-               </div><!--/product-details-->
+                      </div>
+                     </div>
+                 </div>
+                    
+<!-- 상세평점 출력 -->
+<h3 id="rate-title">평점</h3>
+<div class="con1">
+  <div class="inner">
+  
+    <div class="rating">
+     
+      <span class="rating-num">4.0</span><br>
+        <div class="rating-stars">
+        <span><i class="active icon-star"></i></span>
+        <span><i class="active icon-star"></i></span>
+        <span><i class="active icon-star"></i></span>
+        <span><i class="active icon-star"></i></span>
+        <span><i class="icon-star"></i></span>
+        &#9733;&#9733;&#9733;&#9733;&#9734;
+      </div>
+      <div class="rating-users">
+      	&#128077; <i class="icon-user"></i> 1,014,004 total
+      </div>
+    </div>
+    
+    <div class="histo">
+      <div class="five histo-rate">
+        <span class="histo-star">
+          <i class="active icon-star"></i> 5           </span>
+        <span class="bar-block">
+          <span id="bar-five" class="bar">
+            <span>566,784</span>&nbsp;
+          </span> 
+        </span>
+      </div>
+      
+      <div class="four histo-rate">
+        <span class="histo-star">
+          <i class="active icon-star"></i> 4           </span>
+        <span class="bar-block">
+          <span id="bar-four" class="bar">
+            <span>171,298</span>&nbsp;
+          </span> 
+        </span>
+      </div> 
+      
+      <div class="three histo-rate">
+        <span class="histo-star">
+          <i class="active icon-star"></i> 3           </span>
+        <span class="bar-block">
+          <span id="bar-three" class="bar">
+            <span>94,940</span>&nbsp;
+          </span> 
+        </span>
+      </div>
+      
+      <div class="two histo-rate">
+        <span class="histo-star">
+          <i class="active icon-star"></i> 2           </span>
+        <span class="bar-block">
+          <span id="bar-two" class="bar">
+            <span>44,525</span>&nbsp;
+          </span> 
+        </span>
+      </div>
+      
+      <div class="one histo-rate">
+        <span class="histo-star">
+          <i class="active icon-star"></i> 1           </span>
+        <span class="bar-block">
+          <span id="bar-one" class="bar">
+            <span>136,457</span>&nbsp;
+          </span> 
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+                  
+            <!--/product-details-->
                
                <div class="category-tab shop-details-tab"><!--category-tab-->
                   <div class="col-sm-12">
@@ -498,6 +717,11 @@
                         </div>
                      </div>
                      
+                     
+
+
+
+                     
                      <div class="tab-pane fade active in" id="reviews" >
                         <div class="col-sm-12">
                           <div class="a">
@@ -528,7 +752,26 @@
                                  <input type="email" placeholder="Email Address"/>
                               </span>
                               <textarea name="" ></textarea>
-                              <b>Rating: </b> <img src="images/product-details/rating.png" alt="" />
+                              <!-- 평점주기 -->
+                            <span class="star-input">
+                             
+							  <span class="input">
+    							<input type="radio" name="star-input" value="1" id="p1">
+    							<label for="p1">1</label>
+    							<input type="radio" name="star-input" value="2" id="p2">
+    							<label for="p2">2</label>
+    							<input type="radio" name="star-input" value="3" id="p3">
+    							<label for="p3">3</label>
+    							<input type="radio" name="star-input" value="4" id="p4">
+    							<label for="p4">4</label>
+    							<input type="radio" name="star-input" value="5" id="p5">
+    							<label for="p5">5</label>
+  							  </span>
+  							  <!-- <output for="star-input"><b>0</b>점</output> -->
+  							 
+  							  
+							</span>
+							
                               <button type="button" class="btn btn-default pull-right">
                                  Submit
                               </button>
