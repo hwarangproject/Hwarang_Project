@@ -1,11 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE>
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="UTF-8">
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>상품별 목록</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/font-awesome.min.css" rel="stylesheet">
@@ -48,22 +46,10 @@
 
 .scrollbar {
 	float: left;
-	height: 230px;
+	height: 250px;
 	width: 65px;
 	overflow-y: scroll;
 	margin-bottom: 1px;
-}
-
-.productinfo h5{
-  color: #FFB9B9; 
-  font-family: 'Roboto', sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  margin: 15px;
-  text-align: center;
-  text-transform: uppercase;
-  position: relative;
-  z-index:3;
 }
 
 #style-6::-webkit-scrollbar-track {
@@ -95,20 +81,17 @@
 	width:104px; 
 	height:20px; 
 	display:block; 
-	margin-top:0px;
-	margin-left:75px;
-	margin-bottom:15px;
-	position:relative;
+	position:relative; 
 	overflow:hidden;
 }
 .star-rating-percentage {
 	background:url(images/product-details/grade_final_forlist.png)  repeat-x;
 	background-position: 0 100%;
-	position: relative;
-	width:104px; 
-	height:20px; 
+	position: absolute;
+	top:0;
+	left:0;
 	display:block;
-
+	height:20px;
 }
 
 </style>
@@ -269,7 +252,7 @@
 							</div>
 							<div id="sportswear" class="panel-collapse collapse">
 								<div class="panel-body scrollbar" id="style-6"
-									style="overflow: auto; width: 230px; height: 200px;">
+									style="overflow: auto; width: 220px; height: 200px;">
 									<ul>
 
 										<li><a href="">스킨 </a></li>
@@ -314,7 +297,7 @@
 							</div>
 							<div id="mens" class="panel-collapse collapse">
 								<div class="panel-body scrollbar" id="style-6"
-									style="overflow: auto; width: 230px; height: 200px;">
+									style="overflow: auto; width: 220px; height: 200px;">
 									<ul>
 										<li><a href="">메이크업베이스</a></li>
 										<li><a href="">톤업크림</a></li>
@@ -361,7 +344,7 @@
 							</div>
 							<div id="womens" class="panel-collapse collapse">
 								<div class="panel-body scrollbar" id="style-6"
-									style="overflow: auto; width: 230px; height: 200px;">
+									style="overflow: auto; width: 220px; height: 200px;">
 									<ul>
 										<li><a href="">선블록</a></li>
 										<li><a href="">선스프레이</a></li>
@@ -391,7 +374,7 @@
 							</div>
 							<div id="body" class="panel-collapse collapse">
 								<div class="panel-body scrollbar" id="style-6"
-									style="overflow: auto; width: 230px; height: 200px;">
+									style="overflow: auto; width: 220px; height: 200px;">
 									<ul>
 										<li><a href="">바디워시</a></li>
 										<li><a href="">바디스크럽</a></li>
@@ -434,7 +417,7 @@
 							</div>
 							<div id="etc" class="panel-collapse collapse">
 								<div class="panel-body scrollbar" id="style-6"
-									style="overflow: auto; width: 230px; height: 200px;">
+									style="overflow: auto; width: 220px; height: 200px;">
 									<ul>
 										<li><a href="">네일컬러</a></li>
 										<li><a href="">베이스/탑코트/퀵드라이</a></li>
@@ -464,7 +447,7 @@
 							</div>
 							<div id="perfume" class="panel-collapse collapse">
 								<div class="panel-body scrollbar" id="style-6"
-									style="overflow: auto; width: 230px; height: 150px;">
+									style="overflow: auto; width: 218px; height: 150px;">
 									<ul>
 										<li><a href="">여성향수</a></li>
 										<li><a href="">남성향수</a></li>
@@ -486,7 +469,7 @@
 							</div>
 							<div id="feminine" class="panel-collapse collapse">
 								<div class="panel-body scrollbar" id="style-6"
-									style="overflow: auto; width: 230px; height: 150px;">
+									style="overflow: auto; width: 218px; height: 150px;">
 									<ul>
 										<li><a href="">소형</a></li>
 										<li><a href="">중형</a></li>
@@ -510,7 +493,7 @@
 							</div>
 							<div id="baby" class="panel-collapse collapse">
 								<div class="panel-body scrollbar" id="style-6"
-									style="overflow: auto; width: 230px; height: 150px;">
+									style="overflow: auto; width: 218px; height: 150px;">
 									<ul>
 										<li><a href="">베이비스킨케어</a></li>
 										<li><a href="">베이비바디</a></li>
@@ -586,11 +569,9 @@
 						<div class="product-image-wrapper">
 							<div class="single-products">
 								<div class="productinfo text-center">
-								<a href="product_detail.jsp">
-									<img src="images/product-details/cos5.png" alt="" width=280.8px height=280.8px/>
-									<h5>이니스프리 / 화산송이마스크</h5>
-									</a>
-									<p>$56</p>
+									<img src="images/shop/product12.jpg" alt="" />
+									<h2>$56</h2>
+									<p>이니스프리 / 화산송이마스크</p>
 									<div class="star-rating" style="text-align: center">
 											<div style="width:30%" class="star-rating-percentage"  style="display:inline-block"></div>
 									</div>
@@ -602,7 +583,7 @@
 									<li><a href=""><i class="fa fa-plus-square"></i>Add to
 											mypage</a></li>
 									<li><a href=""><i class="fa fa-plus-square"></i>Add to
-											cart</a></li>
+											compare</a></li>
 								</ul>
 							</div>
 						</div>
@@ -611,23 +592,19 @@
 						<div class="product-image-wrapper">
 							<div class="single-products">
 								<div class="productinfo text-center">
-									<a href="product_detail.jsp">
-									<img src="images/product-details/cos5.png" alt="" width=280.8px height=280.8px/>
-									<h5>이니스프리 / 화산송이마스크</h5>
-									</a>
-									<p>$56</p>
-									<div class="star-rating" style="text-align: center">
-											<div style="width:50%" class="star-rating-percentage"  style="display:inline-block"></div>
-									</div>
-
+									<img src="images/shop/product11.jpg" alt="" />
+									<h2>$56</h2>
+									<p>Easy Polo Black Edition</p>
+									<a href="#" class="btn btn-default add-to-cart"><i
+										class="fa fa-shopping-cart"></i>Add to cart</a>
 								</div>
 							</div>
 							<div class="choose">
 								<ul class="nav nav-pills nav-justified">
 									<li><a href=""><i class="fa fa-plus-square"></i>Add to
-											mypage</a></li>
+											wishlist</a></li>
 									<li><a href=""><i class="fa fa-plus-square"></i>Add to
-											cart</a></li>
+											compare</a></li>
 								</ul>
 							</div>
 						</div>
@@ -636,23 +613,19 @@
 						<div class="product-image-wrapper">
 							<div class="single-products">
 								<div class="productinfo text-center">
-									<a href="product_detail.jsp">
-									<img src="images/product-details/cos5.png" alt="" width=280.8px height=280.8px/>
-									<h5>이니스프리 / 화산송이마스크</h5>
-									</a>
-									<p>$56</p>
-									<div class="star-rating" style="text-align: center">
-											<div style="width:65%" class="star-rating-percentage"  style="display:inline-block"></div>
-									</div>
-
+									<img src="images/shop/product10.jpg" alt="" />
+									<h2>$56</h2>
+									<p>Easy Polo Black Edition</p>
+									<a href="#" class="btn btn-default add-to-cart"><i
+										class="fa fa-shopping-cart"></i>Add to cart</a>
 								</div>
 							</div>
 							<div class="choose">
 								<ul class="nav nav-pills nav-justified">
 									<li><a href=""><i class="fa fa-plus-square"></i>Add to
-											mypage</a></li>
+											wishlist</a></li>
 									<li><a href=""><i class="fa fa-plus-square"></i>Add to
-											cart</a></li>
+											compare</a></li>
 								</ul>
 							</div>
 						</div>
@@ -856,9 +829,7 @@
 					</div>
 
 					<ul class="pagination">
-						<li class="active">
-						<
-						<a href="">1</a></li>
+						<li class="active"><a href="">1</a></li>
 						<li><a href="">2</a></li>
 						<li><a href="">3</a></li>
 						<li><a href="">&raquo;</a></li>
