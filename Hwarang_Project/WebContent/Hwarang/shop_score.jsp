@@ -26,16 +26,6 @@
 <link rel="apple-touch-icon-precomposed"
 	href="images/ico/apple-touch-icon-57-precomposed.png">
 
-<script src="js/jquery.js"></script>
-<script src="js/price-range.js"></script>
-<script src="js/jquery.scrollUp.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.prettyPhoto.js"></script>
-<script src="js/main.js"></script>
-<script src="js/jquery-1.11.3.min.js"></script>
-<script src="js/star.js"></script>
-
-
 <style type="text/css">
 .carousel-inner {
 	margin: 10px auto;
@@ -105,20 +95,20 @@
 				<div class="col-xs-6">
 					<div class="contactinfo">
 						<ul class="nav nav-pills">
-							<li><a href="#"><i class="fa fa-phone"></i> +82 전화번호</a></li>
-							<li><a href="#"><i class="fa fa-envelope"></i>Hwarang
-									Project</a></li>
+							<li><a href="main.jsp">Hwarang</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-xs-6">
 					<div class="social-icons pull-right">
 						<ul class="nav navbar-nav">
-							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-							<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-							<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-							<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+							<li><a href="profile.jsp"><i class="fa fa-star"></i>
+									Mypage</a></li>
+							<li><a href="cart.html"><i class="fa fa-shopping-cart"></i>
+									Cart</a></li>
+							<li><a href="member_make.jsp"><i
+									class="fa fa-crosshairs"></i> Join</a></li>
+							<li><a href="login.jsp"><i class="fa fa-lock"></i> Login</a></li>
 						</ul>
 					</div>
 				</div>
@@ -133,46 +123,8 @@
 			<div class="row">
 				<div class="col-xs-4">
 					<div class="logo pull-left">
-						<a href="main.jsp"><img src="images/home/logo/hwarang_logo.PNG" alt="" id="logo"/></a>
-					</div>
-
-					<!-- 버튼 토글  -->
-					<!-- <div class="btn-group pull-right">
-							<div class="btn-group">
-								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-									USA
-									<span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><a href="#">Canada</a></li>
-									<li><a href="#">UK</a></li>
-								</ul>
-							</div>
-							
-							<div class="btn-group">
-								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-									DOLLAR
-									<span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><a href="#">Canadian Dollar</a></li>
-									<li><a href="#">Pound</a></li>
-								</ul>
-							</div>
-						</div> -->
-				</div>
-
-				<div class="col-xs-8">
-					<div class="shop-menu pull-right">
-						<ul class="nav navbar-nav">
-							<li><a href="#"><i class="fa fa-user"></i> Account</a></li>
-							<li><a href="#"><i class="fa fa-star"></i> Mypage</a></li>
-							<li><a href="checkout.html"><i class="fa fa-crosshairs"></i>
-									Checkout</a></li>
-							<li><a href="cart.html"><i class="fa fa-shopping-cart"></i>
-									Cart</a></li>
-							<li><a href="login.jsp"><i class="fa fa-lock"></i> Login</a></li>
-						</ul>
+						<a href="main.jsp"><img
+							src="images/home/logo/hwarang_logo.PNG" alt="" id="logo" /></a>
 					</div>
 				</div>
 			</div>
@@ -195,24 +147,20 @@
 					</div>
 					<div class="mainmenu pull-left">
 						<ul class="nav navbar-nav collapse navbar-collapse">
-							<li><a href="index.html" class="active">Home</a></li>
+							<li><a href="main.jsp" class="active">Home</a></li>
 							<li class="dropdown"><a href="#">랭킹<i
 									class="fa fa-angle-down"></i></a>
 								<ul role="menu" class="sub-menu">
 									<li><a href="shop.jsp">상품별</a></li>
 									<li><a href="product-details.html">연령별</a></li>
 									<li><a href="checkout.html">별점순</a></li>
-									<li><a href="cart.html">Cart</a></li>
-									<li><a href="login.html">Login</a></li>
 								</ul></li>
-							<li class="dropdown"><a href="#">브랜드<i
-									class="fa fa-angle-down"></i></a>
-								<ul role="menu" class="sub-menu">
-									<li><a href="blog.html">미샤</a></li>
-									<li><a href="blog-single.html">이니스프리</a></li>
-								</ul></li>
+							<li><a href="#">브랜드</a> <!-- 서브 메뉴 (X) --> <!-- <ul role="menu" class="sub-menu">
+                                        <li><a href="blog.html">미샤</a></li>
+										<li><a href="blog-single.html">이니스프리</a></li>
+                                    </ul> --></li>
 							<li><a href="#">게시판</a></li>
-							<li><a href="#">파우치</a></li>
+							<li><a href="pouch/pouch.jsp">파우치</a></li>
 							<li><a href="#">커뮤니티</a></li>
 						</ul>
 					</div>
@@ -1011,6 +959,15 @@
 
 	</footer>
 	<!--/Footer-->
+	
+	<script src="js/jquery.js"></script>
+	<script src="js/price-range.js"></script>
+	<script src="js/jquery.scrollUp.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.prettyPhoto.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/star.js"></script>
 
 </body>
 </html>

@@ -164,8 +164,8 @@
 									class="fa fa-angle-down"></i></a>
 								<ul role="menu" class="sub-menu">
 									<li><a href="shop.jsp">상품별</a></li>
-									<li><a href="product-details.html">연령별</a></li>
-									<li><a href="checkout.html">별점순</a></li>
+									<li><a href="shop_age.jsp">연령별</a></li>
+									<li><a href="shop_score.jsp">별점순</a></li>
 								</ul></li>
 							<li><a href="#">브랜드</a> <!-- 서브 메뉴 (X) --> <!-- <ul role="menu" class="sub-menu">
                                         <li><a href="blog.html">미샤</a></li>
