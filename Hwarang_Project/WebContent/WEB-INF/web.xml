@@ -8,7 +8,7 @@
   
   	<init-param>
   		<param-name>xmlPath</param-name>
-  		<param-value>C:\Hwarang\git\Hwarang_Project\WebContent\WEB-INF\web.xml</param-value>
+  		<param-value>C:\Hwarang\git\Hwarang_Project\Hwarang_Project\WebContent\WEB-INF\web.xml</param-value>
   	</init-param>
   </servlet>
   
