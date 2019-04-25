@@ -4,7 +4,7 @@
   
   <servlet>
   	<servlet-name>mvc</servlet-name>
-  	<servlet-class>hwarang.controller.DispatcherServlet</servlet-class>
+  	<servlet-class>com.hwarang.controller.DispatcherServlet</servlet-class>
   
   	<init-param>
   		<param-name>xmlPath</param-name>

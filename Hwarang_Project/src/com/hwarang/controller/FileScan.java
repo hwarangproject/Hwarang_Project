@@ -10,7 +10,7 @@ public class FileScan {
 	   List<String> list=new ArrayList<String>();
 	   try
 	   {
-		   String path="C:\\webDev\\webStudy2\\JSPFinalProject\\src\\";
+		   String path="C:\\Hwarang\\git\\Hwarang_Project\\Hwarang_Project\\src\\";
 		   // C:\\webDev\\webStudy2\\JSPFinalProject\\src\\ + com\\sist\\model
 		   path=path+pack.replace(".", "\\");
 		   File dir=new File(path);
