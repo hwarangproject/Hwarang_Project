@@ -257,7 +257,6 @@ input:checked ~ span {
 			<label><input class="item" type="checkbox" /><span>- 세안 할 때나 화장할 때 피부가 간혹 따금거린다. </span></label>
 			<label><input class="item" type="checkbox" /><span>- 피지가 별로 없어도 여드름이 자주 생긴다. </span></label>
 			<label><input class="item" type="checkbox" /><span>- 피부가 가려우며, 자외선에 약하다.   </span></label>
-			
 		</div>
 		
 	</div>
