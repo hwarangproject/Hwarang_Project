@@ -1,43 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
-	String no = request.getParameter("no");
-	int n;	
-	if( no == null)
-		no="1";
-	n = Integer.parseInt(no);
-%>
-<%
-	String strPage=request.getParameter("page");
-	if(strPage==null)
-		strPage="1";
 
-	int curpage=Integer.parseInt(strPage);
-	
-	int rowSize=5;
-	int start=(curpage*rowSize)-(rowSize-1);
-	int end=(curpage*rowSize);
-	
-	/*
-	Map map=new HashMap();
-	map.put("start",start);
-	map.put("end",end);
-	List<BoardVO> list=BoardDAO.boardListData(map);
-	int totalpage=BoardDAO.boardTotalPage();
-
-	final int BLOCK=5;
-	int allPage=totalpage;
-	int startPage=((curpage-1)/BLOCK*BLOCK)+1;
-	int endPage=((curpage-1)/BLOCK*BLOCK)+BLOCK;
-
-	if(endPage>allPage)
-	endPage=allPage;
-	*/
-/*
-	curpage : 1~5 ==> BLOCK 1
-*/
-
-%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -167,7 +130,7 @@
 									<li><a href="shop_age.jsp">연령별</a></li>
 									<li><a href="shop_score.jsp">별점순</a></li>
 								</ul></li>
-							<li><a href="#">브랜드</a> <!-- 서브 메뉴 (X) --> <!-- <ul role="menu" class="sub-menu">
+							<li><a href="brand.jsp">브랜드</a> <!-- 서브 메뉴 (X) --> <!-- <ul role="menu" class="sub-menu">
                                         <li><a href="blog.html">미샤</a></li>
 										<li><a href="blog-single.html">이니스프리</a></li>
                                     </ul> --></li>
@@ -519,22 +482,8 @@
 
 		<div class="col-xs-6">
 				<table class="table table-hover">
-					<h4 class="text-center">파우치 목록?</h4>
-					<%
-						if(n==2){
-							for(int i=6; i<=10; i++){
-					%>
-								<tr>
-									<td><%=i%></td>
-									<td><img src="images/home/pouch/pouch1.jpg" width="30"
-										height="30"></td>
-									<td><%=i%>등파우치</td>
-									<td>뷰티유투버</td>
-								</tr>
-					<%			
-							}
-						}
-					
+					<h3 class="text-center">파우치 목록</h3>
+					<%					
 						for (int i = 1; i <= 5; i++) {
 					%>
 					<tr>
@@ -545,8 +494,8 @@
 						<td>뷰티유투버</td>
 					</tr>
 					<%
-							}
-						%>
+						}
+					%>
 				</table>
 
 				<table class="table">
