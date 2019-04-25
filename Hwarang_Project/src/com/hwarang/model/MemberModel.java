@@ -1,8 +1,8 @@
-package hwarang.model;
+package com.hwarang.model;
 
 import javax.servlet.http.HttpServletRequest;
 
-import hwarang.controller.RequestMapping;
+import com.hwarang.controller.RequestMapping;
 
 public class MemberModel {
 	@RequestMapping("member.do")
