@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%
-		String no = request.getParameter("no");
-		int n;	
-		if( no == null)
-			no="1";
-		n = Integer.parseInt(no);
-	%>
+<%
+	String no = request.getParameter("no");
+	int n;	
+	if( no == null)
+		no="1";
+	n = Integer.parseInt(no);
+%>
 <%
 	String strPage=request.getParameter("page");
 	if(strPage==null)
