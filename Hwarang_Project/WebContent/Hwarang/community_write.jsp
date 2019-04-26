@@ -249,15 +249,16 @@ form div label, form div input {
 }
 
 div#board_select {
-	width: 200px;
+	margin-top:20px;
+	width: 600px;
 }
 
 div#write_subject {
-	width: 400px;
+	width: 600px;
 }
 
 div#write_content {
-	width: 800px;
+	width: 600px;
 	height: 350px;
 }
 
@@ -270,9 +271,35 @@ div#com_write {
 
 #write_sub
 {
+	
+	margin-bottom:100px;
 	width: 100px;
 }
 
+#write_file
+{
+	margin-top:50px;
+	width:270px;
+}
+
+#write_pw
+{
+width: 150px;
+}
+
+#file{
+
+	
+	width: 45%
+}
+
+#pwd{
+	width: 25%
+	
+}
+
+#select{
+	width: 33.3%
 }
 <!--
 기본-->.carousel-inner {
@@ -301,151 +328,126 @@ div#com_write {
 #SH {
 	height: 70px;
 }
+
+#in {
+	display: inline-block;
+	width: 40%;
+}
+
+#out {
+	text-align: center;
+	width: 100%;
+}
+#write_sub{
+	margin-right: 150px;
+}
+
+
+
 </style>
 
 
 </head>
 <header id="header"><!--header-->
-<div class="header_top">
-	<!--header_top-->
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-6">
-				<div class="contactinfo">
-					<ul class="nav nav-pills">
-						<li><a href="#"><i class="fa fa-phone"></i> +82 전화번호</a></li>
-						<li><a href="#"><i class="fa fa-envelope"></i> Hwarang
-								Project</a></li>
-					</ul>
+	<div class="header_top">
+		<!--header_top-->
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-6">
+					<div class="contactinfo">
+						<ul class="nav nav-pills">
+							<li><a href="main.jsp">Hwarang</a></li>
+						</ul>
+					</div>
 				</div>
-			</div>
-			<div class="col-xs-6">
-				<div class="social-icons pull-right">
-					<ul class="nav navbar-nav">
-						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-						<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-						<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-						<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-						<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!--/header_top-->
-
-<div class="header-middle">
-	<!--header-middle-->
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-4">
-				<div class="logo pull-left">
-					<a href="main.jsp"><img src="images/home/logo/hwarang_logo.PNG"
-						alt="" id="logo" /></a>
-				</div>
-
-				<!-- 버튼 토글  -->
-				<!-- <div class="btn-group pull-right">
-							<div class="btn-group">
-								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-									USA
-									<span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><a href="#">Canada</a></li>
-									<li><a href="#">UK</a></li>
-								</ul>
-							</div>
-							
-							<div class="btn-group">
-								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-									DOLLAR
-									<span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><a href="#">Canadian Dollar</a></li>
-									<li><a href="#">Pound</a></li>
-								</ul>
-							</div>
-						</div> -->
-			</div>
-
-			<div class="col-xs-8">
-				<div class="shop-menu pull-right">
-					<ul class="nav navbar-nav">
-						<li><a href="#"><i class="fa fa-user"></i> Account</a></li>
-						<li><a href="#"><i class="fa fa-star"></i> Mypage</a></li>
-						<li><a href="checkout.html"><i class="fa fa-crosshairs"></i>
-								Checkout</a></li>
-						<li><a href="cart.html"><i class="fa fa-shopping-cart"></i>
-								Cart</a></li>
-						<li><a href="login.jsp"><i class="fa fa-lock"></i> Login</a></li>
-					</ul>
+				<div class="col-xs-6">
+					<div class="social-icons pull-right">
+						<ul class="nav navbar-nav">
+							<li><a href="profile.jsp"><i class="fa fa-star"></i>
+									Mypage</a></li>
+							<li><a href="cart.html"><i class="fa fa-shopping-cart"></i>
+									Cart</a></li>
+							<li><a href="member_make.jsp"><i
+									class="fa fa-crosshairs"></i> Join</a></li>
+							<li><a href="login.jsp"><i class="fa fa-lock"></i> Login</a></li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
-<!--/header-middle-->
+	<!--/header_top-->
 
-<div class="header-bottom">
-	<!--header-bottom-->
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-9">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse"
-						data-target=".navbar-collapse">
-						<span class="sr-only">Toggle navigation</span> <span
-							class="icon-bar"></span> <span class="icon-bar"></span> <span
-							class="icon-bar"></span>
-					</button>
+	<div class="header-middle">
+		<!--header-middle-->
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-4">
+					<div class="logo pull-left">
+						<a href="main.jsp"><img
+							src="images/home/logo/hwarang_logo.PNG" alt="" id="logo" /></a>
+					</div>
 				</div>
-				<div class="mainmenu pull-left">
-					<ul class="nav navbar-nav collapse navbar-collapse">
-						<li><a href="main.jsp" class="active">Home</a></li>
-						<li class="dropdown"><a href="#">랭킹<i
-								class="fa fa-angle-down"></i></a>
-							<ul role="menu" class="sub-menu">
-								<li><a href="shop.jsp">상품별</a></li>
-								<li><a href="product-details.html">연령별</a></li>
-								<li><a href="checkout.html">별점순</a></li>
-							</ul></li>
-						<li><a href="#">브랜드</a> <!-- 서브 메뉴 (X) --> <!-- <ul role="menu" class="sub-menu">
+			</div>
+		</div>
+	</div>
+	<!--/header-middle-->
+
+	<div class="header-bottom">
+		<!--header-bottom-->
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-9">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse"
+							data-target=".navbar-collapse">
+							<span class="sr-only">Toggle navigation</span> <span
+								class="icon-bar"></span> <span class="icon-bar"></span> <span
+								class="icon-bar"></span>
+						</button>
+					</div>
+					<div class="mainmenu pull-left">
+						<ul class="nav navbar-nav collapse navbar-collapse">
+							<li><a href="main.jsp" class="active">Home</a></li>
+							<li class="dropdown"><a href="#">랭킹<i
+									class="fa fa-angle-down"></i></a>
+								<ul role="menu" class="sub-menu">
+									<li><a href="shop.jsp">상품별</a></li>
+									<li><a href="shop_age.jsp">연령별</a></li>
+									<li><a href="shop_score.jsp">별점순</a></li>
+								</ul></li>
+							<li><a href="#">브랜드</a> <!-- 서브 메뉴 (X) --> <!-- <ul role="menu" class="sub-menu">
                                         <li><a href="blog.html">미샤</a></li>
 										<li><a href="blog-single.html">이니스프리</a></li>
                                     </ul> --></li>
-						<li><a href="#">게시판</a></li>
-						<li><a href="#">파우치</a></li>
-						<li><a href="#">커뮤니티</a></li>
-					</ul>
+							<li><a href="#">게시판</a></li>
+							<li><a href="pouch/pouch.jsp">파우치</a></li>
+							<li><a href="#">커뮤니티</a></li>
+						</ul>
+					</div>
 				</div>
-			</div>
-			<div class="col-xs-3">
-				<div class="search_box pull-right">
-					<input type="text" placeholder="Search" />
+				<div class="col-xs-3">
+					<div class="search_box pull-right">
+						<input type="text" placeholder="Search" />
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
-<!--/header-bottom--> </header>
-<!--/header-->
+	<!--/header-bottom--> </header>
+	<!--/header-->
 
 <body>
 
 	<!-- 글쓰기폼 -->
-	<div class="container">
-		<div class="row">
+	<div class="container" id="out">
+		<div class="row" id="in">
 			<form method="post" action="community_write_ok.jsp"
 				enctype="multipart/form-data">
 
-
-
 				<div class="form-group " id="board_select">
-					<label for="select">게시판 선택</label> <select name="select"
-						class="form-control">
+					<label for="select" class="text-left">게시판 선택</label> 
+					<select name="select" class="form-control" id="select">
 						<option value="none" selected="selected">문의사항</option>
 						<option value="jquery">화장법</option>
 						<option value="angularjs">화장품 추천</option>
@@ -453,30 +455,27 @@ div#com_write {
 					</select>
 
 
-
+					<hr>
 					<div class="form-group" id="write_subject">
-						<label for="name">제목</label> <input class="form-control"
-							type="text" name="name" id="name" />
+						<label for="name" class="text-left">제목</label> 
+						<input class="form-control" type="text" name="name"/>
 					</div>
+					
+					<label for="message" class="text-left">내용</label>
+					<textarea class="form-control" name="message" rows="15" cols="25"></textarea>
+					
+					<label for="email" class="text-left">첨부파일</label> 
+					<input class="form-control" id="file" type=file name=upload class="input-sm"/>
+						
+					<label for="password" class="text-left">비밀번호</label> 
+					<input class="form-control" id="pwd" type="password" name="password" id="password" />
+					
+					<hr>
+				</div>
 
-				</div>
-				<div class="form-group" id="write_content">
-					<label for="message">내용</label>
-
-					<textarea class="form-control" name="message" rows="15" cols="30"></textarea>
-				</div>
-				<div class="form-group" id="write_file">
-					<label for="email">첨부파일</label> <input class="form-control"
-						type=file name=upload class="input-sm" />
-				</div>
-				<div class="form-group" id="wirte_pw">
-					<label for="password">Password</label> <input class="form-control"
-						type="password" name="password" id="password" />
-				</div>
-				<p>
-					<input id="write_sub" type="submit" value="등록" class="btn btn-primary btn-block" />
+				<p align="center">
+					<input id="write_sub" type="submit" value="등록" class="btn btn-primary btn-block"\/>
 				</p>	
-				
 				
 			</form>
 		</div>
