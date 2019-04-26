@@ -40,6 +40,12 @@
 
 <!-- 내가 설정한 스타일 -->
 <style type="text/css">
+.a{
+border-bottom: 0.1px solid #B6B6B4;
+margin-top: 3px;
+}
+
+
 .carousel-inner {
   	margin: 10px auto;
   	width: 1200px;
@@ -726,8 +732,8 @@ margin-left: 1.2em;
                         <div class="col-sm-12">
                           <div class="a">
                            <ul>
-                              <li><a href=""><i class="fa fa-user"></i>회원 ID</a></li>
-                              <li><a href=""></i>성별:여자 / 피부타입:건성 / 연령대:20대 / 별점:3</a></li>
+                              <li><a href=""><img src="images/product-details/kira.png" width=30 height=30 class="img-circle"></img>&nbsp;&nbsp;회원 ID</a></li>
+                              <li><a href=""></i>성별:남자 / 피부타입:건성 / 연령대:20대 / 별점:3</a></li>
                            </ul>
                            <p>제품에 쓰여진 대로 솜에 잔뜩 묻혀서 부드럽게 닦아내주면 정말 개운한 느낌이 들어요 꽤 민감한 편인데 필링토너라해서 자극적이거나 그러지 않았구요 외출 후 집에 돌아오자마자 얼굴에 쌓인 먼지닦아낼 때나 아침에 세수하기 귀찮을 때 닦아내기 좋더라구요</p>
                           </div>
@@ -736,8 +742,8 @@ margin-left: 1.2em;
                         <div class="col-sm-12">
                           <div class="a">
                            <ul>
-                              <li><a href=""><i class="fa fa-user"></i>회원 ID</a></li>
-                              <li><a href=""></i>성별:남자 / 피부타입:지성 / 연령대:30대 / 별점:4</a></li>
+                              <li><a href=""><img src="images/product-details/kiragf.jpg" width=30 height=30 class="img-circle"></img>&nbsp;&nbsp;회원 ID</a></li>
+                              <li><a href=""></i>성별:여자 / 피부타입:지성 / 연령대:30대 / 별점:4</a></li>
                            </ul>
                            <p>케이스가 일단 예뻐요! 자석이라 편하기도하구요 베러립스톡,베러립스톡 둘다 써봤는데 둘다 색이넘이뻐여 특히 땡큐땡모반이랑 무드업, 빈티지웨이 컬러가 예뻐서 매장에서 테스트하고 세개 사왔어요 :) 빈티지웨이는 집에있는 맥 씨쉬어랑 거의 존똑이더라구요 살짝 톤다운된 피치컬러라 데일리로 바르기 좋은컬러에요</p>
                           </div>
@@ -749,7 +755,7 @@ margin-left: 1.2em;
                            <form action="#">
                               <span>
                                  <input type="text" placeholder="Your Name"/>
-                                 <input type="email" placeholder="Email Address"/>
+                                 <input type="text" placeholder="password"/>
                               </span>
                               <textarea name="" ></textarea>
                               <!-- 평점주기 -->
