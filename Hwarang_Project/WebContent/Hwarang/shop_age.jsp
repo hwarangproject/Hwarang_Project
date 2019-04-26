@@ -25,7 +25,24 @@
 	href="images/ico/apple-touch-icon-72-precomposed.png">
 <link rel="apple-touch-icon-precomposed"
 	href="images/ico/apple-touch-icon-57-precomposed.png">
+<script src="js/jquery.js">
+	var div = document.getElementById('ranking-slide');
 
+	function prev() {
+		div.className = 'trans02';
+	}
+
+	function next() {
+		div.className = 'trans01';
+	}
+</script>
+<script src="js/price-range.js"></script>
+<script src="js/jquery.scrollUp.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.prettyPhoto.js"></script>
+<script src="js/main.js"></script>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/star.js"></script>
 <style type="text/css">
 .carousel-inner {
 	margin: 10px auto;
@@ -87,8 +104,101 @@
 	height: 20px;
 }
 
+<%--버튼 --%> 
+.intro {
+	width: 100%;
+	height: 30px;
+}
+
+.intro h1 {
+	font-family: 'Oswald', sans-serif;
+	letter-spacing: 2px;
+	font-weight: normal;
+	font-size: 14px;
+	color: #222;
+	text-align: center;
+	margin-top: 10px;
+}
+
+.intro a {
+	color: #e74c3c;
+	font-weight: bold;
+	letter-spacing: 0;
+}
+
+.intro img {
+	width: 20px;
+	heght: 20px;
+	margin-left: 5px;
+	margin-right: 5px;
+	position: relative;
+	top: 5px;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+#container {
+	width: 715px;
+	height: 230px;
+	margin: 0px auto;
+}
+
+.button-2 {
+	width: 140px;
+	height: 50px;
+	border: 2px solid #FFB9B9;
+	float: left;
+	text-align: center;
+	cursor: pointer;
+	position: relative;
+	box-sizing: border-box;
+	overflow: hidden;
+	margin-top: 15px;
+	margin-bottom:10px;
+	margin-left: 980px;
+}
+
+.button-2 a {
+	font-family: arial;
+	font-size: 16px;
+	color: #FFB9B9;
+	text-decoration: none;
+	line-height: 50px;
+	transition: all .5s ease;
+	z-index: 2;
+	position: relative;
+}
+
+.eff-2 {
+	width: 140px;
+	height: 50px;
+	top: -50px;
+	background: #FFB9B9;
+	position: absolute;
+	transition: all .5s ease;
+	z-index: 1;
+}
+
+.button-2:hover .eff-2 {
+	top: 0;
+}
+
+.button-2:hover a {
+	color: #fff;
+}
+
 <%--랭킹 --%> 
 #ranking-slide {
+	position: relative;
+	width: 1052px;
+	height: 338px;
+	margin: 10px auto;
   position: relative;
   width: 1052px;
   height: 338px;
@@ -285,9 +395,9 @@
 }
 
 ul, ol {
-    margin-top: 0;
-    margin-bottom: 10px;
-    padding-left: 0px;
+	margin-top: 0;
+	margin-bottom: 10px;
+	padding-left: 0px;
 }
 </style>
 </head>
@@ -390,10 +500,11 @@ ul, ol {
 	<section>
 	<div class="container">
 		<div class="row">
+			
 			<h2 class="title text-center">10's choice</h2>
 			<div id="ranking-slide">
 				<ol>
-					<li><a href=""></a></li>
+					<li><a href="product_detail.jsp"></a></li>
 					<li><a href=""></a></li>
 					<li><a href=""></a></li>
 					<li><a href=""></a></li>
@@ -444,12 +555,22 @@ ul, ol {
 					<li><a href=""></a></li>
 					<li><a href=""></a></li>
 				</ol>
-				<a href="#" class="prev" onclick="prev()"></a> <a href="#" class="next"
-					onclick="next()"></a>
+				<a href="#" class="prev" onclick="prev()"></a> <a href="#"
+					class="next" onclick="next()"></a>
 			</div>
-				<!--features_items-->
-				
-				<h2 class="title text-center">20's choice</h2>
+			<div class="row">
+			<a href="shop.jsp"> 
+				<div class="button-2">
+					<div class="eff-2"></div>
+					<a href="shop.jsp"> 더보기 
+				</div>
+				</a>
+			</div>
+			<!--features_items-->
+
+			
+			<h2 class="title text-center">20's choice</h2>
+
 			<div id="ranking-slide">
 				<ol>
 					<li><a href=""></a></li>
@@ -503,8 +624,14 @@ ul, ol {
 					<li><a href=""></a></li>
 					<li><a href=""></a></li>
 				</ol>
-				<a href="#" class="prev" onclick="prev()"></a> <a href="#" class="next"
-					onclick="next()"></a>
+				<a href="#" class="prev" onclick="prev()"></a> <a href="#"
+					class="next" onclick="next()"></a>
+			</div>
+			<div class="row">
+				<div class="button-2">
+					<div class="eff-2"></div>
+					<a href="#"> 더보기 </a>
+				</div>
 			</div>
 			
 			<h2 class="title text-center">30's choice</h2>
@@ -561,11 +688,19 @@ ul, ol {
 					<li><a href=""></a></li>
 					<li><a href=""></a></li>
 				</ol>
-				<a href="#" class="prev" onclick="prev()"></a> <a href="#" class="next"
-					onclick="next()"></a>
+				<a href="#" class="prev" onclick="prev()"></a> <a href="#"
+					class="next" onclick="next()"></a>
 			</div>
+			<div class="row">
+				<div class="button-2">
+					<div class="eff-2"></div>
+					<a href="#"> 더보기 </a>
+				</div>
+			</div>
+			<div class="row">
 			</div>
 		</div>
+	</div>
 	</section>
 
 	<footer id="footer"><!--Footer-->
