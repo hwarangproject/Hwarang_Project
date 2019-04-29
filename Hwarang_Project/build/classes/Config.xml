@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Connection(getConnection), disConnection()) -->
+<!-- DTD를 가져와야 한다 ==> 최상위 태그 mybatis pdf 파일 7페이지 -->
+<!-- 
+	1) 데이터베이스 정보(driver,url,username,password)
+	2) mapper, VO등록
+ -->
+<!DOCTYPE configuration  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!--
+		MyBatis classpath ==> src 까지 등록
+		
+		configuration의 하위 태그들
+		(properties?, settings?, typeAliases?, typeHandlers?, objectFactory?, objectWrapperFactory?, 
+		reflectorFactory?, plugins?, environments?, databaseIdProvider?, mappers?) 
+		
+		1) properties : 데이터를 숨길 때 사용(보안관련)
+		2) settings : 캐쉬메모리에 저장을 하여 이전 페이지로 돌아갈 때
+		3) typeAliases : VO을 등록 할 때
+		4) typeHandlers : 데이터형을 바꿀 때
+		5) environments : 데이터베이스 환경설정 해줄 때
+	-->	
+	<properties resource="db.properties"></properties>
+	<!-- 
+		resource : 본인 폴더
+		url : 원격(서버)
+	 -->
+	<typeAliases>
+		<!-- VO 등록 -->
+		<typeAlias type="com.hwarang.vo.ProductVO" alias="ProductVO"/>
+	</typeAliases>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC">
+				<!--  
+					자동 : type="JDBC"
+					수동 : type="MANAGED"
+					COMMIT / ROLLBACK
+				 -->
+			</transactionManager>
+			<dataSource type="POOLED">
+				<!-- 
+					연결/닫기 반복: type="UNPOOLED"
+					연결을 미리해 놓고 시작: type="POOLED" (DBCP, ConnectionPook)
+				 -->
+				 <property name="driver" value="${driver}"/>
+				 <property name="url" value="${url}"/>
+				 <property name="username" value="${username}"/>
+				 <property name="password" value="${password}"/>
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<!-- SQL 문장 -->
+	<mappers>
+		
+	</mappers>
+	
+</configuration>
