@@ -234,22 +234,6 @@
 		</div>
 	</div>
 
-
-	<!-- <div style="border: 1px solid gold; float: left; width: 25%;">
-첫번째 영역
-</div>
-<div style="border: 1px solid red; float: left; width: 25%;">
-두번째 영역
-</div>
-<div style="border: 1px solid blue; float: left; width: 25%;">
-세번째 영역 
-</div> 
-<div style="border: 1px solid blue; float: left; width: 25%;">
-세번째 영역 
-</div>  -->
-
-
-
 	<div class="container">
 		<div class="row">
 			<h3 class="text-center"></h3>
