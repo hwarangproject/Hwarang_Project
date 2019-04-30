@@ -11,6 +11,24 @@ public class ProductVO {
 	private int score;
 	private String tag;
 	private int like;
+	private String harm_ingre;
+	private int pouch_jjim_count;
+	private String brand_img;
+	private String product_img;
+	private int detcategory_no;
+	
+	public String getProduct_img() {
+		return product_img;
+	}
+	public void setProduct_img(String product_img) {
+		this.product_img = product_img;
+	}
+	public int getDetcategory_no() {
+		return detcategory_no;
+	}
+	public void setDetcategory_no(int detcategory_no) {
+		this.detcategory_no = detcategory_no;
+	}
 	public int getProduct_no() {
 		return product_no;
 	}
@@ -89,7 +107,4 @@ public class ProductVO {
 	public void setBrand_img(String brand_img) {
 		this.brand_img = brand_img;
 	}
-	private String harm_ingre;
-	private int pouch_jjim_count;
-	private String brand_img;
 }

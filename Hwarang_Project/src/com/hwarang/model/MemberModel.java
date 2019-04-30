@@ -5,11 +5,11 @@ import javax.servlet.http.HttpServletRequest;
 import com.hwarang.controller.RequestMapping;
 
 public class MemberModel {
-	@RequestMapping("member.do")
-	public String board_page(HttpServletRequest request){
-		request.setAttribute("msg", "회원가입");
-		//"main_jsp" ==> include할때 id값? => 사용자 정의
-		request.setAttribute("main_jsp", "../member/member.jsp");
-		return "main/main.jsp";
-	}
+	@RequestMapping("member/member_make.hr")
+    public String memeber_make(HttpServletRequest request)
+    {
+		request.setAttribute("main_jsp", "../member/member_make.jsp");
+    	return "../main/main.jsp";
+    }
+	
 }

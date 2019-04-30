@@ -379,7 +379,8 @@
 				</tr> -->
 
 				<tr>
-					<td class="text-right"><a class="btn btn-default pull-right">글쓰기</a>
+					<td class="text-right">
+						<a href="#" class="btn btn-default pull-right">글쓰기</a>
 					</td>
 				</tr>
 			</table>

@@ -14,6 +14,8 @@
 <meta name="author" content="">
 
 <title>HWARANG PROJECT</title>
+
+<!-- 기본  -->
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/font-awesome.min.css" rel="stylesheet">
 <link href="../css/prettyPhoto.css" rel="stylesheet">
@@ -21,8 +23,10 @@
 <link href="../css/animate.css" rel="stylesheet">
 <link href="../css/main.css" rel="stylesheet">
 <link href="../css/responsive.css" rel="stylesheet">
-<link href="../css/news_style.css" rel="stylesheet">
+<!-- 기본  -->
 
+<!-- 뉴스 -->
+<link href="../css/news_style.css" rel="stylesheet">
 
 <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
@@ -81,8 +85,12 @@
 									Mypage</a></li>
 							<li><a href="cart.html"><i class="fa fa-shopping-cart"></i>
 									Cart</a></li>
-							<li><a href="member_make.jsp"><i
-									class="fa fa-crosshairs"></i> Join</a></li>
+							<li>
+								<a href="../member/member_make.hr">
+									<i class="fa fa-crosshairs"></i> 
+									Join
+								</a>
+							</li>
 							<li><a href="login.jsp"><i class="fa fa-lock"></i> Login</a></li>
 						</ul>
 					</div>
@@ -135,7 +143,7 @@
 										<li><a href="blog-single.html">이니스프리</a></li>
                                     </ul> --></li>
 							<li><a href="#">게시판</a></li>
-							<li><a href="pouch/pouch.jsp">파우치</a></li>
+							<li><a href="../pouch/pouch.hr">파우치</a></li>
 							<li><a href="../community/community_QnA.hr">커뮤니티</a></li>
 						</ul>
 					</div>
