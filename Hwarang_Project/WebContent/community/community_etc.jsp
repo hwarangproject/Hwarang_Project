@@ -35,7 +35,8 @@
 <script src="js/price-range.js"></script>
 <script src="js/jquery.prettyPhoto.js"></script>
 <script src="js/main.js"></script>
-
+<script src="js/jquery-3.1.1.js"></script>
+<script src="js/bootstrap.js"></script>
 
 
 <!-- 내가 설정한 스타일 -->
@@ -231,6 +232,14 @@
 	width:50px;
 }
 
+#dsearch
+{
+width:250px;
+align:center;
+margin-left:470px;
+
+}
+
 /* @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 body {
@@ -308,6 +317,15 @@ body {
 
 #SH {
 	height: 70px;
+}
+
+#bbutton{
+margin-top:10px;
+
+}
+
+#hrbu{
+width:1150px;
 }
 </style>
 
@@ -444,22 +462,8 @@ body {
 <body>
 
 
-	<!-- 	<tr>
-		<td>
-			<button class="fill">문의사항</button>
-		</td>
 
-		<td>
-			<button class="fill">화장법</button>
-		</td>
-		<td>
-			<button class="fill">화장품 추천</button>
-		</td>
-		<td>
-			<button class="fill">기타</button>
-		</td>
-	</tr> -->
-	<div class="container">
+	<div class="container" id="bbutton">
 		<div class="row">
 			<table rules="none" style="width: 100%;">
 				<tr style="width: 100%;">
@@ -473,6 +477,7 @@ body {
 			</table>
 		</div>
 	</div>
+	
 
 
 	<!-- <div style="border: 1px solid gold; float: left; width: 25%;">
@@ -590,8 +595,17 @@ body {
 				</tbody>
 			</table>
 			
+			
+			
+<hr ></hr>
+				<tr>
+					<td class="text-right"><a href="community_insert.jsp" class="btn btn-default pull-right">글쓰기</a>
+					</td>
+				</tr>
+		
+		
 			<form name="mysearchbar" action="/search" method="get" id="fsearch">
-				<div class="input-group">
+				<div class="input-group" id="dsearch">
 					<input name="q" type="text" class="form-control" placeholder="검색어 입력"/>
 					<div class="input-group-addon">
 						<span class="glyphicon glyphicon-search"
@@ -601,30 +615,20 @@ body {
 			</form>
 			
 			<br />
+	
 
-			<table class="table" rules="none">
+			<!-- <table class="table" rules="none">
 
-				<!-- 	<tr>
-					<td class="text-center">
-						<div class="wrap">
-						<div class="search">
-							<input type="text" class="searchTerm"
-								placeholder="What are you looking for?">
-							<button type="submit" class="searchButton">
-								<i class="fa fa-search"></i>
-							</button>
-						</div>
-					</div>
-					</td>
-				</tr> -->
+			
 
 				<tr>
 					<td class="text-right"><a class="btn btn-default pull-right">글쓰기</a>
 					</td>
 				</tr>
-			</table>
+			</table> -->
+			
 
-			<table class="table" rules="none">
+			<table class="table" rules="none" id="tbutton">
 				<tr>
 					<td class="text-center">
 						<ul class="pagination">
