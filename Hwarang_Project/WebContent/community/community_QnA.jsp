@@ -192,8 +192,6 @@
 	top: 0;
 }
 
-<!--
-검색--> 
 #fsearch
 {
 	width:50px;
