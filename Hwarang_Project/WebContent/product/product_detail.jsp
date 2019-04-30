@@ -352,7 +352,8 @@ margin-left: 1.2em;
     <div class="histo">
       <div class="five histo-rate">
         <span class="histo-star">
-          <i class="active icon-star"></i> 5           </span>
+          <i class="active icon-star"></i> 5 
+          </span>
         <span class="bar-block">
           <span id="bar-five" class="bar">
             <span>566,784</span>&nbsp;
@@ -362,7 +363,8 @@ margin-left: 1.2em;
       
       <div class="four histo-rate">
         <span class="histo-star">
-          <i class="active icon-star"></i> 4           </span>
+          <i class="active icon-star"></i> 4           
+          </span>
         <span class="bar-block">
           <span id="bar-four" class="bar">
             <span>171,298</span>&nbsp;
