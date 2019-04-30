@@ -12,5 +12,4 @@ public class BoardModel {
 		return "main/main.jsp";
 	}
 	
-	
 }

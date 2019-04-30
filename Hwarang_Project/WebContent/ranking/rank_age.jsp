@@ -7,12 +7,6 @@
 <title>연령별 목록</title>
 
 <style type="text/css">
-.carousel-inner {
-	margin: 10px auto;
-	width: 1200px;
-	height: 400px;
-}
-
 .scrollbar {
 	float: left;
 	height: 250px;
@@ -36,11 +30,6 @@
 	background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2)
 		25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%,
 		rgba(255, 255, 255, .2) 75%, transparent 75%, transparent)
-}
-
-#logo {
-	width: 200px;
-	height: 45px;
 }
 
 #features_items_custom {
@@ -365,8 +354,6 @@ ul, ol {
 </style>
 </head>
 <body>
-	<section id="advertisement"> </section>
-
 	<section>
 	<div class="container">
 		<div class="row">
@@ -374,65 +361,65 @@ ul, ol {
 			<h2 class="title text-center">10's choice</h2>
 			<div id="ranking-slide">
 				<ol>
-					<li><a href="product_detail.jsp"></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
+					<li><a href="../product_detail.jsp"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
 				</ol>
-				<a href="#" class="prev" onclick="prev()"></a> <a href="#"
+				<a href="../#" class="prev" onclick="prev()"></a> <a href="../#"
 					class="next" onclick="next()"></a>
 			</div>
 			<div class="row">
-			<a href="shop.jsp"> 
+			<a href="../shop.jsp"> 
 				<div class="button-2">
 					<div class="eff-2"></div>
-					<a href="shop.jsp"> 더보기 
+					<a href="../shop.jsp"> 더보기 
 				</div>
 				</a>
 			</div>
@@ -443,128 +430,128 @@ ul, ol {
 
 			<div id="ranking-slide">
 				<ol>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
 				</ol>
-				<a href="#" class="prev" onclick="prev()"></a> <a href="#"
+				<a href="../#" class="prev" onclick="prev()"></a> <a href="../#"
 					class="next" onclick="next()"></a>
 			</div>
 			<div class="row">
 				<div class="button-2">
 					<div class="eff-2"></div>
-					<a href="#"> 더보기 </a>
+					<a href="../#"> 더보기 </a>
 				</div>
 			</div>
 			
 			<h2 class="title text-center">30's choice</h2>
 			<div id="ranking-slide">
 				<ol>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
+					<li><a href="../"></a></li>
 				</ol>
-				<a href="#" class="prev" onclick="prev()"></a> <a href="#"
+				<a href="../#" class="prev" onclick="prev()"></a> <a href="../#"
 					class="next" onclick="next()"></a>
 			</div>
 			<div class="row">
 				<div class="button-2">
 					<div class="eff-2"></div>
-					<a href="#"> 더보기 </a>
+					<a href="../#"> 더보기 </a>
 				</div>
 			</div>
 			<div class="row">
@@ -572,8 +559,8 @@ ul, ol {
 		</div>
 	</div>
 	</section>
-
-	<script src="js/jquery.js">
+	
+	<script src="../js/jquery.js">
 		var div = document.getElementById('ranking-slide');
 
 		function prev(){
@@ -585,8 +572,8 @@ ul, ol {
 		}
 	</script>
 
-	<script src="js/jquery-1.11.3.min.js"></script>
-	<script src="js/star.js"></script>
+	<script src="../js/jquery-1.11.3.min.js"></script>
+	<script src="../js/star.js"></script>
 	
 
 </body>

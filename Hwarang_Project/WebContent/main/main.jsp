@@ -74,16 +74,16 @@
 				<div class="col-xs-6">
 					<div class="contactinfo">
 						<ul class="nav nav-pills">
-							<li><a href="main.jsp">Hwarang</a></li>
+							<li><a href="../main/main.hr">Hwarang</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-xs-6">
 					<div class="social-icons pull-right">
 						<ul class="nav navbar-nav">
-							<li><a href="profile.jsp"><i class="fa fa-star"></i>
+							<li><a href="../profile/profile_myactivity.hr"><i class="fa fa-star"></i>
 									Mypage</a></li>
-							<li><a href="cart.html"><i class="fa fa-shopping-cart"></i>
+							<li><a href="../cart/cart.hr"><i class="fa fa-shopping-cart"></i>
 									Cart</a></li>
 							<li>
 								<a href="../member/member_make.hr">
@@ -91,7 +91,7 @@
 									Join
 								</a>
 							</li>
-							<li><a href="login.jsp"><i class="fa fa-lock"></i> Login</a></li>
+							<li><a href="../login/login.hr"><i class="fa fa-lock"></i> Login</a></li>
 						</ul>
 					</div>
 				</div>
@@ -138,7 +138,7 @@
 									<li><a href="../ranking/rank_age.hr">연령별</a></li>
 									<li><a href="../ranking/rank_score.hr">평점순</a></li>
 								</ul></li>
-							<li><a href="brand.jsp">브랜드</a> <!-- 서브 메뉴 (X) --> <!-- <ul role="menu" class="sub-menu">
+							<li><a href="../brand/brand.hr">브랜드</a> <!-- 서브 메뉴 (X) --> <!-- <ul role="menu" class="sub-menu">
                                         <li><a href="blog.html">미샤</a></li>
 										<li><a href="blog-single.html">이니스프리</a></li>
                                     </ul> --></li>

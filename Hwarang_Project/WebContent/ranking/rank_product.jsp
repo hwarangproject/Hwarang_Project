@@ -8,9 +8,7 @@
 
 <title>상품별 목록</title>
 
-
 <style type="text/css">
-
 .scrollbar {
 	float: left;
 	height: 230px;
@@ -47,14 +45,16 @@
 		25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%,
 		rgba(255, 255, 255, .2) 75%, transparent 75%, transparent)
 }
-
-
+#logo {
+	width: 200px;
+	height: 45px;
+}
 #features_items_custom {
 	margin-top: -20px;
 }
 
 .star-rating {
-	background:url('images/product-details/grade_final_forlist.png') repeat-x;
+	background:url('../images/ranking/grade_final_forlist.png') repeat-x;
 	width:104px; 
 	height:20px; 
 	display:block; 
@@ -65,7 +65,7 @@
 	overflow:hidden;
 }
 .star-rating-percentage {
-	background:url(images/product-details/grade_final_forlist.png)  repeat-x;
+	background:url(../images/ranking/grade_final_forlist.png)  repeat-x;
 	background-position: 0 100%;
 	position: relative;
 	width:104px; 
@@ -77,8 +77,6 @@
 </style>
 </head>
 <body>
-	<section id="advertisement"> </section>
-
 	<section>
 	<div class="container">
 		<div class="row">
@@ -686,7 +684,6 @@
 
 					<ul class="pagination">
 						<li class="active">
-						<
 						<a href="">1</a></li>
 						<li><a href="">2</a></li>
 						<li><a href="">3</a></li>
@@ -698,7 +695,7 @@
 		</div>
 	</div>
 	</section>
-	
+
 	<script src="../js/jquery-1.11.3.min.js"></script>
 	<script src="../js/star.js"></script>
 
