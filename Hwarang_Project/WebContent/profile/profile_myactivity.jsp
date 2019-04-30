@@ -9,11 +9,10 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>MyPage</title>
+<title>GitHub made with TailwindCSS</title>
 
 
 <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css'>
-
 <link rel="stylesheet" href="css/style.css">
 
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
@@ -209,27 +208,6 @@ input:focus, textarea:focus, keygen:focus, select:focus {
 	font-size: 14px;
 }
 
-.smalltri {
-	border-right: 40px solid #6AAFEA;
-	height: 0;
-	width: 0;
-	border-left: 20px solid transparent;
-	border-top: 10px solid #6AAFEA;
-	border-bottom: 20px solid transparent;
-	padding: 0px;
-	top: 0;
-	right: 0;
-	position: absolute;
-}
-
-.smalltri i {
-	position: absolute;
-	top: -5px;
-	right: -33px;
-	color: #fff;
-	border: 0px;
-	font-size: 12px;
-}
 
 section.section2 {
 	margin: 0px 0;
@@ -449,7 +427,7 @@ section.section2 {
 	background: #efefef;
 }
 
-.button {
+.button1 {
 	padding: 8px 12px;
 	font-size: 14px;
 	background: #ccc;
@@ -539,7 +517,8 @@ span {
 	background: hsla(0, 0%, 82%, 0.5);
 }
 
-.item {
+}
+.item2 {
 	width: 100px;
 	height: 100px;
 	display: inline-block;
@@ -557,12 +536,60 @@ span {
 	transform: translateY(0px) scale(1);
 }
 
+/* 파우치 버튼 */
+#button-blue{
+	float:right;
+	width: 130px; 
+	height: 45px;
+	max-width:200px;
+	border: white solid 4px;
+	cursor: pointer;
+	background-color: #FFB9B9;
+	margin-top: -4px; 
+	color: white;
+	text-transform: uppercase;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	letter-spacing: .1em;
+/* 	padding-top: 22px; */
+	padding-bottom: 22px;
+	font-weight: 200;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+/* Change text color & background opacity on hover*/
+#button-blue:hover{
+	background-color: rgba(0,0,0,0);
+	color: #FFB9B9;
+}
+
+/* The white hover effect */
+.ease {
+	width: 0px;
+	height: 70px;
+	background-color: white;
+	-webkit-transition: .3s ease;
+	-moz-transition: .3s ease;
+	-o-transition: .3s ease;
+	-ms-transition: .3s ease;
+	transition: .3s ease;
+}
+
+/* Make visable when hover */
+.btn-container:hover .ease{
+	width: 100%;
+	max-width: 500px;
+	background-color: white;
+	border: 0;
+}
 </style>
 
 
 </head>
-
-<body>
 <body class="font-sans">
 	<div>
 		<div class="flex -mx-4">
@@ -573,13 +600,23 @@ span {
 							<div>
 								<div class="row grid clearfix">
 									<div class="col2 first">
+									  <div class="col-sm-8">
 										<img
 											src="http://images.contactmusic.com/newsimages/david_beckham_1133321.jpg"
 											alt="">
 										<h1>사용자 이름</h1>
 										<h4>사용자 닉네임</h4>
 										<p>스킨 타입</p>
-										
+									  </div>
+									  <!-- 파우치 버튼 -->
+										<div id="wrapper" class="col-sm-4">
+											<section>
+												<div class="btn-container">
+													<input type="submit" value="my pouch" id="button-blue"/>
+													<div class="ease"></div>
+												</div>
+											</section>
+										</div>
 									</div>
 									<div class="col2 last">
 										<div class="grid clearfix">
@@ -700,6 +737,9 @@ span {
 										<h3></h3>
 									</div>
 
+									<!-- <div class="col-sm-6">
+			    	
+			    </div> -->
 									<div class="flex items-center">
 										<div class="w-1/2 pt-6 pb-2 font-normal text-grey-darkest">
 											<h3>최근 본 상품</h3>
@@ -720,27 +760,27 @@ span {
 										<div class="recent_pro">
 											<div id="app">
 												<div class="flow" ref="flow">
-													<div v-for="tab of tabs" class="item"
+													<div v-for="tab of tabs" class="item2"
 														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"></div>
-													<div v-for="tab of tabs" class="item"
+													<div v-for="tab of tabs" class="item2"
 														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"></div>
-													<div v-for="tab of tabs" class="item"
+													<div v-for="tab of tabs" class="item2"
 														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"></div>
-													<div v-for="tab of tabs" class="item"
+													<div v-for="tab of tabs" class="item2"
 														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"></div>
-													<div v-for="tab of tabs" class="item"
+													<div v-for="tab of tabs" class="item2"
 														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"></div>
-													<div v-for="tab of tabs" class="item"
+													<div v-for="tab of tabs" class="item2"
 														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"></div>
-													<div v-for="tab of tabs" class="item"
+													<div v-for="tab of tabs" class="item2"
 														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"></div>
-													<div v-for="tab of tabs" class="item"
+													<div v-for="tab of tabs" class="item2"
 														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"></div>
-													<div v-for="tab of tabs" class="item"
+													<div v-for="tab of tabs" class="item2"
 														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"></div>
-													<div v-for="tab of tabs" class="item"
+													<div v-for="tab of tabs" class="item2"
 														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"></div>
-													<div v-for="tab of tabs" class="item"
+													<div v-for="tab of tabs" class="item2"
 														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"></div>
 												</div>
 											</div>
@@ -757,7 +797,7 @@ span {
 
 		</div>
 	</div>
-</body>
+	</div>
 </body>
 
 </html>
