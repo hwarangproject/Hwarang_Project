@@ -7,7 +7,34 @@
 <title>community</title>
 <link rel="stylesheet" href="css/bootstrap.css">
 <title>HWARANG PROJECT</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="css/prettyPhoto.css" rel="stylesheet">
+<link href="css/price-range.css" rel="stylesheet">
+<link href="css/animate.css" rel="stylesheet">
+<link href="css/main.css" rel="stylesheet">
+<link href="css/responsive.css" rel="stylesheet">
 
+<!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+<link rel="shortcut icon" href="images/ico/favicon.ico">
+<link rel="apple-touch-icon-precomposed" sizes="144x144"
+	href="images/ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114"
+	href="images/ico/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72"
+	href="images/ico/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed"
+	href="images/ico/apple-touch-icon-57-precomposed.png">
+
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.scrollUp.min.js"></script>
+<script src="js/price-range.js"></script>
+<script src="js/jquery.prettyPhoto.js"></script>
+<script src="js/main.js"></script>
 <script src="js/jquery-3.1.1.js"></script>
 <script src="js/bootstrap.js"></script>
 
@@ -198,17 +225,86 @@
 	top: 0;
 }
 
+<!--
+검색--> 
 #fsearch
 {
 	width:50px;
 }
 
+#dsearch
+{
+width:250px;
+align:center;
+margin-left:470px;
+
+}
+
+/* @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body {
+	background: #f2f2f2;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.search {
+	width: 100%;
+	position: relative;
+	display: flex;
+}
+
+.searchTerm {
+	width: 40%;
+	border: 3px solid #ddd;
+	border-right: none;
+	padding: 15px;
+	height: 20px;
+	border-radius: 5px 0 0 5px;
+	outline: none;
+	margin-bottom: 60px;
+	margin-left: 160px;
+	color: #ddd;
+}
+
+.searchTerm:focus {
+	color: #ddd;
+}
+
+.searchButton {
+	width: 40px;
+	height: 36px;
+	border: 1px solid #ddd;
+	background: #ddd;
+	text-align: center;
+	color: #fff;
+	border-radius: 0 5px 5px 0;
+	cursor: pointer;
+	font-size: 20px;
+} */
+
+/*Resize the wrap to see the search bar change!*/
 .wrap {
 	width: 30%;
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+}
+
+<!--
+기본-->.carousel-inner {
+	margin: 10px auto;
+	width: 1200px;
+	height: 400px;
+}
+
+#custom_slider {
+	bottom: 70px;
+}
+
+#logo {
+	width: 200px;
+	height: 45px;
 }
 
 #custom_pouch {
@@ -221,6 +317,15 @@
 
 #SH {
 	height: 70px;
+}
+
+#bbutton{
+margin-top:10px;
+
+}
+
+#hrbu{
+width:1150px;
 }
 </style>
 
@@ -357,22 +462,8 @@
 <body>
 
 
-	<!-- 	<tr>
-		<td>
-			<button class="fill">문의사항</button>
-		</td>
 
-		<td>
-			<button class="fill">화장법</button>
-		</td>
-		<td>
-			<button class="fill">화장품 추천</button>
-		</td>
-		<td>
-			<button class="fill">기타</button>
-		</td>
-	</tr> -->
-	<div class="container">
+	<div class="container" id="bbutton">
 		<div class="row">
 			<table rules="none" style="width: 100%;">
 				<tr style="width: 100%;">
@@ -386,6 +477,7 @@
 			</table>
 		</div>
 	</div>
+	
 
 
 	<!-- <div style="border: 1px solid gold; float: left; width: 25%;">
@@ -503,8 +595,17 @@
 				</tbody>
 			</table>
 			
+			
+			
+<hr ></hr>
+				<tr>
+					<td class="text-right"><a href="community_insert.jsp" class="btn btn-default pull-right">글쓰기</a>
+					</td>
+				</tr>
+		
+		
 			<form name="mysearchbar" action="/search" method="get" id="fsearch">
-				<div class="input-group">
+				<div class="input-group" id="dsearch">
 					<input name="q" type="text" class="form-control" placeholder="검색어 입력"/>
 					<div class="input-group-addon">
 						<span class="glyphicon glyphicon-search"
@@ -514,30 +615,20 @@
 			</form>
 			
 			<br />
+	
 
-			<table class="table" rules="none">
+			<!-- <table class="table" rules="none">
 
-				<!-- 	<tr>
-					<td class="text-center">
-						<div class="wrap">
-						<div class="search">
-							<input type="text" class="searchTerm"
-								placeholder="What are you looking for?">
-							<button type="submit" class="searchButton">
-								<i class="fa fa-search"></i>
-							</button>
-						</div>
-					</div>
-					</td>
-				</tr> -->
+			
 
 				<tr>
 					<td class="text-right"><a class="btn btn-default pull-right">글쓰기</a>
 					</td>
 				</tr>
-			</table>
+			</table> -->
+			
 
-			<table class="table" rules="none">
+			<table class="table" rules="none" id="tbutton">
 				<tr>
 					<td class="text-center">
 						<ul class="pagination">
