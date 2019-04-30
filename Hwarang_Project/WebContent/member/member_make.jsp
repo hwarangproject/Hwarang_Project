@@ -15,14 +15,6 @@
 	box-sizing: border-box;
 }
 
-body {
-	padding: 1em;
-	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	font-size: 15px;
-	color: #b9b9b9;
-	/*background-color: #e3e3e3;*/
-}
-
 h4 {
 	color: #d321ab63;
 }
@@ -472,7 +464,7 @@ select option {
 		</form>
 	</div>
 
-	<script  src="js/profile_upload.js"></script>
+	<script src="../js/profile_upload.js"></script>
 	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 	
 </body>

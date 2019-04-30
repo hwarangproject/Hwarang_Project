@@ -70,14 +70,6 @@
   content: ' won';
 }
 
-/* Body/Header stuff */
-
-body {
-  padding: 0px 30px 30px 20px;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 100;
-}
-
 h1 {
   font-weight: 100;
 }

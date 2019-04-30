@@ -413,7 +413,7 @@
 						<div class="product-image-wrapper">
 							<div class="single-products">
 								<div class="productinfo text-center">
-								<a href="product_detail.jsp">
+								<a href="../product/product_detail.hr">
 									<img src="../images/product-details/cos5.png" alt="" width=280.8px height=280.8px/>
 									<h5>이니스프리 / 화산송이마스크</h5>
 									</a>
@@ -421,15 +421,12 @@
 									<div class="star-rating" style="text-align: center">
 											<div style="width:30%" class="star-rating-percentage"  style="display:inline-block"></div>
 									</div>
-
 								</div>
 							</div>
 							<div class="choose">
 								<ul class="nav nav-pills nav-justified">
-									<li><a href=""><i class="fa fa-plus-square"></i>Add to
-											mypage</a></li>
-									<li><a href=""><i class="fa fa-plus-square"></i>Add to
-											cart</a></li>
+									<li><a href=""><i class="fa fa-plus-square"></i>Add to mypage</a></li>
+									<li><a href=""><i class="fa fa-plus-square"></i>Add to cart</a></li>
 								</ul>
 							</div>
 						</div>
@@ -438,7 +435,7 @@
 						<div class="product-image-wrapper">
 							<div class="single-products">
 								<div class="productinfo text-center">
-									<a href="product_detail.jsp">
+									<a href="../product/product_detail.hr">
 									<img src="../images/product-details/cos5.png" alt="" width=280.8px height=280.8px/>
 									<h5>이니스프리 / 화산송이마스크</h5>
 									</a>
