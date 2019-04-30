@@ -11,4 +11,6 @@ public class BoardModel {
 		request.setAttribute("main_jsp", "../board/board.jsp");
 		return "main/main.jsp";
 	}
+	
+	
 }

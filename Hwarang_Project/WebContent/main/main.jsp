@@ -98,7 +98,7 @@
 			<div class="row">
 				<div class="col-xs-4">
 					<div class="logo pull-left">
-						<a href="main.jsp"><img
+						<a href="../main/main.hr"><img
 							src="../images/home/logo/hwarang_logo.PNG" alt="" id="logo" /></a>
 					</div>
 				</div>
@@ -122,13 +122,13 @@
 					</div>
 					<div class="mainmenu pull-left">
 						<ul class="nav navbar-nav collapse navbar-collapse">
-							<li><a href="main.jsp" class="active">Home</a></li>
+							<li><a href="../main/main.hr" class="active">Home</a></li>
 							<li class="dropdown"><a href="#">랭킹<i
 									class="fa fa-angle-down"></i></a>
 								<ul role="menu" class="sub-menu">
-									<li><a href="shop.jsp">상품별</a></li>
-									<li><a href="shop_age.jsp">연령별</a></li>
-									<li><a href="shop_score.jsp">별점순</a></li>
+									<li><a href="../ranking/rank_product.hr">상품별</a></li>
+									<li><a href="../ranking/rank_age.hr">연령별</a></li>
+									<li><a href="../ranking/rank_score.hr">평점순</a></li>
 								</ul></li>
 							<li><a href="brand.jsp">브랜드</a> <!-- 서브 메뉴 (X) --> <!-- <ul role="menu" class="sub-menu">
                                         <li><a href="blog.html">미샤</a></li>
@@ -136,7 +136,7 @@
                                     </ul> --></li>
 							<li><a href="#">게시판</a></li>
 							<li><a href="pouch/pouch.jsp">파우치</a></li>
-							<li><a href="#">커뮤니티</a></li>
+							<li><a href="../community/community_QnA.hr">커뮤니티</a></li>
 						</ul>
 					</div>
 				</div>
@@ -331,6 +331,7 @@
 	<script src="../js/price-range.js"></script>
 	<script src="../js/jquery.prettyPhoto.js"></script>
 	<script src="../js/main.js"></script>
+	
 	
 </body>
 </html>

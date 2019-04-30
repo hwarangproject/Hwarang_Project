@@ -35,8 +35,7 @@
 <script src="js/price-range.js"></script>
 <script src="js/jquery.prettyPhoto.js"></script>
 <script src="js/main.js"></script>
-<script src="js/jquery-3.1.1.js"></script>
-<script src="js/bootstrap.js"></script>
+
 
 
 <!-- 내가 설정한 스타일 -->

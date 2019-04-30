@@ -53,7 +53,7 @@
 	
 	<!-- SQL 문장 -->
 	<mappers>
-		
+		<mapper resource="com/hwarang/mapper/product-mapper.xml"/>
 	</mappers>
 	
 </configuration>
