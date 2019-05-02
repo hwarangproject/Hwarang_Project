@@ -297,10 +297,13 @@ select option {
 	width: 50px;
 	margin: 0px 10px 0px 0px;
 }
-
-
-}
 </style>
+<script type="text/javascript">
+function end() {
+	javascript:history.back();
+}
+</script>
+
 </head>
 <body>
 	<!-- 회원가입  -->
@@ -309,8 +312,6 @@ select option {
 			<h5>로그인</h5>
 			<div class="row">
 				<h4>Account</h4>
-					
-					
 					<div class="input-group input-group-icon">
 						<input type="text" placeholder="ID" />
 						<div class="input-icon">
@@ -327,10 +328,9 @@ select option {
 			</div>
 			
 			<div class="row">
-
 				<div class="col-harf text-center">
-					<input type="submit" value="로그인"> <input type="button"
-						value="취소">
+					<input type="button" value="로그인" onclick="login()"> 
+					<input type="button" value="취소" onclick="end()">
 				</div>
 			</div>
 		</form>
