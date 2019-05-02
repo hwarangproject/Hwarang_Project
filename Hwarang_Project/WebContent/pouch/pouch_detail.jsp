@@ -474,7 +474,7 @@ img { display: block; margin: 0px auto; }
 						<div class="product-image-wrapper">
 							<div class="single-products">
 								<div class="productinfo text-center">
-									<img src="images/home/recommend1.jpg" alt="" />
+									<img src="../images/home/recommend1.jpg" alt="" />
 									<h2>$56</h2>
 									<p>Easy Polo Black Edition</p>
 									<a href="#" class="btn btn-default add-to-cart"><i
@@ -488,7 +488,7 @@ img { display: block; margin: 0px auto; }
 						<div class="product-image-wrapper">
 							<div class="single-products">
 								<div class="productinfo text-center">
-									<img src="images/home/recommend2.jpg" alt="" />
+									<img src="../images/home/recommend2.jpg" alt="" />
 									<h2>$56</h2>
 									<p>Easy Polo Black Edition</p>
 									<a href="#" class="btn btn-default add-to-cart"><i
@@ -502,7 +502,7 @@ img { display: block; margin: 0px auto; }
 						<div class="product-image-wrapper">
 							<div class="single-products">
 								<div class="productinfo text-center">
-									<img src="images/home/recommend3.jpg" alt="" />
+									<img src="../images/home/recommend3.jpg" alt="" />
 									<h2>$56</h2>
 									<p>Easy Polo Black Edition</p>
 									<a href="#" class="btn btn-default add-to-cart"><i
@@ -518,7 +518,7 @@ img { display: block; margin: 0px auto; }
 						<div class="product-image-wrapper">
 							<div class="single-products">
 								<div class="productinfo text-center">
-									<img src="images/home/recommend1.jpg" alt="" />
+									<img src="../images/home/recommend1.jpg" alt="" />
 									<h2>$56</h2>
 									<p>Easy Polo Black Edition</p>
 									<a href="#" class="btn btn-default add-to-cart"><i
@@ -532,7 +532,7 @@ img { display: block; margin: 0px auto; }
 						<div class="product-image-wrapper">
 							<div class="single-products">
 								<div class="productinfo text-center">
-									<img src="images/home/recommend2.jpg" alt="" />
+									<img src="../images/home/recommend2.jpg" alt="" />
 									<h2>$56</h2>
 									<p>Easy Polo Black Edition</p>
 									<a href="#" class="btn btn-default add-to-cart"><i
@@ -546,7 +546,7 @@ img { display: block; margin: 0px auto; }
 						<div class="product-image-wrapper">
 							<div class="single-products">
 								<div class="productinfo text-center">
-									<img src="images/home/recommend3.jpg" alt="" />
+									<img src="../images/home/recommend3.jpg" alt="" />
 									<h2>$56</h2>
 									<p>Easy Polo Black Edition</p>
 									<a href="#" class="btn btn-default add-to-cart"><i

@@ -225,10 +225,18 @@
 		<div class="row">
 			<table rules="none" style="width: 100%;">
 				<tr style="width: 100%;">
-					<td style="width: 25%;"><button class="fill" width=25% id="navBtn">문의사항</button></td>
-					<td style="width: 25%;"><button class="fill" id="navBtn">화장법</button></td>
-					<td style="width: 25%;"><button class="fill" id="navBtn">화장품 추천</button></td>
-					<td style="width: 25%;"><button class="fill" id="navBtn">기타</button></td>
+					<td style="width: 25%;">
+						<a href="../community/community_QnA.hr"><button class="fill" id="navBtn">문의사항</button></a>
+					</td>
+					<td style="width: 25%;">
+						<a href="../community/community_makeup.hr"><button class="fill" id="navBtn">화장법</button></a>
+					</td>
+					<td style="width: 25%;">
+						<a href="../community/community_recommend.hr"><button class="fill" id="navBtn">화장품 추천</button></a>
+					</td>
+					<td style="width: 25%;">
+						<a href="../community/community_etc.hr"><button class="fill" id="navBtn">기타</button></a>
+					</td>
 				</tr>
 			</table>
 		</div>
@@ -380,7 +388,7 @@
 
 				<tr>
 					<td class="text-right">
-						<a href="#" class="btn btn-default pull-right">글쓰기</a>
+						<a href="../community/community_insert.hr" class="btn btn-default pull-right">글쓰기</a>
 					</td>
 				</tr>
 			</table>
