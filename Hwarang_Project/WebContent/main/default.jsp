@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -97,13 +98,14 @@
 					<h2 class="title text-center">TOP RANKING</h2>
 
 					<!-- 첫번째 상품 -->
+				<c:forEach var="vo" items="${productListData }">
 					<div class="col-xs-3">
 						<div class="product-image-wrapper">
 							<div class="single-products">
 								<div class="productinfo text-center">
-									<img src="../images/home/product/emulsion.jpg" alt="" />
-									<h2>25,000원</h2>
-									<p>스네일 솔루션 에멀젼</p>
+									<a href="../product/product_detail.hr?pno=${vo.product_no }"><img src=${vo.product_img } alt="" /></a>
+									<h2>${vo.price }</h2>
+									<p>${vo.product_name }</p>
 									<a href="#" class="btn btn-default add-to-cart"><i
 										class="fa fa-shopping-cart"></i>Add to cart</a>
 								</div>
@@ -118,75 +120,8 @@
 							</div>
 						</div>
 					</div>
+				</c:forEach>
 
-					<!-- 두번째 상품 -->
-					<div class="col-xs-3">
-						<div class="product-image-wrapper">
-							<div class="single-products">
-								<div class="productinfo text-center">
-									<img src="../images/home/product/emulsion2.jpg" alt="" />
-									<h2>16,000원</h2>
-									<p>로열허니 에센셜 에멀전</p>
-									<a href="#" class="btn btn-default add-to-cart"><i
-										class="fa fa-shopping-cart"></i>Add to cart</a>
-								</div>
-							</div>
-							<div class="choose">
-								<ul class="nav nav-pills nav-justified">
-									<li><a href="#"><i class="fa fa-plus-square"></i>Add
-											to wishlist</a></li>
-									<li><a href="#"><i class="fa fa-plus-square"></i>Add
-											to compare</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-					<!-- 세번째 상품 -->
-					<div class="col-xs-3">
-						<div class="product-image-wrapper">
-							<div class="single-products">
-								<div class="productinfo text-center">
-									<img src="../images/home/product/emulsion3.jpg" alt="" />
-									<h2>20,000원</h2>
-									<p>한란 프루이드</p>
-									<a href="#" class="btn btn-default add-to-cart"><i
-										class="fa fa-shopping-cart"></i>Add to cart</a>
-								</div>
-							</div>
-							<div class="choose">
-								<ul class="nav nav-pills nav-justified">
-									<li><a href="#"><i class="fa fa-plus-square"></i>Add
-											to wishlist</a></li>
-									<li><a href="#"><i class="fa fa-plus-square"></i>Add
-											to compare</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-					<!-- 네번째 상품 -->
-					<div class="col-xs-3">
-						<div class="product-image-wrapper">
-							<div class="single-products">
-								<div class="productinfo text-center">
-									<img src="../images/home/product/emulsion4.jpg" alt="" />
-									<h2>16,000원</h2>
-									<p>데일리 멀티 카밍 젤</p>
-									<a href="#" class="btn btn-default add-to-cart"><i
-										class="fa fa-shopping-cart"></i>Add to cart</a>
-								</div>
-							</div>
-							<div class="choose">
-								<ul class="nav nav-pills nav-justified">
-									<li><a href="#"><i class="fa fa-plus-square"></i>Add
-											to wishlist</a></li>
-									<li><a href="#"><i class="fa fa-plus-square"></i>Add
-											to compare</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>
