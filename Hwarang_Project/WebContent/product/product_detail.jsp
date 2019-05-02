@@ -70,7 +70,7 @@ margin-top: 3px;
 .star-input>.input,
 .star-input>.input>label:hover,
 .star-input>.input>input:focus+label,
-.star-input>.input>input:checked+label{display: inline-block;vertical-align:middle;background:url('images/product-details/grade_final.png')no-repeat;}
+.star-input>.input>input:checked+label{display: inline-block;vertical-align:middle;background:url('../images/product-details/grade_final_forlist.png')no-repeat;}
 .star-input{display:inline-block; white-space:nowrap;width:225px;height:40px;padding:25px;line-height:30px;}
 .star-input>.input{display:inline-block;width:250px;background-size:150px;height:28px;white-space:nowrap;overflow:hidden;position: relative;}
 .star-input>.input>input{position:absolute;width:1px;height:1px;opacity:0;}
@@ -359,7 +359,7 @@ margin-left: 1.2em;
                   <div class="col-sm-7">
                      <div class="product-information"><!--/product-information-->
                         <img src="images/product-details/new.jpg" class="newarrival" alt="" />
-                        <h2>상품명 : ${vo.product_name} </h2>
+                        <h1>${vo.product_name} </h1>
                         <p><img src="${vo.brand_img}" width=60 height=30> ${vo.brand }</p>
                         
                         <span>
@@ -369,7 +369,7 @@ margin-left: 1.2em;
                               Add to cart
                            </button>
                         </span>
-                        <p><b>카테고리:</b> SKIN</p>
+                        <p><b>카테고리:</b> SKIN(변수없음)</p>
                   <!--  <p><b>유해성분:</b> ${vo.harm_ingre }</p>   -->
                         <p><b>판매처:</b> ${vo.sell_link }</p>
                         <p><b>컬러/타입:</b> ${vo.cap_col}</p>
@@ -651,9 +651,9 @@ margin-left: 1.2em;
                                  <input type="text" placeholder="password"/>
                               </span>
                               <textarea name="" ></textarea>
+                              
                               <!-- 평점주기 -->
                             <span class="star-input">
-                             
 							  <span class="input">
     							<input type="radio" name="star-input" value="1" id="p1">
     							<label for="p1">1</label>
@@ -667,8 +667,6 @@ margin-left: 1.2em;
     							<label for="p5">5</label>
   							  </span>
   							  <!-- <output for="star-input"><b>0</b>점</output> -->
-  							 
-  							  
 							</span>
 							
                               <button type="button" class="btn btn-default pull-right">
