@@ -77,7 +77,7 @@ public class DispatcherServlet extends HttpServlet {
 			}
 		}
 		catch(Exception ex){
-			System.out.println("service"+ex.getMessage());
+			System.out.println("service:"+ex.getMessage());
 			ex.printStackTrace();
 		}
 	}
