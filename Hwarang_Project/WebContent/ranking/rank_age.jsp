@@ -560,20 +560,21 @@ ul, ol {
 	</div>
 	</section>
 	
-	<script src="../js/jquery.js">
-		var div = document.getElementById('ranking-slide');
-
-		function prev(){
-			div.className = 'trans02';
-		}
-
-		function next(){
-			div.className = 'trans01';
-		}
-	</script>
+	<script src="../js/jquery.js"></script>
 
 	<script src="../js/jquery-1.11.3.min.js"></script>
 	<script src="../js/star.js"></script>
+	<script type="text/javascript">
+	var div = document.getElementById('ranking-slide');
+
+	function prev(){
+		div.className = 'trans02';
+	}
+
+	function next(){
+		div.className = 'trans01';
+	}
+	</script>
 	
 
 </body>
