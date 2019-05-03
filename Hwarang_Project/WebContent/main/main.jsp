@@ -88,22 +88,16 @@
 									Join
 								</a>
 							</li>
-							<li>
-								<c:if test="${sessionScope.id==null }">
-									<a href="../login/login.hr">
-										<i class="fa fa-lock"></i>
-										Login
-									</a>
-								</c:if>
-							</li>
-							<%-- <li>
-								<c:if test="${sessionScope.id==null }">
-									<a href="../login/login.hr">
-										<i class="fa fa-lock"></i>
-										Logout	
-									</a>
-								</c:if>
-							</li> --%>
+							
+							<c:if test="${sessionScope.id==null }">
+								<li><a href="../login/login.hr"><i class="fa fa-lock"></i>
+										Login</a></li>
+							</c:if>
+							<c:if test="${sessionScope.id!=null }">
+								<li><a href="../login/logout.hr"><i class="fa fa-lock"></i>
+										Logout</a></li>
+							</c:if>
+						
 						</ul>
 					</div>
 				</div>

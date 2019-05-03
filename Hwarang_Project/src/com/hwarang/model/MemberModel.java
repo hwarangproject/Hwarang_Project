@@ -12,4 +12,11 @@ public class MemberModel {
     	return "../main/main.jsp";
     }
 	
+	
+	@RequestMapping("Hwarang/skin_test.hr")
+	public String skintest_page(HttpServletRequest request){
+		return "../Hwarang/skin_test.jsp";
+		
+	}
+	
 }

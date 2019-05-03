@@ -843,7 +843,7 @@ select option {
 									<nav class='header-nav'>
 									  <ul>
 									    <li class='active'>
-									      <a href='#'>
+									      <a href='profile_myactivity.hr'>
 									        나의 활동
 									      </a>
 									    </li>

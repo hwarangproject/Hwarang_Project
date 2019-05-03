@@ -536,56 +536,6 @@ span {
 	transform: translateY(0px) scale(1);
 }
 
-/* 파우치 버튼 */
-#button-blue{
-	float:right;
-	width: 130px; 
-	height: 45px;
-	max-width:200px;
-	border: white solid 4px;
-	cursor: pointer;
-	background-color: #FFB9B9;
-	margin-top: -4px; 
-	color: white;
-	text-transform: uppercase;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 13px;
-	letter-spacing: .1em;
-/* 	padding-top: 22px; */
-	padding-bottom: 22px;
-	font-weight: 200;
-	-webkit-transition: all 0.3s;
-	-moz-transition: all 0.3s;
-	-o-transition: all 0.3s;
-	-ms-transition: all 0.3s;
-	transition: all 0.3s;
-}
-
-/* Change text color & background opacity on hover*/
-#button-blue:hover{
-	background-color: rgba(0,0,0,0);
-	color: #FFB9B9;
-}
-
-/* The white hover effect */
-.ease {
-	width: 0px;
-	height: 70px;
-	background-color: white;
-	-webkit-transition: .3s ease;
-	-moz-transition: .3s ease;
-	-o-transition: .3s ease;
-	-ms-transition: .3s ease;
-	transition: .3s ease;
-}
-
-/* Make visable when hover */
-.btn-container:hover .ease{
-	width: 100%;
-	max-width: 500px;
-	background-color: white;
-	border: 0;
-}
 </style>
 
 
@@ -608,15 +558,6 @@ span {
 										<h4>사용자 닉네임</h4>
 										<p>스킨 타입</p>
 									  </div>
-									  <!-- 파우치 버튼 -->
-										<div id="wrapper" class="col-sm-4">
-											<section>
-												<div class="btn-container">
-													<input type="submit" value="my pouch" id="button-blue"/>
-													<div class="ease"></div>
-												</div>
-											</section>
-										</div>
 									</div>
 									<div class="col2 last">
 										<div class="grid clearfix">
@@ -654,7 +595,7 @@ span {
 									      </a>
 									    </li>
 									    <li>
-									      <a href='#'>
+									      <a href='profile_info.hr'>
 									        내 정보
 									      </a>
 									    </li>

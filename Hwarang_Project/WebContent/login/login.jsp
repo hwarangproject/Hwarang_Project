@@ -6,6 +6,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <title>HWARANG PROJECT</title>
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/font-awesome.min.css" rel="stylesheet">
+<link href="../css/prettyPhoto.css" rel="stylesheet">
+<link href="../css/price-range.css" rel="stylesheet">
+<link href="../css/animate.css" rel="stylesheet">
+<link href="../css/main.css" rel="stylesheet">
+<link href="../css/responsive.css" rel="stylesheet">
 
 <style type="text/css">
 *, *:before, *:after {
@@ -19,6 +26,7 @@ h4 {
 h5 {
 	margin-left: -15px;
 	font-size: 30px;
+	color:#b9b9b9;
 }
 
 input, input[type="radio"]+label, input[type="checkbox"]+label:before,
@@ -298,6 +306,69 @@ select option {
 	margin: 0px 10px 0px 0px;
 }
 </style>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<%--AJAX쓰는거  --%>
+<script type="text/javascript">
+	//jquery
+	$(function(){
+	$('#logBtn').click(function(){
+		var id=$('#id').val();
+		if(id.trim()=="")
+		{
+			$('#id').focus();
+			return;
+		}
+		
+		var pwd=$('#pwd').val();
+		if(pwd.trim()=="")
+		{
+			$('#pwd').focus();
+			return;
+		}
+		
+		// 전송  => login요청 
+		/*
+		     login_ok.jsp
+		     ============
+		    	 NOID
+		    	 NOPWD
+		    	 OK
+		*/
+		$.ajax({
+			type:'post',
+			url:'../login/login_ok.hr',
+			data:{"id":id,"pwd":pwd},
+			success:function(response)
+			{
+				var result=response.trim();
+				if(result=="NOID")
+				{	
+					alert("아이디가 존재하지 않습니다!!");
+					$('#id').val("");
+					$('#pwd').val("");
+					
+					$('#id').focus();
+				}
+				else if(result=="NOPWD")
+				{
+					alert("비밀번호가 틀립니다.");	
+					$('#pwd').val("");
+					$('#pwd').focus();
+				}
+				else//OK
+				{
+					alert("로그인되었습니다!!");
+					//parent.Shadowbox.close();
+					window.parent.location.href='../main/main.hr';
+				}
+			}
+		});
+		
+	});
+});
+</script>
+
 <script type="text/javascript">
 function end() {
 	javascript:history.back();
@@ -310,33 +381,36 @@ function end() {
 	<div class="container2">
 		<form>
 			<h5>로그인</h5>
+			<div class="container2">
 			<div class="row">
 				<h4>Account</h4>
 					<div class="input-group input-group-icon">
-						<input type="text" placeholder="ID" />
+						<input type="text" placeholder="ID" id="id"/>
 						<div class="input-icon">
 							<i class="fa fa-user" id="label_icon"></i>
 						</div>
 					</div>
 									
 					<div class="input-group input-group-icon">
-						<input type="password" placeholder="Password" />
+						<input type="password" placeholder="Password" id="pwd"/>
 						<div class="input-icon">
-							<i class="fa fa-user" id="label_icon"></i>
+							<i class="fa fa-key" id="label_icon"></i>
 						</div>
 					</div>
 			</div>
 			
 			<div class="row">
 				<div class="col-harf text-center">
-					<input type="button" value="로그인" onclick="login()"> 
-					<input type="button" value="취소" onclick="end()">
+
+					<input type="button" value="로그인" id="logBtn"/>
+					<input type="button" value="취소"  onclick="javascript:history.back()"/>
 				</div>
+			</div>
 			</div>
 		</form>
 	</div>
 	
-	<script  src="js/profile_upload.js"></script>
+
 	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 	
 </body>

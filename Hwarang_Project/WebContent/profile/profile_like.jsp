@@ -678,116 +678,82 @@ label[for="new-task"] {
 		
 							<!-- 회원정보 -->
 						<section class="section2 clearfix">
-							<div class="grid">
-								<h2>&nbsp;&nbsp;<b>상품</b></h2><br>
-						    <div class="card float-left" style="display:table-cell; vertical-align:middle; text-align:center; margin: 14px;">
-						      <div>
-						        <img src="https://d9vmi5fxk1gsw.cloudfront.net/home/glowmee/upload/20140513/1399965556079.jpg" width="220" height="220">
-						      </div>
-							  <div class="content">
-							    <span class="title"><b>리질리언스 리프트 퍼밍/스컬프팅 페이스 앤 넥 크림</b></span>
-							    <p>50ml / 150,000원</p>
-							  </div>
-							  <div class="action">
-							    <a href='#'><img src="https://publicdomainvectors.org/photos/1382519138.png" height="20" width="20"> 상세정보</a>
-							    <a href='#'><img src="https://image.flaticon.com/icons/svg/107/107181.svg" height="20" width="20"> 삭제</a>
-							  </div>
+							<div class="col-sm-4">
+								<div class="product-image-wrapper">
+									<div class="single-products">
+										<div class="productinfo text-center">
+											<a href="product_detail.jsp">
+											<img src="../images/product-details/cos5.png" alt="" width=280.8px height=280.8px/>
+											<h5>이니스프리 / 화산송이마스크</h5>
+											</a>
+											<p>$56</p>
+											<div class="star-rating" style="text-align: center">
+													<div style="width:65%" class="star-rating-percentage"  style="display:inline-block"></div>
+											</div>
+		
+										</div>
+									</div>
+									<div class="choose">
+										<ul class="nav nav-pills nav-justified">
+											<li><a href=""><i class="fa fa-plus-square"></i>Add to
+													mypage</a></li>
+											<li><a href=""><i class="fa fa-plus-square"></i>Add to
+													cart</a></li>
+										</ul>
+									</div>
+								</div>
 							</div>
-							<div class="card float-left" style="display:table-cell; vertical-align:middle; text-align:center; margin: 14px;">
-						      <div>
-						        <img src="https://d9vmi5fxk1gsw.cloudfront.net/home/glowmee/upload/20140513/1399965556079.jpg" width="220" height="220">
-						      </div>
-							  <div class="content">
-							    <span class="title"><b>리질리언스 리프트 퍼밍/스컬프팅 페이스 앤 넥 크림</b></span>
-							    <p>50ml / 150,000원</p>
-							  </div>
-							  <div class="action">
-							    <a href='#'><img src="https://publicdomainvectors.org/photos/1382519138.png" height="20" width="20"> 상세정보</a>
-							    <a href='#'><img src="https://image.flaticon.com/icons/svg/107/107181.svg" height="20" width="20"> 삭제</a>
-							  </div>
+							<div class="col-sm-4">
+								<div class="product-image-wrapper">
+									<div class="single-products">
+										<div class="productinfo text-center">
+											<a href="product_detail.jsp">
+											<img src="../images/product-details/cos5.png" alt="" width=280.8px height=280.8px/>
+											<h5>이니스프리 / 화산송이마스크</h5>
+											</a>
+											<p>$56</p>
+											<div class="star-rating" style="text-align: center">
+													<div style="width:65%" class="star-rating-percentage"  style="display:inline-block"></div>
+											</div>
+		
+										</div>
+									</div>
+									<div class="choose">
+										<ul class="nav nav-pills nav-justified">
+											<li><a href=""><i class="fa fa-plus-square"></i>Add to
+													mypage</a></li>
+											<li><a href=""><i class="fa fa-plus-square"></i>Add to
+													cart</a></li>
+										</ul>
+									</div>
+								</div>
 							</div>
-							<div class="card float-left" style="display:table-cell; vertical-align:middle; text-align:center; margin: 14px;">
-						      <div>
-						        <img src="https://d9vmi5fxk1gsw.cloudfront.net/home/glowmee/upload/20140513/1399965556079.jpg" width="220" height="220">
-						      </div>
-							  <div class="content">
-							    <span class="title"><b>리질리언스 리프트 퍼밍/스컬프팅 페이스 앤 넥 크림</b></span>
-							    <p>50ml / 150,000원</p>
-							  </div>
-							  <div class="action">
-							    <a href='#'><img src="https://publicdomainvectors.org/photos/1382519138.png" height="20" width="20"> 상세정보</a>
-							    <a href='#'><img src="https://image.flaticon.com/icons/svg/107/107181.svg" height="20" width="20"> 삭제</a>
-							  </div>
+							<div class="col-sm-4">
+								<div class="product-image-wrapper">
+									<div class="single-products">
+										<div class="productinfo text-center">
+											<a href="product_detail.jsp">
+											<img src="../images/product-details/cos5.png" alt="" width=280.8px height=280.8px/>
+											<h5>이니스프리 / 화산송이마스크</h5>
+											</a>
+											<p>$56</p>
+											<div class="star-rating" style="text-align: center">
+													<div style="width:65%" class="star-rating-percentage"  style="display:inline-block"></div>
+											</div>
+		
+										</div>
+									</div>
+									<div class="choose">
+										<ul class="nav nav-pills nav-justified">
+											<li><a href=""><i class="fa fa-plus-square"></i>Add to
+													mypage</a></li>
+											<li><a href=""><i class="fa fa-plus-square"></i>Add to
+													cart</a></li>
+										</ul>
+									</div>
+								</div>
 							</div>
-							<div class="card float-left" style="display:table-cell; vertical-align:middle; text-align:center; margin: 14px;">
-						      <div>
-						        <img src="https://d9vmi5fxk1gsw.cloudfront.net/home/glowmee/upload/20140513/1399965556079.jpg" width="220" height="220">
-						      </div>
-							  <div class="content">
-							    <span class="title"><b>리질리언스 리프트 퍼밍/스컬프팅 페이스 앤 넥 크림</b></span>
-							    <p>50ml / 150,000원</p>
-							  </div>
-							  <div class="action">
-							    <a href='#'><img src="https://publicdomainvectors.org/photos/1382519138.png" height="20" width="20"> 상세정보</a>
-							    <a href='#'><img src="https://image.flaticon.com/icons/svg/107/107181.svg" height="20" width="20"> 삭제</a>
-							  </div>
-							</div>
-							<div class="card float-left" style="display:table-cell; vertical-align:middle; text-align:center; margin: 14px;">
-						      <div>
-						        <img src="https://d9vmi5fxk1gsw.cloudfront.net/home/glowmee/upload/20140513/1399965556079.jpg" width="220" height="220">
-						      </div>
-							  <div class="content">
-							    <span class="title"><b>리질리언스 리프트 퍼밍/스컬프팅 페이스 앤 넥 크림</b></span>
-							    <p>50ml / 150,000원</p>
-							  </div>
-							  <div class="action">
-							    <a href='#'><img src="https://publicdomainvectors.org/photos/1382519138.png" height="20" width="20"> 상세정보</a>
-							    <a href='#'><img src="https://image.flaticon.com/icons/svg/107/107181.svg" height="20" width="20"> 삭제</a>
-							  </div>
-							</div>
-							<div class="card float-left" style="display:table-cell; vertical-align:middle; text-align:center; margin: 14px;">
-						      <div>
-						        <img src="https://d9vmi5fxk1gsw.cloudfront.net/home/glowmee/upload/20140513/1399965556079.jpg" width="220" height="220">
-						      </div>
-							  <div class="content">
-							    <span class="title"><b>리질리언스 리프트 퍼밍/스컬프팅 페이스 앤 넥 크림</b></span>
-							    <p>50ml / 150,000원</p>
-							  </div>
-							  <div class="action">
-							    <a href='#'><img src="https://publicdomainvectors.org/photos/1382519138.png" height="20" width="20"> 상세정보</a>
-							    <a href='#'><img src="https://image.flaticon.com/icons/svg/107/107181.svg" height="20" width="20"> 삭제</a>
-							  </div>
-							</div>
-							<div class="card float-left" style="display:table-cell; vertical-align:middle; text-align:center; margin: 14px;">
-						      <div>
-						        <img src="https://d9vmi5fxk1gsw.cloudfront.net/home/glowmee/upload/20140513/1399965556079.jpg" width="220" height="220">
-						      </div>
-							  <div class="content">
-							    <span class="title"><b>리질리언스 리프트 퍼밍/스컬프팅 페이스 앤 넥 크림</b></span>
-							    <p>50ml / 150,000원</p>
-							  </div>
-							  <div class="action">
-							    <a href='#'><img src="https://publicdomainvectors.org/photos/1382519138.png" height="20" width="20"> 상세정보</a>
-							    <a href='#'><img src="https://image.flaticon.com/icons/svg/107/107181.svg" height="20" width="20"> 삭제</a>
-							  </div>
-							</div>
-							<div class="card float-left" style="display:table-cell; vertical-align:middle; text-align:center; margin: 14px;">
-						      <div>
-						        <img src="https://d9vmi5fxk1gsw.cloudfront.net/home/glowmee/upload/20140513/1399965556079.jpg" width="220" height="220">
-						      </div>
-							  <div class="content">
-							    <span class="title"><b>리질리언스 리프트 퍼밍/스컬프팅 페이스 앤 넥 크림</b></span>
-							    <p>50ml / 150,000원</p>
-							  </div>
-							  <div class="action">
-							    <a href='#'><img src="https://publicdomainvectors.org/photos/1382519138.png" height="20" width="20"> 상세정보</a>
-							    <a href='#'><img src="https://image.flaticon.com/icons/svg/107/107181.svg" height="20" width="20"> 삭제</a>
-							  </div>
-							</div>
-						  </div>
-						  <div class="grid">
-						    <h2><b>파</b></h2>
-						  </div>
+							
 						</section>
 					</div>
 				</div>
