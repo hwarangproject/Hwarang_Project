@@ -19,69 +19,53 @@
 						<li data-target="#slider-carousel" data-slide-to="2"></li>
 					</ol>
 
-					<div class="carousel-inner">
-						<div class="item active">
-							<div class="col-xs-6" id="custom_slider">
-								<h1>
-									<span>H</span>warang
-								</h1>
-								<h2>인기상품</h2>
-								<p>하이드라비오 에센스 로션</p>
-								<p>피부 컨디션을 끌어올려 속부터 차오르는 빛과 수분</p>
-								<button type="button" class="btn btn-default get">
-									<a href="product_detail.jsp">Get it now</a>
-								</button>
-							</div>
-							<div class="col-xs-6">
-								<img src="../images/home/slider/skin.png"
-									class="girl img-responsive" alt="" width="300" height="250" />
-								<!-- <img src="images/home/pricing.png"  class="pricing" alt="" /> -->
-							</div>
+				<div class="carousel-inner">
+                  <div class="item active">
+                     <div class="col-xs-6" id="custom_slider">
+                        <h1>
+                           <span>H</span>warang
+                        </h1>
+                        <h2>인기상품</h2>
+                        <p>하이드라비오 에센스 로션</p>
+                        <p>피부 컨디션을 끌어올려 속부터 차오르는 빛과 수분</p>
+                        <button type="button" class="btn btn-default get">
+                           <a href="product_detail.jsp">Get it now</a>
+                        </button>
+                     </div>
+                     <div class="col-xs-6">
+                        <img src="../images/home/slider/skin.png"
+                           class="girl img-responsive" alt="" width="300" height="250" />
+                        <!-- <img src="images/home/pricing.png"  class="pricing" alt="" /> -->
+                     </div>
+                  </div>
+             	<c:forEach var="vo" items="${productListData }" varStatus="s">
+             		<c:if test="${s.index<2 }">
+                  	<div class="item">
+						<div class="col-xs-6" id="custom_slider">
+							<h1>
+								<span>H</span>warang
+							</h1>
+							<h2>인기상품</h2>
+							<p>${vo.product_name }</p>
+							<p>${vo.description }</p>
+							<button type="button" class="btn btn-default get">
+								<a href="../product/product_detail.hr?pno=${vo.product_no }">Get it now</a>
+							</button>
 						</div>
-						<div class="item">
-							<div class="col-xs-6" id="custom_slider">
-								<h1>
-									<span>H</span>warang
-								</h1>
-								<h2>이니스프리</h2>
-								<p>블루베리 리밸런싱 스킨</p>
-								<p>블루베리의 항산화력을 담아 건강한 피부 pH와 유수분밸런스를 맞춰 편안한 피부로 가꿔주는 촉촉한 스킨</p>
-								<button type="button" class="btn btn-default get">Get
-									it now</button>
-							</div>
-							<div class="col-xs-6">
-								<img src="../images/home/slider/skin2.png"
-									class="girl img-responsive" alt="" width="300" height="250" />
-							</div>
+						<div class="col-xs-6">
+							<img src="${vo.product_img }" class="girl img-responsive" alt="" width="300" height="250" />
 						</div>
-
-						<div class="item">
-							<div class="col-xs-6" id="custom_slider">
-								<h1>
-									<span>H</span>warang
-								</h1>
-								<h2>이니스프리</h2>
-								<p>진저허니 앰플 스킨</p>
-								<p>스킨처럼 빠르게 앰플처럼 진하게 한파에도 끄덕없는 #방패보습</p>
-								<button type="button" class="btn btn-default get">Get
-									it now</button>
-							</div>
-							<div class="col-xs-6">
-								<img src="../images/home/slider/skin3.png"
-									class="girl img-responsive" alt="" width="300" height="250" />
-							</div>
-						</div>
-
 					</div>
+					</c:if>
+				</c:forEach>
 
-					<a href="#slider-carousel" class="left control-carousel hidden-xs"
-						data-slide="prev"> <i class="fa fa-angle-left"></i>
-					</a> <a href="#slider-carousel"
-						class="right control-carousel hidden-xs" data-slide="next"> <i
-						class="fa fa-angle-right"></i>
+					<a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev"> 
+						<i class="fa fa-angle-left"></i>
+					</a> 
+					<a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next"> 
+						<i class="fa fa-angle-right"></i>
 					</a>
 				</div>
-
 			</div>
 		</div>
 	</div>

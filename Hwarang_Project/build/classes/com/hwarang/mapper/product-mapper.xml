@@ -8,4 +8,21 @@
 	<select id="productDetailData" resultType="ProductVO" parameterType="int">
   	  SELECT * FROM product WHERE product_no=#{pno}
 	</select>
+	
+	<!-- 카테고리 항목 전체목록 출력 -->
+	<select id="product_category" resultType="ProductVO" parameterType="java.util.Map">
+		SELECT * FROM product WHERE detcategory_no BETWEEN #{start} AND #{end}
+	</select>
+	
+	
+	<!-- 카테고리 항목 하나 출력-->
+	<select id="product_detail_category" resultType="ProductVO" parameterType="int">
+		SELECT * FROM product WHERE detcategory_no=#{dcno}
+	</select>
+	
+	<!-- 카테고리 리스트 출력 ex) 목록들 -->
+	<select id="detail_cate_list" resultType="DetailcateVO">
+		SELECT * FROM detailcate
+	</select>
+	
 </mapper>
