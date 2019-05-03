@@ -580,18 +580,13 @@ span {
 									<nav class='header-nav'>
 									  <ul>
 									    <li class='active'>
-									      <a href='#'>
+									      <a href='profile_myactivity.hr'>
 									        나의 활동
 									      </a>
 									    </li>
 									    <li>
-									      <a href='#'>
+									      <a href='profile_like.hr'>
 									        즐겨찾기
-									      </a>
-									    </li>
-									    <li>
-									      <a href='#'>
-									        장바구니
 									      </a>
 									    </li>
 									    <li>
@@ -599,12 +594,16 @@ span {
 									        내 정보
 									      </a>
 									    </li>
+									    <li>
+									      <a href='../pouch/pouch_detail.hr'>
+									        MY POUCH
+									      </a>
+									    </li>									    
 									    <div class='marker'></div>
 									  </ul>
 									</nav>
 								</div>
-							</div>
-						
+							</div>						
 						</section>
 						<!-- ******메뉴 끝****** -->
 						
