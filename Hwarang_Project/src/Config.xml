@@ -30,6 +30,7 @@
 		<typeAlias type="com.hwarang.vo.ProductVO" alias="ProductVO"/>
 		<typeAlias type="com.hwarang.vo.DetailcateVO" alias="DetailcateVO"/>
 		<typeAlias type="com.hwarang.vo.MemberVO" alias="MemberVO"/>
+		<typeAlias type="com.hwarang.vo.PouchVO" alias="PouchVO"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -57,6 +58,7 @@
 	<mappers>
 		<mapper resource="com/hwarang/mapper/product-mapper.xml"/>
 		<mapper resource="com/hwarang/mapper/member-mapper.xml"/>
+		<mapper resource="com/hwarang/mapper/pouch-mapper.xml"/>
 	</mappers>
 	
 </configuration>
