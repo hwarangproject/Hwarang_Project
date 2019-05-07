@@ -587,124 +587,6 @@ label[for="new-task"] {
 </head>
 
 <body>
-
-	<header id="header">
-		<!--header-->
-		<div class="header_top">
-			<!--header_top-->
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-6">
-						<div class="contactinfo">
-							<ul class="nav nav-pills">
-								<li><a href="main.jsp">Hwarang</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-xs-6">
-						<div class="social-icons pull-right">
-							<ul class="nav navbar-nav">
-								<li><a href="profile.jsp"><i class="fa fa-star"></i>
-										Mypage</a></li>
-								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i>
-										Cart</a></li>
-								<li><a href="member_make.jsp"><i
-										class="fa fa-crosshairs"></i> Join</a></li>
-								<li><a href="login.jsp"><i class="fa fa-lock"></i>
-										Login</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--/header_top-->
-
-		<div class="header-middle">
-			<!--header-middle-->
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-4">
-						<div class="logo pull-left">
-							<a href="main.jsp"><img
-								src="images/home/logo/hwarang_logo.PNG" alt="" id="logo" /></a>
-						</div>
-
-						<!-- 버튼 토글  -->
-						<!-- <div class="btn-group pull-right">
-							<div class="btn-group">
-								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-									USA
-									<span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><a href="#">Canada</a></li>
-									<li><a href="#">UK</a></li>
-								</ul>
-							</div>
-							
-							<div class="btn-group">
-								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-									DOLLAR
-									<span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><a href="#">Canadian Dollar</a></li>
-									<li><a href="#">Pound</a></li>
-								</ul>
-							</div>
-						</div> -->
-					</div>
-
-				</div>
-			</div>
-		</div>
-		<!--/header-middle-->
-
-		<div class="header-bottom">
-			<!--header-bottom-->
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-9">
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle"
-								data-toggle="collapse" data-target=".navbar-collapse">
-								<span class="sr-only">Toggle navigation</span> <span
-									class="icon-bar"></span> <span class="icon-bar"></span> <span
-									class="icon-bar"></span>
-							</button>
-						</div>
-						<div class="mainmenu pull-left">
-							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="main.jsp" class="active">Home</a></li>
-								<li class="dropdown"><a href="#">랭킹<i
-										class="fa fa-angle-down"></i></a>
-									<ul role="menu" class="sub-menu">
-										<li><a href="product_detail.jsp">상품별</a></li>
-										<li><a href="product-details.html">연령별</a></li>
-										<li><a href="checkout.html">별점순</a></li>
-									</ul></li>
-								<li><a href="#">브랜드</a> <!-- 서브 메뉴 (X) --> <!-- <ul role="menu" class="sub-menu">
-                                        <li><a href="blog.html">미샤</a></li>
-										<li><a href="blog-single.html">이니스프리</a></li>
-                                    </ul> --></li>
-								<li><a href="#">게시판</a></li>
-								<li><a href="#">파우치</a></li>
-								<li><a href="#">커뮤니티</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-xs-3">
-						<div class="search_box pull-right">
-							<input type="text" placeholder="Search" />
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--/header-bottom-->
-	</header>
-	<!--/header-->
 <body class="font-sans">
 	<div>
 		<div class="flex -mx-4">
@@ -911,6 +793,11 @@ label[for="new-task"] {
 			</div>
 		</div>
 	</div>
+<<<<<<< HEAD
+=======
+</body>
+
+>>>>>>> branch 'master' of https://github.com/hwarangproject/Hwarang_Project.git
 </body>
 
 </html>
