@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -517,7 +517,7 @@ body {
 										<!--/product-information-->
 										<h2>제목 : 우아아아아아</h2>
 										<p>주인 : 아오아오</p>
-										
+
 										<td>찜 : 5000 <!-- 하트 --> <input type="checkbox" id="like" />
 											<label for="like"> <svg
 													xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
@@ -856,6 +856,35 @@ body {
 					<div class="tab-pane fade active in" id="reviews">
 						<table>
 							<div class="col-sm-12">
+								<p>
+									<b>Write Your Review</b>
+								</p>
+								<form action="#">
+									<span> <input type="text" placeholder="Your Name" /> <input
+										type="password" placeholder="password" />
+									</span>
+									<textarea name=""></textarea>
+
+									<!-- 평점주기 -->
+									<div class="row">
+										<span class="star-input"> <span class="input"> <input
+												type="radio" name="star-input" value="1" id="p1"> <label
+												for="p1">1</label> <input type="radio" name="star-input"
+												value="2" id="p2"> <label for="p2">2</label> <input
+												type="radio" name="star-input" value="3" id="p3"> <label
+												for="p3">3</label> <input type="radio" name="star-input"
+												value="4" id="p4"> <label for="p4">4</label> <input
+												type="radio" name="star-input" value="5" id="p5"> <label
+												for="p5">5</label>
+										</span> <!-- <output for="star-input"><b>0</b>점</output> -->
+										</span>
+									</div>
+									<button type="button" class="btn btn-default pull-right">
+										Submit</button>
+								</form>
+							</div>
+
+							<div class="col-sm-12">
 								<div class="a">
 									<ul>
 										<li><a href=""><img
@@ -884,34 +913,7 @@ body {
 							</div>
 
 
-							<div class="col-sm-12">
-								<p>
-									<b>Write Your Review</b>
-								</p>
-								<form action="#">
-									<span> <input type="text" placeholder="Your Name" />
-									 <input
-										type="password" placeholder="password" />
-									</span>
-									<textarea name=""></textarea>
 
-									<!-- 평점주기 -->
-									<span class="star-input"> <span class="input"> <input
-											type="radio" name="star-input" value="1" id="p1"> <label
-											for="p1">1</label> <input type="radio" name="star-input"
-											value="2" id="p2"> <label for="p2">2</label> <input
-											type="radio" name="star-input" value="3" id="p3"> <label
-											for="p3">3</label> <input type="radio" name="star-input"
-											value="4" id="p4"> <label for="p4">4</label> <input
-											type="radio" name="star-input" value="5" id="p5"> <label
-											for="p5">5</label>
-									</span> <!-- <output for="star-input"><b>0</b>점</output> -->
-									</span>
-
-									<button type="button" class="btn btn-default pull-right">
-										Submit</button>
-								</form>
-							</div>
 						</table>
 					</div>
 
