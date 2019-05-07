@@ -8,7 +8,7 @@ public class ProductVO {
 	private String sell_link;
 	private String description;
 	private String cap_col;
-	private int score;
+	private double score;
 	private String tag;
 	private int like;
 	private String harm_ingre;
@@ -17,18 +17,7 @@ public class ProductVO {
 	private String product_img;
 	private int detcategory_no;
 	
-	public String getProduct_img() {
-		return product_img;
-	}
-	public void setProduct_img(String product_img) {
-		this.product_img = product_img;
-	}
-	public int getDetcategory_no() {
-		return detcategory_no;
-	}
-	public void setDetcategory_no(int detcategory_no) {
-		this.detcategory_no = detcategory_no;
-	}
+	
 	public int getProduct_no() {
 		return product_no;
 	}
@@ -71,10 +60,10 @@ public class ProductVO {
 	public void setCap_col(String cap_col) {
 		this.cap_col = cap_col;
 	}
-	public int getScore() {
+	public double getScore() {
 		return score;
 	}
-	public void setScore(int score) {
+	public void setScore(double score) {
 		this.score = score;
 	}
 	public String getTag() {
@@ -107,4 +96,18 @@ public class ProductVO {
 	public void setBrand_img(String brand_img) {
 		this.brand_img = brand_img;
 	}
+	public String getProduct_img() {
+		return product_img;
+	}
+	public void setProduct_img(String product_img) {
+		this.product_img = product_img;
+	}
+	public int getDetcategory_no() {
+		return detcategory_no;
+	}
+	public void setDetcategory_no(int detcategory_no) {
+		this.detcategory_no = detcategory_no;
+	}
+	
+	
 }

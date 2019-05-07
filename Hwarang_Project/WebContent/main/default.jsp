@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -18,69 +19,53 @@
 						<li data-target="#slider-carousel" data-slide-to="2"></li>
 					</ol>
 
-					<div class="carousel-inner">
-						<div class="item active">
-							<div class="col-xs-6" id="custom_slider">
-								<h1>
-									<span>H</span>warang
-								</h1>
-								<h2>인기상품</h2>
-								<p>하이드라비오 에센스 로션</p>
-								<p>피부 컨디션을 끌어올려 속부터 차오르는 빛과 수분</p>
-								<button type="button" class="btn btn-default get">
-									<a href="product_detail.jsp">Get it now</a>
-								</button>
-							</div>
-							<div class="col-xs-6">
-								<img src="../images/home/slider/skin.png"
-									class="girl img-responsive" alt="" width="300" height="250" />
-								<!-- <img src="images/home/pricing.png"  class="pricing" alt="" /> -->
-							</div>
+				<div class="carousel-inner">
+                  <div class="item active">
+                     <div class="col-xs-6" id="custom_slider">
+                        <h1>
+                           <span>H</span>warang
+                        </h1>
+                        <h2>인기상품</h2>
+                        <p>하이드라비오 에센스 로션</p>
+                        <p>피부 컨디션을 끌어올려 속부터 차오르는 빛과 수분</p>
+                        <button type="button" class="btn btn-default get">
+                           <a href="product_detail.jsp">Get it now</a>
+                        </button>
+                     </div>
+                     <div class="col-xs-6">
+                        <img src="../images/home/slider/skin.png"
+                           class="girl img-responsive" alt="" width="300" height="250" />
+                        <!-- <img src="images/home/pricing.png"  class="pricing" alt="" /> -->
+                     </div>
+                  </div>
+             	<c:forEach var="vo" items="${productListData }" varStatus="s">
+             		<c:if test="${s.index<2 }">
+                  	<div class="item">
+						<div class="col-xs-6" id="custom_slider">
+							<h1>
+								<span>H</span>warang
+							</h1>
+							<h2>인기상품</h2>
+							<p>${vo.product_name }</p>
+							<p>${vo.description }</p>
+							<button type="button" class="btn btn-default get">
+								<a href="../product/product_detail.hr?pno=${vo.product_no }">Get it now</a>
+							</button>
 						</div>
-						<div class="item">
-							<div class="col-xs-6" id="custom_slider">
-								<h1>
-									<span>H</span>warang
-								</h1>
-								<h2>이니스프리</h2>
-								<p>블루베리 리밸런싱 스킨</p>
-								<p>블루베리의 항산화력을 담아 건강한 피부 pH와 유수분밸런스를 맞춰 편안한 피부로 가꿔주는 촉촉한 스킨</p>
-								<button type="button" class="btn btn-default get">Get
-									it now</button>
-							</div>
-							<div class="col-xs-6">
-								<img src="../images/home/slider/skin2.png"
-									class="girl img-responsive" alt="" width="300" height="250" />
-							</div>
+						<div class="col-xs-6">
+							<img src="${vo.product_img }" class="girl img-responsive" alt="" width="300" height="250" />
 						</div>
-
-						<div class="item">
-							<div class="col-xs-6" id="custom_slider">
-								<h1>
-									<span>H</span>warang
-								</h1>
-								<h2>이니스프리</h2>
-								<p>진저허니 앰플 스킨</p>
-								<p>스킨처럼 빠르게 앰플처럼 진하게 한파에도 끄덕없는 #방패보습</p>
-								<button type="button" class="btn btn-default get">Get
-									it now</button>
-							</div>
-							<div class="col-xs-6">
-								<img src="../images/home/slider/skin3.png"
-									class="girl img-responsive" alt="" width="300" height="250" />
-							</div>
-						</div>
-
 					</div>
+					</c:if>
+				</c:forEach>
 
-					<a href="#slider-carousel" class="left control-carousel hidden-xs"
-						data-slide="prev"> <i class="fa fa-angle-left"></i>
-					</a> <a href="#slider-carousel"
-						class="right control-carousel hidden-xs" data-slide="next"> <i
-						class="fa fa-angle-right"></i>
+					<a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev"> 
+						<i class="fa fa-angle-left"></i>
+					</a> 
+					<a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next"> 
+						<i class="fa fa-angle-right"></i>
 					</a>
 				</div>
-
 			</div>
 		</div>
 	</div>
@@ -97,13 +82,14 @@
 					<h2 class="title text-center">TOP RANKING</h2>
 
 					<!-- 첫번째 상품 -->
+				<c:forEach var="vo" items="${productListData }">
 					<div class="col-xs-3">
 						<div class="product-image-wrapper">
 							<div class="single-products">
 								<div class="productinfo text-center">
-									<img src="../images/home/product/emulsion.jpg" alt="" />
-									<h2>25,000원</h2>
-									<p>스네일 솔루션 에멀젼</p>
+									<a href="../product/product_detail.hr?pno=${vo.product_no }"><img src=${vo.product_img } alt="" /></a>
+									<h2>${vo.price }</h2>
+									<p>${vo.product_name }</p>
 									<a href="#" class="btn btn-default add-to-cart"><i
 										class="fa fa-shopping-cart"></i>Add to cart</a>
 								</div>
@@ -118,75 +104,8 @@
 							</div>
 						</div>
 					</div>
+				</c:forEach>
 
-					<!-- 두번째 상품 -->
-					<div class="col-xs-3">
-						<div class="product-image-wrapper">
-							<div class="single-products">
-								<div class="productinfo text-center">
-									<img src="../images/home/product/emulsion2.jpg" alt="" />
-									<h2>16,000원</h2>
-									<p>로열허니 에센셜 에멀전</p>
-									<a href="#" class="btn btn-default add-to-cart"><i
-										class="fa fa-shopping-cart"></i>Add to cart</a>
-								</div>
-							</div>
-							<div class="choose">
-								<ul class="nav nav-pills nav-justified">
-									<li><a href="#"><i class="fa fa-plus-square"></i>Add
-											to wishlist</a></li>
-									<li><a href="#"><i class="fa fa-plus-square"></i>Add
-											to compare</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-					<!-- 세번째 상품 -->
-					<div class="col-xs-3">
-						<div class="product-image-wrapper">
-							<div class="single-products">
-								<div class="productinfo text-center">
-									<img src="../images/home/product/emulsion3.jpg" alt="" />
-									<h2>20,000원</h2>
-									<p>한란 프루이드</p>
-									<a href="#" class="btn btn-default add-to-cart"><i
-										class="fa fa-shopping-cart"></i>Add to cart</a>
-								</div>
-							</div>
-							<div class="choose">
-								<ul class="nav nav-pills nav-justified">
-									<li><a href="#"><i class="fa fa-plus-square"></i>Add
-											to wishlist</a></li>
-									<li><a href="#"><i class="fa fa-plus-square"></i>Add
-											to compare</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-					<!-- 네번째 상품 -->
-					<div class="col-xs-3">
-						<div class="product-image-wrapper">
-							<div class="single-products">
-								<div class="productinfo text-center">
-									<img src="../images/home/product/emulsion4.jpg" alt="" />
-									<h2>16,000원</h2>
-									<p>데일리 멀티 카밍 젤</p>
-									<a href="#" class="btn btn-default add-to-cart"><i
-										class="fa fa-shopping-cart"></i>Add to cart</a>
-								</div>
-							</div>
-							<div class="choose">
-								<ul class="nav nav-pills nav-justified">
-									<li><a href="#"><i class="fa fa-plus-square"></i>Add
-											to wishlist</a></li>
-									<li><a href="#"><i class="fa fa-plus-square"></i>Add
-											to compare</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>

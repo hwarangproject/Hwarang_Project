@@ -214,14 +214,16 @@ a {
 		<div class="row">
 			<div class="col-sm-12">
 				<ul class="card-list">
-
-					<li class="card"><a class="card-image" href="" target="_blank"
-						style="background-image: url();" data-image-full=""> <img
-							src="" alt="Psychopomp" />
-					</a> <a class="card-description" href="" target="_blank">
+					<li class="card">
+						<a class="card-image" href="../pouch/pouch_detail.hr" target="_blank" style="background-image: url();" data-image-full=""> 
+							<img src="" alt="Psychopomp" />
+						</a> 
+					
+						<a class="card-description" href="../pouch/pouch_detail.hr" target="_blank">
 							<h2>Psychopomp</h2>
 							<p>Japanese Breakfast</p>
-					</a></li>
+						</a>
+					</li>
 
 					<li class="card"><a class="card-image" href="" target="_blank"
 						style="background-image: url();" data-image-full=""> <img

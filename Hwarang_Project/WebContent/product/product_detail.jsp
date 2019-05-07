@@ -4,8 +4,39 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<!-- 템플릿 링크 -->
+	<!-- 반응형 제거 -->
+	<!-- col-sm ==> col-xm 으로 변경 -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="description" content="">
+    <meta name="author" content="">
     
 <title>HWARANG PROJECT</title>
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/font-awesome.min.css" rel="stylesheet">
+<link href="../css/prettyPhoto.css" rel="stylesheet">
+<link href="../css/price-range.css" rel="stylesheet">
+<link href="../css/animate.css" rel="stylesheet">
+<link href="../css/main.css" rel="stylesheet">
+<link href="../css/responsive.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->       
+<link rel="shortcut icon" href="images/ico/favicon.ico">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.scrollUp.min.js"></script>
+<script src="js/price-range.js"></script>
+<script src="js/jquery.prettyPhoto.js"></script>
+<script src="js/main.js"></script>
 
 <!-- 내가 설정한 스타일 -->
 <style type="text/css">
@@ -15,11 +46,31 @@ margin-top: 3px;
 }
 
 
+.carousel-inner {
+  	margin: 10px auto;
+  	width: 1200px;
+  	height: 400px;
+}
+
+#custom_slider {
+	bottom: 70px;
+}
+
+#logo {
+	width: 200px;
+	height: 45px;
+}
+
+#custom_pouch{
+	display: inline;
+}
+
+
 /* 평점 css*/
 .star-input>.input,
 .star-input>.input>label:hover,
 .star-input>.input>input:focus+label,
-.star-input>.input>input:checked+label{display: inline-block;vertical-align:middle;background:url('../images/product-details/grade_final.png')no-repeat;}
+.star-input>.input>input:checked+label{display: inline-block;vertical-align:middle;background:url('../images/product-details/grade_final_forlist.png')no-repeat;}
 .star-input{display:inline-block; white-space:nowrap;width:225px;height:40px;padding:25px;line-height:30px;}
 .star-input>.input{display:inline-block;width:250px;background-size:150px;height:28px;white-space:nowrap;overflow:hidden;position: relative;}
 .star-input>.input>input{position:absolute;width:1px;height:1px;opacity:0;}
@@ -41,11 +92,11 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 @import url(https://fonts.googleapis.com/css?family=Roboto:100,300,400);
 @import url(https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 
-/* body {
+body {
   font-family: 'Roboto', Helvetica;
   color: #737373;
   font-weight: 300;
-} */
+}
 
 #rate-title{
 margin-left: 1.2em;
@@ -159,7 +210,7 @@ margin-left: 1.2em;
 
 </head>
 <body>
-
+	
 <div class="container">
          <div class="row">
             <div class="col-sm-3">
@@ -300,30 +351,30 @@ margin-left: 1.2em;
                <div class="product-details"><!--product-details-->
                   <div class="col-sm-5">
                      <div class="view-product">
-                        <img src="../images/product-details/cos.jpg" alt="" />
+                       </a><img src=${vo.product_img } alt="" />
                      </div>
                      
 
                   </div>
                   <div class="col-sm-7">
                      <div class="product-information"><!--/product-information-->
-                        <img src="../images/product-details/new.jpg" class="newarrival" alt="" />
-                        <h2>상품명 : 리얼 아이 크림 포 페이스 30ml </h2>
-                        <p>브랜드명 : Channel</p>
+                        <img src="images/product-details/new.jpg" class="newarrival" alt="" />
+                        <h1>${vo.product_name} </h1>
+                        <p><img src="${vo.brand_img}" width=60 height=30> ${vo.brand }</p>
                         
                         <span>
-                           <span>가격: 50,000 원</span>
+                           <span>${vo.cap_col } / ${vo.price } 원</span>
                            <button type="button" class="btn btn-fefault cart">
                               <i class="fa fa-shopping-cart"></i>
                               Add to cart
                            </button>
                         </span>
-                        <p><b>카테고리:</b> SKIN</p>
-                        <p><b>유해성분:</b> Harmful</p>
-                        <p><b>판매처:</b> E-SHOPPER</p>
-                        <p><b>컬러/타입:</b> E-SHOPPER</p>
-                        <p><b>설명:</b> E-SHOPPER</p>
-                        <p><b>태그:</b> E-SHOPPER</p>
+                        <p><b>카테고리:</b> SKIN(변수없음)</p>
+                  <!--  <p><b>유해성분:</b> ${vo.harm_ingre }</p>   -->
+                        <p><b>판매처:</b> ${vo.sell_link }</p>
+                        <p><b>컬러/타입:</b> ${vo.cap_col}</p>
+                        <p><b>설명:</b> ${vo.description }</p>
+                        <p><b>태그:</b> ${vo.tag }</p>
                       </div>
                      </div>
                  </div>
@@ -335,7 +386,7 @@ margin-left: 1.2em;
   
     <div class="rating">
      
-      <span class="rating-num">4.0</span><br>
+      <span class="rating-num">${vo.score }</span><br>
         <div class="rating-stars">
         <span><i class="active icon-star"></i></span>
         <span><i class="active icon-star"></i></span>
@@ -352,8 +403,7 @@ margin-left: 1.2em;
     <div class="histo">
       <div class="five histo-rate">
         <span class="histo-star">
-          <i class="active icon-star"></i> 5 
-          </span>
+          <i class="active icon-star"></i> 5           </span>
         <span class="bar-block">
           <span id="bar-five" class="bar">
             <span>566,784</span>&nbsp;
@@ -363,8 +413,7 @@ margin-left: 1.2em;
       
       <div class="four histo-rate">
         <span class="histo-star">
-          <i class="active icon-star"></i> 4           
-          </span>
+          <i class="active icon-star"></i> 4           </span>
         <span class="bar-block">
           <span id="bar-four" class="bar">
             <span>171,298</span>&nbsp;
@@ -419,7 +468,7 @@ margin-left: 1.2em;
                            <div class="product-image-wrapper">
                               <div class="single-products">
                                  <div class="productinfo text-center">
-                                    <img src="../images/home/gallery1.jpg" alt="" />
+                                    <img src="images/home/gallery1.jpg" alt="" />
                                     <h2>$56</h2>
                                     <p>Easy Polo Black Edition</p>
                                     <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
@@ -431,7 +480,7 @@ margin-left: 1.2em;
                            <div class="product-image-wrapper">
                               <div class="single-products">
                                  <div class="productinfo text-center">
-                                    <img src="../images/home/gallery2.jpg" alt="" />
+                                    <img src="images/home/gallery2.jpg" alt="" />
                                     <h2>$56</h2>
                                     <p>Easy Polo Black Edition</p>
                                     <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
@@ -443,7 +492,7 @@ margin-left: 1.2em;
                            <div class="product-image-wrapper">
                               <div class="single-products">
                                  <div class="productinfo text-center">
-                                    <img src="../images/home/gallery3.jpg" alt="" />
+                                    <img src="images/home/gallery3.jpg" alt="" />
                                     <h2>$56</h2>
                                     <p>Easy Polo Black Edition</p>
                                     <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
@@ -455,7 +504,7 @@ margin-left: 1.2em;
                            <div class="product-image-wrapper">
                               <div class="single-products">
                                  <div class="productinfo text-center">
-                                    <img src="../images/home/gallery4.jpg" alt="" />
+                                    <img src="images/home/gallery4.jpg" alt="" />
                                     <h2>$56</h2>
                                     <p>Easy Polo Black Edition</p>
                                     <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
@@ -470,7 +519,7 @@ margin-left: 1.2em;
                            <div class="product-image-wrapper">
                               <div class="single-products">
                                  <div class="productinfo text-center">
-                                    <img src="../images/home/gallery1.jpg" alt="" />
+                                    <img src="images/home/gallery1.jpg" alt="" />
                                     <h2>$56</h2>
                                     <p>Easy Polo Black Edition</p>
                                     <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
@@ -482,7 +531,7 @@ margin-left: 1.2em;
                            <div class="product-image-wrapper">
                               <div class="single-products">
                                  <div class="productinfo text-center">
-                                    <img src="../images/home/gallery3.jpg" alt="" />
+                                    <img src="images/home/gallery3.jpg" alt="" />
                                     <h2>$56</h2>
                                     <p>Easy Polo Black Edition</p>
                                     <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
@@ -494,7 +543,7 @@ margin-left: 1.2em;
                            <div class="product-image-wrapper">
                               <div class="single-products">
                                  <div class="productinfo text-center">
-                                    <img src="../images/home/gallery2.jpg" alt="" />
+                                    <img src="images/home/gallery2.jpg" alt="" />
                                     <h2>$56</h2>
                                     <p>Easy Polo Black Edition</p>
                                     <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
@@ -506,7 +555,7 @@ margin-left: 1.2em;
                            <div class="product-image-wrapper">
                               <div class="single-products">
                                  <div class="productinfo text-center">
-                                    <img src="../images/home/gallery4.jpg" alt="" />
+                                    <img src="images/home/gallery4.jpg" alt="" />
                                     <h2>$56</h2>
                                     <p>Easy Polo Black Edition</p>
                                     <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
@@ -521,7 +570,7 @@ margin-left: 1.2em;
                            <div class="product-image-wrapper">
                               <div class="single-products">
                                  <div class="productinfo text-center">
-                                    <img src="../images/home/gallery1.jpg" alt="" />
+                                    <img src="images/home/gallery1.jpg" alt="" />
                                     <h2>$56</h2>
                                     <p>Easy Polo Black Edition</p>
                                     <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
@@ -533,7 +582,7 @@ margin-left: 1.2em;
                            <div class="product-image-wrapper">
                               <div class="single-products">
                                  <div class="productinfo text-center">
-                                    <img src="../images/home/gallery2.jpg" alt="" />
+                                    <img src="images/home/gallery2.jpg" alt="" />
                                     <h2>$56</h2>
                                     <p>Easy Polo Black Edition</p>
                                     <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
@@ -545,7 +594,7 @@ margin-left: 1.2em;
                            <div class="product-image-wrapper">
                               <div class="single-products">
                                  <div class="productinfo text-center">
-                                    <img src="../images/home/gallery3.jpg" alt="" />
+                                    <img src="images/home/gallery3.jpg" alt="" />
                                     <h2>$56</h2>
                                     <p>Easy Polo Black Edition</p>
                                     <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
@@ -557,7 +606,7 @@ margin-left: 1.2em;
                            <div class="product-image-wrapper">
                               <div class="single-products">
                                  <div class="productinfo text-center">
-                                    <img src="../images/home/gallery4.jpg" alt="" />
+                                    <img src="images/home/gallery4.jpg" alt="" />
                                     <h2>$56</h2>
                                     <p>Easy Polo Black Edition</p>
                                     <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
@@ -602,9 +651,9 @@ margin-left: 1.2em;
                                  <input type="text" placeholder="password"/>
                               </span>
                               <textarea name="" ></textarea>
+                              
                               <!-- 평점주기 -->
                             <span class="star-input">
-                             
 							  <span class="input">
     							<input type="radio" name="star-input" value="1" id="p1">
     							<label for="p1">1</label>
@@ -618,8 +667,6 @@ margin-left: 1.2em;
     							<label for="p5">5</label>
   							  </span>
   							  <!-- <output for="star-input"><b>0</b>점</output> -->
-  							 
-  							  
 							</span>
 							
                               <button type="button" class="btn btn-default pull-right">
@@ -643,7 +690,7 @@ margin-left: 1.2em;
 										<div class="product-image-wrapper">
 											<div class="single-products">
 												<div class="productinfo text-center">
-													<img src="../images/home/recommend1.jpg" alt="" />
+													<img src="images/home/recommend1.jpg" alt="" />
 													<h2>$56</h2>
 													<p>Easy Polo Black Edition</p>
 													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -656,7 +703,7 @@ margin-left: 1.2em;
 										<div class="product-image-wrapper">
 											<div class="single-products">
 												<div class="productinfo text-center">
-													<img src="../images/home/recommend2.jpg" alt="" />
+													<img src="images/home/recommend2.jpg" alt="" />
 													<h2>$56</h2>
 													<p>Easy Polo Black Edition</p>
 													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -669,7 +716,7 @@ margin-left: 1.2em;
 										<div class="product-image-wrapper">
 											<div class="single-products">
 												<div class="productinfo text-center">
-													<img src="../images/home/recommend3.jpg" alt="" />
+													<img src="images/home/recommend3.jpg" alt="" />
 													<h2>$56</h2>
 													<p>Easy Polo Black Edition</p>
 													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -684,7 +731,7 @@ margin-left: 1.2em;
 										<div class="product-image-wrapper">
 											<div class="single-products">
 												<div class="productinfo text-center">
-													<img src="../images/home/recommend1.jpg" alt="" />
+													<img src="images/home/recommend1.jpg" alt="" />
 													<h2>$56</h2>
 													<p>Easy Polo Black Edition</p>
 													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -697,7 +744,7 @@ margin-left: 1.2em;
 										<div class="product-image-wrapper">
 											<div class="single-products">
 												<div class="productinfo text-center">
-													<img src="../images/home/recommend2.jpg" alt="" />
+													<img src="images/home/recommend2.jpg" alt="" />
 													<h2>$56</h2>
 													<p>Easy Polo Black Edition</p>
 													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -710,7 +757,7 @@ margin-left: 1.2em;
 										<div class="product-image-wrapper">
 											<div class="single-products">
 												<div class="productinfo text-center">
-													<img src="../images/home/recommend3.jpg" alt="" />
+													<img src="images/home/recommend3.jpg" alt="" />
 													<h2>$56</h2>
 													<p>Easy Polo Black Edition</p>
 													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -736,5 +783,87 @@ margin-left: 1.2em;
       </div>
    </section>
 	
+	<footer id="footer"><!--Footer-->
+		<div class="footer-top">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-2">
+						<div class="companyinfo">
+							<h2><span>e</span>-shopper</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor</p>
+						</div>
+					</div>
+					<div class="col-xs-7">
+						<div class="col-xs-3">
+							<div class="video-gallery text-center">
+								<a href="#">
+									<div class="iframe-img">
+										<img src="images/home/iframe1.png" alt="" />
+									</div>
+									<div class="overlay-icon">
+										<i class="fa fa-play-circle-o"></i>
+									</div>
+								</a>
+								<p>Circle of Hands</p>
+								<h2>24 DEC 2014</h2>
+							</div>
+						</div>
+						
+						<div class="col-xs-3">
+							<div class="video-gallery text-center">
+								<a href="#">
+									<div class="iframe-img">
+										<img src="images/home/iframe2.png" alt="" />
+									</div>
+									<div class="overlay-icon">
+										<i class="fa fa-play-circle-o"></i>
+									</div>
+								</a>
+								<p>Circle of Hands</p>
+								<h2>24 DEC 2014</h2>
+							</div>
+						</div>
+						
+						<div class="col-xs-3">
+							<div class="video-gallery text-center">
+								<a href="#">
+									<div class="iframe-img">
+										<img src="images/home/iframe3.png" alt="" />
+									</div>
+									<div class="overlay-icon">
+										<i class="fa fa-play-circle-o"></i>
+									</div>
+								</a>
+								<p>Circle of Hands</p>
+								<h2>24 DEC 2014</h2>
+							</div>
+						</div>
+						
+						<div class="col-xs-3">
+							<div class="video-gallery text-center">
+								<a href="#">
+									<div class="iframe-img">
+										<img src="images/home/iframe4.png" alt="" />
+									</div>
+									<div class="overlay-icon">
+										<i class="fa fa-play-circle-o"></i>
+									</div>
+								</a>
+								<p>Circle of Hands</p>
+								<h2>24 DEC 2014</h2>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-3">
+						<div class="address">
+							<img src="images/home/map.png" alt="" />
+							<p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
 </body>
 </html>

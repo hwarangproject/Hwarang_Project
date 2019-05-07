@@ -6,41 +6,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>community</title>
 <link rel="stylesheet" href="css/bootstrap.css">
-<title>HWARANG PROJECT</title>
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/font-awesome.min.css" rel="stylesheet">
-<link href="css/prettyPhoto.css" rel="stylesheet">
-<link href="css/price-range.css" rel="stylesheet">
-<link href="css/animate.css" rel="stylesheet">
-<link href="css/main.css" rel="stylesheet">
-<link href="css/responsive.css" rel="stylesheet">
-
-<!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
-    <![endif]-->
-<link rel="shortcut icon" href="images/ico/favicon.ico">
-<link rel="apple-touch-icon-precomposed" sizes="144x144"
-	href="images/ico/apple-touch-icon-144-precomposed.png">
-<link rel="apple-touch-icon-precomposed" sizes="114x114"
-	href="images/ico/apple-touch-icon-114-precomposed.png">
-<link rel="apple-touch-icon-precomposed" sizes="72x72"
-	href="images/ico/apple-touch-icon-72-precomposed.png">
-<link rel="apple-touch-icon-precomposed"
-	href="images/ico/apple-touch-icon-57-precomposed.png">
-
-<script src="js/jquery.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.scrollUp.min.js"></script>
-<script src="js/price-range.js"></script>
-<script src="js/jquery.prettyPhoto.js"></script>
-<script src="js/main.js"></script>
-<script src="js/jquery-3.1.1.js"></script>
-<script src="js/bootstrap.js">
-
-</script>
-
-
 
 <!-- 내가 설정한 스타일 -->
 <style type="text/css">
@@ -301,25 +266,6 @@ width: 150px;
 #select{
 	width: 33.3%
 }
-<!--
-기본-->.carousel-inner {
-	margin: 10px auto;
-	width: 1200px;
-	height: 400px;
-}
-
-#custom_slider {
-	bottom: 70px;
-}
-
-#logo {
-	width: 200px;
-	height: 45px;
-}
-
-#custom_pouch {
-	display: inline;
-}
 
 #Search {
 	height: 70px;
@@ -345,10 +291,11 @@ width: 150px;
 
 
 </style>
-
-
 </head>
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of https://github.com/hwarangproject/Hwarang_Project.git
 <body>
 
 	<!-- 글쓰기폼 -->
@@ -392,6 +339,7 @@ width: 150px;
 			</form>
 		</div>
 	</div>
+<<<<<<< HEAD
 	<!-- <pre id="output"></pre>
 
 
@@ -399,6 +347,11 @@ width: 150px;
 
  <input name="image" type="file" id="upload" class="hidden" onchange=""> -->
 
+=======
+	
+	<script src="js/jquery-3.1.1.js"></script>
+	<script src="js/bootstrap.js"></script>
+>>>>>>> branch 'master' of https://github.com/hwarangproject/Hwarang_Project.git
 
 </body>
 </html>

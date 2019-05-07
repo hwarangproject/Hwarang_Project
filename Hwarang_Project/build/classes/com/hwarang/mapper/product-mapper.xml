@@ -1,7 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.sist.mapper.product-mapper">
+<mapper namespace="com.hwarang.mapper.product-mapper">
 	<select id="productListData" resultType="ProductVO">
-		SELECT * FROM product;
+	  SELECT * FROM product WHERE product_no BETWEEN 2 AND 5
 	</select>
+	
+	<select id="productDetailData" resultType="ProductVO" parameterType="int">
+  	  SELECT * FROM product WHERE product_no=#{pno}
+	</select>
+	
+	<!-- 카테고리 항목 전체목록 출력 -->
+	<select id="product_category" resultType="ProductVO" parameterType="java.util.Map">
+		SELECT * FROM product WHERE detcategory_no BETWEEN #{start} AND #{end}
+	</select>
+	
+	
+	<!-- 카테고리 항목 하나 출력-->
+	<select id="product_detail_category" resultType="ProductVO" parameterType="int">
+		SELECT * FROM product WHERE detcategory_no=#{dcno}
+	</select>
+	
+	<!-- 카테고리 리스트 출력 ex) 목록들 -->
+	<select id="detail_cate_list" resultType="DetailcateVO">
+		SELECT * FROM detailcate
+	</select>
+	
 </mapper>

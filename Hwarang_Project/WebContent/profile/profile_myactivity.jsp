@@ -9,11 +9,10 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>MyPage</title>
+<title>GitHub made with TailwindCSS</title>
 
 
 <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css'>
-
 <link rel="stylesheet" href="css/style.css">
 
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
@@ -209,27 +208,6 @@ input:focus, textarea:focus, keygen:focus, select:focus {
 	font-size: 14px;
 }
 
-.smalltri {
-	border-right: 40px solid #6AAFEA;
-	height: 0;
-	width: 0;
-	border-left: 20px solid transparent;
-	border-top: 10px solid #6AAFEA;
-	border-bottom: 20px solid transparent;
-	padding: 0px;
-	top: 0;
-	right: 0;
-	position: absolute;
-}
-
-.smalltri i {
-	position: absolute;
-	top: -5px;
-	right: -33px;
-	color: #fff;
-	border: 0px;
-	font-size: 12px;
-}
 
 section.section2 {
 	margin: 0px 0;
@@ -449,7 +427,7 @@ section.section2 {
 	background: #efefef;
 }
 
-.button {
+.button1 {
 	padding: 8px 12px;
 	font-size: 14px;
 	background: #ccc;
@@ -539,7 +517,8 @@ span {
 	background: hsla(0, 0%, 82%, 0.5);
 }
 
-.item {
+}
+.item2 {
 	width: 100px;
 	height: 100px;
 	display: inline-block;
@@ -561,8 +540,6 @@ span {
 
 
 </head>
-
-<body>
 <body class="font-sans">
 	<div>
 		<div class="flex -mx-4">
@@ -573,13 +550,14 @@ span {
 							<div>
 								<div class="row grid clearfix">
 									<div class="col2 first">
+									  <div class="col-sm-8">
 										<img
 											src="http://images.contactmusic.com/newsimages/david_beckham_1133321.jpg"
 											alt="">
 										<h1>사용자 이름</h1>
 										<h4>사용자 닉네임</h4>
 										<p>스킨 타입</p>
-										
+									  </div>
 									</div>
 									<div class="col2 last">
 										<div class="grid clearfix">
@@ -602,31 +580,30 @@ span {
 									<nav class='header-nav'>
 									  <ul>
 									    <li class='active'>
-									      <a href='#'>
+									      <a href='profile_myactivity.hr'>
 									        나의 활동
 									      </a>
 									    </li>
 									    <li>
-									      <a href='#'>
+									      <a href='profile_like.hr'>
 									        즐겨찾기
 									      </a>
 									    </li>
 									    <li>
-									      <a href='#'>
-									        장바구니
-									      </a>
-									    </li>
-									    <li>
-									      <a href='#'>
+									      <a href='profile_info.hr'>
 									        내 정보
 									      </a>
 									    </li>
+									    <li>
+									      <a href='../pouch/pouch_detail.hr'>
+									        MY POUCH
+									      </a>
+									    </li>									    
 									    <div class='marker'></div>
 									  </ul>
 									</nav>
 								</div>
-							</div>
-						
+							</div>						
 						</section>
 						<!-- ******메뉴 끝****** -->
 						
@@ -700,6 +677,9 @@ span {
 										<h3></h3>
 									</div>
 
+									<!-- <div class="col-sm-6">
+			    	
+			    </div> -->
 									<div class="flex items-center">
 										<div class="w-1/2 pt-6 pb-2 font-normal text-grey-darkest">
 											<h3>최근 본 상품</h3>
@@ -720,27 +700,27 @@ span {
 										<div class="recent_pro">
 											<div id="app">
 												<div class="flow" ref="flow">
-													<div v-for="tab of tabs" class="item"
+													<div v-for="tab of tabs" class="item2"
 														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"></div>
-													<div v-for="tab of tabs" class="item"
+													<div v-for="tab of tabs" class="item2"
 														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"></div>
-													<div v-for="tab of tabs" class="item"
+													<div v-for="tab of tabs" class="item2"
 														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"></div>
-													<div v-for="tab of tabs" class="item"
+													<div v-for="tab of tabs" class="item2"
 														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"></div>
-													<div v-for="tab of tabs" class="item"
+													<div v-for="tab of tabs" class="item2"
 														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"></div>
-													<div v-for="tab of tabs" class="item"
+													<div v-for="tab of tabs" class="item2"
 														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"></div>
-													<div v-for="tab of tabs" class="item"
+													<div v-for="tab of tabs" class="item2"
 														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"></div>
-													<div v-for="tab of tabs" class="item"
+													<div v-for="tab of tabs" class="item2"
 														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"></div>
-													<div v-for="tab of tabs" class="item"
+													<div v-for="tab of tabs" class="item2"
 														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"></div>
-													<div v-for="tab of tabs" class="item"
+													<div v-for="tab of tabs" class="item2"
 														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"></div>
-													<div v-for="tab of tabs" class="item"
+													<div v-for="tab of tabs" class="item2"
 														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"></div>
 												</div>
 											</div>
@@ -757,7 +737,7 @@ span {
 
 		</div>
 	</div>
-</body>
+	</div>
 </body>
 
 </html>

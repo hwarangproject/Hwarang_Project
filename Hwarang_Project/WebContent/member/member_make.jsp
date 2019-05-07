@@ -4,16 +4,45 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="">
+<meta name="author" content="">
 
 <title>HWARANG PROJECT</title>
 
-<!-- 회원 가입 -->
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/font-awesome.min.css" rel="stylesheet">
+<link href="../css/prettyPhoto.css" rel="stylesheet">
+<link href="../css/price-range.css" rel="stylesheet">
+<link href="../css/animate.css" rel="stylesheet">
+<link href="../css/main.css" rel="stylesheet">
+<link href="../css/responsive.css" rel="stylesheet">
 <link href="../css/profile-upload.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../shadow/css/shadowbox.css">
+
+<link rel="shortcut icon" href="images/ico/favicon.ico">
+<link rel="apple-touch-icon-precomposed" sizes="144x144"
+	href="images/ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114"
+	href="images/ico/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72"
+	href="images/ico/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed"
+	href="images/ico/apple-touch-icon-57-precomposed.png">
 
 <style type="text/css">
 *, *:before, *:after {
 	box-sizing: border-box;
 }
+
+
+body {
+	/* padding: 1em; */
+	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 15px;
+	color: #b9b9b9;
+	/*background-color: #e3e3e3;*/
+}
+
 
 h4 {
 	color: #d321ab63;
@@ -281,6 +310,10 @@ select option {
 	}
 }
 
+#logo {
+	width: 200px;
+	height: 45px;
+}
 
 #label_icon {
 	line-height: 3.5;
@@ -302,15 +335,57 @@ select option {
 	margin: 0px 10px 0px 0px;
 }
 
+#search_address,#sample4_postcode
+{
+   width:100px;
+   padding:1em;
+   margin : 0em 0em 1em;
+}
+#sample4_roadAddress
+{
+   width:200px;
+   padding:1em;
+   margin : 0em 0em 1em;
+}
+#sample4_detailAddress
+{
+   width:400px;
+   padding:1em;
+   margin : 0em 0em 1em;
+}
 
 }
 </style>
 
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript" src="../shadow/js/shadowbox.js"></script>
+<script type="text/javascript">
+Shadowbox.init({	
+	players:["iframe"]
+});
+
+
+function skin_test()
+{
+	Shadowbox.open({
+		content:'../Hwarang/skin_test.hr',
+		player:'iframe',
+		title:'Skin Test',
+		width:700
+	});
+}
+
+
+
+</script>
+
 </head>
 <body>
+	
+
 	<!-- 회원가입  -->
 	<div class="container2">
-		<form>
+		<form method="post" action="../member/member_make.hr">
 			<h5>회원가입</h5>
 			<div class="row">
 				<h4>Account</h4>
@@ -323,57 +398,71 @@ select option {
 						<i class="fa fa-camera"></i>
 					</div>
 					<div class="input-group input-group-icon">
-						<input type="text" placeholder="ID" />
+						<input type="text" name = "id" placeholder="ID" />
 						<div class="input-icon">
 							<i class="fa fa-user" id="label_icon"></i>
 						</div>
 					</div>
 									
 					<div class="input-group input-group-icon">
-						<input type="text" placeholder="Name" />
+						<input type="text" name="name" placeholder="Name" />
 						<div class="input-icon">
 							<i class="fa fa-user" id="label_icon"></i>
 						</div>
 					</div>
 					<div class="input-group input-group-icon">
-						<input type="text" placeholder="NickName" />
+						<input type="text" name="nickname" placeholder="NickName" />
 						<div class="input-icon">
 							<i class="fa fa-user" id="label_icon"></i>
 						</div>
 					</div>
 					<div class="input-group input-group-icon">
-						<input type="email" placeholder="Email Adress" />
+						<input type="email" name="email" placeholder="Email Adress" />
 						<div class="input-icon">
 							<i class="fa fa-envelope" id="label_icon"></i>
 						</div>
 					</div>
 					<div class="input-group input-group-icon">
-						<input type="password" placeholder="Password" />
+						<input type="password" name="password" placeholder="Password" />
 						<div class="input-icon">
 							<i class="fa fa-key" id="label_icon"></i>
 						</div>
 					</div>
-					<div class="input-group input-group-icon">
+					<!-- <div class="input-group input-group-icon">
 						<input type="email" placeholder="Adress"
 							id="input-group-icon_address" />
 						<div class="input-icon">
 							<i class="fa fa-user" id="label_icon"></i>
 						</div>
-					</div>
-				
+					</div> -->
+					
+					<div class="input-group input-group-icon" id = "address">
+               <input type="text" id="sample4_postcode" placeholder="우편번호">&nbsp;&nbsp;&nbsp;
+               <input type="button" onclick="sample4_execDaumPostcode()"
+                  value="찾기" id= "search_address" ><br>
+                   <input type="text"   id="sample4_roadAddress" placeholder="도로명주소">
+               <span id="guide" style="color: #999; display: none"></span>
+               &nbsp;&nbsp;&nbsp;
+               <input
+                  type="text" id="sample4_detailAddress" name="address" placeholder="상세주소" width ="100%">
+               <!-- <div class="input-icon">
+                  <i class="fa fa-user" id="label_icon"></i>
+               </div> -->
+            </div>
+		
 			</div>
 			<div class="row">
 				<div class="col-half">
 					<h4>Date of Birth</h4>
 					<div class="input-group">
 						<div class="col-third">
-							<input type="text" placeholder="YYYY" />
+							<input type="text" name="yyyy" placeholder="YYYY" />
 						</div>
 						<div class="col-third">
-							<input type="text" placeholder="MM" />
+							<input type="text" name="mm" placeholder="MM" />
 						</div>
 						<div class="col-third">
-							<input type="text" placeholder="DD" />
+							<input type="text" name = "dd" placeholder="DD" />
 						</div>
 					</div>
 				</div>
@@ -410,8 +499,8 @@ select option {
 			</div>
 			<div class="row">
 				<h4>선호브랜드</h4>
-				<div class="input-group">
-					<select>
+				<div class="input-group" >
+					<select name="brand_like">
 						<option>샤넬</option>
 						<option>미샤</option>
 					</select>
@@ -439,8 +528,8 @@ select option {
 							for="skin_type4">민감성</label>
 					</div>
 					<div class="col-fifth">
-						<input type="radio" name="skin_type" id="skin_type5" /> <label
-							for="skin_type5">모르겠음</label>
+						<input type="radio" name="skin_type" id="skin_type5" onclick="skin_test()"/> <label
+							for="skin_type5">알아보기</label>
 					</div>
 				</div>
 			</div>
@@ -461,11 +550,91 @@ select option {
 						value="취소">
 				</div>
 			</div>
+			
 		</form>
 	</div>
 
-	<script src="../js/profile_upload.js"></script>
+
+	
+	<script src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/jquery.scrollUp.min.js"></script>
+	<script src="../js/price-range.js"></script>
+	<script src="../js/jquery.prettyPhoto.js"></script>
+	<script src="../js/main.js"></script>
+	<script  src="../js/profile_upload.js"></script>
+
+
 	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+	
+	
+	
+	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+   <script>
+      //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
+      function sample4_execDaumPostcode() {
+         new daum.Postcode(
+               {
+                  oncomplete : function(data) {
+                     // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+                     // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
+                     // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                     var roadAddr = data.roadAddress; // 도로명 주소 변수
+                     var extraRoadAddr = ''; // 참고 항목 변수
+
+                     // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                     // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                     if (data.bname !== ''
+                           && /[동|로|가]$/g.test(data.bname)) {
+                        extraRoadAddr += data.bname;
+                     }
+                     // 건물명이 있고, 공동주택일 경우 추가한다.
+                     if (data.buildingName !== ''
+                           && data.apartment === 'Y') {
+                        extraRoadAddr += (extraRoadAddr !== '' ? ', '
+                              + data.buildingName : data.buildingName);
+                     }
+                     // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                     if (extraRoadAddr !== '') {
+                        extraRoadAddr = ' (' + extraRoadAddr + ')';
+                     }
+
+                     // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                     document.getElementById('sample4_postcode').value = data.zonecode;
+                     document.getElementById("sample4_roadAddress").value = roadAddr;
+                     document.getElementById("sample4_jibunAddress").value = data.jibunAddress;
+
+                     // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
+                     if (roadAddr !== '') {
+                        document.getElementById("sample4_extraAddress").value = extraRoadAddr;
+                     } else {
+                        document.getElementById("sample4_extraAddress").value = '';
+                     }
+
+                     var guideTextBox = document.getElementById("guide");
+                     // 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
+                     if (data.autoRoadAddress) {
+                        var expRoadAddr = data.autoRoadAddress
+                              + extraRoadAddr;
+                        guideTextBox.innerHTML = '(예상 도로명 주소 : '
+                              + expRoadAddr + ')';
+                        guideTextBox.style.display = 'block';
+
+                     } else if (data.autoJibunAddress) {
+                        var expJibunAddr = data.autoJibunAddress;
+                        guideTextBox.innerHTML = '(예상 지번 주소 : '
+                              + expJibunAddr + ')';
+                        guideTextBox.style.display = 'block';
+                     } else {
+                        guideTextBox.innerHTML = '';
+                        guideTextBox.style.display = 'none';
+                     }
+                  }
+               }).open();
+      }
+   </script>
+	
 	
 </body>
 </html>

@@ -14,6 +14,7 @@ public class PouchVO {
 	private int pouch_reply_no;
 	private String pouch_reply;
 	private int member_no;
+	
 	public int getPouch_no() {
 		return pouch_no;
 	}

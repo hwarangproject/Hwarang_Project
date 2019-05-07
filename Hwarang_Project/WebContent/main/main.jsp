@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -28,10 +29,6 @@
 <!-- 뉴스 -->
 <link href="../css/news_style.css" rel="stylesheet">
 
-<!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
-    <![endif]-->
 <link rel="shortcut icon" href="images/ico/favicon.ico">
 <link rel="apple-touch-icon-precomposed" sizes="144x144"
 	href="images/ico/apple-touch-icon-144-precomposed.png">
@@ -91,7 +88,16 @@
 									Join
 								</a>
 							</li>
-							<li><a href="../login/login.hr"><i class="fa fa-lock"></i> Login</a></li>
+							
+							<c:if test="${sessionScope.id==null }">
+								<li><a href="../login/login.hr"><i class="fa fa-lock"></i>
+										Login</a></li>
+							</c:if>
+							<c:if test="${sessionScope.id!=null }">
+								<li><a href="../login/logout.hr"><i class="fa fa-lock"></i>
+										Logout</a></li>
+							</c:if>
+						
 						</ul>
 					</div>
 				</div>
@@ -166,80 +172,13 @@
 	<div class="footer-top">
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-2">
+				<div class="col-xs-12">
 					<div class="companyinfo">
 						<h2>
 							<span>H</span>warang
+							<br>
+							<font color="white">김기태, 박귀남, 이인혁, 윤다인, 정지수, 오유정, 최정혜</font>
 						</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-							elit,sed do eiusmod tempor</p>
-					</div>
-				</div>
-				<div class="col-xs-7">
-					<div class="col-xs-3">
-						<div class="video-gallery text-center">
-							<a href="#">
-								<div class="iframe-img">
-									<img src="../images/home/iframe1.png" alt="" />
-								</div>
-								<div class="overlay-icon">
-									<i class="fa fa-play-circle-o"></i>
-								</div>
-							</a>
-							<p>Circle of Hands</p>
-							<h2>24 DEC 2014</h2>
-						</div>
-					</div>
-
-					<div class="col-xs-3">
-						<div class="video-gallery text-center">
-							<a href="#">
-								<div class="iframe-img">
-									<img src="../images/home/iframe2.png" alt="" />
-								</div>
-								<div class="overlay-icon">
-									<i class="fa fa-play-circle-o"></i>
-								</div>
-							</a>
-							<p>Circle of Hands</p>
-							<h2>24 DEC 2014</h2>
-						</div>
-					</div>
-
-					<div class="col-xs-3">
-						<div class="video-gallery text-center">
-							<a href="#">
-								<div class="iframe-img">
-									<img src="../images/home/iframe3.png" alt="" />
-								</div>
-								<div class="overlay-icon">
-									<i class="fa fa-play-circle-o"></i>
-								</div>
-							</a>
-							<p>Circle of Hands</p>
-							<h2>24 DEC 2014</h2>
-						</div>
-					</div>
-
-					<div class="col-xs-3">
-						<div class="video-gallery text-center">
-							<a href="#">
-								<div class="iframe-img">
-									<img src="../images/home/iframe4.png" alt="" />
-								</div>
-								<div class="overlay-icon">
-									<i class="fa fa-play-circle-o"></i>
-								</div>
-							</a>
-							<p>Circle of Hands</p>
-							<h2>24 DEC 2014</h2>
-						</div>
-					</div>
-				</div>
-				<div class="col-xs-3">
-					<div class="address">
-						<img src="../images/home/map.png" alt="" />
-						<p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
 					</div>
 				</div>
 			</div>
@@ -249,54 +188,27 @@
 	<div class="footer-widget">
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-2">
+				<div class="col-xs-3">
 					<div class="single-widget">
 						<h2>Service</h2>
 						<ul class="nav nav-pills nav-stacked">
-							<li><a href="#">Online Help</a></li>
-							<li><a href="#">Contact Us</a></li>
-							<li><a href="#">Order Status</a></li>
-							<li><a href="#">Change Location</a></li>
-							<li><a href="#">FAQ’s</a></li>
+							<li><a href="#">공지사항</a></li>
+							<li><a href="#">QnA</a></li>
 						</ul>
 					</div>
 				</div>
-				<div class="col-xs-2">
+				<div class="col-xs-3">
 					<div class="single-widget">
-						<h2>Quock Shop</h2>
+						<h2>Shop</h2>
 						<ul class="nav nav-pills nav-stacked">
-							<li><a href="#">T-Shirt</a></li>
-							<li><a href="#">Mens</a></li>
-							<li><a href="#">Womens</a></li>
-							<li><a href="#">Gift Cards</a></li>
-							<li><a href="#">Shoes</a></li>
+							<li><a href="#">상품별</a></li>
+							<li><a href="#">연령별</a></li>
+							<li><a href="#">평점별</a></li>
+							<li><a href="#">브랜드</a></li>
 						</ul>
 					</div>
 				</div>
-				<div class="col-xs-2">
-					<div class="single-widget">
-						<h2>Policies</h2>
-						<ul class="nav nav-pills nav-stacked">
-							<li><a href="#">Terms of Use</a></li>
-							<li><a href="#">Privecy Policy</a></li>
-							<li><a href="#">Refund Policy</a></li>
-							<li><a href="#">Billing System</a></li>
-							<li><a href="#">Ticket System</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-xs-2">
-					<div class="single-widget">
-						<h2>About Shopper</h2>
-						<ul class="nav nav-pills nav-stacked">
-							<li><a href="#">Company Information</a></li>
-							<li><a href="#">Careers</a></li>
-							<li><a href="#">Store Location</a></li>
-							<li><a href="#">Affillate Program</a></li>
-							<li><a href="#">Copyright</a></li>
-						</ul>
-					</div>
-				</div>
+		
 				<div class="col-xs-3 col-xs-offset-1">
 					<div class="single-widget">
 						<h2>About Shopper</h2>
@@ -321,11 +233,14 @@
 	<div class="footer-bottom">
 		<div class="container">
 			<div class="row">
-				<p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights
-					reserved.</p>
+				<p class="pull-left">
+					Hwarang
+				</p>
 				<p class="pull-right">
-					Designed by <span><a target="_blank"
-						href="http://www.themeum.com">Themeum</a></span>
+					Designed by -
+					<span>
+						Sist C Class - Hwarang Team
+					</span>
 				</p>
 			</div>
 		</div>
