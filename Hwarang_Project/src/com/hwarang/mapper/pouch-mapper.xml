@@ -9,5 +9,22 @@
   	  SELECT * FROM pouch WHERE pouch_no=#{pouch_no}
 	</select>
 	
+	<insert id="pouchInsertReply" >
+	  <selectKey keyProperty="pouch_reply_no" resultType="int" order="BEFORE">
+			SELECT NVL(MAX(pouch_reply_no)+1,1) as pouch_reply_no FROM pouch_reply
+		</selectKey>
+		INSERT INTO pouch_reply
+		VALUES(#{pouch_reply_no},#{pouch_no},#{content},SYSDATE,#{member_no})
+	</insert>
 	
+	<!--  <insert id="boardInsert" parameterType="BoardVO">
+		자동 증가번ㄶ호
+		<selectKey keyProperty="no" resultType="int" order="BEFORE">
+			SELECT NVL(MAX(no)+1,1) as no FROM databoard
+			rs.getInt(1) rs.getInt("no")
+		</selectKey>
+		INSERT INTO databoard
+		VALUES(#{no},#{name},#{subject},#{content},#{pwd},SYSDATE,0,#{filename},#{filesize})
+	</insert> -->
+	 
 </mapper>
