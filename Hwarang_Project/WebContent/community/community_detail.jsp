@@ -41,6 +41,8 @@
 
 <!-- 내가 설정한 스타일 -->
 <style type="text/css">
+
+
 #navBtn {
 	position: relative; //
 	display: block;
@@ -74,7 +76,7 @@
 .fill:before {
 	content: "";
 	position: absolute;
-	background: #383736;
+	background: #ffd1dc;
 	bottom: 0;
 	left: 0;
 	right: 0;
@@ -332,7 +334,6 @@ width:1150px;
 
 </head>
 
-
 <body>
 
 
@@ -342,10 +343,9 @@ width:1150px;
 			<table rules="none" style="width: 100%;">
 				<tr style="width: 100%;">
 					<td style="width: 25%;"><button class="fill" width=25%
-							id="navBtn">문의사항</button></td>
-					<td style="width: 25%;"><button class="fill" id="navBtn">화장법</button></td>
-					<td style="width: 25%;"><button class="fill" id="navBtn">화장품
-							추천</button></td>
+							id="navBtn">공지사항</button></td>
+					<td style="width: 25%;"><button class="fill" id="navBtn">FAQ</button></td>
+					<td style="width: 25%;"><button class="fill" id="navBtn">이벤트</button></td>
 					<td style="width: 25%;"><button class="fill" id="navBtn">기타</button></td>
 				</tr>
 			</table>
@@ -371,154 +371,46 @@ width:1150px;
 
 	<div class="container">
 		<div class="row">
-			<h3 class="text-center"></h3>
-			<table class="table table-hover" rules="none">
-
-				<thead>
-					<tr>
-						<th>번호</th>
-						<th>제목</th>
-						<th>작성자</th>
-						<th>날짜</th>
-						<th>조회수</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>1</td>
-						<td>기초 세안법</td>
-						<td>관리자</td>
-						<td>2019.04.18</td>
-						<td>0</td>
-					</tr>
-
-					<tr>
-						<td>2</td>
-						<td>기초 세안법</td>
-						<td>관리자</td>
-						<td>2019.04.18</td>
-						<td>0</td>
-					</tr>
-
-					<tr>
-						<td>3</td>
-						<td>기초 세안법</td>
-						<td>관리자</td>
-						<td>2019.04.18</td>
-						<td>0</td>
-					</tr>
-
-					<tr>
-						<td>4</td>
-						<td>기초 세안법</td>
-						<td>관리자</td>
-						<td>2019.04.18</td>
-						<td>0</td>
-					</tr>
-
-					<tr>
-						<td>5</td>
-						<td>기초 세안법</td>
-						<td>관리자</td>
-						<td>2019.04.18</td>
-						<td>0</td>
-					</tr>
-
-					<tr>
-						<td>6</td>
-						<td>기초 세안법</td>
-						<td>관리자</td>
-						<td>2019.04.18</td>
-						<td>0</td>
-					</tr>
-
-					<tr>
-						<td>7</td>
-						<td>기초 세안법</td>
-						<td>관리자</td>
-						<td>2019.04.18</td>
-						<td>0</td>
-					</tr>
-
-					<tr>
-						<td>8</td>
-						<td>기초 세안법</td>
-						<td>관리자</td>
-						<td>2019.04.18</td>
-						<td>0</td>
-					</tr>
-
-					<tr>
-						<td>9</td>
-						<td>기초 세안법</td>
-						<td>관리자</td>
-						<td>2019.04.18</td>
-						<td>0</td>
-					</tr>
-
-					<tr>
-						<td>10</td>
-						<td>기초 세안법</td>
-						<td>관리자</td>
-						<td>2019.04.18</td>
-						<td>0</td>
-					</tr>
-
-
-
-				</tbody>
-			</table>
-			
-			
-			
-<hr ></hr>
+			<h2>#</h2>
+			<table class="table table-hover">
 				<tr>
-					<td class="text-right"><a href="community_insert.jsp" class="btn btn-default pull-right">글쓰기</a>
-					</td>
+					<th width=20% class="text-center ">번호</th>
+					<td width=30% class="text-center"></td>
+					<th width=20% class="text-center ">작성일</th>
+					<td width=30% class="text-center"></td>
 				</tr>
-		
-		
-			<form name="mysearchbar" action="/search" method="get" id="fsearch">
-				<div class="input-group" id="dsearch">
-					<input name="q" type="text" class="form-control" placeholder="검색어 입력"/>
-					<div class="input-group-addon">
-						<span class="glyphicon glyphicon-search"
-							onclick="document.mysearchbar.submit()"></span>
-					</div>
-				</div>
-			</form>
-			
-			<br />
-	
-
-			<!-- <table class="table" rules="none">
-
-			
-
 				<tr>
-					<td class="text-right"><a class="btn btn-default pull-right">글쓰기</a>
-					</td>
+					<th width=20% class="text-center">이름</th>
+					<td width=30% class="text-center"></td>
+					<th width=20% class="text-center">조회수</th>
+					<td width=30% class="text-center"></td>
 				</tr>
-			</table> -->
-			
 
-			<table class="table" rules="none" id="tbutton">
 				<tr>
-					<td class="text-center">
-						<ul class="pagination">
-							<li><a href="#">1</a></li>
-							<li><a href="#">2</a></li>
-							<li><a href="#">3</a></li>
-							<li><a href="#">4</a></li>
-							<li><a href="#">5</a></li>
-						</ul>
+					<th width=20% class="text-center">제목</th>
+					<td colspan="3" class="text-left"></td>
+				</tr>
+
+		
+
+				<tr>
+					<td colspan="4" class="text-left" valign="top" height="200">
 					</td>
-				<tr>
-			</table>
 
+				</tr>
+			</table>
+			<table class="table">
+     	<tr>
+     		<td class="text-right">
+     			
+     			<a href="#" class="btn btn-default">목록</a>
+     		</td>
+     	</tr>
+     </table>
 		</div>
 	</div>
 
-	
+
+
 </body>
 </html>
