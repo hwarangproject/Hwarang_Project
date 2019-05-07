@@ -17,7 +17,7 @@
 <link href="../css/main.css" rel="stylesheet">
 <link href="../css/responsive.css" rel="stylesheet">
 <link href="../css/profile-upload.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="../shadow/css/shadowbox.css">
+
 
 <link rel="shortcut icon" href="images/ico/favicon.ico">
 <link rel="apple-touch-icon-precomposed" sizes="144x144"
@@ -356,7 +356,7 @@ select option {
 
 }
 </style>
-
+<link rel="stylesheet" type="text/css" href="../shadow/css/shadowbox.css">
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript" src="../shadow/js/shadowbox.js"></script>
 <script type="text/javascript">
@@ -375,8 +375,18 @@ function skin_test()
 	});
 }
 
-
-
+function idcheck()
+{
+	Shadowbox.open({
+		content:'../member/idcheck.hr',
+		player:'iframe',
+		title:'아이디중복체크',
+		width:350,
+		height:250
+	}); 
+	
+	
+}
 </script>
 
 </head>
@@ -384,8 +394,8 @@ function skin_test()
 	
 
 	<!-- 회원가입  -->
-	<div class="container2">
-		<form method="post" action="../member/member_make.hr">
+	<div class="container2"> 
+		<form method="post" action="../member/member_make_ok.hr" name="joinFrm">
 			<h5>회원가입</h5>
 			<div class="row">
 				<h4>Account</h4>
@@ -398,11 +408,15 @@ function skin_test()
 						<i class="fa fa-camera"></i>
 					</div>
 					<div class="input-group input-group-icon">
-						<input type="text" name = "id" placeholder="ID" />
+						<input type="text" name = "id" placeholder="ID" readonly onclick="idcheck()">
 						<div class="input-icon">
 							<i class="fa fa-user" id="label_icon"></i>
 						</div>
+						
+						
 					</div>
+					
+					
 									
 					<div class="input-group input-group-icon">
 						<input type="text" name="name" placeholder="Name" />
@@ -482,7 +496,7 @@ function skin_test()
 
 				</div>
 			</div>
-			<div class="row">
+			<!-- <div class="row">
 				<div class="col-half">
 					<h4>Baby (Y,N)</h4>
 					<div class="input-group">
@@ -496,7 +510,7 @@ function skin_test()
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 			<div class="row">
 				<h4>선호브랜드</h4>
 				<div class="input-group" >
@@ -512,19 +526,19 @@ function skin_test()
 				<h4>Skin Type</h4>
 				<div class="input-group2">
 					<div class="col-fifth">
-						<input type="radio" name="skin_type" id="skin_type1" /> <label
+						<input type="radio" name="skin_type" id="skin_type1"  value="건성"/> <label
 							for="skin_type1">건성</label>
 					</div>
 					<div class="col-fifth">
-						<input type="radio" name="skin_type" id="skin_type2" /> <label
+						<input type="radio" name="skin_type" id="skin_type2" value="지성"/> <label
 							for="skin_type2">지성</label>
 					</div>
 					<div class="col-fifth">
-						<input type="radio" name="skin_type" id="skin_type3" /> <label
+						<input type="radio" name="skin_type" id="skin_type3" value="지복합성"/> <label
 							for="skin_type3">지복합성</label>
 					</div>
 					<div class="col-fifth">
-						<input type="radio" name="skin_type" id="skin_type4" /> <label
+						<input type="radio" name="skin_type" id="skin_type4" value="민강성"/> <label
 							for="skin_type4">민감성</label>
 					</div>
 					<div class="col-fifth">
@@ -546,8 +560,8 @@ function skin_test()
 			<div class="row">
 
 				<div class="col-harf text-center">
-					<input type="submit" value="가입"> <input type="button"
-						value="취소">
+					<input type="submit" value="가입">
+					<input type="button"	value="취소">
 				</div>
 			</div>
 			
