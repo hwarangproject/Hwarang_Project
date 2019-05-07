@@ -268,7 +268,7 @@ img {
 	white-space: nowrap;
 	width: 225px;
 	height: 40px;
-	padding: 25px;
+	padding: 0px;
 	line-height: 30px;
 }
 
@@ -473,6 +473,20 @@ body {
 	border-bottom: 0.1px solid #B6B6B4;
 	margin-top: 3px;
 }
+
+#r_content {
+	background: #F0F0E9;
+	border: medium none;
+	color: #A6A6A1;
+	height: 195px;
+	margin-bottom: 0px;
+	margin-top: 15px;
+	outline: medium none;
+	padding-left: 10px;
+	padding-top: 15px;
+	resize: none;
+	width: 99.5%;
+}
 </style>
 
 </head>
@@ -496,7 +510,8 @@ body {
 												<li><a href="">성별:여자 / 피부타입:건성 / 연령대:20대 / 별점:3</a></li>
 											</ul>
 											<tr>
-												<td>파우치소개</td>
+												<td>자기소개자기소개자기소개자기소개자기소개자기소개자기소개자기소개자기소개자기소개
+													자기소개자기소개자기소개자기소개자기소개자기소개자기소개자기소개자기소개자기소개</td>
 											</tr>
 										</div>
 									</div>
@@ -856,35 +871,6 @@ body {
 					<div class="tab-pane fade active in" id="reviews">
 						<table>
 							<div class="col-sm-12">
-								<p>
-									<b>Write Your Review</b>
-								</p>
-								<form action="#">
-									<span> <input type="text" placeholder="Your Name" /> <input
-										type="password" placeholder="password" />
-									</span>
-									<textarea name=""></textarea>
-
-									<!-- 평점주기 -->
-									<div class="row">
-										<span class="star-input"> <span class="input"> <input
-												type="radio" name="star-input" value="1" id="p1"> <label
-												for="p1">1</label> <input type="radio" name="star-input"
-												value="2" id="p2"> <label for="p2">2</label> <input
-												type="radio" name="star-input" value="3" id="p3"> <label
-												for="p3">3</label> <input type="radio" name="star-input"
-												value="4" id="p4"> <label for="p4">4</label> <input
-												type="radio" name="star-input" value="5" id="p5"> <label
-												for="p5">5</label>
-										</span> <!-- <output for="star-input"><b>0</b>점</output> -->
-										</span>
-									</div>
-									<button type="button" class="btn btn-default pull-right">
-										Submit</button>
-								</form>
-							</div>
-
-							<div class="col-sm-12">
 								<div class="a">
 									<ul>
 										<li><a href=""><img
@@ -913,7 +899,35 @@ body {
 							</div>
 
 
+							<div class="col-sm-12">
+								<p>
+									<b>Write Your Review</b>
+								</p>
+								<form action="#">
+									<span> <input type="text" placeholder="Your Name" /> <input
+										type="password" placeholder="password" />
+									</span>
+									<textarea name="" id="r_content"></textarea>
 
+									<!-- 평점주기 -->
+									<div>
+									<span class="star-input"> <span class="input"> <input
+											type="radio" name="star-input" value="1" id="p1"> <label
+											for="p1">1</label> <input type="radio" name="star-input"
+											value="2" id="p2"> <label for="p2">2</label> <input
+											type="radio" name="star-input" value="3" id="p3"> <label
+											for="p3">3</label> <input type="radio" name="star-input"
+											value="4" id="p4"> <label for="p4">4</label> <input
+											type="radio" name="star-input" value="5" id="p5"> <label
+											for="p5">5</label>
+									</span> <!-- <output for="star-input"><b>0</b>점</output> -->
+									</span>
+
+									<button type="button" class="btn btn-default pull-right">
+										Submit</button>
+										</div>
+								</form>
+							</div>
 						</table>
 					</div>
 
