@@ -190,32 +190,7 @@ input:focus, textarea:focus, keygen:focus, select:focus {
 	border-right: 0;
 }
 
-.row2tab li {
-	list-style: none;
-	float: left;
-	width: 25%;
-	padding: 15px;
-	font-size: 14px;
-	text-align: center;
-	cursor: pointer;
-	background: #f1f1f1;
-	color: #555;
-	border-bottom: 2px solid #f1f1f1;
-}
 
-.row2tab li:first-child {
-	border-bottom: 2px solid #6AAFEA;
-	border-radius: 0 0 2px 2px;
-}
-
-.row2tab li:first-child {
-	color: #6AAFEA;
-}
-
-.row2tab li i {
-	margin-right: 3px;
-	font-size: 14px;
-}
 
 .smalltri {
 	border-right: 40px solid #6AAFEA;
@@ -320,10 +295,6 @@ section.section2 {
 		float: none !important;
 		margin-bottom: 10px;
 	}
-	.row2tab li {
-		width: 50%;
-		text-align: left;
-	}
 	.section1 .col2.first {
 		text-align: center;
 	}
@@ -344,10 +315,6 @@ section.section2 {
 	/* .container {
     padding: 60px 5px 70px;
 } */
-	.row2tab li {
-		width: 100%;
-		text-align: left;
-	}
 	.section1 .col2.last .col3 span {
 		font-size: 10px;
 	}
@@ -487,6 +454,132 @@ label[for="new-task"] {
   
   /* title */
 
+/* 별점 */
+.star-rating {
+	background:url('../images/ranking/grade_final_forlist.png') repeat-x;
+	width:104px; 
+	height:20px; 
+	display:block; 
+	margin-top:0px;
+	margin-left:75px;
+	margin-bottom:15px;
+	position:relative;
+	overflow:hidden;
+}
+.star-rating-percentage {
+	background:url(../images/ranking/grade_final_forlist.png)  repeat-x;
+	background-position: 0 100%;
+	position: relative;
+	width:104px; 
+	height:20px; 
+	display:block;
+
+}
+
+/*  파우치 즐겨찾기  */
+.app-container,
+.profile,
+.app-tabs,
+.app-tabs__item {
+  display: flex;
+}
+
+.app-container {
+  border-radius: 5px;
+  background: #fff;
+  border-color: #f7f7f5;
+}
+
+.app-content {
+  padding: 40px 100px;
+  max-width: 1500px;
+  width: 1200px;
+}
+.app-content__title {
+  position: relative;
+  font-size: 12px;
+  color: #F14C36;
+  text-transform: uppercase;
+  margin: 25px 0;
+}
+.app-content__title::after {
+  position: absolute;
+  content: " ";
+  width: 900px;
+  height: 1px;
+  background: #f5f5f5;
+  right: 0;
+  top: 6px;
+}
+
+.friends-container {
+  /* overflow-y: auto; */
+  overflow-x: hidden;
+  height: 320px;
+}
+.friends-container::-webkit-scrollbar {
+  width: 4px;
+}
+.friends-container::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #FC4236;
+}
+.friends-container::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: #EBEBEB;
+}
+
+.profile {
+  position: relative;
+  align-items: center;
+  margin-right: 20px;
+}
+.profile--padding {
+  padding-bottom: 20px;
+}
+.profile__img {
+  position: relative;
+  margin-right: 20px;
+}
+.profile__img__online, .profile__img__offline {
+  position: absolute;
+  height: 17px;
+  width: 17px;
+  background: #D4F618;
+  border-radius: 100%;
+  bottom: 15px;
+  right: 0;
+}
+.profile__img__offline {
+  background: #F14C36;
+}
+.profile__img img {
+  border-radius: 100%;
+  width: 90px;
+  heigth: 90px;
+}
+.profile__options {
+  position: absolute;
+  right: 0;
+  top: 20px;
+}
+.profile__info {
+  padding-bottom: 5px;
+  margin-right: 70px;
+}
+.profile__info--bordered {
+  border-bottom: 1px solid #f9f9f9;
+}
+.profile__info__name {
+  color: #484848;
+  font-size: 14px;
+  margin: 0;
+}
+.profile__info__contact {
+  color: #A4A4A4;
+  font-size: 12px;
+  margin-top: 7px;
+}
   
 </style>
 
@@ -650,25 +743,25 @@ label[for="new-task"] {
 									<nav class='header-nav'>
 									  <ul>
 									    <li class='active'>
-									      <a href='#'>
+									      <a href='profile_myactivity.hr'>
 									        나의 활동
 									      </a>
 									    </li>
 									    <li>
-									      <a href='#'>
+									      <a href='profile_like.hr'>
 									        즐겨찾기
 									      </a>
 									    </li>
 									    <li>
-									      <a href='#'>
-									        장바구니
-									      </a>
-									    </li>
-									    <li>
-									      <a href='#'>
+									      <a href='profile_info.hr'>
 									        내 정보
 									      </a>
 									    </li>
+									    <li>
+									      <a href='../pouch/pouch_detail.hr'>
+									        MY POUCH
+									      </a>
+									    </li>									    
 									    <div class='marker'></div>
 									  </ul>
 									</nav>
@@ -677,84 +770,140 @@ label[for="new-task"] {
 						</section>
 		
 							<!-- 회원정보 -->
-						<section class="section2 clearfix">
-							<div class="col-sm-4">
-								<div class="product-image-wrapper">
+						<section class="section2 clearfix"><br><br>
+						<h2>즐겨찾기 상품</h2><br><br>
+							<div class="col-sm-2">
+								<div class="product-image-wrapper">	
 									<div class="single-products">
 										<div class="productinfo text-center">
-											<a href="product_detail.jsp">
+										
+											<a href="../product/product_detail.hr">
 											<img src="../images/product-details/cos5.png" alt="" width=280.8px height=280.8px/>
 											<h5>이니스프리 / 화산송이마스크</h5>
 											</a>
-											<p>$56</p>
-											<div class="star-rating" style="text-align: center">
-													<div style="width:65%" class="star-rating-percentage"  style="display:inline-block"></div>
-											</div>
-		
+											<p>17,000원</p>		
 										</div>
 									</div>
 									<div class="choose">
 										<ul class="nav nav-pills nav-justified">
-											<li><a href=""><i class="fa fa-plus-square"></i>Add to
-													mypage</a></li>
-											<li><a href=""><i class="fa fa-plus-square"></i>Add to
-													cart</a></li>
+											<li><a href='#'><img src="https://image.flaticon.com/icons/svg/812/812853.svg" height="20" width="20"></a></li>												
 										</ul>
 									</div>
 								</div>
 							</div>
-							<div class="col-sm-4">
+							<div class="col-sm-2">
 								<div class="product-image-wrapper">
 									<div class="single-products">
 										<div class="productinfo text-center">
-											<a href="product_detail.jsp">
+											<a href="../product/product_detail.hr">
 											<img src="../images/product-details/cos5.png" alt="" width=280.8px height=280.8px/>
 											<h5>이니스프리 / 화산송이마스크</h5>
 											</a>
-											<p>$56</p>
-											<div class="star-rating" style="text-align: center">
-													<div style="width:65%" class="star-rating-percentage"  style="display:inline-block"></div>
-											</div>
-		
+											<p>17,000원</p>
 										</div>
 									</div>
 									<div class="choose">
 										<ul class="nav nav-pills nav-justified">
-											<li><a href=""><i class="fa fa-plus-square"></i>Add to
-													mypage</a></li>
-											<li><a href=""><i class="fa fa-plus-square"></i>Add to
-													cart</a></li>
+											<li><a href='#'><img src="https://image.flaticon.com/icons/svg/812/812853.svg" height="20" width="20"></a></li>												
 										</ul>
 									</div>
 								</div>
 							</div>
-							<div class="col-sm-4">
+							<div class="col-sm-2">
 								<div class="product-image-wrapper">
 									<div class="single-products">
 										<div class="productinfo text-center">
-											<a href="product_detail.jsp">
+											<a href="../product/product_detail.hr">
 											<img src="../images/product-details/cos5.png" alt="" width=280.8px height=280.8px/>
 											<h5>이니스프리 / 화산송이마스크</h5>
 											</a>
-											<p>$56</p>
-											<div class="star-rating" style="text-align: center">
-													<div style="width:65%" class="star-rating-percentage"  style="display:inline-block"></div>
-											</div>
-		
+											<p>17,000원</p>
 										</div>
 									</div>
 									<div class="choose">
 										<ul class="nav nav-pills nav-justified">
-											<li><a href=""><i class="fa fa-plus-square"></i>Add to
-													mypage</a></li>
-											<li><a href=""><i class="fa fa-plus-square"></i>Add to
-													cart</a></li>
+											<li><a href='#'><img src="https://image.flaticon.com/icons/svg/812/812853.svg" height="20" width="20" class="text-right"></a></li>												
 										</ul>
 									</div>
 								</div>
 							</div>
 							
 						</section>
+						<section>
+						  <h2>즐겨찾기 파우치</h2>
+						  <div class="app-container">
+							  <div class="app-content">
+							    <div class="friends-container">
+							      <article class="profile profile--padding">
+							        <div class="profile__img"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg"/>
+							        </div>
+							        <div class="profile__info profile__info--bordered">
+							          <h3 class="profile__info__name">James Peters</h3>
+							          <p class="profile__info__contact">james.peters22@example.com</p>
+							        </div>
+							      </article>
+							      <article class="profile profile--padding">
+							        <div class="profile__img"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/adellecharles/128.jpg"/>
+							        </div>
+							        <div class="profile__info profile__info--bordered">
+							          <h3 class="profile__info__name">Jenny Ryan</h3>
+							          <p class="profile__info__contact">jenny.ryan81@example.com</p>
+							        </div>
+							      </article>
+							      <article class="profile profile--padding">
+							        <div class="profile__img"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/sauro/128.jpg"/>
+							        </div>
+							        <div class="profile__info profile__info--bordered">
+							          <h3 class="profile__info__name">Angel Brewer</h3>
+							          <p class="profile__info__contact">angel.brewer98@example.com</p>
+							        </div>
+							      </article>
+							      <article class="profile profile--padding">
+							        <div class="profile__img"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg"/>
+							        </div>
+							        <div class="profile__info profile__info--bordered">
+							          <h3 class="profile__info__name">James Peters</h3>
+							          <p class="profile__info__contact">james.peters22@example.com</p>
+							        </div>
+							      </article>
+							      <article class="profile profile--padding">
+							        <div class="profile__img"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/nzcode/128.jpg"/>
+							        </div>
+							        <div class="profile__info profile__info--bordered">
+							          <h3 class="profile__info__name">Jenny Ryan</h3>
+							          <p class="profile__info__contact">jenny.ryan81@example.com</p>
+							        </div>
+							      </article>
+							      <article class="profile profile--padding">
+							        <div class="profile__img"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/mattsince87/128.jpg"/>
+							        </div>
+							        <div class="profile__info profile__info--bordered">
+							          <h3 class="profile__info__name">Angel Brewer</h3>
+							          <p class="profile__info__contact">angel.brewer98@example.com</p>
+							        </div>
+							      </article>
+							      <article class="profile profile--padding">
+							        <div class="profile__img"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/marcosmoralez/128.jpg"/>
+							        </div>
+							        <div class="profile__info profile__info--bordered">
+							          <h3 class="profile__info__name">James Peters</h3>
+							          <p class="profile__info__contact">james.peters22@example.com</p>
+							        </div>
+							      </article>
+							      <article class="profile">
+							        <div class="profile__img"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/jina/128.jpg"/>
+							        </div>
+							        <div class="profile__info profile__info--bordered">
+							          <h3 class="profile__info__name">Jenny Ryan</h3>
+							          <p class="profile__info__contact">jenny.ryan81@example.com</p>
+							        </div>
+							      </article>
+							    </div>
+							  </div>
+							</div>
+						 
+						</section>
+						
 					</div>
 				</div>
 					
@@ -762,179 +911,6 @@ label[for="new-task"] {
 			</div>
 		</div>
 	</div>
-</body>
-
-
-<footer id="footer">
-	<!--Footer-->
-	<div class="footer-top">
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-2">
-					<div class="companyinfo">
-						<h2>
-							<span>e</span>-shopper
-						</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-							elit,sed do eiusmod tempor</p>
-					</div>
-				</div>
-				<div class="col-xs-7">
-					<div class="col-xs-3">
-						<div class="video-gallery text-center">
-							<a href="#">
-								<div class="iframe-img">
-									<img src="images/home/iframe1.png" alt="" />
-								</div>
-								<div class="overlay-icon">
-									<i class="fa fa-play-circle-o"></i>
-								</div>
-							</a>
-							<p>Circle of Hands</p>
-							<h2>24 DEC 2014</h2>
-						</div>
-					</div>
-
-					<div class="col-xs-3">
-						<div class="video-gallery text-center">
-							<a href="#">
-								<div class="iframe-img">
-									<img src="images/home/iframe2.png" alt="" />
-								</div>
-								<div class="overlay-icon">
-									<i class="fa fa-play-circle-o"></i>
-								</div>
-							</a>
-							<p>Circle of Hands</p>
-							<h2>24 DEC 2014</h2>
-						</div>
-					</div>
-
-					<div class="col-xs-3">
-						<div class="video-gallery text-center">
-							<a href="#">
-								<div class="iframe-img">
-									<img src="images/home/iframe3.png" alt="" />
-								</div>
-								<div class="overlay-icon">
-									<i class="fa fa-play-circle-o"></i>
-								</div>
-							</a>
-							<p>Circle of Hands</p>
-							<h2>24 DEC 2014</h2>
-						</div>
-					</div>
-
-					<div class="col-xs-3">
-						<div class="video-gallery text-center">
-							<a href="#">
-								<div class="iframe-img">
-									<img src="images/home/iframe4.png" alt="" />
-								</div>
-								<div class="overlay-icon">
-									<i class="fa fa-play-circle-o"></i>
-								</div>
-							</a>
-							<p>Circle of Hands</p>
-							<h2>24 DEC 2014</h2>
-						</div>
-					</div>
-				</div>
-				<div class="col-xs-3">
-					<div class="address">
-						<img src="images/home/map.png" alt="" />
-						<p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="footer-widget">
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-2">
-					<div class="single-widget">
-						<h2>Service</h2>
-						<ul class="nav nav-pills nav-stacked">
-							<li><a href="#">Online Help</a></li>
-							<li><a href="#">Contact Us</a></li>
-							<li><a href="#">Order Status</a></li>
-							<li><a href="#">Change Location</a></li>
-							<li><a href="#">FAQ’s</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-xs-2">
-					<div class="single-widget">
-						<h2>Quock Shop</h2>
-						<ul class="nav nav-pills nav-stacked">
-							<li><a href="#">T-Shirt</a></li>
-							<li><a href="#">Mens</a></li>
-							<li><a href="#">Womens</a></li>
-							<li><a href="#">Gift Cards</a></li>
-							<li><a href="#">Shoes</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-xs-2">
-					<div class="single-widget">
-						<h2>Policies</h2>
-						<ul class="nav nav-pills nav-stacked">
-							<li><a href="#">Terms of Use</a></li>
-							<li><a href="#">Privecy Policy</a></li>
-							<li><a href="#">Refund Policy</a></li>
-							<li><a href="#">Billing System</a></li>
-							<li><a href="#">Ticket System</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-xs-2">
-					<div class="single-widget">
-						<h2>About Shopper</h2>
-						<ul class="nav nav-pills nav-stacked">
-							<li><a href="#">Company Information</a></li>
-							<li><a href="#">Careers</a></li>
-							<li><a href="#">Store Location</a></li>
-							<li><a href="#">Affillate Program</a></li>
-							<li><a href="#">Copyright</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-xs-3 col-xs-offset-1">
-					<div class="single-widget">
-						<h2>About Shopper</h2>
-						<form action="#" class="searchform">
-							<input type="text" placeholder="Your email address" />
-							<button type="submit" class="btn btn-default">
-								<i class="fa fa-arrow-circle-o-right"></i>
-							</button>
-							<p>
-								Get the most recent updates from <br />our site and be updated
-								your self...
-							</p>
-						</form>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</div>
-
-	<div class="footer-bottom">
-		<div class="container">
-			<div class="row">
-				<p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights
-					reserved.</p>
-				<p class="pull-right">
-					Designed by <span><a target="_blank"
-						href="http://www.themeum.com">Themeum</a></span>
-				</p>
-			</div>
-		</div>
-	</div>
-</footer>
-<!--/Footer-->
 </body>
 
 </html>

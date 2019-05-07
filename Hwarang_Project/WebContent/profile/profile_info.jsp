@@ -848,20 +848,20 @@ select option {
 									      </a>
 									    </li>
 									    <li>
-									      <a href='#'>
+									      <a href='profile_like.hr'>
 									        즐겨찾기
 									      </a>
 									    </li>
 									    <li>
-									      <a href='#'>
-									        장바구니
-									      </a>
-									    </li>
-									    <li>
-									      <a href='#'>
+									      <a href='profile_info.hr'>
 									        내 정보
 									      </a>
 									    </li>
+									    <li>
+									      <a href='../pouch/pouch_detail.hr'>
+									        MY POUCH
+									      </a>
+									    </li>									    
 									    <div class='marker'></div>
 									  </ul>
 									</nav>
@@ -873,7 +873,7 @@ select option {
 							<!-- 회원정보 -->
 							<div class="container2">
 							<form>
-								<h5>내 정보</h5>
+								<h5>내 정보</h5><br><br>
 								<div class="row">
 									<h4>Account</h4>
 									<div class="col-sm-4">
@@ -960,7 +960,6 @@ select option {
 								   <br><br>			
 									<div class="col-harf text-center">
 										<input type="submit" value="수정" id="info-edit"> 
-										<input type="button" value="취소" id="info-cancel">
 									</div>
 								</div>
 							</form>
