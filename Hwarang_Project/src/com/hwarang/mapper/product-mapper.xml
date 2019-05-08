@@ -32,7 +32,12 @@
 	<select id="brandListSearch" resultType="ProductVO" parameterType="java.util.Map">
 		select distinct brand,brand_img FROM product WHERE brand BETWEEN NCHR(#{start}) AND NCHR(#{end}) 
 	</select>
+	
 	<select id="brandListSearchABC" resultType="ProductVO" parameterType="java.util.Map">
 		select distinct brand,brand_img FROM product WHERE brand NOT between NCHR(#{start}) and NCHR(#{end})
+	</select>
+	<!-- 브랜드 페이지 출력 -->
+	<select id="brand_main" resultType="ProductVO" parameterType="String">
+		select * FROM product WHERE brand=#{brand}
 	</select>
 </mapper>

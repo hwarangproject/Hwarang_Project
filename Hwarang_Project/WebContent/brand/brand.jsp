@@ -240,7 +240,7 @@ ul, li {
 			<c:forEach var="vo" items="${brandListData }">
 				<div class="col-sm-3">
 					<div class="content">
-						<a href="" target="_blank">
+						<a href="../brand/brand_main.hr?product=${vo.brand }" target="_blank">
 
 							<div class="content-overlay"></div>
 								<img src="${vo.brand_img }" class="content-image" width=100px
