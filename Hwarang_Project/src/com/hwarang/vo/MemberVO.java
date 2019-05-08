@@ -1,7 +1,23 @@
 package com.hwarang.vo;
 
 import java.sql.Date;
-
+/*
+ * MEMBER_NO   NOT NULL NUMBER         
+ID          NOT NULL VARCHAR2(20)   
+PW          NOT NULL VARCHAR2(20)   
+EMAIL       NOT NULL VARCHAR2(100)  
+NAME        NOT NULL VARCHAR2(34)   
+NICKNAME    NOT NULL VARCHAR2(20)   
+BDAY        NOT NULL DATE           
+SKIN_TYPE            VARCHAR2(12)   
+BRAND_LIKE           VARCHAR2(4000) 
+ADDR        NOT NULL VARCHAR2(400)  
+SEX                  VARCHAR2(20)   
+PROFILE_IMG          VARCHAR2(4000) 
+AGE_GROUP   NOT NULL NUMBER         
+POUCH_NO             NUMBER 
+ * 
+ */
 public class MemberVO {
 	private int member_no;
 	private String id;
@@ -16,7 +32,17 @@ public class MemberVO {
 	private String sex;
 	private String profile_img;
 	private int age_group;
+	private int pouch_no;
 	private String Msg; // 임시변수
+
+	
+	public int getPouch_no() {
+		return pouch_no;
+	}
+
+	public void setPouch_no(int pouch_no) {
+		this.pouch_no = pouch_no;
+	}
 
 	public String getMsg() {
 		return Msg;

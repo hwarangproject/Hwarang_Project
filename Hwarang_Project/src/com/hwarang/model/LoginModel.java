@@ -28,6 +28,7 @@ public class LoginModel {
 			HttpSession session = request.getSession();
 			session.setAttribute("id", id);
 			session.setAttribute("name", vo.getName());
+			session.setAttribute("skin_type", vo.getSkin_type());
 			//session.setAttribute("admin", vo.getAdmin());
 		}
 		

@@ -27,4 +27,25 @@ public class ProfileDAO {
 
 		return vo;
 	}
+	
+	public static String getBrandImg(String brand){
+		String brandImg = null;
+		SqlSession session = null;
+		
+		try {
+			session = ssf.openSession();
+			brandImg = session.selectOne("getBrandImg", brand);
+			
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			
+		} finally {
+			if (session != null){
+			    session.close();
+			}
+		}
+
+		return brandImg;
+	}
+	
 }

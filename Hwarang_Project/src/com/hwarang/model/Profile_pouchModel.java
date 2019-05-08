@@ -7,17 +7,16 @@ import com.hwarang.controller.RequestMapping;
 import com.hwarang.dao.ProfileDAO;
 import com.hwarang.vo.MemberVO;
 
-public class Profile_likeModel {
-	@RequestMapping("profile/profile_like.hr")
+public class Profile_pouchModel {
+	@RequestMapping("profile/profile_pouch.hr")
 	public String profile_myactivity_page(HttpServletRequest request) {
+		
 		HttpSession session = request.getSession();
 		String id = (String)session.getAttribute("id");
 		MemberVO vo = ProfileDAO.getMemberData(id);
-		String brandImg = ProfileDAO.getBrandImg(vo.getBrand_like());
 		
-		request.setAttribute("brandImg", brandImg);
 		request.setAttribute("vo", vo);
-		request.setAttribute("main_jsp", "../profile/profile_like.jsp");
+		request.setAttribute("main_jsp", "../profile/profile_pouch.jsp");
 		return "../main/main.jsp";
 	}
 }

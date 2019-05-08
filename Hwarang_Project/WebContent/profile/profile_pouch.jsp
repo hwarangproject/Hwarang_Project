@@ -1,43 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 <meta charset="UTF-8">
-
-<meta name="description" content="">
-<meta name="author" content="">
-
-<title>GitHub made with TailwindCSS</title>
-
-
 <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css'>
 <link rel="stylesheet" href="css/style.css">
-
-<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
-<script type="text/javascript">
-	new Vue({
-		el : "#app",
-		data : function() {
-			var tabs = [];
-			for (var i = 50; i > 20; --i) {
-				tabs.push("https://picsum.photos/300/300?image=" + i);
-			}
-			return {
-				tabs : tabs
-			};
-		},
-		mounted : function() {
-			ScrollOut({
-				scrollingElement : ".flow",
-				targets : ".item"
-			});
-		}
-	});
-
-
-</script>
 <style type="text/css">
 
 body {
@@ -360,7 +328,7 @@ section.section2 {
   text-align: center;
 }
 .header-nav ul li:nth-child(1).active ~ .marker {
-  left: 0%;
+  left: 60%;
 }
 .header-nav ul li:nth-child(1):hover ~ .marker {
   left: 0% !important;
@@ -547,6 +515,121 @@ span {
 	transform: translateY(0px) scale(1);
 }
 
+/* 파우치 버튼  */
+@import url('https://fonts.googleapis.com/css?family=Mukta:700');
+
+$bg: #f3f8fa;
+$white: #fff;
+$black: #282936;
+
+@mixin transition($property: all, $duration: 0.45s, $ease: cubic-bezier(0.65,0,.076,1)) {
+  transition: $property $duration $ease;
+}
+
+* {
+  box-sizing: border-box;
+  &::before, &::after {
+    box-sizing: border-box;
+  }
+}
+
+button {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+  &.learn-more {
+    width: 12rem;
+    height: auto;
+    .circle {
+      @include transition(all, 0.45s, cubic-bezier(0.65,0,.076,1));
+      position: relative;
+      margin: 0;
+      width: 3rem;
+      height: 3rem;
+      background: $black;
+      border-radius: 1.625rem;
+      .icon {
+        @include transition(all, 0.45s, cubic-bezier(0.65,0,.076,1));
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        background: $white;
+        &.arrow {
+          @include transition(all, 0.45s, cubic-bezier(0.65,0,.076,1));
+          left: 0.625rem;
+          width: 1.125rem;
+          height: 0.125rem;
+          background: none;
+          &::before {
+            position: absolute;
+            content: '';
+            top: -0.25rem;
+            right: 0.0625rem;
+            width: 0.625rem;
+            height: 0.625rem;
+            border-top: 0.125rem solid #fff;
+            border-right: 0.125rem solid #fff;
+            transform: rotate(45deg);
+          }
+        }
+      }
+    }
+    .button-text {
+      @include transition(all, 0.45s, cubic-bezier(0.65,0,.076,1));
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 0.75rem 0;
+      margin: 0 0 0 1.85rem;
+      color: $black;
+      font-weight: 700;
+      line-height: 1.6;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+  &:hover {
+    .circle {
+      width: 100%;
+      .icon {
+        &.arrow {
+        background: $white;
+        transform: translate(1rem, 0);
+        }
+      }
+    }
+    .button-text {
+      color: $white;
+    }
+  }
+}
+
+@supports (display: grid) {
+  body {
+    display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 0.625rem;
+  grid-template-areas: ". main main ." ". main main .";
+  }
+  
+  #container {
+    grid-area: main;
+    align-self: center;
+    justify-self: center;
+  }
+}
+
 </style>
 
 
@@ -604,23 +687,9 @@ span {
 									      </a>
 									    </li>
 									    <li>
-									      <%-- <c:if test='${vo.pouch_no == null}'>
-									      <a href='${pouchMake }'>
-									      MY POUCH
-									      </a>
-									      </c:if>
-									    
 									      <a href='../pouch/pouch_detail.hr'>
-									      MY POUCH
-									      </a> --%>
-									      <c:choose>
-											  <c:when test = '${vo.pouch_no!=0}'>
-											    <a href='profile_pouch.hr'>MY POUCH</a>
-											  </c:when>
-											  <c:otherwise>
-											    <a href='../pouch/pouch_detail.hr'>MY POUCH</a>
-											  </c:otherwise>
-									      </c:choose>								      
+									        MY POUCH
+									      </a>
 									    </li>									    
 									    <div class='marker'></div>
 									  </ul>
@@ -629,132 +698,16 @@ span {
 							</div>						
 						</section>
 						<!-- ******메뉴 끝****** -->
-						
-						<section class="section2 clearfix">
-							<div class="container" style="margin-top: 30px">
-								<div class="row">
-									<div>
-										<!-- class="col-sm-12" -->
-										<h3>내가 쓴 리뷰</h3>
-										<div id="item-list">
-											<ul>
-												<li><a class="expand">
-														<div class="right-arrow">+</div>
-														<div class="icon london"></div>
-														<h2>상품 1</h2> <span>댓글 내용</span>
-												</a>
-
-													<div class="detail">
-														<div>
-															<span>Duis autem vel eum iriure dolor in hendrerit
-																in vulputate velit esse molestie consequat, vel illum
-																dolore eu feugiat nulla facilisis at vero eros et
-																accumsan et iusto odio dignissim qui blandit praesent
-																luptatum zzril delenit augue duis dolore te feugait
-																nulla facilisi.</span>
-														</div>
-														<br /> <span class="button">Connect</span>
-													</div></li>
-												<li><a class="expand">
-														<div class="right-arrow">+</div>
-														<div class="icon newyork"></div>
-														<h2>New York</h2> <span>Duis autem vel eum iriure
-															dolor in hendrerit in vulputate velit esse molestie
-															consequat</span>
-												</a>
-
-													<div class="detail">
-														<div>
-															<span>Duis autem vel eum iriure dolor in hendrerit
-																in vulputate velit esse molestie consequat, vel illum
-																dolore eu feugiat nulla facilisis at vero eros et
-																accumsan et iusto odio dignissim qui blandit praesent
-																luptatum zzril delenit augue duis dolore te feugait
-																nulla facilisi.</span>
-														</div>
-														<br /> <span class="button">Connect</span>
-													</div></li>
-												<li><a class="expand">
-														<div class="right-arrow">+</div>
-														<div class="icon paris"></div>
-														<h2>Paris</h2> <span>Claritas est etiam processus
-															dynamicus, qui sequitur mutationem consuetudium lectorum</span>
-												</a>
-
-													<div class="detail">
-														<div>
-															<span>Duis autem vel eum iriure dolor in hendrerit
-																in vulputate velit esse molestie consequat, vel illum
-																dolore eu feugiat nulla facilisis at vero eros et
-																accumsan et iusto odio dignissim qui blandit praesent
-																luptatum zzril delenit augue duis dolore te feugait
-																nulla facilisi.</span>
-														</div>
-														<br /> <span class="button">Connect</span>
-
-													</div> <a href="#" class="btn btn-xs ">더보기</a></li>
-											</ul>
-										</div>
-									</div>
-									<div>
-										<h3></h3>
-									</div>
-
-									<!-- <div class="col-sm-6">
-			    	
-			    </div> -->
-									<div class="flex items-center">
-										<div class="w-1/2 pt-6 pb-2 font-normal">
-											<h3>최근 본 상품</h3>
-										</div>
-										<div
-											class="w-1/2 pt-6 pb-2 justify-end text-right text-grey-dark text-sm font-light flex">
-											<div>더 보기</div>
-											<div class="">
-												<svg class="fill-current text-grey-dark h-4 w-4"
-													xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-													viewBox="0 0 24 24">
-										          <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
-										        </svg>
-											</div>
-										</div>
-									</div>
-									<div>
-										<div class="recent_pro">
-											<div id="app">
-												<div class="flow" ref="flow">
-													<div v-for="tab of tabs" class="item2"
-														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"></div>
-													<div v-for="tab of tabs" class="item2"
-														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"></div>
-													<div v-for="tab of tabs" class="item2"
-														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"></div>
-													<div v-for="tab of tabs" class="item2"
-														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"></div>
-													<div v-for="tab of tabs" class="item2"
-														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"></div>
-													<div v-for="tab of tabs" class="item2"
-														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"></div>
-													<div v-for="tab of tabs" class="item2"
-														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"></div>
-													<div v-for="tab of tabs" class="item2"
-														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"></div>
-													<div v-for="tab of tabs" class="item2"
-														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"></div>
-													<div v-for="tab of tabs" class="item2"
-														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"></div>
-													<div v-for="tab of tabs" class="item2"
-														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"></div>
-												</div>
-											</div>
-
-										</div>
-									</div>
-									<br><br><br>
-								</div>
-							</div>
-					   </div>
-					</section>
+						<section>
+						 <div id="container">
+						  <button class="learn-more">
+						    <div class="circle">
+						      <span class="icon arrow"></span>
+						    </div>
+						    <p class="button-text">Learn More</p>
+						  </button>
+						</div>	
+						</section>
 				</div>
 			</div>
 

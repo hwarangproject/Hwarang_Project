@@ -19,7 +19,9 @@
   box-sizing: border-box;
 }
 
-
+a:hover{
+  color: #f97e7e; 
+}
 .content {
   position: relative;
   width:90%;

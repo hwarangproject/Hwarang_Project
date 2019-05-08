@@ -143,6 +143,7 @@ input:focus, textarea:focus, keygen:focus, select:focus {
 	border-radius: 50%;
 	margin: 0 20px;
 	width: 120px;
+	height: 120px;
 	border: 2px solid #f1f1f1;
 	padding: 2px;
 	float: left;
@@ -627,6 +628,78 @@ label[for="new-task"] {
   border-radius: 100%;
   color: #fff;
 }
+
+<%--브랜드 로고 사진 --%> 
+img.content-image{
+	border:0;
+	height:100px;
+}
+
+/* ul, li {
+	float: left;
+} */
+
+.content1 {
+  position: relative;
+  width:90%;
+  max-width: 250px;
+  margin: auto;
+  overflow: visible;
+}
+
+.content1 .content-overlay {
+  background-color: #FFB9B9;
+  position: absolute;
+  height: 99%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  -webkit-transition: all 0.4s ease-in-out 0s;
+  -moz-transition: all 0.4s ease-in-out 0s;
+  transition: all 0.4s ease-in-out 0s;
+}
+
+.content1:hover .content-overlay{
+  opacity: 1;
+}
+
+.content-image{
+  width: 100%;
+}
+
+.content-details {
+  position: absolute;
+  text-align: center;
+  padding-left: 1em;
+  padding-right: 1em;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  -moz-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.content1:hover .content-details{
+  top: 50%;
+  left: 50%;
+  opacity: 1;
+}
+
+.content-details h3{
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+}
 </style>
 
 
@@ -699,7 +772,7 @@ label[for="new-task"] {
 		
 							<!-- 회원정보 -->
 						<section class="section2 clearfix"><br><br>
-						<h3>즐겨찾기 상품</h3><br><br>
+						<h3>PRODUCT</h3><br><br>
 							<div class="col-sm-2">
 								<div class="product-image-wrapper">	
 									<div class="single-products">
@@ -771,7 +844,7 @@ label[for="new-task"] {
 						    </div>
 						</section>
 						<section>
-						  <h3>즐겨찾기 파우치</h3>
+						  <h3>POUCH</h3>
 						  <div class="app-container">
 							  <div class="app-content">
 							    <div class="friends-container">
@@ -843,7 +916,22 @@ label[for="new-task"] {
 							  </div>
 							</div>
 						 
-						</section><br><br><br>
+						</section><br><br>
+						<section>
+						  <h3>BRAND</h3>
+						    <div class="col-sm-3">
+								<div class="content1">
+									<a href="../brand/brand_main.hr?brand=${vo.brand_like }" target="_blank">
+										<div class="content-overlay"></div>
+											<img src="${brandImg }" class="content-image" width=100px
+												height=80px>
+										<div class="content-details fadeIn-bottom">
+											<h3 class="content-title">${vo.brand_like }</h3>
+										</div>
+									</a>
+								</div>
+							</div>
+						</section>
 						
 					</div>
 				</div>

@@ -12,10 +12,11 @@ public class Profile_myactivityModel {
 	public String profile_myactivity_page(HttpServletRequest request) {
 		
 		HttpSession session = request.getSession();
-		String id = (String)session.getAttribute("id");
+		String id = (String) session.getAttribute("id");
 		MemberVO vo = ProfileDAO.getMemberData(id);
 		
 		request.setAttribute("vo", vo);
+		request.setAttribute("pouchMake", "../profile/profile_pouch.hr");
 		request.setAttribute("main_jsp", "../profile/profile_myactivity.jsp");
 		return "../main/main.jsp";
 	}
