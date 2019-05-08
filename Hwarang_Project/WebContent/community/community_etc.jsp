@@ -409,14 +409,9 @@
 
 		</div>
 	</div>
-<<<<<<< HEAD
-
-	
-=======
 	
 	<script src="js/jquery-3.1.1.js"></script>
 	<script src="js/bootstrap.js"></script>
->>>>>>> branch 'master' of https://github.com/hwarangproject/Hwarang_Project.git
 
 </body>
 </html>

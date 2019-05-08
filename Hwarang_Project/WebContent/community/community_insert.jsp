@@ -292,10 +292,7 @@ width: 150px;
 
 </style>
 </head>
-<<<<<<< HEAD
 
-=======
->>>>>>> branch 'master' of https://github.com/hwarangproject/Hwarang_Project.git
 <body>
 
 	<!-- 글쓰기폼 -->
@@ -339,7 +336,7 @@ width: 150px;
 			</form>
 		</div>
 	</div>
-<<<<<<< HEAD
+
 	<!-- <pre id="output"></pre>
 
 
@@ -347,11 +344,9 @@ width: 150px;
 
  <input name="image" type="file" id="upload" class="hidden" onchange=""> -->
 
-=======
-	
 	<script src="js/jquery-3.1.1.js"></script>
 	<script src="js/bootstrap.js"></script>
->>>>>>> branch 'master' of https://github.com/hwarangproject/Hwarang_Project.git
+
 
 </body>
 </html>
