@@ -15,7 +15,7 @@
 <meta name="author" content="">
 
 <title>HWARANG PROJECT</title>
-
+<link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico" />
 <!-- 기본  -->
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/font-awesome.min.css" rel="stylesheet">

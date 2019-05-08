@@ -510,8 +510,8 @@ body {
 												<li><a href="">성별:여자 / 피부타입:건성 / 연령대:20대 / 별점:3</a></li>
 											</ul>
 											<tr>
-												<td>자기소개자기소개자기소개자기소개자기소개자기소개자기소개자기소개자기소개자기소개
-													자기소개자기소개자기소개자기소개자기소개자기소개자기소개자기소개자기소개자기소개</td>
+												<td>파우치 소개파우치 소개파우치 소개파우치 소개파우치 소개파우치 소개파우치 소개파우치 소개파우치
+													소개파우치 소개파우치 소개파우치 소개파우치 소개</td>
 											</tr>
 										</div>
 									</div>
@@ -911,21 +911,21 @@ body {
 
 									<!-- 평점주기 -->
 									<div>
-									<span class="star-input"> <span class="input"> <input
-											type="radio" name="star-input" value="1" id="p1"> <label
-											for="p1">1</label> <input type="radio" name="star-input"
-											value="2" id="p2"> <label for="p2">2</label> <input
-											type="radio" name="star-input" value="3" id="p3"> <label
-											for="p3">3</label> <input type="radio" name="star-input"
-											value="4" id="p4"> <label for="p4">4</label> <input
-											type="radio" name="star-input" value="5" id="p5"> <label
-											for="p5">5</label>
-									</span> <!-- <output for="star-input"><b>0</b>점</output> -->
-									</span>
+										<span class="star-input"> <span class="input"> <input
+												type="radio" name="star-input" value="1" id="p1"> <label
+												for="p1">1</label> <input type="radio" name="star-input"
+												value="2" id="p2"> <label for="p2">2</label> <input
+												type="radio" name="star-input" value="3" id="p3"> <label
+												for="p3">3</label> <input type="radio" name="star-input"
+												value="4" id="p4"> <label for="p4">4</label> <input
+												type="radio" name="star-input" value="5" id="p5"> <label
+												for="p5">5</label>
+										</span> <!-- <output for="star-input"><b>0</b>점</output> -->
+										</span>
 
-									<button type="button" class="btn btn-default pull-right">
-										Submit</button>
-										</div>
+										<button type="button" class="btn btn-default pull-right">
+											Submit</button>
+									</div>
 								</form>
 							</div>
 						</table>

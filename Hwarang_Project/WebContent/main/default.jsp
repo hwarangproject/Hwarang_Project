@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico" />
 </head>
 <body>
 <section id="slider"><!--slider-->
