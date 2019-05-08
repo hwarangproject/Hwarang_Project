@@ -9,7 +9,36 @@
  <!-- 비밀번호 체크 -->
 <select id="memberGetPwd" resultType="MemberVO" parameterType="String">
 	SELECT member_no,pw,name FROM member WHERE id=#{id}
-	
-	
 </select>
+
+<!-- 
+     ID 중복 체크
+    -->
+   <select id="idcheck" resultType="int" parameterType="String">
+     SELECT COUNT(*) FROM member
+     WHERE id=#{id}
+   </select>
+   
+
+   <insert id="memberInsert" parameterType="MemberVO">
+   
+   <selectKey keyProperty="member_no" resultType="int" order="BEFORE">
+       SELECT NVL(MAX(member_no)+1,1) as member_no FROM member
+       <!-- rs.getInt(1)  rs.getInt("no")-->
+    </selectKey>
+    INSERT INTO member(member_no,id,pw,email,name,nickname,bday,skin_type,brand_like,addr,sex,age_group) VALUES(
+      #{member_no},
+      #{id},
+      #{pw},
+      #{email},
+      #{name},
+      #{nickname},
+      #{bday},
+      #{skin_type},
+      #{brand_like},
+      #{addr},
+      #{sex},
+      #{age_group}
+    )
+   </insert>
 </mapper>
