@@ -64,4 +64,24 @@ public class BrandDAO {
 			}
 			return list;
 		}
+		
+		// 브랜드 개별 페이지
+		public static List<ProductVO> brandMainPage(String brand){
+			
+			List<ProductVO> list = new ArrayList<ProductVO>();
+			SqlSession session=null;
+			
+			try {
+				session = ssf.openSession();
+				list = session.selectList("brandMainPage", brand);
+			} 
+			catch (Exception ex) {
+				ex.printStackTrace();
+			} 
+			finally {
+				if (session != null)
+					session.close();
+			}
+			return list;
+		}
 }

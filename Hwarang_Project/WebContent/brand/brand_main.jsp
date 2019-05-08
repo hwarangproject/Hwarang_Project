@@ -137,7 +137,7 @@
 					<!--features_items-->
 					<h2 class="title text-center">Items</h2>
 					
-					<c:forEach var="vo" items="${product_cate_list }" varStatus="s">
+					<c:forEach var="vo" items="${brandMainPage }" varStatus="s">
 					<c:if test="${s.index<12 }">
 						<div class="col-sm-4" id="custom_col-sm-4">
 						<div class="product-image-wrapper">

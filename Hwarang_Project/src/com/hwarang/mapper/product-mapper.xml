@@ -27,7 +27,10 @@
 	
 	<!-- 브랜드 초성 검색 출력 -->
 	<select id="brandListSearch" resultType="ProductVO" parameterType="java.util.Map">
-		select distinct brand,brand_img FROM product WHERE brand BETWEEN NCHR(#{start}) AND NCHR(#{end}) 
+		SELECT distinct brand,brand_img FROM product WHERE brand BETWEEN NCHR(#{start}) AND NCHR(#{end}) 
 	</select>
-
+	<!-- 브랜드 개별 페이지 -->
+	<select id="brandMainPage" resultType="ProductVO" parameterType="String">
+		SELECT * FROM product WHERE brand=#{brand}
+	</select>
 </mapper>

@@ -31,6 +31,24 @@ public class BrandModel {
 		return "../main/main.jsp";
 	}
 	
+	@RequestMapping("brand/brand_main.hr")
+	public String brand_Mainpage(HttpServletRequest request) {
+		try
+		{
+			request.setCharacterEncoding("UTF-8"); // 컴파일 예외 => 반드시 컴파일 전 예외처리를 해야함
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+		
+		String brand=request.getParameter("brand");
+		List<ProductVO> brand_mainlist=BrandDAO.brandMainPage(brand);
+		
+		request.setAttribute("brandMainPage", brand_mainlist);
+		request.setAttribute("main_jsp", "../brand/brand_main.jsp");
+		
+		return "../main/main.jsp";
+	}
+	
 
 }
 	
