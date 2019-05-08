@@ -37,6 +37,15 @@
 	});
 </script>
 <style type="text/css">
+
+body {
+/* 	padding: 1em; */
+	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 15px;
+	color: #808080;
+	/*background-color: #e3e3e3;*/
+}
+
 * {
 	margin: 0px;
 	padding: 0px;
@@ -550,14 +559,14 @@ span {
 							<div>
 								<div class="row grid clearfix">
 									<div class="col2 first">
-									  <div class="col-sm-8">
+									  
 										<img
 											src="http://images.contactmusic.com/newsimages/david_beckham_1133321.jpg"
 											alt="">
 										<h1>사용자 이름</h1>
 										<h4>사용자 닉네임</h4>
 										<p>스킨 타입</p>
-									  </div>
+									  
 									</div>
 									<div class="col2 last">
 										<div class="grid clearfix">
@@ -681,7 +690,7 @@ span {
 			    	
 			    </div> -->
 									<div class="flex items-center">
-										<div class="w-1/2 pt-6 pb-2 font-normal text-grey-darkest">
+										<div class="w-1/2 pt-6 pb-2 font-normal">
 											<h3>최근 본 상품</h3>
 										</div>
 										<div

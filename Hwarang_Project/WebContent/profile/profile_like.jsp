@@ -45,7 +45,18 @@
 <script type="text/javascript">
 	
 </script>
+
+
 <style type="text/css">
+
+body {
+/* 	padding: 1em; */
+	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 15px;
+	color: #808080;
+	/*background-color: #e3e3e3;*/
+}
+
 * {
 	margin: 0px;
 	padding: 0px;
@@ -358,7 +369,7 @@ label[for="new-task"] {
   text-align: center;
 }
 .header-nav ul li:nth-child(1).active ~ .marker {
-  left: 0%;
+  left: 20%;
 }
 .header-nav ul li:nth-child(1):hover ~ .marker {
   left: 0% !important;
@@ -522,7 +533,7 @@ label[for="new-task"] {
 }
 .friends-container::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background-color: #FC4236;
+  background-color: #ffb9b9;
 }
 .friends-container::-webkit-scrollbar-track {
   border-radius: 10px;
@@ -572,15 +583,50 @@ label[for="new-task"] {
 }
 .profile__info__name {
   color: #484848;
-  font-size: 14px;
+  font-size: 16px;
   margin: 0;
 }
 .profile__info__contact {
   color: #A4A4A4;
-  font-size: 12px;
+  font-size: 14px;
   margin-top: 7px;
 }
   
+/*  pagination  */
+.pagination{
+  padding: 20px 400px;
+}
+
+.pagination ul{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.pagination a{
+  display: inline-block;
+  padding: 10px 18px;
+  color: #222;
+}
+.p1 a{
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  padding: 0;
+  text-align: center;
+}
+
+.p1 a:hover{
+  background-color: #ffb9b99e;
+  border-radius: 100%;
+  color: #fff;
+}
+
+.p1 a.is-active{
+  background-color: #ffb9b9;
+  border-radius: 100%;
+  color: #fff;
+}
 </style>
 
 
@@ -653,7 +699,7 @@ label[for="new-task"] {
 		
 							<!-- 회원정보 -->
 						<section class="section2 clearfix"><br><br>
-						<h2>즐겨찾기 상품</h2><br><br>
+						<h3>즐겨찾기 상품</h3><br><br>
 							<div class="col-sm-2">
 								<div class="product-image-wrapper">	
 									<div class="single-products">
@@ -709,10 +755,23 @@ label[for="new-task"] {
 									</div>
 								</div>
 							</div>
-							
 						</section>
 						<section>
-						  <h2>즐겨찾기 파우치</h2>
+						  <div class="pagination p1">
+						      <ul>
+						        <a href="#"><li><</li></a>
+						        <a class="is-active" href="#"><li>1</li></a>
+						        <a href="#"><li>2</li></a>
+						        <a href="#"><li>3</li></a>
+						        <a href="#"><li>4</li></a>
+						        <a href="#"><li>5</li></a>
+						        <a href="#"><li>6</li></a>
+						        <a href="#"><li>></li></a>
+						      </ul>
+						    </div>
+						</section>
+						<section>
+						  <h3>즐겨찾기 파우치</h3>
 						  <div class="app-container">
 							  <div class="app-content">
 							    <div class="friends-container">
@@ -784,7 +843,7 @@ label[for="new-task"] {
 							  </div>
 							</div>
 						 
-						</section>
+						</section><br><br><br>
 						
 					</div>
 				</div>
@@ -793,11 +852,10 @@ label[for="new-task"] {
 			</div>
 		</div>
 	</div>
-<<<<<<< HEAD
-=======
+
 </body>
 
->>>>>>> branch 'master' of https://github.com/hwarangproject/Hwarang_Project.git
+
 </body>
 
 </html>

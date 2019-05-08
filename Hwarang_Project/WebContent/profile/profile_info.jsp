@@ -362,7 +362,7 @@ label[for="new-task"] {
 }
 
 body {
-	padding: 1em;
+/* 	padding: 1em; */
 	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-size: 15px;
 	color: #808080;
@@ -674,7 +674,7 @@ select option {
   text-align: center;
 }
 .header-nav ul li:nth-child(1).active ~ .marker {
-  left: 0%;
+  left: 40%;
 }
 .header-nav ul li:nth-child(1):hover ~ .marker {
   left: 0% !important;
@@ -875,7 +875,7 @@ select option {
 							<form>
 								<h5>내 정보</h5><br><br>
 								<div class="row">
-									<h4>Account</h4>
+									<h4>Account</h4><br>
 									<div class="col-sm-4">
 									<div class="input-group input-group-icon">
 										<input type="text" placeholder="회원 아이디" />
@@ -921,7 +921,7 @@ select option {
 								</div>
 								<div class="row">
 									<div class="col-half">
-										<h4>Date of Birth</h4>
+										<h4>Date of Birth</h4><br>
 										<div class="input-group">
 											<div class="col-third">
 												<input type="text" placeholder="YYYY" />
@@ -937,7 +937,7 @@ select option {
 								</div>
 				
 								<div class=row>
-									<h4>Skin Type</h4>
+									<h4>Skin Type</h4><br>
 									<div class="input-group2">
 										<div class="col-fifth">
 											<input type="radio" name="skin_type" id="skin_type1" /> <label for="skin_type1">건성</label>
