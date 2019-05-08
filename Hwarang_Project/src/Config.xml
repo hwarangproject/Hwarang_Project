@@ -59,6 +59,7 @@
 		<mapper resource="com/hwarang/mapper/product-mapper.xml"/>
 		<mapper resource="com/hwarang/mapper/member-mapper.xml"/>
 		<mapper resource="com/hwarang/mapper/pouch-mapper.xml"/>
+		<mapper resource="com/hwarang/mapper/profile-mapper.xml"/>
 	</mappers>
 	
 </configuration>
