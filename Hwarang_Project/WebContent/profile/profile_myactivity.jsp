@@ -559,14 +559,12 @@ span {
 							<div>
 								<div class="row grid clearfix">
 									<div class="col2 first">
-									  
 										<img
-											src="http://images.contactmusic.com/newsimages/david_beckham_1133321.jpg"
-											alt="">
-										<h1>사용자 이름</h1>
-										<h4>사용자 닉네임</h4>
-										<p>스킨 타입</p>
-									  
+											src="${vo.profile_img }"
+											alt="" width=120px height=120px>
+										<h1>${vo.name }</h1>
+										<h4>${vo.nickname }</h4>
+										<p>${vo.skin_type }</p>
 									</div>
 									<div class="col2 last">
 										<div class="grid clearfix">

@@ -21,16 +21,19 @@
 <script type="text/javascript">
 document.getElementById('getval').addEventListener('change', readURL, true);
 function readURL(){
-    var file = document.getElementById("getval").files[0];
+    var file = document.getElementById("#getval").files[0];
     var reader = new FileReader();
+    document.getElementById('profile-upload').style.backgroundImage = "url(" + ${vo.profile_img} + ")";
     reader.onloadend = function(){
         document.getElementById('profile-upload').style.backgroundImage = "url(" + reader.result + ")";        
     }
-    if(file){
+    /* if(file){
         reader.readAsDataURL(file);
     }else{
-    }
+    } */
 }
+
+
 </script>
 <style type="text/css">
 
@@ -329,9 +332,7 @@ section.section2 {
 }
 
 @media only screen and (max-width: 450px) {
-	/* .container {
-    padding: 60px 5px 70px;
-} */
+
 	.row2tab li {
 		width: 100%;
 		text-align: left;
@@ -344,17 +345,6 @@ section.section2 {
 	}
 }
 
-/* 제목 */
-/* h3,
-label[for="new-task"] {
-  color: #333;
-  font-weight: 700;
-  font-size: 15px;
-  border-bottom: 2px solid #333;
-  padding: 30px 0 10px;
-  margin: 0;
-  text-transform: uppercase;
-} */
 /* 회원 정보 */
 
 *, *:before, *:after {
@@ -362,11 +352,11 @@ label[for="new-task"] {
 }
 
 body {
-/* 	padding: 1em; */
+
 	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-size: 15px;
 	color: #808080;
-	/*background-color: #e3e3e3;*/
+
 }
 
 h4 {
@@ -380,7 +370,7 @@ h5 {
 
 input, input[type="radio"]+label, input[type="checkbox"]+label:before,
 	select option, select {
-	/*width: 100%;*/
+
 	padding: 1em;
 	line-height: 1.4;
 	background-color: #f9f9f9;
@@ -645,13 +635,6 @@ select option {
 
  /* 내비게이션 / 메뉴바  */
  
-/*  body {
-  margin: 0;
-  background-color: #3F51B5;
-  position: relative;
-  font-family: 'Roboto', sans-serif;
-} */
-
 .header-nav {
   position: relative;
   background-color: #F1F1F1;
@@ -736,8 +719,8 @@ select option {
     height: 250px; width: 250px;
     border: 1px solid #bbb;
     position:relative;
-  border-radius:250px;
-  overflow:hidden;
+    border-radius:250px;
+    overflow:hidden;
 }
 #profile-upload:hover input.upload{
   display:block;
@@ -745,15 +728,16 @@ select option {
 #profile-upload:hover .hvr-profile-img{
   display:inline-block;
  }
-#profile-upload .fa{   margin: auto;
+#profile-upload .fa{   
+    margin: auto;
     position: absolute;
     bottom: -4px;
     left: 0;
     text-align: center;
     right: 0;
     padding: 6px;
-   opacity:1;
-  transition:opacity 1s linear;
+    opacity:1;
+    transition:opacity 1s linear;
    -webkit-transform: scale(.75); 
  
  
@@ -816,11 +800,11 @@ select option {
 								<div class="row grid clearfix">
 									<div class="col2 first">
 										<img
-											src="http://images.contactmusic.com/newsimages/david_beckham_1133321.jpg"
-											alt="">
-										<h1>사용자 이름</h1>
-										<h4>사용자 닉네임</h4>
-										<p>스킨 타입</p>
+											src="${vo.profile_img }"
+											alt="" width=120px height=120px>
+										<h1>${vo.name }</h1>
+										<h4>${vo.nickname }</h4>
+										<p>${vo.skin_type }</p>
 									</div>
 									<div class="col2 last">
 										<div class="grid clearfix">
@@ -878,31 +862,31 @@ select option {
 									<h4>Account</h4><br>
 									<div class="col-sm-4">
 									<div class="input-group input-group-icon">
-										<input type="text" placeholder="회원 아이디" />
+										<input type="text" placeholder="${vo.id }" />
 										<div class="input-icon">
 											<i class="fa fa-user" id="label_icon"></i>
 										</div>
 									</div>
 									<div class="input-group input-group-icon">
-										<input type="text" placeholder="회원 이름" />
+										<input type="text" placeholder="${vo.name }" />
 										<div class="input-icon">
 											<i class="fa fa-user" id="label_icon"></i>
 										</div>
 									</div>
 									<div class="input-group input-group-icon">
-										<input type="text" placeholder="회원 닉네임" />
+										<input type="text" placeholder="${vo.nickname }" />
 										<div class="input-icon">
 											<i class="fa fa-user" id="label_icon"></i>
 										</div>
 									</div>
 									<div class="input-group input-group-icon">
-										<input type="email" placeholder="회원 이메일" />
+										<input type="email" placeholder="${vo.email }" />
 										<div class="input-icon">
 											<i class="fa fa-envelope" id="label_icon"></i>
 										</div>
 									</div>
 									<div class="input-group input-group-icon">
-										<input type="text" placeholder="회원 주소" id="input-group-icon_address" class=""/>
+										<input type="text" placeholder="${addr }" id="input-group-icon_address" class=""/>
 										<div class="input-icon">
 											<i class="fa fa-user" id="label_icon"></i>
 										</div>
@@ -911,7 +895,7 @@ select option {
 									<div class="col-sm-4">
 									<div id='profile-upload' >
 									  <div class="hvr-profile-img">
-									    <input type="file" name="logo" id='getval'  class="upload w180" title="Dimensions 180 X 180" id="imag">
+									  	<input type="file" name="logo" id='getval'  class="upload w180" title="Dimensions 180 X 180" id="image">
 									  </div>
 									  <i class="fa fa-camera"></i>
 									</div>
@@ -924,13 +908,13 @@ select option {
 										<h4>Date of Birth</h4><br>
 										<div class="input-group">
 											<div class="col-third">
-												<input type="text" placeholder="YYYY" />
+												<input type="text" placeholder="${year }" />
 											</div>
 											<div class="col-third">
-												<input type="text" placeholder="MM" />
+												<input type="text" placeholder="${month }" />
 											</div>
 											<div class="col-third">
-												<input type="text" placeholder="DD" />
+												<input type="text" placeholder="${day }" />
 											</div>
 										</div>
 									</div>
@@ -940,19 +924,19 @@ select option {
 									<h4>Skin Type</h4><br>
 									<div class="input-group2">
 										<div class="col-fifth">
-											<input type="radio" name="skin_type" id="skin_type1" /> <label for="skin_type1">건성</label>
+											<input type="radio" name="skin_type" id="skin_type1" class="skin"/> <label for="skin_type1">건성</label>
 										</div>
 										<div class="col-fifth">
-											<input type="radio" name="skin_type" id="skin_type2" /> <label for="skin_type2">지성</label>
+											<input type="radio" name="skin_type" id="skin_type2" class="skin"/> <label for="skin_type2">지성</label>
 										</div>
 										<div class="col-fifth">
-											<input type="radio" name="skin_type" id="skin_type3" /> <label for="skin_type3">지복합성</label>
+											<input type="radio" name="skin_type" id="skin_type3" class="skin"/> <label for="skin_type3">지복합성</label>
 										</div>
 										<div class="col-fifth">
-											<input type="radio" name="skin_type" id="skin_type4" /> <label for="skin_type4">민감성</label>
+											<input type="radio" name="skin_type" id="skin_type4" class="skin"/> <label for="skin_type4">민감성</label>
 										</div>
 										<div class="col-fifth">
-											<input type="radio" name="skin_type" id="skin_type5" /> <label for="skin_type5">모르겠음</label>
+											<input type="radio" name="skin_type" id="skin_type5" class="skin"/> <label for="skin_type5">모르겠음</label>
 										</div>
 									</div>
 								</div>
