@@ -175,7 +175,7 @@ ul, li {
 	<div class="has_banner ">
 		<div class="container">
 			<div _ngcontent-c8="" class="brand_search_area">
-				<h1 style="color: #FFB9B9">BRAND</h1>
+				<h1 style="color: #FFB9B9">brand</h1>
 				<ruler-small-tab _ngcontent-c8="" _nghost-c10="">
 				</ruler-small-tab>
 			</div>
@@ -186,49 +186,49 @@ ul, li {
 					&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
 				</ul>
 				<ul>
- 				<li><a _ngcontent-c8="" class="filter" href="../brand/brand_alpha.hr?start=42000&end=45207	">가</a></li>
+ 				<li><a _ngcontent-c8="" class="filter" href="../brand/brand.hr?start=42000&end=45207	">가</a></li>
 				</ul>
 				<ul>
- 				<li><a _ngcontent-c8="" class="filter" href="../brand/brand_alpha.hr?start=45207&end=45795	">나</a></li>
+ 				<li><a _ngcontent-c8="" class="filter" href="../brand/brand.hr?start=45207&end=45795	">나</a></li>
 				</ul>
 				<ul>
- 				<li><a _ngcontent-c8="" class="filter" href="../brand/brand_alpha.hr?start=45795&end=46971	">다</a></li>
+ 				<li><a _ngcontent-c8="" class="filter" href="../brand/brand.hr?start=45795&end=46971	">다</a></li>
 				</ul>
 				<ul>
- 				<li><a _ngcontent-c8="" class="filter" href="../brand/brand_alpha.hr?start=46971&end=47559	">라</a></li>
+ 				<li><a _ngcontent-c8="" class="filter" href="../brand/brand.hr?start=46971&end=47559	">라</a></li>
 				</ul>
 				<ul>
- 				<li><a _ngcontent-c8="" class="filter" href="../brand/brand_alpha.hr?start=47559&end=48147	">마</a></li>
+ 				<li><a _ngcontent-c8="" class="filter" href="../brand/brand.hr?start=47559&end=48147	">마</a></li>
 				</ul>
 				<ul>
- 				<li><a _ngcontent-c8="" class="filter" href="../brand/brand_alpha.hr?start=48147&end=49323	">바</a></li>
+ 				<li><a _ngcontent-c8="" class="filter" href="../brand/brand.hr?start=48147&end=49323	">바</a></li>
 				</ul>
 				<ul>
- 				<li><a _ngcontent-c8="" class="filter" href="../brand/brand_alpha.hr?start=49323&end=50499	">사</a></li>
+ 				<li><a _ngcontent-c8="" class="filter" href="../brand/brand.hr?start=49323&end=50499	">사</a></li>
 				</ul>
 				<ul>
- 				<li><a _ngcontent-c8="" class="filter" href="../brand/brand_alpha.hr?start=50499&end=51087	">아</a></li>
+ 				<li><a _ngcontent-c8="" class="filter" href="../brand/brand.hr?start=50499&end=51087	">아</a></li>
 				</ul>
 				<ul>
- 				<li><a _ngcontent-c8="" class="filter" href="../brand/brand_alpha.hr?start=51087&end=52263	">자</a></li>
+ 				<li><a _ngcontent-c8="" class="filter" href="../brand/brand.hr?start=51087&end=52263	">자</a></li>
 				</ul>
 				<ul>
- 				<li><a _ngcontent-c8="" class="filter" href="../brand/brand_alpha.hr?start=52263&end=52851	">차</a></li>
+ 				<li><a _ngcontent-c8="" class="filter" href="../brand/brand.hr?start=52263&end=52851	">차</a></li>
 				</ul>
 				<ul>
- 				<li><a _ngcontent-c8="" class="filter" href="../brand/brand_alpha.hr?start=52851&end=53439	">카</a></li>
+ 				<li><a _ngcontent-c8="" class="filter" href="../brand/brand.hr?start=52851&end=53439	">카</a></li>
 				</ul>
 				<ul>
- 				<li><a _ngcontent-c8="" class="filter" href="../brand/brand_alpha.hr?start=53439&end=54027	">타</a></li>
+ 				<li><a _ngcontent-c8="" class="filter" href="../brand/brand.hr?start=53439&end=54027	">타</a></li>
 				</ul>
 				<ul>
- 				<li><a _ngcontent-c8="" class="filter" href="../brand/brand_alpha.hr?start=54027&end=54615	">파</a></li>
+ 				<li><a _ngcontent-c8="" class="filter" href="../brand/brand.hr?start=54027&end=54615	">파</a></li>
 				</ul>
 				<ul>
- 				<li><a _ngcontent-c8="" class="filter" href="../brand/brand_alpha.hr?start=54615&end=55203	">하</a></li>
+ 				<li><a _ngcontent-c8="" class="filter" href="../brand/brand.hr?start=54615&end=55203	">하</a></li>
 				</ul>
 				<ul>
- 				<li><a _ngcontent-c8="" class="filter" href="../brand/brand_alpha.hr?start=42000&end=55203	">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ABC.</a></li>
+ 				<li><a _ngcontent-c8="" class="filter" href="../brand/brand.hr?start=0&end=42000&start1=55203&end1=70000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ABC.</a></li>
 				</ul>
 
 			</div>
@@ -237,10 +237,10 @@ ul, li {
 		
 		<section class="main_section" style="margin-top:10px">
 		<div class="container">
-			<c:forEach var="vo" items="${brandListData }">
+			<c:forEach var="vo" items="${brandListSearch }">
 				<div class="col-sm-3">
 					<div class="content">
-						<a href="../brand/brand_main.hr?product=${vo.brand }" target="_blank">
+						<a href="" target="_blank">
 
 							<div class="content-overlay"></div>
 								<img src="${vo.brand_img }" class="content-image" width=100px
