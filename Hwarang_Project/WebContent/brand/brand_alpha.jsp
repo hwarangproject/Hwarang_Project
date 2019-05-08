@@ -27,7 +27,6 @@
   margin: auto;
   overflow: visible;
 }
-
 .content .content-overlay {
   background-color: #FFB9B9;
   position: absolute;
@@ -166,12 +165,16 @@ img {
 ul, li {
 	float: left;
 }
+
+#brand_id {
+	text-align: center;
+}
+
 </style>
 </head>
 <body>
 
 <jsp:include page="${brand_jsp }"></jsp:include>
-
 	<div class="has_banner ">
 		<div class="container">
 			<div _ngcontent-c8="" class="brand_search_area">
@@ -179,7 +182,6 @@ ul, li {
 				<ruler-small-tab _ngcontent-c8="" _nghost-c10="">
 				</ruler-small-tab>
 			</div>
-			
 			<div _ngcontent-c8="" class="container text-center" id="brand_id">
 				<ul>
 				<li><a _ngcontent-c8="" class="filter" href="../brand/brand.hr">전체
@@ -230,25 +232,24 @@ ul, li {
 				<ul>
  				<li><a _ngcontent-c8="" class="filter" href="../brand/brand_alpha.hr?start=42000&end=55203	">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ABC.</a></li>
 				</ul>
-
 			</div>
 		</div>
 		
 		
 		<section class="main_section" style="margin-top:10px">
 		<div class="container">
-			<c:forEach var="vo" items="${brandListData }">
+			<c:forEach var="vo" items="${brandListSearch }">
 				<div class="col-sm-3">
 					<div class="content">
 						<a href="" target="_blank">
-
 							<div class="content-overlay"></div>
 								<img src="${vo.brand_img }" class="content-image" width=100px
 									height=80px>
+							
 							<div class="content-details fadeIn-bottom">
 								<h3 class="content-title">${vo.brand }</h3>
 							</div>
-						</a>
+					</a>
 					</div>
 				</div>
 			</c:forEach>

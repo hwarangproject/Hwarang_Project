@@ -12,6 +12,7 @@ public class MainModel {
 	@RequestMapping("main/main.hr")
     public String main_page(HttpServletRequest request)
     {
+		
 		List<ProductVO> list=ProductDAO.productListData();
 		request.setAttribute("productListData", list);
 		request.setAttribute("main_jsp", "default.jsp");
