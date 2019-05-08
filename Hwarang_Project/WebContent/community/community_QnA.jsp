@@ -5,6 +5,39 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>community</title>
+<link rel="stylesheet" href="css/bootstrap.css">
+<title>HWARANG PROJECT</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="css/prettyPhoto.css" rel="stylesheet">
+<link href="css/price-range.css" rel="stylesheet">
+<link href="css/animate.css" rel="stylesheet">
+<link href="css/main.css" rel="stylesheet">
+<link href="css/responsive.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+<link rel="shortcut icon" href="images/ico/favicon.ico">
+<link rel="apple-touch-icon-precomposed" sizes="144x144"
+	href="images/ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114"
+	href="images/ico/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72"
+	href="images/ico/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed"
+	href="images/ico/apple-touch-icon-57-precomposed.png">
+
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.scrollUp.min.js"></script>
+<script src="js/price-range.js"></script>
+<script src="js/jquery.prettyPhoto.js"></script>
+<script src="js/main.js"></script>
+<script src="js/jquery-3.1.1.js"></script>
+<script src="js/bootstrap.js"></script>
+
 
 <!-- 내가 설정한 스타일 -->
 <style type="text/css">
@@ -19,7 +52,7 @@
 	font-size: 15px;
 	letter-spacing: 2px;
 	color: #383736;
-	border: 2px #383736 solid;
+	border: 1.5px #383736 solid;
 	border-radius: 4px;
 	text-transform: uppercase;
 	outline: 0;
@@ -32,6 +65,7 @@
 	-ms-transition: 0.08s ease-in;
 	-moz-transition: 0.08s ease-in;
 	-webkit-transition: 0.08s ease-in;
+	
 }
 
 .fill:hover {
@@ -41,7 +75,7 @@
 .fill:before {
 	content: "";
 	position: absolute;
-	background: #383736;
+	background: #ffd1dc;
 	bottom: 0;
 	left: 0;
 	right: 0;
@@ -192,17 +226,86 @@
 	top: 0;
 }
 
+<!--
+검색--> 
 #fsearch
 {
 	width:50px;
 }
 
+#dsearch
+{
+width:250px;
+align:center;
+margin-left:470px;
+
+}
+
+/* @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body {
+	background: #f2f2f2;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.search {
+	width: 100%;
+	position: relative;
+	display: flex;
+}
+
+.searchTerm {
+	width: 40%;
+	border: 3px solid #ddd;
+	border-right: none;
+	padding: 15px;
+	height: 20px;
+	border-radius: 5px 0 0 5px;
+	outline: none;
+	margin-bottom: 60px;
+	margin-left: 160px;
+	color: #ddd;
+}
+
+.searchTerm:focus {
+	color: #ddd;
+}
+
+.searchButton {
+	width: 40px;
+	height: 36px;
+	border: 1px solid #ddd;
+	background: #ddd;
+	text-align: center;
+	color: #fff;
+	border-radius: 0 5px 5px 0;
+	cursor: pointer;
+	font-size: 20px;
+} */
+
+/*Resize the wrap to see the search bar change!*/
 .wrap {
 	width: 30%;
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+}
+
+<!--
+기본-->.carousel-inner {
+	margin: 10px auto;
+	width: 1200px;
+	height: 400px;
+}
+
+#custom_slider {
+	bottom: 70px;
+}
+
+#logo {
+	width: 200px;
+	height: 45px;
 }
 
 #custom_pouch {
@@ -216,32 +319,42 @@
 #SH {
 	height: 70px;
 }
+
+#bbutton{
+margin-top:10px;
+
+}
+
+#hrbu{
+width:1150px;
+}
+
+#butag{
+text-decoration:none; 
+color:#000000;
+
+}
 </style>
 
 
 </head>
 
 <body>
-	<div class="container">
+
+
+	<div class="container" id="bbutton">
 		<div class="row">
 			<table rules="none" style="width: 100%;">
 				<tr style="width: 100%;">
-					<td style="width: 25%;">
-						<a href="../community/community_QnA.hr"><button class="fill" id="navBtn">문의사항</button></a>
-					</td>
-					<td style="width: 25%;">
-						<a href="../community/community_makeup.hr"><button class="fill" id="navBtn">화장법</button></a>
-					</td>
-					<td style="width: 25%;">
-						<a href="../community/community_recommend.hr"><button class="fill" id="navBtn">화장품 추천</button></a>
-					</td>
-					<td style="width: 25%;">
-						<a href="../community/community_etc.hr"><button class="fill" id="navBtn">기타</button></a>
-					</td>
+					<td style="width: 25%;"><a href="community_QnA.hr" id="butag"><button class="fill" width=25% id="navBtn">문의사항</button></a></td>
+					<td style="width: 25%;"><a href="community_makeup.hr" id="butag"><button class="fill" id="navBtn">화장법</button></a></td>
+					<td style="width: 25%;"><a href="community_recommend.hr" id="butag"><button class="fill" id="navBtn">화장품 추천</button></a></td>
+					<td style="width: 25%;"><a href="community_etc.hr" id="butag"><button class="fill" id="navBtn">기타</button></a></td>
 				</tr>
 			</table>
 		</div>
 	</div>
+	
 
 
 	<!-- <div style="border: 1px solid gold; float: left; width: 25%;">
@@ -276,7 +389,7 @@
 				<tbody>
 					<tr>
 						<td>1</td>
-						<td>기초 세안법</td>
+						<td>문의사항</td>
 						<td>관리자</td>
 						<td>2019.04.18</td>
 						<td>0</td>
@@ -359,8 +472,17 @@
 				</tbody>
 			</table>
 			
+			
+			
+<hr ></hr>
+				<tr>
+					<td class="text-right"><a href="community_insert.hr" class="btn btn-default pull-right">글쓰기</a>
+					</td>
+				</tr>
+		
+		
 			<form name="mysearchbar" action="/search" method="get" id="fsearch">
-				<div class="input-group">
+				<div class="input-group" id="dsearch">
 					<input name="q" type="text" class="form-control" placeholder="검색어 입력"/>
 					<div class="input-group-addon">
 						<span class="glyphicon glyphicon-search"
@@ -370,31 +492,21 @@
 			</form>
 			
 			<br />
+	
 
-			<table class="table" rules="none">
+			<!-- <table class="table" rules="none">
+			
 
-				<!-- 	<tr>
-					<td class="text-center">
-						<div class="wrap">
-						<div class="search">
-							<input type="text" class="searchTerm"
-								placeholder="What are you looking for?">
-							<button type="submit" class="searchButton">
-								<i class="fa fa-search"></i>
-							</button>
-						</div>
-					</div>
-					</td>
-				</tr> -->
+			
 
 				<tr>
-					<td class="text-right">
-						<a href="../community/community_insert.hr" class="btn btn-default pull-right">글쓰기</a>
+					<td class="text-right"><a class="btn btn-default pull-right">글쓰기</a>
 					</td>
 				</tr>
-			</table>
+			</table> -->
+			
 
-			<table class="table" rules="none">
+			<table class="table" rules="none" id="tbutton">
 				<tr>
 					<td class="text-center">
 						<ul class="pagination">
@@ -410,9 +522,8 @@
 
 		</div>
 	</div>
-	
-	<script src="js/jquery-3.1.1.js"></script>
-	<script src="js/bootstrap.js"></script>
+
+
 
 </body>
 </html>
