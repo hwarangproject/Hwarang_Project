@@ -148,7 +148,7 @@
                                         <li><a href="blog.html">미샤</a></li>
 										<li><a href="blog-single.html">이니스프리</a></li>
                                     </ul> --></li>
-							<li><a href="#">게시판</a></li>
+							<li><a href="../news/news.hr">소식</a></li>
 							<li><a href="../pouch/pouch.hr">파우치</a></li>
 							<li><a href="../community/community_QnA.hr">커뮤니티</a></li>
 						</ul>

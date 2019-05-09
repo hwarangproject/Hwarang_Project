@@ -69,6 +69,7 @@
 				</div>
 			</div>
 		</div>
+		</div>
 	</div>
 	</section>
 	<!--/slider-->
@@ -217,39 +218,30 @@
 			</div>
 		</div>
 		<!--features_items-->
-
+		
+		
+		<!-- ------------------------------------------------------------------------------------------------
+		<div class="container">
+		<div class="row">
+			<table class="table">
+				<c:forEach var="vo" items="${news_list }">
+					<tr>
+						<td width=30% class="text-center" rowspan="2">
+							<img src="${vo.url }" width=180 height=150>
+						</td>
+						<td class="text-center">${vo.title }(${vo.author })</td>
+					</tr>
+					<tr>
+						<td>${vo.description }</td>
+					</tr>
+				</c:forEach>
+			</table>
+		</div>
+	</div>
+	 -->
 		<div class="container">
 			<div class="col-xs-6">
-				<div class="blog-card">
-					<div class="meta">
-						<div class="photo"
-							style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
-					</div>
-					<div class="description">
-						<h1>화장품 소식1</h1>
-						<h2>오늘의 화장품 소식1</h2>
-						<p>가가가가가가가가가가+가가가가가가가가가가+가가가가가가가가가가+가가가가가가가가가가
-							가가가가가가가가가가+가가가가가가가가가가</p>
-						<p class="read-more">
-							<a href="http://www.beautynury.com/">보러가기</a>
-						</p>
-					</div>
-				</div>
-				<div class="blog-card alt">
-					<div class="meta">
-						<div class="photo"
-							style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-2.jpg)"></div>
-					</div>
-					<div class="description">
-						<h1>Mastering the Language</h1>
-						<h2>Java is not the same as JavaScript</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-							Ad eum dolorum architecto obcaecati enim dicta praesentium, quam</p>
-						<p class="read-more">
-							<a href="#">Read More</a>
-						</p>
-					</div>
-				</div>
+				<jsp:include page="../news/news_main.jsp"></jsp:include>
 			</div>
 
 

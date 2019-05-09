@@ -104,7 +104,7 @@
 .blog-card .description h1 {
   line-height: 1;
   margin: 0;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
 }
 .blog-card .description h2 {
   font-size: 1rem;
@@ -139,13 +139,14 @@
 }
 .blog-card p:first-of-type {
   margin-top: 1.25rem;
+  font-size: 13px;
 }
 .blog-card p:first-of-type:before {
   content: "";
   position: absolute;
   height: 5px;
   background: #5ad67d;
-  width: 35px;
+  width: 60px;
   top: -0.75rem;
   border-radius: 3px;
 }
