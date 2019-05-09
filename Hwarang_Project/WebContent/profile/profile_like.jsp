@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -770,19 +771,20 @@ img.content-image{
 							</div>
 						</section>
 		
-							<!-- 회원정보 -->
+						<!-- 회원정보 -->
 						<section class="section2 clearfix"><br><br>
 						<h3>PRODUCT</h3><br><br>
+						  <c:forEach var="pvo" items="${pvoList }">
 							<div class="col-sm-2">
 								<div class="product-image-wrapper">	
 									<div class="single-products">
 										<div class="productinfo text-center">
 										
 											<a href="../product/product_detail.hr">
-											<img src="../images/product-details/cos5.png" alt="" width=280.8px height=280.8px/>
-											<h5>이니스프리 / 화산송이마스크</h5>
+											<img src="${pvo.product_img }" alt="" width=280.8px height=280.8px/>
+											<h5>${pvo.brand } / ${pvo.product_name }</h5>
 											</a>
-											<p>17,000원</p>		
+											<p>${pvo.price }</p>		
 										</div>
 									</div>
 									<div class="choose">
@@ -792,44 +794,9 @@ img.content-image{
 									</div>
 								</div>
 							</div>
-							<div class="col-sm-2">
-								<div class="product-image-wrapper">
-									<div class="single-products">
-										<div class="productinfo text-center">
-											<a href="../product/product_detail.hr">
-											<img src="../images/product-details/cos5.png" alt="" width=280.8px height=280.8px/>
-											<h5>이니스프리 / 화산송이마스크</h5>
-											</a>
-											<p>17,000원</p>
-										</div>
-									</div>
-									<div class="choose">
-										<ul class="nav nav-pills nav-justified">
-											<li><a href='#'><img src="https://image.flaticon.com/icons/svg/812/812853.svg" height="20" width="20"></a></li>												
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="col-sm-2">
-								<div class="product-image-wrapper">
-									<div class="single-products">
-										<div class="productinfo text-center">
-											<a href="../product/product_detail.hr">
-											<img src="../images/product-details/cos5.png" alt="" width=280.8px height=280.8px/>
-											<h5>이니스프리 / 화산송이마스크</h5>
-											</a>
-											<p>17,000원</p>
-										</div>
-									</div>
-									<div class="choose">
-										<ul class="nav nav-pills nav-justified">
-											<li><a href='#'><img src="https://image.flaticon.com/icons/svg/812/812853.svg" height="20" width="20" class="text-right"></a></li>												
-										</ul>
-									</div>
-								</div>
-							</div>
+					     </c:forEach>
 						</section>
-						<section>
+						<section>						 
 						  <div class="pagination p1">
 						      <ul>
 						        <a href="#"><li><</li></a>
@@ -841,82 +808,30 @@ img.content-image{
 						        <a href="#"><li>6</li></a>
 						        <a href="#"><li>></li></a>
 						      </ul>
-						    </div>
+						    </div>					    
 						</section>
+						
 						<section>
 						  <h3>POUCH</h3>
 						  <div class="app-container">
 							  <div class="app-content">
 							    <div class="friends-container">
+							     <c:forEach var="povo" items="${povoList}">
 							      <article class="profile profile--padding">
 							        <div class="profile__img"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg"/>
 							        </div>
 							        <div class="profile__info profile__info--bordered">
-							          <h3 class="profile__info__name">James Peters</h3>
-							          <p class="profile__info__contact">james.peters22@example.com</p>
+							          <h3 class="profile__info__name">${povo.pouch_score }</h3>
+							          <p class="profile__info__contact">${povo.pouch_like }</p>
 							        </div>
 							      </article>
-							      <article class="profile profile--padding">
-							        <div class="profile__img"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/adellecharles/128.jpg"/>
-							        </div>
-							        <div class="profile__info profile__info--bordered">
-							          <h3 class="profile__info__name">Jenny Ryan</h3>
-							          <p class="profile__info__contact">jenny.ryan81@example.com</p>
-							        </div>
-							      </article>
-							      <article class="profile profile--padding">
-							        <div class="profile__img"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/sauro/128.jpg"/>
-							        </div>
-							        <div class="profile__info profile__info--bordered">
-							          <h3 class="profile__info__name">Angel Brewer</h3>
-							          <p class="profile__info__contact">angel.brewer98@example.com</p>
-							        </div>
-							      </article>
-							      <article class="profile profile--padding">
-							        <div class="profile__img"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg"/>
-							        </div>
-							        <div class="profile__info profile__info--bordered">
-							          <h3 class="profile__info__name">James Peters</h3>
-							          <p class="profile__info__contact">james.peters22@example.com</p>
-							        </div>
-							      </article>
-							      <article class="profile profile--padding">
-							        <div class="profile__img"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/nzcode/128.jpg"/>
-							        </div>
-							        <div class="profile__info profile__info--bordered">
-							          <h3 class="profile__info__name">Jenny Ryan</h3>
-							          <p class="profile__info__contact">jenny.ryan81@example.com</p>
-							        </div>
-							      </article>
-							      <article class="profile profile--padding">
-							        <div class="profile__img"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/mattsince87/128.jpg"/>
-							        </div>
-							        <div class="profile__info profile__info--bordered">
-							          <h3 class="profile__info__name">Angel Brewer</h3>
-							          <p class="profile__info__contact">angel.brewer98@example.com</p>
-							        </div>
-							      </article>
-							      <article class="profile profile--padding">
-							        <div class="profile__img"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/marcosmoralez/128.jpg"/>
-							        </div>
-							        <div class="profile__info profile__info--bordered">
-							          <h3 class="profile__info__name">James Peters</h3>
-							          <p class="profile__info__contact">james.peters22@example.com</p>
-							        </div>
-							      </article>
-							      <article class="profile">
-							        <div class="profile__img"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/jina/128.jpg"/>
-							        </div>
-							        <div class="profile__info profile__info--bordered">
-							          <h3 class="profile__info__name">Jenny Ryan</h3>
-							          <p class="profile__info__contact">jenny.ryan81@example.com</p>
-							        </div>
-							      </article>
+							     </c:forEach>
 							    </div>
 							  </div>
 							</div>
-						 
-						</section><br><br>
+						</section>
+						
+						<br><br>
 						<section>
 						  <h3>BRAND</h3>
 						    <div class="col-sm-3">

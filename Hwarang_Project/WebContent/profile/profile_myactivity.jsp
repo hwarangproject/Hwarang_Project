@@ -614,11 +614,11 @@ span {
 									      MY POUCH
 									      </a> --%>
 									      <c:choose>
-											  <c:when test = '${vo.pouch_no!=0}'>
+											  <c:when test = '${vo.pouch_no==0}'>
 											    <a href='profile_pouch.hr'>MY POUCH</a>
 											  </c:when>
 											  <c:otherwise>
-											    <a href='../pouch/pouch_detail.hr'>MY POUCH</a>
+											    <a href='../pouch/pouch_detail.hr?pouch_no=${vo.pouch_no }'>MY POUCH</a>
 											  </c:otherwise>
 									      </c:choose>								      
 									    </li>									    
@@ -723,6 +723,7 @@ span {
 										<div class="recent_pro">
 											<div id="app">
 												<div class="flow" ref="flow">
+												<%-- <c:forEach var="vo" items="${list }"> --%>
 													<div v-for="tab of tabs" class="item2"
 														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"></div>
 													<div v-for="tab of tabs" class="item2"

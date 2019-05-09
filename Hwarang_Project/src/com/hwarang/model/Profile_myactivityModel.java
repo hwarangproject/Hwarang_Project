@@ -16,7 +16,6 @@ public class Profile_myactivityModel {
 		MemberVO vo = ProfileDAO.getMemberData(id);
 		
 		request.setAttribute("vo", vo);
-		request.setAttribute("pouchMake", "../profile/profile_pouch.hr");
 		request.setAttribute("main_jsp", "../profile/profile_myactivity.jsp");
 		return "../main/main.jsp";
 	}

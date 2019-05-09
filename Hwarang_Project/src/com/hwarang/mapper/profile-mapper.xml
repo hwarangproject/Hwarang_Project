@@ -7,4 +7,29 @@
   <select id="getBrandImg" resultType="String" parameterType="String">
     SELECT DISTINCT brand_img FROM product WHERE brand = #{brand}
   </select>
+  
+  <!-- 즐겨찾기 상품 가져오기 -->
+  <select id="getLikeProduct_no" resultType="int" parameterType="int">
+    SELECT product_no 
+    FROM product_jjim 
+    WHERE member_no = #{member_no}
+  </select>
+  <select id="getLikeProductVO" resultType="ProductVO" parameterType="int">
+    SELECT * FROM product WHERE product_no = #{product_no}
+  </select>
+  
+  <!-- 즐겨찾기 파우치 가져오기 -->
+  <select id="getLikePouch_no" resultType="int" parameterType="int">
+    SELECT pouch_no 
+    FROM pouch_jjim 
+    WHERE member_no = #{member_no}
+  </select>
+  <select id="getLikePouchVO" resultType="PouchVO" parameterType="int">
+    SELECT * FROM pouch WHERE pouch_no = #{pouch_no}
+  </select>
+  
+  <select id="getPouchMemberData" resultType="MemberVO" parameterType="int">
+  	SELECT * FROM member WHERE member_no=#{member_no}
+  </select>
+  
 </mapper>

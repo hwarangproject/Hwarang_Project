@@ -1,19 +1,26 @@
 package com.hwarang.vo;
 
 import java.sql.Date;
-
+/*
+ * POUCH_NO      NOT NULL NUMBER         
+POUCH_SCORE   NOT NULL NUMBER(2,1)    
+POUCH_IMG     NOT NULL VARCHAR2(1000) 
+POUCH_LIKE    NOT NULL NUMBER         
+REGDATE                DATE           
+EXPDATE                DATE           
+MEMBER_NO     NOT NULL NUMBER         
+POUCH_CONTENT          VARCHAR2(4000) 
+ */
 public class PouchVO {
 	private int pouch_no;
-	private String product_name;
-	private int pouch_score;
-	private String product_img;
+	private double pouch_score;
+	private String pouch_img;
 	private int pouch_like;
 	// 등록 날짜, 만료 날짜
 	private Date regdate;
 	private Date expdate;
-	private int pouch_reply_no;
-	private String pouch_reply;
 	private int member_no;
+	private String pouch_content;
 	
 	public int getPouch_no() {
 		return pouch_no;
@@ -21,23 +28,17 @@ public class PouchVO {
 	public void setPouch_no(int pouch_no) {
 		this.pouch_no = pouch_no;
 	}
-	public String getProduct_name() {
-		return product_name;
-	}
-	public void setProduct_name(String product_name) {
-		this.product_name = product_name;
-	}
-	public int getPouch_score() {
+	public double getPouch_score() {
 		return pouch_score;
 	}
-	public void setPouch_score(int pouch_score) {
+	public void setPouch_score(double pouch_score) {
 		this.pouch_score = pouch_score;
 	}
-	public String getProduct_img() {
-		return product_img;
+	public String getPouch_img() {
+		return pouch_img;
 	}
-	public void setProduct_img(String product_img) {
-		this.product_img = product_img;
+	public void setPouch_img(String pouch_img) {
+		this.pouch_img = pouch_img;
 	}
 	public int getPouch_like() {
 		return pouch_like;
@@ -57,22 +58,17 @@ public class PouchVO {
 	public void setExpdate(Date expdate) {
 		this.expdate = expdate;
 	}
-	public int getPouch_reply_no() {
-		return pouch_reply_no;
-	}
-	public void setPouch_reply_no(int pouch_reply_no) {
-		this.pouch_reply_no = pouch_reply_no;
-	}
-	public String getPouch_reply() {
-		return pouch_reply;
-	}
-	public void setPouch_reply(String pouch_reply) {
-		this.pouch_reply = pouch_reply;
-	}
 	public int getMember_no() {
 		return member_no;
 	}
 	public void setMember_no(int member_no) {
 		this.member_no = member_no;
 	}
+	public String getPouch_content() {
+		return pouch_content;
+	}
+	public void setPouch_content(String pouch_content) {
+		this.pouch_content = pouch_content;
+	}
+	
 }
