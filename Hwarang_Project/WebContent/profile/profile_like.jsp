@@ -818,9 +818,9 @@ img.content-image{
 						  <div class="app-container">
 							  <div class="app-content">
 							    <div class="friends-container">
-							     <c:forEach var="povo" items="${povoList}">
+							     <c:forEach var="povo" items="${povoList}" varStatus="s">
 							      <article class="profile profile--padding">
-							        <div class="profile__img"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg"/>
+							        <div class="profile__img"><img src="${mList[s.index].profile_img }"/>
 							        </div>
 							        <div class="profile__info profile__info--bordered">
 							          <h3 class="profile__info__name">${povo.pouch_score }</h3>

@@ -33,14 +33,19 @@ public class Profile_likeModel {
 		List<Integer> ponoList = ProfileDAO.getLikePouch_no(vo.getMember_no());
 		PouchVO povo = new PouchVO();
 		List<PouchVO> povoList = new ArrayList<PouchVO>();
-		List<MemberVO> mList = new ArrayList<MemberVO>();
+		List<MemberVO> mList = new ArrayList<MemberVO>(); 
 		
 		// pono로 각각의 povo list로 받음
 		for(int i : ponoList){
 			povo = ProfileDAO.getLikePouchVO(i);
 			povoList.add(povo);
 		}
-		
+		for(int j : ponoList){
+			MemberVO mvo = ProfileDAO.getLikePouchMemberVO(j);
+			mList.add(mvo);
+		}
+			
+		request.setAttribute("mList", mList);
 		request.setAttribute("povoList", povoList);
 		request.setAttribute("pvoList", pvoList);
 		request.setAttribute("brandImg", brandImg);

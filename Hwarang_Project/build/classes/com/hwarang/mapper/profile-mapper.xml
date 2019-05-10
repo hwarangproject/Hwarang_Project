@@ -44,8 +44,9 @@
   <select id="getLikePouchVO" resultType="PouchVO" parameterType="int">
     SELECT * FROM pouch WHERE pouch_no = #{pouch_no}
   </select>  
-  <select id="getPouchMemberData" resultType="MemberVO" parameterType="int">
-  	SELECT * FROM member WHERE pouch_no = #{pouch_no}
+  <select id="getLikePouchMemberVO" resultType="MemberVO" parameterType="int">
+    SELECT * FROM member 
+    WHERE pouch_no = #{pouch_no}
   </select>
 
   <!-- 즐찾 상품 리스트 총페이지 -->

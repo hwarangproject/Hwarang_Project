@@ -192,20 +192,22 @@ public class ProfileDAO {
 	}
 	
 	// 파우치 멤버  vo 가져오기
-	public static MemberVO getPouchMemberData(int mno){
-		MemberVO vo = new MemberVO();
+	public static MemberVO getLikePouchMemberVO(int pno){
+		MemberVO mvo = new MemberVO();
 		SqlSession session = null;
 		try {
 			session = ssf.openSession();
-			vo = session.selectOne("getMemberData", mno);
+			mvo = session.selectOne("getLikePouchMemberVO", pno);
+			
 		} catch (Exception ex) {
 			ex.printStackTrace();
+			
 		} finally {
 			if (session != null)
 				session.close();
 		}
 
-		return vo;
+		return mvo;
 	}
 	
 	// 즐찾 상품 총페이지

@@ -482,13 +482,11 @@ margin-left: 1.2em;
                            
                         <div class="col-sm-12">
                            <p><b>Write Your Review</b></p>
-                           <form action="#">
-                              <span>
-                                 <input type="text" placeholder="Your Name"/>
-                                 <input type="text" placeholder="password"/>
-                              </span>
-                              <textarea name="" ></textarea>
-                              
+                           <form method="post" action="../product/product_reply_insert.hr">
+                              <textarea name="reply_content" ></textarea>
+                              <input type="hidden" name="id" value="${sessionScope.id }">
+                              <input type="hidden" name="product_no" value="${vo.product_no}">
+                           </form>  
                               <!-- 평점주기 -->
                             <span class="star-input">
 							  <span class="input">
@@ -509,7 +507,7 @@ margin-left: 1.2em;
                               <button type="button" class="btn btn-default pull-right">
                                  Submit
                               </button>
-                           </form>
+                           
                         </div>
                      </div>
                      
