@@ -351,214 +351,377 @@ ul, ol {
 	margin-bottom: 10px;
 	padding-left: 0px;
 }
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+    color: #F6F6F6;
+    background-color: #ffb9b9;
+}
+
+a {
+    color: #000000;
+    text-decoration: none;
+}
 </style>
 </head>
 <body>
-	<section>
+<section>
 	<div class="container">
 		<div class="row">
-			
-			<h2 class="title text-center">10's choice</h2>
-			<div id="ranking-slide">
-				<ol>
-					<li><a href="../product_detail.jsp"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-				</ol>
-				<a href="../#" class="prev" onclick="prev()"></a> <a href="../#"
-					class="next" onclick="next()"></a>
-			</div>
-			<div class="row">
-			<a href="../shop.jsp"> 
-				<div class="button-2">
-					<div class="eff-2"></div>
-					<a href="../shop.jsp"> 더보기 
-				</div>
-				</a>
-			</div>
-			<!--features_items-->
-
-			
-			<h2 class="title text-center">20's choice</h2>
-
-			<div id="ranking-slide">
-				<ol>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-				</ol>
-				<a href="../#" class="prev" onclick="prev()"></a> <a href="../#"
-					class="next" onclick="next()"></a>
-			</div>
-			<div class="row">
-				<div class="button-2">
-					<div class="eff-2"></div>
-					<a href="../#"> 더보기 </a>
-				</div>
-			</div>
-			
-			<h2 class="title text-center">30's choice</h2>
-			<div id="ranking-slide">
-				<ol>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-					<li><a href="../"></a></li>
-				</ol>
-				<a href="../#" class="prev" onclick="prev()"></a> <a href="../#"
-					class="next" onclick="next()"></a>
-			</div>
-			<div class="row">
-				<div class="button-2">
-					<div class="eff-2"></div>
-					<a href="../#"> 더보기 </a>
-				</div>
-			</div>
-			<div class="row">
+			<ul class="nav nav-pills">
+			  <li class="active">
+			  	<a href="#tab-1" data-toggle="tab">10대</a>
+			  </li>
+			  <li><a href="#tab-2" data-toggle="tab">20대</a></li>
+			  <li><a href="#tab-3" data-toggle="tab">30대</a></li>
+			  <li><a href="#tab-4" data-toggle="tab">40대</a></li>
+			  <li><a href="#tab-5" data-toggle="tab">50대</a></li>
+			</ul>
+		
+			<div class="tab-content well">
+			  <div class="tab-pane active" id="tab-1">
+					<h2 class="title text-center">10's choice</h2>
+					<div id="ranking-slide">
+						<ol>
+							<li><a href="../product_detail.jsp"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+						</ol>
+						<a href="../#" class="prev" onclick="prev()"></a> <a href="../#"
+							class="next" onclick="next()"></a>
+					</div>
+					
+					<div class="row">
+						<a href="../shop.jsp"> 
+							<div class="button-2">
+							<div class="eff-2"></div>
+								<a href="../shop.jsp"> 더보기 
+							</div>
+						</a>
+					</div>
+			  </div>
+			  <div class="tab-pane" id="tab-2">
+			  	<h2 class="title text-center">20's choice</h2>
+					<div id="ranking-slide">
+						<ol>
+							<li><a href="../product_detail.jsp"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+						</ol>
+						<a href="../#" class="prev" onclick="prev()"></a> <a href="../#"
+							class="next" onclick="next()"></a>
+					</div>
+					
+					<div class="row">
+						<a href="../shop.jsp"> 
+							<div class="button-2">
+							<div class="eff-2"></div>
+								<a href="../shop.jsp"> 더보기 
+							</div>
+						</a>
+					</div>
+			  </div>
+			  <div class="tab-pane" id="tab-3">
+			  	<h2 class="title text-center">30's choice</h2>
+					<div id="ranking-slide">
+						<ol>
+							<li><a href="../product_detail.jsp"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+						</ol>
+						<a href="../#" class="prev" onclick="prev()"></a> <a href="../#"
+							class="next" onclick="next()"></a>
+					</div>
+					
+					<div class="row">
+						<a href="../shop.jsp"> 
+							<div class="button-2">
+							<div class="eff-2"></div>
+								<a href="../shop.jsp"> 더보기 
+							</div>
+						</a>
+					</div>
+			  </div>
+			  <div class="tab-pane" id="tab-4">
+			  	<h2 class="title text-center">40's choice</h2>
+					<div id="ranking-slide">
+						<ol>
+							<li><a href="../product_detail.jsp"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+						</ol>
+						<a href="../#" class="prev" onclick="prev()"></a> <a href="../#"
+							class="next" onclick="next()"></a>
+					</div>
+					
+					<div class="row">
+						<a href="../shop.jsp"> 
+							<div class="button-2">
+							<div class="eff-2"></div>
+								<a href="../shop.jsp"> 더보기 
+							</div>
+						</a>
+					</div>
+			  </div>
+			  <div class="tab-pane" id="tab-5">
+			  	<h2 class="title text-center">50's choice</h2>
+					<div id="ranking-slide">
+						<ol>
+							<li><a href="../product_detail.jsp"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+							<li><a href="../"></a></li>
+						</ol>
+						<a href="../#" class="prev" onclick="prev()"></a> <a href="../#"
+							class="next" onclick="next()"></a>
+					</div>
+					
+					<div class="row">
+						<a href="../shop.jsp"> 
+							<div class="button-2">
+							<div class="eff-2"></div>
+								<a href="../shop.jsp"> 더보기 
+							</div>
+						</a>
+					</div>
+			  </div>
 			</div>
 		</div>
 	</div>
-	</section>
+</section>
 	
 	<script src="../js/jquery.js"></script>
 

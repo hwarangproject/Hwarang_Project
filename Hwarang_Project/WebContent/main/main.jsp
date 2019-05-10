@@ -78,8 +78,17 @@
 				<div class="col-xs-6">
 					<div class="social-icons pull-right">
 						<ul class="nav navbar-nav">
-							<li><a href="../profile/profile_myactivity.hr"><i class="fa fa-star"></i>
-									Mypage</a></li>
+							<c:if test="${sessionScope.id==null }">
+							</c:if>
+							<c:if test="${sessionScope.id!=null }">
+							<li>
+								<a href="../profile/profile_myactivity.hr">
+									<i class="fa fa-star"></i>
+									Mypage
+								</a>
+							</li>
+							</c:if>
+							
 							<li><a href="../cart/cart.hr"><i class="fa fa-shopping-cart"></i>
 									Cart</a></li>
 							<li>
