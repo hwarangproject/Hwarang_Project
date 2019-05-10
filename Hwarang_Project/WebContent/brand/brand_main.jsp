@@ -75,6 +75,13 @@
 
 }
 
+.brand_box {
+padding-top:10px;
+}
+
+.brand_box:hover {
+background-color: #ffeae8;
+}
 
 </style>
 </head>
@@ -88,27 +95,32 @@
 						<!--brands_products-->
 						<h2>Brand</h2>
 						<div class="brands-name">
-							<ul class="nav nav-pills nav-stacked">
-								<li><a href=""> <span class="pull-right">(50)</span>Acne
-								</a></li>
-								<li><a href=""> <span class="pull-right">(56)</span>Grüne
-										Erde
-								</a></li>
-								<li><a href=""> <span class="pull-right">(27)</span>Albiro
-								</a></li>
-								<li><a href=""> <span class="pull-right">(32)</span>Ronhill
-								</a></li>
-								<li><a href=""> <span class="pull-right">(5)</span>Oddmolly
-								</a></li>
-								<li><a href=""> <span class="pull-right">(9)</span>Boudestijn
-								</a></li>
-								<li><a href=""> <span class="pull-right">(4)</span>Rösch
-										creative culture
-								</a></li>
+						<c:forEach var="vo" items="${brandPageDivision }" varStatus="s">
+						<c:if test="${s.index<1 }">
+							<ul class="brand_box nav nav-pills nav-stacked text-center">
+							<li><img src="${vo.brand_img }" width=230 height=100></li>
+								<li class="text-center" style="font-weight:bold; font-size:x-large;">${vo.brand }</li>
+								
 							</ul>
+						</c:if>
+						</c:forEach>
 						</div>
 					</div>
-					<!--/brands_products-->
+					<div class="brands_products">
+						<!--brands_products-->
+						<h2>SEARCH</h2>
+						<div class="brands-name">
+						<c:forEach var="vo" items="${brandPageDivision }" varStatus="s">
+						<c:if test="${s.index<1 }">
+							<ul class="nav nav-pills nav-stacked">
+							<li><img src="${vo.brand_img }" width=260 height=150></li>
+								<li class="text-center" style="font-weight:bold; font-size:x-large;">${vo.brand }</li>
+								
+							</ul>
+						</c:if>
+						</c:forEach>
+						</div>
+					</div>
 
 					<%-- 
 						<div class="price-range"><!--price-range-->
@@ -137,20 +149,20 @@
 					<!--features_items-->
 					<h2 class="title text-center">Items</h2>
 					
-					<c:forEach var="vo" items="${brandMainPage }" varStatus="s">
-					<c:if test="${s.index<12 }">
+					<c:forEach var="vo" items="${brandPageDivision }">
+					<%-- <c:if test="${s.index<12 }"> --%>
 						<div class="col-sm-4" id="custom_col-sm-4">
 						<div class="product-image-wrapper">
 							<div class="single-products">
 								<div class="productinfo text-center">
-								<a href="../product/product_detail.hr">
+								<a href="../product/product_detail.hr?pno=${vo.product_no }">
 									<img src="${vo.product_img }" alt="" width=280.8px height=280.8px/>
 									<h5>${vo.brand }</h5>
 									<h5>${vo.product_name.length()>13? vo.product_name.substring(1,13)+="...":vo.product_name }</h5>
 								</a>
 									<p>${vo.price }원</p>
 									<div class="star-rating" style="text-align: center">
-											<div style="width:30%" class="star-rating-percentage"  style="display:inline-block"></div>
+											<div style="width:${vo.score*20}%" class="star-rating-percentage"  style="display:inline-block"></div>
 									</div>
 								</div>
 							</div>
@@ -162,19 +174,45 @@
 							</div>
 						</div>
 						</div>
-					</c:if>
+			<%-- 		</c:if> --%>
 					</c:forEach>
 					
-					<ul class="pagination">
-						<li class="active">
-						<a href="">1</a></li>
-						<li><a href="">2</a></li>
-						<li><a href="">3</a></li>
-						<li><a href="">&raquo;</a></li>
-					</ul>
+					
+					
 				</div>
 				<!--features_items-->
-			</div>
+
+					<div class="row text-center">
+						<ul class="pagination">
+							<c:if test="${curpage>BLOCK }">
+								<li><a href="../brand/brand_main.hr?brand=${brand }&page=1">&laquo;</a></li>
+								<li><a
+									href="../brand/brand_main.hr?brand=${brand }&page=${startPage-1 }">&lsaquo;</a></li>
+							</c:if>
+							<c:set var="type" value="" />
+							<c:forEach var="i" begin="${startPage }" end="${endPage }">
+								<c:if test="${curpage==i }">
+									<c:set var="type" value="class=active" />
+								</c:if>
+								<c:if test="${curpage!=i }">
+									<c:set var="type" value="" />
+								</c:if>
+								<li ${type }><a
+									href="../brand/brand_main.hr?brand=${brand }&page=${i }">${i }</a></li>
+							</c:forEach>
+							<c:if test="${curpage<allPage}">
+								<li><a
+									href="../brand/brand_main.hr?brand=${brand }&page=${endPage+1 }">&rsaquo;</a></li>
+								<li><a
+									href="../brand/brand_main.hr?brand=${brand }&page=${allPage }">&raquo;</a></li>
+							</c:if>
+						</ul>
+						<div class="text-center">
+						${curpage } page / ${totalpage } pages
+					</div>
+					</div>
+					
+				</div>
 		</div>
 	</div>
 	</section>

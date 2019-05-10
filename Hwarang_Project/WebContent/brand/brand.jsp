@@ -19,9 +19,7 @@
   box-sizing: border-box;
 }
 
-a:hover{
-  color: #f97e7e; 
-}
+
 .content {
   position: relative;
   width:90%;
@@ -239,10 +237,10 @@ ul, li {
 		
 		<section class="main_section" style="margin-top:10px">
 		<div class="container">
-			<c:forEach var="vo" items="${brandListSearch }">
+			<c:forEach var="vo" items="${brandListPageDivision }">
 				<div class="col-sm-3">
 					<div class="content">
-						<a href="../brand/brand_main.hr?brand=${vo.brand }" target="_blank">
+						<a href="../brand/brand_main.hr?brand=${vo.brand }">
 							<div class="content-overlay"></div>
 								<img src="${vo.brand_img }" class="content-image" width=100px
 									height=80px>
@@ -257,14 +255,31 @@ ul, li {
 		</section>
 		
 	</div>
-	<div class="container text-center">
-	<ul class="pagination">
-						<li class="active">
-						<a href="">1</a></li>
-						<li><a href="">2</a></li>
-						<li><a href="">3</a></li>
-						<li><a href="">&raquo;</a></li>
-					</ul>
+					<div class="row text-center">
+						<ul class="pagination">
+							<c:if test="${curpage>BLOCK }">
+								<li><a href="../brand/brand.hr?start=${start }&end=${end }&page=1">&laquo;</a></li>
+								<li><a
+									href="../brand/brand.hr?start=${start }&end=${end }&page=${startPage-1 }">&lsaquo;</a></li>
+							</c:if>
+							<c:set var="type" value="" />
+							<c:forEach var="i" begin="${startPage }" end="${endPage }">
+								<c:if test="${curpage==i }">
+									<c:set var="type" value="class=active" />
+								</c:if>
+								<c:if test="${curpage!=i }">
+									<c:set var="type" value="" />
+								</c:if>
+								<li ${type }><a
+									href="../brand/brand.hr?start=${start }&end=${end }&page=${i }">${i }</a></li>
+							</c:forEach>
+							<c:if test="${curpage<allPage}">
+								<li><a
+									href="../brand/brand.hr?start=${start }&end=${end }&page=${endPage+1 }">&rsaquo;</a></li>
+								<li><a
+									href="../brand/brand.hr?start=${start }&end=${end }&page=${allPage }">&raquo;</a></li>
+							</c:if>
+						</ul>
 					</div>
 
 	<script src="js/jquery.js"></script>

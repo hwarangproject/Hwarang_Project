@@ -29,8 +29,47 @@
 	<select id="brandListSearch" resultType="ProductVO" parameterType="java.util.Map">
 		SELECT distinct brand,brand_img FROM product WHERE brand BETWEEN NCHR(#{start}) AND NCHR(#{end}) 
 	</select>
-	<!-- 브랜드 개별 페이지 -->
-	<select id="brandMainPage" resultType="ProductVO" parameterType="String">
+	<!-- 브랜드 페이지 검색 ex)가격별, 평점별 -->
+	<select id="brand_Filter"  resultType="ProductVO" parameterType="String">
 		SELECT * FROM product WHERE brand=#{brand}
+		<!-- <if test="">
+		
+		</if> -->
+	</select>
+	
+	<!-- 브랜드 개별페이지 * 페이지 나누기 -->
+	<select id="brandPageDivision" resultType="ProductVO" parameterType="hashmap">
+	SELECT distinct product_no, brand, product_name, price, score, brand_img, product_img, num 
+	FROM (SELECT distinct product_no, brand, product_name, price, score, brand_img, product_img, rownum as num 
+	FROM (SELECT distinct product_no, brand, product_name, price, score, brand_img, product_img FROM product WHERE brand=#{brand} ORDER BY score DESC ))  
+	WHERE num BETWEEN ${start} AND ${end}
+	<!-- 
+		parameterType="java.util.Map"
+			#{start} ==> map.get("start") => map의 키값과 일치해야함
+		parameterType="BoardVO"
+			#{name} ==> vo.getName() => vo가 가지고 있는 변수명과 일치
+	 -->
+	</select>
+	<!-- 브랜드 총페이지 -->
+	<select id="brandTotalPage" resultType="int" parameterType="String">
+		SELECT CEIL(COUNT(*)/12.0) FROM product WHERE brand=#{brand} -->
+	</select>
+	<!-- 브랜드 페이지 나누기 -->
+	<select id="brandListPageDivision" resultType="ProductVO" parameterType="hashmap">
+	SELECT distinct brand,brand_img, num 
+	FROM (SELECT distinct brand,brand_img, rownum as num
+	FROM (SELECT distinct brand,brand_img FROM product WHERE brand BETWEEN NCHR(#{start}) AND NCHR(#{end})))
+	WHERE num BETWEEN #{start2} AND #{end2};
+	<!-- 
+		parameterType="java.util.Map"
+			#{start} ==> map.get("start") => map의 키값과 일치해야함
+		parameterType="BoardVO"
+			#{name} ==> vo.getName() => vo가 가지고 있는 변수명과 일치
+	 -->
+	</select>
+	<!-- 브랜드 총페이지 -->
+	<select id="brandListTotalPage" resultType="int" parameterType="hashmap">
+		SELECT CEIL(count(distinct brand)/20.0) FROM product WHERE brand BETWEEN NCHR(#{start}) AND NCHR(#{end})
 	</select>
 </mapper>
+
