@@ -1,0 +1,398 @@
+* {
+	margin: 0;
+	padding: 0;
+	-webkit-font-smoothing: antialiased;
+	-webkit-tap-highlight-color: transparent;
+	box-sizing: border-box;
+}
+
+html, body {
+	height: 100%;
+	zoom: reset;
+	background: white;
+	font-family: Montserrat;
+}
+
+img {
+	display: block;
+	margin: 0px auto;
+}
+
+body {
+	font-family: 'Roboto', Helvetica;
+	color: #737373;
+	font-weight: 300;
+}
+
+.a {
+	border-bottom: 0.1px solid #B6B6B4;
+	margin-top: 3px;
+}
+
+
+.carousel-inner {
+	margin: 10px auto;
+	width: 1200px;
+	height: 400px;
+}
+
+
+a {
+	text-decoration: none;
+	color: rgb(220, 72, 127);
+}
+
+a:hover {
+	transition: none;
+	border-bottom: 1px solid rgb(220, 72, 127);
+}
+
+
+#logo {
+	width: 200px;
+	height: 45px;
+}
+
+#introduce {
+	padding-left: 0px auto;
+}
+
+input[type=checkbox] {
+	clear: both;
+	display: none;
+}
+
+input[type="checkbox"] {
+	display: none;
+}
+
+input[type="checkbox"]+label {
+	z-index: 100;
+	overflow: hidden;
+	width: 4em;
+	text-align: center;
+	cursor: pointer;
+	-webkit-transition: all 300ms ease;
+	width: 4em;
+}
+
+input[type="checkbox"]+label:before {
+	content: '';
+	z-index: -1;
+	position: absolute;
+	background: rgb(220, 72, 127);
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	top: 0;
+	left: 0;
+	transform: scale(0);
+	-webkit-ransform: scale(0);
+}
+
+input[type="checkbox"]+label:after {
+	content: '';
+	z-index: -1;
+	position: absolute;
+	background: white;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	top: 0;
+	left: 0;
+	transform: scale(0);
+	-webkit-transform: scale(0);
+}
+
+input[type="checkbox"]:checked+label svg {
+	-webkit-transition: all 300ms ease-in-out;
+	transition: all 300ms ease-in-out;
+	fill: rgb(220, 72, 127);
+	transform: scale(1.3);
+	-webkit-transform: scale(1.3);
+}
+
+input[type="checkbox"]:checked+label:after {
+	-webkit-animation: like-a 0.3s 0.2s forwards;
+	-moz-animation: like-a 0.3s 0.2s forwards;
+	animation: like-a 0.3s 0.2s forwards;
+}
+
+input[type="checkbox"]:checked+label:before {
+	-webkit-animation: like-a 0.5s 0s forwards;
+	-moz-animation: like-a 0.5s 0s forwards;
+	animation: like-a 0.5s 0s forwards;
+}
+
+label svg {
+	display: inline-flex;
+	vertical-align: middle;
+	width: 20px;
+	fill: rgb(167, 167, 167);
+}
+
+@
+-webkit-keyframes like-a { 100% {
+	-webkit-transform: scale(1.03);
+	transform: scale(1.03);
+	-moz-transform: scale(1.03);
+}
+
+}
+@
+-moz-keyframes like-a { 100% {
+	-webkit-transform: scale(1.03);
+	transform: scale(1.03);
+	-moz-transform: scale(1.03);
+}
+
+}
+@
+keyframes like-a { 100% {
+	-webkit-transform: scale(1.03);
+	transform: scale(1.03);
+	-moz-transform: scale(1.03);
+}
+
+}
+
+#intro-top {
+	border: 1px solid #F7F7F0;
+}
+
+/* 제목 부분 크기 */
+.subject_intro {
+	width: 100%;
+	border: medium none;
+	color: #A6A6A1;
+	margin-bottom: 23px;
+	margin-top: 15px;
+	outline: medium none;
+	padding-left: 10px;
+	padding-top: 15px;
+	resize: none;
+}
+
+/* 프로필 이미지 */
+.grid .col2 {
+	width: 50%;
+	padding: 0 10px 0 0;
+}
+
+.grid .col2.first {
+	float: left;
+}
+
+.grid .col2.last {
+	float: right;
+}
+
+.grid .col3 {
+	width: 32%;
+	float: left;
+}
+
+.grid .col3.first {
+	margin-left: 0;
+	float: left;
+}
+
+.grid .col3.last {
+	margin-right: 0;
+	float: right;
+}
+
+/* profile page */
+.innerwrap {
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.section1 {
+	background: #fff;
+	position: relative;
+	border-radius: 2px;
+}
+
+.section1 div .row:first-child {
+	padding: 25px;
+}
+
+.section1 .col2.first img {
+	border-radius: 50%;
+	margin: 0 20px;
+	width: 120px;
+	height: 120px;
+	border: 2px solid #f1f1f1;
+	padding: 2px;
+	float: left;
+}
+
+.section1 .col2.first {
+	line-height: 25px;
+	position: relative;
+	border-right: 1px solid #a2a2a2;
+}
+
+.section1 .col2.first h1 {
+	font-weight: normal;
+	margin-bottom: 10px;
+	margin-top: 15px;
+	text-transform: capitalize;
+}
+
+.section1 .col2.first p {
+	font-size: 14px;
+}
+
+.section1 .col2.first span {
+	position: absolute;
+	right: 15px;
+	top: 16px;
+	background: #6AAFEA;
+	padding: 5px 11px;
+	font-size: 12px;
+	line-height: 1;
+	border-radius: 2px;
+	color: #fff;
+	cursor: pointer;
+}
+
+.section1 .col2.last {
+	padding: 8px 0;
+}
+
+.section1 .col2.last .col3 span {
+	color: #a2a2a2;
+	font-size: 14px;
+}
+
+.section1 .col2.last .col3 h1 {
+	color: #FB4C22;
+}
+
+.section1 .col2.last .col3 {
+	text-align: center;
+	line-height: 30px;
+	border-right: 1px solid #a2a2a2;
+}
+
+.section1 .col2.last .col3.last {
+	text-align: center;
+	line-height: 28px;
+	border-right: 1px solid #a2a2a2;
+}
+@media only screen and (max-width: 660px) {
+	.section1 .col2.first {
+		text-align: center;
+	}
+	.section1 .col2.first img {
+		display: inline-block;
+		float: none;
+	}
+	.section1 .col2.first span {
+		position: relative;
+		right: 0;
+	}
+	.section1 .col2.last {
+		margin-top: 25px;
+	}
+}
+/* 프로필 이미지 끝 */
+
+
+.product, .product--blue, .product--orange, .product--red, .product--green, .product--yellow, .product--pink {
+  box-shadow: 1px 5px 15px #CCC;
+  width: 15em;
+  height: auto;
+  border-radius: 3px;
+  padding: 2em;
+  margin: 1em;
+  overflow: hidden;
+  position: relative;
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+}
+.product--pink {
+  background: -webkit-linear-gradient(135deg, #fff 50%, rgba(255, 255, 255, 0.5) 50%);
+  background: linear-gradient(-45deg, #fff 50%, rgba(255, 255, 255, 0.5) 50%);
+}
+.product img, .product--blue img, .product--orange img, .product--red img, .product--green img, .product--yellow img, .product--pink img {
+  max-width: 100%;
+  height: auto !important;
+  text-align: center;
+}
+.product_inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-flow: column wrap;
+      flex-flow: column wrap;
+}
+.product_inner p {
+  color: rgba(255, 255, 255, 0.9);
+}
+.product_inner button {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: #FFB9B9;
+  border-radius: 3px;
+  padding: 1em 3em;
+  margin: 1em 0 0 0;
+  background: none;
+  cursor: pointer;
+  -webkit-transition: background ease-in .25s;
+  transition: background ease-in .25s;
+}
+.product_inner button:hover {
+  background: white;
+  color: #FFB9B9;
+}
+.product_inner button:before {
+  font-family: FontAwesome;
+  content: '\f07A';
+  color: #FFB9B9;
+  position: absolute;
+  font-size: 1.5em;
+  margin: 0 -1.5em;
+}
+.product_inner button:hover:before {
+  color: #FFB9B9;
+}
+.product_overlay {
+  background: rgba(255, 255, 255, 0.9);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  -webkit-transform: translateY(-500px);
+          transform: translateY(-500px);
+  opacity: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: column wrap;
+      flex-flow: column wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.product_overlay h2 {
+  color: rgba(43, 45, 66, 0.7);
+  font-size: 1.2em;
+  margin: 1em 0;
+}
+.product_overlay i {
+  color: rgba(43, 45, 66, 0.7);
+  font-size: 1.5em;
+}
+
+/* 화장품 목록 끝 */
