@@ -27,7 +27,7 @@
        SELECT NVL(MAX(member_no)+1,1) as member_no FROM member
        <!-- rs.getInt(1)  rs.getInt("no")-->
     </selectKey>
-    INSERT INTO member(member_no,id,pw,email,name,nickname,bday,skin_type,brand_like,addr,sex,profile_img,age_group) VALUES(
+    INSERT INTO member(member_no,id,pw,email,name,nickname,bday,skin_type,brand_like,addr,sex,profile_img,age_group,addr2,postcode) VALUES(
       #{member_no},
       #{id},
       #{pw},
@@ -40,7 +40,9 @@
       #{addr},
       #{sex},
       #{profile_img},
-      #{age_group}
+      #{age_group},
+      #{addr2},
+      #{postcode}
     )
    </insert>
 </mapper>

@@ -29,6 +29,8 @@ public class MemberVO {
 	private String skin_type;
 	private String brand_like;
 	private String addr;
+	private String addr2;
+	private String postcode;
 	private String sex;
 	private String profile_img;
 	private int age_group;
@@ -36,6 +38,22 @@ public class MemberVO {
 	private String Msg; // 임시변수
 
 	
+	public String getAddr2() {
+		return addr2;
+	}
+
+	public void setAddr2(String addr2) {
+		this.addr2 = addr2;
+	}
+
+	public String getPostcode() {
+		return postcode;
+	}
+
+	public void setPostcode(String postcode) {
+		this.postcode = postcode;
+	}
+
 	public int getPouch_no() {
 		return pouch_no;
 	}

@@ -713,9 +713,9 @@ select option {
 }
 #sample4_roadAddress
 {
-   width:200px;
+   width:400px;
    padding:1em;
-   margin : 0em 0em 1em;
+   margin : 0em 0em 0em;
 }
 #sample4_detailAddress
 {
@@ -980,12 +980,12 @@ select option {
 											</div>
 										</div>
 										<div class="input-group input-group-icon" id = "address">
-							               <input type="text" id="sample4_postcode" placeholder="우편번호">&nbsp;&nbsp;&nbsp;
-							               <input type="button" onclick="sample4_execDaumPostcode()" value="찾기" id= "search_address" ><br>
-							               <input type="text"   id="sample4_roadAddress" placeholder="도로명주소">
+							               <input type="text" id="sample4_postcode" placeholder="${vo.postcode }">&nbsp;&nbsp;&nbsp;
+							               <input type="button" onclick="sample4_execDaumPostcode()" value="찾기" id="search_address" ><br>
+							               <input type="text"   id="sample4_roadAddress" placeholder="${vo.addr }">
 							               <span id="guide" style="color: #999; display: none"></span>
 							               &nbsp;&nbsp;&nbsp;
-							               <input type="text" id="sample4_detailAddress" name="address" placeholder="상세주소" width ="100%">
+							               <input type="text" id="sample4_detailAddress" name="address" placeholder="${vo.addr2 }" width ="100%">
 							            </div>
 									</div>
 									<div class="col-sm-4">

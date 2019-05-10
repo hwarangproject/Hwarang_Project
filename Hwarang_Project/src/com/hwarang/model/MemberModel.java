@@ -143,6 +143,8 @@ public class MemberModel {
 				age_group = 20;
 			else
 				age_group = 10;
+			String addr2 = mr.getParameter("addr2");
+			String postcode = mr.getParameter("postcode");
 
 			vo.setId(id);
 			vo.setPw(pw);
@@ -157,6 +159,8 @@ public class MemberModel {
 			vo.setSex(sex);
 			// vo.setProfile_img(profile_img);
 			vo.setAge_group(age_group);
+			vo.setAddr2(addr2);
+			vo.setPostcode(postcode);
 			// DAO¿¬°á
 			MemberDAO.memberInsert(vo);
 

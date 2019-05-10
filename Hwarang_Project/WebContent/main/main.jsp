@@ -89,14 +89,31 @@
 							</li>
 							</c:if>
 							
-							<li><a href="../cart/cart.hr"><i class="fa fa-shopping-cart"></i>
-									Cart</a></li>
+							<c:if test="${sessionScope.id==null }">
+							</c:if>
+							<c:if test="${sessionScope.id!=null }">
 							<li>
-								<a href="../member/member_make.hr">
-									<i class="fa fa-crosshairs"></i> 
-									Join
-								</a>
+								<li>
+									<a href="../cart/cart.hr">
+									<i class="fa fa-shopping-cart"></i>
+										Cart
+									</a>
+								</li>
 							</li>
+							</c:if>
+							
+							<c:if test="${sessionScope.id==null }">
+								<li>
+									<a href="../member/member_make.hr">
+										<i class="fa fa-crosshairs"></i> 
+										Join
+									</a>
+								</li>
+							</c:if>
+							
+							<c:if test="${sessionScope.id!=null }">
+							</c:if>			
+							
 							
 							<c:if test="${sessionScope.id==null }">
 								<li><a href="../login/login.hr"><i class="fa fa-lock"></i>

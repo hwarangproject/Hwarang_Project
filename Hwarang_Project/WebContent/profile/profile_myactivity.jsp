@@ -638,16 +638,16 @@ span {
 										<h3>내가 쓴 리뷰</h3>
 										
 										<div id="item-list">
-											<c:forEach var="vo" items="${pList }" varStatus="s">
+											<c:forEach var="pvo" items="${pList }" varStatus="s">
 											<ul>
 											  	<li>
 													<a class="expand">
 														<div class="right-arrow">+</div>
-														<div class="icon london"><img src="${vo.product_img }"></div>
-														<h2>${vo.product_name }</h2> <span>${prList[s.index].reply_content }</span>
+														<div class="icon london"><img src="${pvo.product_img }"></div>
+														<h2>${pvo.product_name }</h2> <span>${prList[s.index].reply_content }</span>
 													</a>
 
-													<div class="detail">
+													<!-- <div class="detail">
 														<div>
 															<span>Duis autem vel eum iriure dolor in hendrerit
 																in vulputate velit esse molestie consequat, vel illum
@@ -657,7 +657,7 @@ span {
 																nulla facilisi.</span>
 														</div>
 														<br /> <span class="button">Connect</span>
-													</div>
+													</div> -->
 											  </li>										
 											</ul>
 											</c:forEach>

@@ -7,9 +7,8 @@
   <!-- @@@@@@@@@@@@@@@ my activity @@@@@@@@@@@@@ -->
   <select id="myProductReplyInfo" resultType="ProductVO" parameterType="int">
     SELECT a.product_img, a.product_name
-    FROM product a, product_reply b
-    WHERE a.product_no = b.product_no
-    AND member_no = #{member_no}
+    FROM product a natural join product_reply b
+    WHERE member_no = #{member_no}
   </select>
   <select id="myReplyInfo" resultType="Product_replyVO" parameterType="int">
     SELECT product_rate, reply_content

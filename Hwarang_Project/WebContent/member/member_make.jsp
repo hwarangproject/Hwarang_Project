@@ -343,13 +343,13 @@ select option {
 }
 #sample4_roadAddress
 {
-   width:200px;
+   width:400px;
    padding:1em;
    margin : 0em 0em 1em;
 }
 #sample4_detailAddress
 {
-   width:400px;
+   width:300px;
    padding:1em;
    margin : 0em 0em 1em;
 }
@@ -395,7 +395,7 @@ function idcheck()
 
 	<!-- 회원가입  -->
 	<div class="container2"> 
-		<form method="post" action="../member/member_make_ok.hr" name="joinFrm">
+		<form method="post" action="../member/member_make_ok.hr" name="joinFrm" enctype="multipart/form-data">
 			<h5>회원가입</h5>
 			<div class="row">
 				<h4>Account</h4>
@@ -451,14 +451,14 @@ function idcheck()
 					</div> -->
 					
 					<div class="input-group input-group-icon" id = "address">
-               <input type="text" id="sample4_postcode" placeholder="우편번호">&nbsp;&nbsp;&nbsp;
+               <input type="text" id="sample4_postcode" placeholder="우편번호" name="postcode">&nbsp;&nbsp;&nbsp;
                <input type="button" onclick="sample4_execDaumPostcode()"
                   value="찾기" id= "search_address" ><br>
-                   <input type="text"   id="sample4_roadAddress" placeholder="도로명주소">
+                   <input type="text"   id="sample4_roadAddress" placeholder="도로명주소" name="address">
                <span id="guide" style="color: #999; display: none"></span>
                &nbsp;&nbsp;&nbsp;
                <input
-                  type="text" id="sample4_detailAddress" name="address" placeholder="상세주소" width ="100%">
+                  type="text" id="sample4_detailAddress" name="addr2" placeholder="상세주소" width ="100%">
                <!-- <div class="input-icon">
                   <i class="fa fa-user" id="label_icon"></i>
                </div> -->
