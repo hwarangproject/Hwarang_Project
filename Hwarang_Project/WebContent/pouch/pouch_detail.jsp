@@ -17,32 +17,24 @@
 <title>HWARANG PROJECT</title>
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/font-awesome.min.css" rel="stylesheet">
-<link href="../css/prettyPhoto.css" rel="stylesheet">
 <link href="../css/price-range.css" rel="stylesheet">
 <link href="../css/animate.css" rel="stylesheet">
 <link href="../css/main.css" rel="stylesheet">
 <link href="../css/responsive.css" rel="stylesheet">
+<link href="../css/pouch.css" rel="stylesheet">
+
 
 <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->
 <link rel="shortcut icon" href="images/ico/favicon.ico">
-<link rel="apple-touch-icon-precomposed" sizes="144x144"
-	href="images/ico/apple-touch-icon-144-precomposed.png">
-<link rel="apple-touch-icon-precomposed" sizes="114x114"
-	href="images/ico/apple-touch-icon-114-precomposed.png">
-<link rel="apple-touch-icon-precomposed" sizes="72x72"
-	href="images/ico/apple-touch-icon-72-precomposed.png">
-<link rel="apple-touch-icon-precomposed"
-	href="images/ico/apple-touch-icon-57-precomposed.png">
 <link href="../css/profile-upload.css" rel="stylesheet">
 
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.scrollUp.min.js"></script>
 <script src="js/price-range.js"></script>
-<script src="js/jquery.prettyPhoto.js"></script>
 <script src="js/main.js"></script>
 <script src="../js/jquery-1.11.3.min.js"></script>
 <script src="../js/star.js"></script>
@@ -52,8 +44,10 @@
 </script>
 
 <style type="text/css">
-<!--
-화장품 목록 -->.scrollbar {
+#pag{
+	padding-left: 450px;
+}
+.scrollbar {
 	float: left;
 	height: 250px;
 	width: 65px;
@@ -78,8 +72,7 @@
 		rgba(255, 255, 255, .2) 75%, transparent 75%, transparent)
 }
 
-<!--
-내가 설정한 스타일 -->.carousel-inner {
+.carousel-inner {
 	margin: 10px auto;
 	width: 1200px;
 	height: 400px;
@@ -99,7 +92,7 @@
 }
 
 #introduce {
-	padding-left: 418px;
+	padding-left: 0px auto;
 }
 
 * {
@@ -487,6 +480,10 @@ body {
 	resize: none;
 	width: 99.5%;
 }
+
+#intro-top {
+	border: 1px solid #F7F7F0;
+}
 </style>
 
 </head>
@@ -497,24 +494,64 @@ body {
 				<div class="features_items">
 					<h2 class="title text-center">POUCH</h2>
 					<div class="col-sm-12">
-
-
 						<!-- 개인 정보 -->
-						<div class="product-details">
-							<div class="row text-center">
-								<div id="introduce">
-									<div class="tab-pane fade active in" id="reviews">
-										<div class="col-sm-5" id="introduce2">
-											<ul>
-												<li><a href=""><i class="fa fa-user"></i>회원 ID</a></li>
-												<li><a href="">성별:여자 / 피부타입:건성 / 연령대:20대 / 별점:3</a></li>
-											</ul>
-											<tr>
-												<td>파우치 소개파우치 소개파우치 소개파우치 소개파우치 소개파우치 소개파우치 소개파우치 소개파우치
-													소개파우치 소개파우치 소개파우치 소개파우치 소개</td>
-											</tr>
+						<form action="pouch_detail.hr" method="post">
+
+							<div class="product-details">
+								<div class="row text-center" id="intro-top">
+									<div id="introduce">
+										<div class="tab-pane fade active in">
+											<div class="col-sm-8">
+												<section class="section1 clearfix">
+												<div>
+													<div class="row grid clearfix">
+														<div class="col2 first">
+															<img id="profile_img" src="../images/shop/product12.jpg"
+																style="width: 180px; height: 180px;">
+														</div>
+														<div class="col2 last">
+															<div class="grid clearfix">
+																<div class="col3 first">
+																	<a href="#" style="color: gray;"> <span>회원ID</span>
+																		<h1>닉네임</h1></a>
+																</div>
+																<div class="col3">
+																	<span>피부타입</span>
+																	<h1>건성</h1>
+
+																</div>
+																<div class="col3 last">
+																	<span>좋아요<font style="color: pink;">♡</font></span>
+																	<h1>0</h1>
+																	<td><input type="checkbox" id="like" /> <label
+																		for="like"> <svg
+																				xmlns="http://www.w3.org/2000/svg"
+																				viewBox="0 0 25 25"> <path
+																				d="M12 21.35l-1.45-1.32c-5.15-4.67-8.55-7.75-8.55-11.53 0-3.08 2.42-5.5 5.5-5.5 1.74 0 3.41.81 4.5 2.09 1.09-1.28 2.76-2.09 4.5-2.09 3.08 0 5.5 2.42 5.5 5.5 0 3.78-3.4 6.86-8.55 11.54l-1.45 1.31z" />
+																			</svg>
+																	</label></td> <br> <br> <br> <br>
+
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
 										</div>
+										</section>
 									</div>
+									<div class="col-sm-4">
+										<h2 class="subject_intro">
+											제목
+											<h4>안녕하세오 고돌이에오</h4>
+										</h2>
+									</div>
+								</div>
+								<div class="col-sm-12">
+									<h2 class="subject_intro" class="text-center">
+										파우치 소개
+										<h4>안녕하세오 고돌이에오.. 너무 졸려오.. 자고싶어오...</h4>
+									</h2>
 								</div>
 							</div>
 
@@ -522,700 +559,313 @@ body {
 
 							<!--product-details-->
 							<div class="row">
-								<div class="col-sm-5">
-									<div class="view-product">
-										<img src="../images/home/pouch/pouch1.jpg" alt="" />
-									</div>
-								</div>
-								<div class="col-sm-7">
+								<div class="col-sm-12">
 									<div class="product-information">
 										<!--/product-information-->
-										<h2>제목 : 우아아아아아</h2>
-										<p>주인 : 아오아오</p>
-
-										<td>찜 : 5000 <!-- 하트 --> <input type="checkbox" id="like" />
-											<label for="like"> <svg
-													xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
-												<path
-													d="M12 21.35l-1.45-1.32c-5.15-4.67-8.55-7.75-8.55-11.53 0-3.08 2.42-5.5 5.5-5.5 1.74 0 3.41.81 4.5 2.09 1.09-1.28 2.76-2.09 4.5-2.09 3.08 0 5.5 2.42 5.5 5.5 0 3.78-3.4 6.86-8.55 11.54l-1.45 1.31z" />
-												</svg>
-										</label>
-										</td>
 										<div class="left-sidebar">
 											<h2>화장품 목록</h2>
 											<div class="panel-group category-products" id="accordian">
-												<!--category-productsr-->
-												<!--category-productsr-->
-												<div class="panel panel-default">
-													<div class="panel-heading">
-														<h4 class="panel-title">
-															<a data-toggle="collapse" data-parent="#accordian"
-																href="#sportswear"> <span class="badge pull-right">
-																	<i class="fa fa-plus"></i>
-															</span> 스킨케어
-															</a>
-														</h4>
+												<%-- <c:forEach var="pouch" items=""> --%>
+												<div class='product--pink '>
+													<div class='product_inner'>
+														<img
+															src='http://wellandgood.com/wp-content/uploads/2012/07/Nike-Free-30-Womens-Running-Shoe-511495_600_A.png'
+															width='300'>
+														<td>나이키</td> <br>
+														<td>Size 11</td> <br>
+														<td>Price £299.99</td> <br>
+														<button class="text-center">MORE +</button>
 													</div>
-													<div id="sportswear" class="panel-collapse collapse">
-														<div class="panel-body scrollbar" id="style-6"
-															style="overflow: auto; width: 230px; height: 200px;">
-															<ul>
-																<li><a
-																	href="../ranking/rank_product.hr?start=1&end=27	">전체
-																</a></li>
-																<c:forEach var="vo" items="${detail_cate_list }"
-																	varStatus="n">
-																	<c:if test="${n.index<27 }">
-																		<li><a
-																			href="../ranking/rank_product.hr?dcno=${vo.detCategory_no }">${vo.detCategory_type }
-																		</a></li>
-																	</c:if>
-																</c:forEach>
-															</ul>
-														</div>
+													<div class='product_overlay'>
+														<h2>Added to basket</h2>
+														<i class='fa fa-check'></i>
 													</div>
 												</div>
-												<!-- #################################################################################### -->
-												<div class="panel panel-default">
-													<div class="panel-heading">
-														<h4 class="panel-title">
-															<a data-toggle="collapse" data-parent="#accordian"
-																href="#mens"> <span class="badge pull-right"><i
-																	class="fa fa-plus"></i></span> 메이크업
-															</a>
-														</h4>
-													</div>
-													<div id="mens" class="panel-collapse collapse">
-														<div class="panel-body scrollbar" id="style-6"
-															style="overflow: auto; width: 230px; height: 200px;">
-															<ul>
-																<li><a
-																	href="../ranking/rank_product.hr?start=27&end=56	">전체
-																</a></li>
-																<c:forEach var="vo" items="${detail_cate_list }"
-																	varStatus="n">
-																	<c:if test="${n.index>=27 && n.index<56 }">
-																		<li><a
-																			href="../ranking/rank_product.hr?dcno=${vo.detCategory_no }">${vo.detCategory_type }
-																		</a></li>
-																	</c:if>
-																</c:forEach>
-															</ul>
-														</div>
-													</div>
-												</div>
-												<!-- ##################################################################################### -->
-												<div class="panel panel-default">
-													<div class="panel-heading">
-														<h4 class="panel-title">
-															<a data-toggle="collapse" data-parent="#accordian"
-																href="#womens"> <span class="badge pull-right"><i
-																	class="fa fa-plus"></i></span> 기능성 화장품
-															</a>
-														</h4>
-													</div>
-													<div id="womens" class="panel-collapse collapse">
-														<div class="panel-body scrollbar" id="style-6"
-															style="overflow: auto; width: 230px; height: 200px;">
-															<ul>
-																<li><a
-																	href="../ranking/rank_product.hr?start=56&end=68	">전체
-																</a></li>
-																<c:forEach var="vo" items="${detail_cate_list }"
-																	varStatus="n">
-																	<c:if test="${n.index>=56 && n.index<68 }">
-																		<li><a
-																			href="../ranking/rank_product.hr?dcno=${vo.detCategory_no }">${vo.detCategory_type }
-																		</a></li>
-																	</c:if>
-																</c:forEach>
-															</ul>
-														</div>
-													</div>
-												</div>
-												<div class="panel panel-default">
-													<div class="panel-heading">
-														<h4 class="panel-title">
-															<a data-toggle="collapse" data-parent="#accordian"
-																href="#body"> <span class="badge pull-right"><i
-																	class="fa fa-plus"></i></span> 바디케어
-															</a>
-														</h4>
-													</div>
-													<div id="body" class="panel-collapse collapse">
-														<div class="panel-body scrollbar" id="style-6"
-															style="overflow: auto; width: 230px; height: 200px;">
-															<ul>
-																<li><a
-																	href="../ranking/rank_product.hr?start=68&end=94	">전체
-																</a></li>
-																<c:forEach var="vo" items="${detail_cate_list }"
-																	varStatus="n">
-																	<c:if test="${n.index>=68 && n.index<94 }">
-																		<li><a
-																			href="../ranking/rank_product.hr?dcno=${vo.detCategory_no }">${vo.detCategory_type }
-																		</a></li>
-																	</c:if>
-																</c:forEach>
-															</ul>
-														</div>
-													</div>
-												</div>
-												<div class="panel panel-default">
-													<div class="panel-heading">
-														<h4 class="panel-title">
-															<a data-toggle="collapse" data-parent="#accordian"
-																href="#etc"> <span class="badge pull-right"><i
-																	class="fa fa-plus"></i></span> 기타
-															</a>
-														</h4>
-													</div>
-													<div id="etc" class="panel-collapse collapse">
-														<div class="panel-body scrollbar" id="style-6"
-															style="overflow: auto; width: 230px; height: 200px;">
-															<ul>
-																<li><a
-																	href="../ranking/rank_product.hr?start=94&end=107">전체
-																</a></li>
-																<c:forEach var="vo" items="${detail_cate_list }"
-																	varStatus="n">
-																	<c:if test="${n.index>=94 && n.index<107 }">
-																		<li><a
-																			href="../ranking/rank_product.hr?dcno=${vo.detCategory_no }">${vo.detCategory_type }
-																		</a></li>
-																	</c:if>
-																</c:forEach>
-															</ul>
-														</div>
-													</div>
-												</div>
-												<div class="panel panel-default">
-													<div class="panel-heading">
-														<h4 class="panel-title">
-															<a data-toggle="collapse" data-parent="#accordian"
-																href="#perfume"> <span class="badge pull-right"><i
-																	class="fa fa-plus"></i></span> 향수
-															</a>
-														</h4>
-													</div>
-													<div id="perfume" class="panel-collapse collapse">
-														<div class="panel-body scrollbar" id="style-6"
-															style="overflow: auto; width: 230px; height: 150px;">
-															<ul>
-																<li><a
-																	href="../ranking/rank_product.hr?start=107&end=112">전체
-																</a></li>
-																<c:forEach var="vo" items="${detail_cate_list }"
-																	varStatus="n">
-																	<c:if test="${n.index>=107 && n.index<112 }">
-																		<li><a
-																			href="../ranking/rank_product.hr?dcno=${vo.detCategory_no }">${vo.detCategory_type }
-																		</a></li>
-																	</c:if>
-																</c:forEach>
-															</ul>
-														</div>
-													</div>
-												</div>
-												<div class="panel panel-default">
-													<div class="panel-heading">
-														<h4 class="panel-title">
-															<a data-toggle="collapse" data-parent="#accordian"
-																href="#feminine"> <span class="badge pull-right"><i
-																	class="fa fa-plus"></i></span> 여성용품
-															</a>
-														</h4>
-													</div>
-													<div id="feminine" class="panel-collapse collapse">
-														<div class="panel-body scrollbar" id="style-6"
-															style="overflow: auto; width: 230px; height: 150px;">
-															<ul>
-																<li><a
-																	href="../ranking/rank_product.hr?start=112&end=119">전체
-																</a></li>
-																<c:forEach var="vo" items="${detail_cate_list }"
-																	varStatus="n">
-																	<c:if test="${n.index>=112 && n.index<119 }">
-																		<li><a
-																			href="../ranking/rank_product.hr?dcno=${vo.detCategory_no }">${vo.detCategory_type }
-																		</a></li>
-																	</c:if>
-																</c:forEach>
-															</ul>
-														</div>
-													</div>
-												</div>
-												<div class="panel panel-default">
-													<div class="panel-heading">
-														<h4 class="panel-title">
-															<a data-toggle="collapse" data-parent="#accordian"
-																href="#baby"> <span class="badge pull-right"><i
-																	class="fa fa-plus"></i></span> 베이비&맘
-															</a>
-														</h4>
-													</div>
-													<div id="baby" class="panel-collapse collapse">
-														<div class="panel-body scrollbar" id="style-6"
-															style="overflow: auto; width: 230px; height: 150px;">
-															<ul>
-																<li><a
-																	href="../ranking/rank_product.hr?start=119&end=125">전체
-																</a></li>
-																<c:forEach var="vo" items="${detail_cate_list }"
-																	varStatus="n">
-																	<c:if test="${n.index>=119 && n.index<125 }">
-																		<li><a
-																			href="../ranking/rank_product.hr?dcno=${vo.detCategory_no }">${vo.detCategory_type }
-																		</a></li>
-																	</c:if>
-																</c:forEach>
-															</ul>
-														</div>
-													</div>
-												</div>
+												<%-- 	</c:forEach> --%>
 											</div>
+											<tr>
+											<ul class="pagination text-center" id="pag">
+													<li class="active"><a href="">1</a></li>
+													<li><a href="">2</a></li>
+													<li><a href="">3</a></li>
+													<li><a href="">&raquo;</a></li>
+												</ul>
+											</tr>
 										</div>
+										<table class="table text-right">
+											<tr>
+												<td><input type="submit" value="수정"
+													class="btn btn-sm btn-primary" /> <input type="button"
+													value="취소" onclick="javascript:history.back()"
+													class="btn btn-sm btn-primary" /></td>
+											</tr>
+										</table>
 									</div>
 								</div>
 							</div>
-
-							<!-- /하트 -->
-							<!--/product-information-->
-						</div>
-					</div>
-					<!--/product-details-->
-				</div>
-			</div>
-		</div>
-
-		<!-- 상세평점 출력 -->
-		<div class="container">
-			<h3 id="rate-title">평점</h3>
-			<div class="con1">
-				<div class="inner">
-
-					<div class="rating">
-
-						<span class="rating-num">${vo.score }</span><br>
-						<div class="rating-stars">
-							<span><i class="active icon-star"></i></span> <span><i
-								class="active icon-star"></i></span> <span><i
-								class="active icon-star"></i></span> <span><i
-								class="active icon-star"></i></span> <span><i class="icon-star"></i></span>
-							&#9733;&#9733;&#9733;&#9733;&#9734;
-						</div>
-						<div class="rating-users">
-							&#128077; <i class="icon-user"></i> 1,014,004 total
-						</div>
-					</div>
-
-					<div class="histo">
-						<div class="five histo-rate">
-							<span class="histo-star"> <i class="active icon-star"></i>
-								5
-							</span> <span class="bar-block"> <span id="bar-five" class="bar">
-									<span>566,784</span>&nbsp;
-							</span>
-							</span>
-						</div>
-
-						<div class="four histo-rate">
-							<span class="histo-star"> <i class="active icon-star"></i>
-								4
-							</span> <span class="bar-block"> <span id="bar-four" class="bar">
-									<span>171,298</span>&nbsp;
-							</span>
-							</span>
-						</div>
-
-						<div class="three histo-rate">
-							<span class="histo-star"> <i class="active icon-star"></i>
-								3
-							</span> <span class="bar-block"> <span id="bar-three" class="bar">
-									<span>94,940</span>&nbsp;
-							</span>
-							</span>
-						</div>
-
-						<div class="two histo-rate">
-							<span class="histo-star"> <i class="active icon-star"></i>
-								2
-							</span> <span class="bar-block"> <span id="bar-two" class="bar">
-									<span>44,525</span>&nbsp;
-							</span>
-							</span>
-						</div>
-
-						<div class="one histo-rate">
-							<span class="histo-star"> <i class="active icon-star"></i>
-								1
-							</span> <span class="bar-block"> <span id="bar-one" class="bar">
-									<span>136,457</span>&nbsp;
-							</span>
-							</span>
-						</div>
+						</form>
 					</div>
 				</div>
 			</div>
 		</div>
-		<!--/product-details-->
-		<div class="container">
-			<div class="category-tab shop-details-tab">
-				<!--category-tab-->
-				<div class="col-sm-12">
-					<ul class="nav nav-tabs">
-						<li class="active"><a href="#reviews" data-toggle="tab">Reviews(2)</a></li>
-					</ul>
+	</div>
+
+	<!-- 상세평점 출력 -->
+	<div class="container">
+		<div class="con1">
+			<div class="inner">
+
+				<div class="rating">
+
+					<span class="rating-num">${vo.score }</span><br>
+					<div class="rating-stars">
+						<span><i class="active icon-star"></i></span> <span><i
+							class="active icon-star"></i></span> <span><i
+							class="active icon-star"></i></span> <span><i
+							class="active icon-star"></i></span> <span><i class="icon-star"></i></span>
+						&#9733;&#9733;&#9733;&#9733;&#9734;
+					</div>
+					<div class="rating-users">
+						&#128077; <i class="icon-user"></i> 1,014,004 total
+					</div>
 				</div>
-				<div class="tab-content">
-					<div class="tab-pane fade active in" id="reviews">
-						<table>
-							<div class="col-sm-12">
-								<div class="a">
-									<ul>
-										<li><a href=""><img
-												src="../images/product-details/kira.png" width=30 height=30
-												class="img-circle"></img>&nbsp;&nbsp;회원 ID</a></li>
-										<li><a href=""></i>성별:남자 / 피부타입:건성 / 연령대:20대 / 별점:3</a></li>
-									</ul>
-									<p>제품에 쓰여진 대로 솜에 잔뜩 묻혀서 부드럽게 닦아내주면 정말 개운한 느낌이 들어요 꽤 민감한 편인데
-										필링토너라해서 자극적이거나 그러지 않았구요 외출 후 집에 돌아오자마자 얼굴에 쌓인 먼지닦아낼 때나 아침에
-										세수하기 귀찮을 때 닦아내기 좋더라구요</p>
-								</div>
+
+				<div class="histo">
+					<div class="five histo-rate">
+						<span class="histo-star"> <i class="active icon-star"></i>
+							5
+						</span> <span class="bar-block"> <span id="bar-five" class="bar">
+								<span>566,784</span>&nbsp;
+						</span>
+						</span>
+					</div>
+
+					<div class="four histo-rate">
+						<span class="histo-star"> <i class="active icon-star"></i>
+							4
+						</span> <span class="bar-block"> <span id="bar-four" class="bar">
+								<span>171,298</span>&nbsp;
+						</span>
+						</span>
+					</div>
+
+					<div class="three histo-rate">
+						<span class="histo-star"> <i class="active icon-star"></i>
+							3
+						</span> <span class="bar-block"> <span id="bar-three" class="bar">
+								<span>94,940</span>&nbsp;
+						</span>
+						</span>
+					</div>
+
+					<div class="two histo-rate">
+						<span class="histo-star"> <i class="active icon-star"></i>
+							2
+						</span> <span class="bar-block"> <span id="bar-two" class="bar">
+								<span>44,525</span>&nbsp;
+						</span>
+						</span>
+					</div>
+
+					<div class="one histo-rate">
+						<span class="histo-star"> <i class="active icon-star"></i>
+							1
+						</span> <span class="bar-block"> <span id="bar-one" class="bar">
+								<span>136,457</span>&nbsp;
+						</span>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<!--/product-details-->
+	<div class="container">
+		<div class="category-tab shop-details-tab">
+			<!--category-tab-->
+			<div class="col-sm-12">
+				<ul class="nav nav-tabs">
+					<li class="active"><a href="#reviews" data-toggle="tab">Reviews(2)</a></li>
+				</ul>
+			</div>
+			<div class="tab-content">
+				<div class="tab-pane fade active in" id="reviews">
+					<table>
+						<div class="col-sm-12">
+							<div class="a">
+								<ul>
+									<li><a href=""><img
+											src="../images/product-details/kira.png" width=30 height=30
+											class="img-circle"></img>&nbsp;&nbsp;회원 ID</a></li>
+									<li><a href=""></i>성별:남자 / 피부타입:건성 / 연령대:20대 / 별점:3</a></li>
+								</ul>
+								<p>제품에 쓰여진 대로 솜에 잔뜩 묻혀서 부드럽게 닦아내주면 정말 개운한 느낌이 들어요 꽤 민감한 편인데
+									필링토너라해서 자극적이거나 그러지 않았구요 외출 후 집에 돌아오자마자 얼굴에 쌓인 먼지닦아낼 때나 아침에 세수하기
+									귀찮을 때 닦아내기 좋더라구요</p>
 							</div>
+						</div>
 
-							<div class="col-sm-12">
-								<div class="a">
-									<ul>
-										<li><a href=""><img
-												src="../images/product-details/kiragf.jpg" width=30
-												height=30 class="img-circle"></img>&nbsp;&nbsp;회원 ID</a></li>
-										<li><a href=""></i>성별:여자 / 피부타입:지성 / 연령대:30대 / 별점:4</a></li>
-									</ul>
-									<p>케이스가 일단 예뻐요! 자석이라 편하기도하구요 베러립스톡,베러립스톡 둘다 써봤는데 둘다 색이넘이뻐여
-										특히 땡큐땡모반이랑 무드업, 빈티지웨이 컬러가 예뻐서 매장에서 테스트하고 세개 사왔어요 :) 빈티지웨이는
-										집에있는 맥 씨쉬어랑 거의 존똑이더라구요 살짝 톤다운된 피치컬러라 데일리로 바르기 좋은컬러에요</p>
-								</div>
+						<div class="col-sm-12">
+							<div class="a">
+								<ul>
+									<li><a href=""><img
+											src="../images/product-details/kiragf.jpg" width=30 height=30
+											class="img-circle"></img>&nbsp;&nbsp;회원 ID</a></li>
+									<li><a href=""></i>성별:여자 / 피부타입:지성 / 연령대:30대 / 별점:4</a></li>
+								</ul>
+								<p>케이스가 일단 예뻐요! 자석이라 편하기도하구요 베러립스톡,베러립스톡 둘다 써봤는데 둘다 색이넘이뻐여
+									특히 땡큐땡모반이랑 무드업, 빈티지웨이 컬러가 예뻐서 매장에서 테스트하고 세개 사왔어요 :) 빈티지웨이는 집에있는
+									맥 씨쉬어랑 거의 존똑이더라구요 살짝 톤다운된 피치컬러라 데일리로 바르기 좋은컬러에요</p>
 							</div>
+						</div>
 
 
-							<div class="col-sm-12">
-								<p>
-									<b>Write Your Review</b>
-								</p>
-								<form action="#">
-									<span> <input type="text" placeholder="Your Name" /> <input
-										type="password" placeholder="password" />
+						<div class="col-sm-12">
+							<p>
+								<b>Write Your Review</b>
+							</p>
+							<form action="#">
+								<span> <input type="text" placeholder="Your Name" /> <input
+									type="password" placeholder="password" />
+								</span>
+								<textarea name="" id="r_content"></textarea>
+
+								<!-- 평점주기 -->
+								<div>
+									<span class="star-input"> <span class="input"> <input
+											type="radio" name="star-input" value="1" id="p1"> <label
+											for="p1">1</label> <input type="radio" name="star-input"
+											value="2" id="p2"> <label for="p2">2</label> <input
+											type="radio" name="star-input" value="3" id="p3"> <label
+											for="p3">3</label> <input type="radio" name="star-input"
+											value="4" id="p4"> <label for="p4">4</label> <input
+											type="radio" name="star-input" value="5" id="p5"> <label
+											for="p5">5</label>
+									</span> <!-- <output for="star-input"><b>0</b>점</output> -->
 									</span>
-									<textarea name="" id="r_content"></textarea>
 
-									<!-- 평점주기 -->
-									<div>
-										<span class="star-input"> <span class="input"> <input
-												type="radio" name="star-input" value="1" id="p1"> <label
-												for="p1">1</label> <input type="radio" name="star-input"
-												value="2" id="p2"> <label for="p2">2</label> <input
-												type="radio" name="star-input" value="3" id="p3"> <label
-												for="p3">3</label> <input type="radio" name="star-input"
-												value="4" id="p4"> <label for="p4">4</label> <input
-												type="radio" name="star-input" value="5" id="p5"> <label
-												for="p5">5</label>
-										</span> <!-- <output for="star-input"><b>0</b>점</output> -->
-										</span>
-
-										<button type="button" class="btn btn-default pull-right">
-											Submit</button>
-									</div>
-								</form>
-							</div>
-						</table>
-					</div>
-
-				</div>
-			</div>
-		</div>
-		<!--/category-tab-->
-
-
-		<div class="recommended_items">
-			<!--recommended_items-->
-			<h2 class="title text-center">recommended items</h2>
-
-			<div id="recommended-item-carousel" class="carousel slide"
-				data-ride="carousel">
-				<div class="carousel-inner">
-					<div class="item active">
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/recommend1.jpg" alt="" />
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i
-											class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-
+									<button type="button" class="btn btn-default pull-right">
+										Submit</button>
 								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/recommend2.jpg" alt="" />
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i
-											class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/recommend3.jpg" alt="" />
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i
-											class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/recommend1.jpg" alt="" />
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i
-											class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/recommend2.jpg" alt="" />
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i
-											class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/recommend3.jpg" alt="" />
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i
-											class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<a class="left recommended-item-control"
-					href="#recommended-item-carousel" data-slide="prev"> <i
-					class="fa fa-angle-left"></i>
-				</a> <a class="right recommended-item-control"
-					href="#recommended-item-carousel" data-slide="next"> <i
-					class="fa fa-angle-right"></i>
-				</a>
-			</div>
-		</div>
-		<!--/recommended_items-->
-
-
-		</section>
-
-		<footer id="footer"><!--Footer-->
-		<div class="footer-top">
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-2">
-						<div class="companyinfo">
-							<h2>
-								<span>e</span>-shopper
-							</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-								elit,sed do eiusmod tempor</p>
-						</div>
-					</div>
-					<div class="col-xs-7">
-						<div class="col-xs-3">
-							<div class="video-gallery text-center">
-								<a href="#">
-									<div class="iframe-img">
-										<img src="images/home/iframe1.png" alt="" />
-									</div>
-									<div class="overlay-icon">
-										<i class="fa fa-play-circle-o"></i>
-									</div>
-								</a>
-								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
-							</div>
-						</div>
-
-						<div class="col-xs-3">
-							<div class="video-gallery text-center">
-								<a href="#">
-									<div class="iframe-img">
-										<img src="images/home/iframe2.png" alt="" />
-									</div>
-									<div class="overlay-icon">
-										<i class="fa fa-play-circle-o"></i>
-									</div>
-								</a>
-								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
-							</div>
-						</div>
-
-						<div class="col-xs-3">
-							<div class="video-gallery text-center">
-								<a href="#">
-									<div class="iframe-img">
-										<img src="images/home/iframe3.png" alt="" />
-									</div>
-									<div class="overlay-icon">
-										<i class="fa fa-play-circle-o"></i>
-									</div>
-								</a>
-								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
-							</div>
-						</div>
-
-						<div class="col-xs-3">
-							<div class="video-gallery text-center">
-								<a href="#">
-									<div class="iframe-img">
-										<img src="images/home/iframe4.png" alt="" />
-									</div>
-									<div class="overlay-icon">
-										<i class="fa fa-play-circle-o"></i>
-									</div>
-								</a>
-								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
-							</div>
-						</div>
-					</div>
-					<div class="col-xs-3">
-						<div class="address">
-							<img src="images/home/map.png" alt="" />
-							<p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="footer-widget">
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-2">
-						<div class="single-widget">
-							<h2>Service</h2>
-							<ul class="nav nav-pills nav-stacked">
-								<li><a href="#">Online Help</a></li>
-								<li><a href="#">Contact Us</a></li>
-								<li><a href="#">Order Status</a></li>
-								<li><a href="#">Change Location</a></li>
-								<li><a href="#">FAQ’s</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-xs-2">
-						<div class="single-widget">
-							<h2>Quock Shop</h2>
-							<ul class="nav nav-pills nav-stacked">
-								<li><a href="#">T-Shirt</a></li>
-								<li><a href="#">Mens</a></li>
-								<li><a href="#">Womens</a></li>
-								<li><a href="#">Gift Cards</a></li>
-								<li><a href="#">Shoes</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-xs-2">
-						<div class="single-widget">
-							<h2>Policies</h2>
-							<ul class="nav nav-pills nav-stacked">
-								<li><a href="#">Terms of Use</a></li>
-								<li><a href="#">Privecy Policy</a></li>
-								<li><a href="#">Refund Policy</a></li>
-								<li><a href="#">Billing System</a></li>
-								<li><a href="#">Ticket System</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-xs-2">
-						<div class="single-widget">
-							<h2>About Shopper</h2>
-							<ul class="nav nav-pills nav-stacked">
-								<li><a href="#">Company Information</a></li>
-								<li><a href="#">Careers</a></li>
-								<li><a href="#">Store Location</a></li>
-								<li><a href="#">Affillate Program</a></li>
-								<li><a href="#">Copyright</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-xs-3 col-xs-offset-1">
-						<div class="single-widget">
-							<h2>About Shopper</h2>
-							<form action="#" class="searchform">
-								<input type="text" placeholder="Your email address" />
-								<button type="submit" class="btn btn-default">
-									<i class="fa fa-arrow-circle-o-right"></i>
-								</button>
-								<p>
-									Get the most recent updates from <br />our site and be updated
-									your self...
-								</p>
 							</form>
 						</div>
+					</table>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<!--/category-tab-->
+
+
+	<div class="recommended_items">
+		<!--recommended_items-->
+		<h2 class="title text-center">recommended items</h2>
+
+		<div id="recommended-item-carousel" class="carousel slide"
+			data-ride="carousel">
+			<div class="carousel-inner">
+				<div class="item active">
+					<div class="col-sm-4">
+						<div class="product-image-wrapper">
+							<div class="single-products">
+								<div class="productinfo text-center">
+									<img src="images/home/recommend1.jpg" alt="" />
+									<h2>$56</h2>
+									<p>Easy Polo Black Edition</p>
+									<a href="#" class="btn btn-default add-to-cart"><i
+										class="fa fa-shopping-cart"></i>Add to cart</a>
+								</div>
+
+							</div>
+						</div>
 					</div>
+					<div class="col-sm-4">
+						<div class="product-image-wrapper">
+							<div class="single-products">
+								<div class="productinfo text-center">
+									<img src="images/home/recommend2.jpg" alt="" />
+									<h2>$56</h2>
+									<p>Easy Polo Black Edition</p>
+									<a href="#" class="btn btn-default add-to-cart"><i
+										class="fa fa-shopping-cart"></i>Add to cart</a>
+								</div>
 
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="product-image-wrapper">
+							<div class="single-products">
+								<div class="productinfo text-center">
+									<img src="images/home/recommend3.jpg" alt="" />
+									<h2>$56</h2>
+									<p>Easy Polo Black Edition</p>
+									<a href="#" class="btn btn-default add-to-cart"><i
+										class="fa fa-shopping-cart"></i>Add to cart</a>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="col-sm-4">
+						<div class="product-image-wrapper">
+							<div class="single-products">
+								<div class="productinfo text-center">
+									<img src="images/home/recommend1.jpg" alt="" />
+									<h2>$56</h2>
+									<p>Easy Polo Black Edition</p>
+									<a href="#" class="btn btn-default add-to-cart"><i
+										class="fa fa-shopping-cart"></i>Add to cart</a>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="product-image-wrapper">
+							<div class="single-products">
+								<div class="productinfo text-center">
+									<img src="images/home/recommend2.jpg" alt="" />
+									<h2>$56</h2>
+									<p>Easy Polo Black Edition</p>
+									<a href="#" class="btn btn-default add-to-cart"><i
+										class="fa fa-shopping-cart"></i>Add to cart</a>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="product-image-wrapper">
+							<div class="single-products">
+								<div class="productinfo text-center">
+									<img src="images/home/recommend3.jpg" alt="" />
+									<h2>$56</h2>
+									<p>Easy Polo Black Edition</p>
+									<a href="#" class="btn btn-default add-to-cart"><i
+										class="fa fa-shopping-cart"></i>Add to cart</a>
+								</div>
+
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
-		</div>
 
-		<div class="footer-bottom">
-			<div class="container">
-				<div class="row">
-					<p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights
-						reserved.</p>
-					<p class="pull-right">
-						Designed by <span><a target="_blank"
-							href="http://www.themeum.com">Themeum</a></span>
-					</p>
-				</div>
-			</div>
+			<a class="left recommended-item-control"
+				href="#recommended-item-carousel" data-slide="prev"> <i
+				class="fa fa-angle-left"></i>
+			</a> <a class="right recommended-item-control"
+				href="#recommended-item-carousel" data-slide="next"> <i
+				class="fa fa-angle-right"></i>
+			</a>
 		</div>
-		</footer>
-		<!--/Footer-->
+	</div>
+	<!--/recommended_items-->
+	</section>
 </body>
 </html>
