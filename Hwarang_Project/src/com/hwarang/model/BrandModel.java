@@ -14,20 +14,20 @@ public class BrandModel {
 		String end=request.getParameter("end");
 		String page=request.getParameter("page");
 		
-		
-		List<ProductVO> brand_list=new ArrayList<ProductVO>();
-		
-		int curpage=Integer.parseInt(page);
-		int rowSize=20;
-		int start2=(curpage*rowSize)-(rowSize)+1; // 1, 13
-		int end2=curpage*rowSize; 
-		
 		if(start==null)
 			start="0";
 		if(end==null)
 			end="55203";
 		if(page==null)
 			page="1";
+		
+		List<ProductVO> brand_list=new ArrayList<ProductVO>();
+		
+		int curpage=Integer.parseInt(page);
+		int rowSize=20;
+		int start2=(curpage*rowSize)-(rowSize)+1; // 1, 21
+		int end2=curpage*rowSize; 
+		
 		
 		Map map=new HashMap();
 		map.put("start",start);

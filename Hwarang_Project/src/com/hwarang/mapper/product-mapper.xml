@@ -59,7 +59,7 @@
 	SELECT distinct brand,brand_img, num 
 	FROM (SELECT distinct brand,brand_img, rownum as num
 	FROM (SELECT distinct brand,brand_img FROM product WHERE brand BETWEEN NCHR(#{start}) AND NCHR(#{end})))
-	WHERE num BETWEEN #{start2} AND #{end2};
+	WHERE num BETWEEN #{start2} AND #{end2}
 	<!-- 
 		parameterType="java.util.Map"
 			#{start} ==> map.get("start") => map의 키값과 일치해야함

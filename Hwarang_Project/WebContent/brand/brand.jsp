@@ -182,7 +182,7 @@ ul, li {
 			
 			<div _ngcontent-c8="" class="container text-center" id="brand_id">
 				<ul>
-				<li><a _ngcontent-c8="" class="filter" href="../brand/brand.hr">전체
+				<li><a _ngcontent-c8="" class="filter" href="../brand/brand.hr?start=0&end=55203">전체
 					&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
 				</ul>
 				<ul>
