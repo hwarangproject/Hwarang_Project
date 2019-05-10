@@ -344,7 +344,7 @@
 						<div class="product-image-wrapper">
 							<div class="single-products">
 								<div class="productinfo text-center">
-								<a href="../product/product_detail.hr">
+								<a href="../product/product_detail.hr?pno=${vo.product_no }">
 									<img src="${vo.product_img }" alt="" width=280.8px height=280.8px/>
 									<h5>${vo.brand }</h5>
 									<h5>${vo.product_name.length()>13? vo.product_name.substring(1,13)+="...":vo.product_name }</h5>
