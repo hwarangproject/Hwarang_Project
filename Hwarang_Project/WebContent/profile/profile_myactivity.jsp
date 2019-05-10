@@ -562,7 +562,7 @@ span {
 								<div class="row grid clearfix">
 									<div class="col2 first">
 										<img
-											src="${vo.profile_img }"
+											src="${sessionScope.profile_img }"
 											alt="" width=120px height=120px>
 										<h1>${vo.name }</h1>
 										<h4>${vo.nickname }</h4>

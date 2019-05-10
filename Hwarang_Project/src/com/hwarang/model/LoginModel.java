@@ -1,5 +1,7 @@
 package com.hwarang.model;
 
+import java.io.File;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -29,6 +31,17 @@ public class LoginModel {
 			session.setAttribute("id", id);
 			session.setAttribute("name", vo.getName());
 			session.setAttribute("skin_type", vo.getSkin_type());
+			
+			if(vo.getMember_no() <=499)
+			{
+				session.setAttribute("profile_img", vo.getProfile_img());
+			}
+			else
+			{
+				String path = "../profile_img_upload/"+vo.getProfile_img(); 
+				session.setAttribute("profile_img", path);
+			}
+	
 			//session.setAttribute("admin", vo.getAdmin());
 		}
 		

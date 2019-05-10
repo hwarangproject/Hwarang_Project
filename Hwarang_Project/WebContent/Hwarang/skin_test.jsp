@@ -128,66 +128,130 @@ input:checked ~ span {
 	height: 45px;
 }
 </style>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+
+<script src="https://code.jquery.com/jquery.js"></script>
+
 <script type="text/javascript">
 
 function end()
 {
 	parent.Shadowbox.close();
 }
+
+$(function(){
+	$('#finish').click(function(){
+		var len=$('.item:checked').length;
+		if(len==0)
+		{
+			alert("선택하세요");
+		}
+		else
+		{
+			var check="";
+			$('.item:checked').each(function() { 
+				check+=this.value+",";
+		    });
+			check=check.substring(0,check.lastIndexOf(","));
+			//alert(check);
+			$.ajax({
+				type:'POST',
+				url:'../Hwarang/skin_test_ok.hr',
+				data:{"check":check},
+				success:function(response)
+				{
+					var no=response.trim();
+					var html=""
+					//alert(no);
+					if(no==1)
+					{
+						html="회원님의 피부타입은 '건성'입니다.";
+					}
+					else if(no==2)
+					{
+						html="회원님의 피부타입은 '지성'입니다.";
+					}
+					else if(no==3)
+					{
+						html="회원님의 피부타입은 '지복합성'입니다.";
+					}
+					else if(no==4)
+					{
+					   html="회원님의 피부타입은 '민감성'입니다."; 
+					}
+					
+					$('#res').text(html);
+					$('#dialog').show();
+					 
+				}
+				
+			});
+			
+			
+		}
+		
+	});
+});
+
+/* function ok()
+{
+	parent.Shadowbox.close();
+} */
 </script>
+
 </head>
 <body>
 	<!-- 회원가입  -->
 	<div class="container2">
 		<h5>SKIN TEST</h5>
+		<!-- <form method="post" action="../Hwarang/skin_test_ok.hr" id="testFrm"> -->
 		<div class="checklist">
-			<label><input class="item" type="checkbox" checked /><span>-
-					세안 후 얼굴이 빠르게 당기고 각질이 일어난다.</span></label> <label><input class="item"
-				type="checkbox" /><span>- 화장이 잘 받지 않고 뜨는 편이다.</span></label> <label><input
-				class="item" type="checkbox" /><span>- 눈가,입가에 쉽게 주름이 생긴다.</span></label> <label><input
-				class="item" type="checkbox" /><span>- 피부가 윤기없고 푸석푸석하며 탄력이
-					없다.</span></label> <label><input class="item" type="checkbox" /><span>-
-					입술이 잘 트며, 피부표면이 거칠고 매끄럽지 않다.</span></label> <label><input class="item"
-				type="checkbox" /><span>- 겨울에 피부 각질이 쉽게 일어난다. </span></label> <label><input
-				class="item" type="checkbox" /><span>- 세안 후 얼굴의 당김 현상이 적다. </span></label>
-			<label><input class="item" type="checkbox" /><span>-
-					화장이 잘 받고 오후가 되어도 쉽게 지워지지 않는다. </span></label> <label><input class="item"
-				type="checkbox" /><span>- 피부가 매끄러우며 적당히 윤기가 난다. </span></label> <label><input
-				class="item" type="checkbox" /><span>- 트러블이 잘 생기지 않는다. </span></label> <label><input
-				class="item" type="checkbox" /><span>- T존 부위의 번들거림이 적다. </span></label> <label><input
-				class="item" type="checkbox" /><span>- 계절에 따른 피부변화가 별로 없다. </span></label>
-			<label><input class="item" type="checkbox" /><span>-
-					화장이 잘 받지 않고 시간이 지날수록 쉽게 지워진다. </span></label> <label><input class="item"
-				type="checkbox" /><span>- 피지 과다 분비로 모공이 넓고 유분기가 많다. </span></label> <label><input
-				class="item" type="checkbox" /><span>- 특정부위 상관없이 여드름이나 트러블이
-					자주 생기는 편이다. </span></label> <label><input class="item" type="checkbox" /><span>-
-					햇빛을 받으면 쉽게 탄다. </span></label> <label><input class="item" type="checkbox" /><span>-
-					눈가 입가 및 피부에 주름이 없는 편이다. </span></label> <label><input class="item"
-				type="checkbox" /><span>- T존 부위에 유분기가 유독 많고 다른 부위는 당김이 심하다.
-			</span></label> <label><input class="item" type="checkbox" /><span>-
-					입가나 눈가에 잔주름이 많다. </span></label> <label><input class="item"
-				type="checkbox" /><span>- 피지분비는 많지만 수분이 적어 화장이 잘 받지 않는다. </span></label> <label><input
-				class="item" type="checkbox" /><span>- 코 부분의 모공이 넓고 피부가 거칠며
-					윤기가 없다. </span></label> <label><input class="item" type="checkbox" /><span>-
-					광대뼈와 볼 부위에 색소침착이 나타나는 경우가 있다. </span></label> <label><input class="item"
-				type="checkbox" /><span>- 피지의 분비량이 균형적이지 못해 관리가 힘들다. </span></label> <label><input
-				class="item" type="checkbox" /><span>- 약한 자극에도 피부가 쉽게 붉어지는
-					편이다. </span></label> <label><input class="item" type="checkbox" /><span>-
-					화장품에 쉽게 자극이 일어나며 교체 시마다 피부트러블을 겪는다. </span></label> <label><input
-				class="item" type="checkbox" /><span>- 세안 할 때나 화장할 때 피부가 간혹
-					따금거린다. </span></label> <label><input class="item" type="checkbox" /><span>-
-					피지가 별로 없어도 여드름이 자주 생긴다. </span></label> <label><input class="item"
-				type="checkbox" /><span>- 피부가 가려우며, 자외선에 약하다. </span></label>
+		
+				<label>
+				    <!-- 건성 -->
+				    <input class="item" type="checkbox" name= "check" value="1"/><span>- 세안 후 얼굴이 빠르게 당기고 각질이 일어난다.</span></label> <label>
+					<input class="item"	type="checkbox" name= "check" value="2"/><span>- 화장이 잘 받지 않고 뜨는 편이다.</span></label> <label>
+					<input	class="item" type="checkbox" name= "check" value="3"/><span>- 눈가,입가에 쉽게 주름이 생긴다.</span></label> <label>
+					<input	class="item" type="checkbox" name= "check" value="4"/><span>- 피부가 윤기없고 푸석푸석하며 탄력이없다.</span></label> <label>
+					<input class="item" type="checkbox" name= "check" value="5"/><span>- 입술이 잘 트며, 피부표면이 거칠고 매끄럽지 않다.</span></label> <label>
+					<input class="item"	type="checkbox" name= "check" value="6"/><span>- 겨울에 피부 각질이 쉽게 일어난다. </span></label><label>
+					<!-- 지성 -->
+					<input	class="item" type="checkbox" name= "check" value="7"/><span>- 화장이 잘 받지 않고 시간이 지날수록 쉽게 지워진다. </span></label><label>
+					<input class="item"	type="checkbox" name= "check" value="8"/><span>- 피지 과다 분비로 모공이 넓고 유분기가 많다. </span></label> <label>
+					<input	class="item" type="checkbox" name= "check" value="9"/><span>- 특정부위 상관없이 여드름이나 트러블이 자주 생기는 편이다. </span></label> <label>
+					<input class="item" type="checkbox" name= "check" value="10"/><span>- 햇빛을 받으면 쉽게 탄다. </span></label> <label>
+					<input class="item" type="checkbox" name= "check" value="11"/><span>- 눈가 입가 및 피부에 주름이 없는 편이다. </span></label> <label>
+					
+					<!-- 지복합성 -->
+					<input class="item"	type="checkbox" name= "check" value="12"/><span>- T존 부위에 유분기가 유독 많고 다른 부위는 당김이 심하다.	</span></label> <label>
+					<input class="item" type="checkbox" name= "check" value="13"/><span>- 입가나 눈가에 잔주름이 많다. </span></label> <label>
+					<input class="item"	type="checkbox" name= "check" value="14"/><span>- 피지분비는 많지만 수분이 적어 화장이 잘 받지 않는다. </span></label> <label>
+					<input class="item" type="checkbox" name= "check" value="15"/><span>- 코 부분의 모공이 넓고 피부가 거칠며	윤기가 없다. </span></label> <label>
+					<input class="item" type="checkbox" name= "check" value="16"/><span>- 광대뼈와 볼 부위에 색소침착이 나타나는 경우가 있다. </span></label> <label>
+					<input class="item"	type="checkbox" name= "check" value="17"/><span>- 피지의 분비량이 균형적이지 못해 관리가 힘들다. </span></label> <label>
+					<!-- 민강성 -->
+					<input class="item" type="checkbox" name= "check" value="18"/><span>- 약한 자극에도 피부가 쉽게 붉어지는 편이다. </span></label> <label>
+					<input class="item" type="checkbox" name= "check" value="19"/><span>- 화장품에 쉽게 자극이 일어나며 교체 시마다 피부트러블을 겪는다. </span></label> <label>
+					<input class="item" type="checkbox" name= "check" value="20"/><span>- 세안 할 때나 화장할 때 피부가 간혹 따금거린다. </span></label> <label>
+					<input class="item" type="checkbox" name= "check" value="21"/><span>- 피지가 별로 없어도 여드름이 자주 생긴다. </span></label> <label>
+					<input class="item"	type="checkbox" name= "check" value="22"/><span>- 피부가 가려우며, 자외선에 약하다. </span></label>
 
 			<div class="row">
 				<div class="col-harf text-center">
-				<input type="submit" value="완료" id="finish" >
+				<input type="button" value="결과" id="finish" >
 				<input type="button" value="닫기" id= "cancel" onclick="end()">
 				</div>
+			
+			
+			<div id="dialog" title="결과 " style="display:none" class="row">
+				<br><br>
+  				<p id="res" class="text-center"></p>
+  				<!-- <p><input type="button" value="확인" id= "cancel" class="text-center" onclick="ok()"></p> -->
+			</div>	
 			</div>
 		</div>
-
-
+	<!-- </form> -->
 	</div>
 
 	<script src="../js/jquery.js"></script>
