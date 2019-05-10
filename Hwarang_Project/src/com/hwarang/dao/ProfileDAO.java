@@ -31,6 +31,46 @@ public class ProfileDAO {
 		return vo;
 	}
 	
+	// @@@@@@@ my activity @@@@@@@@
+	public static List<ProductVO> myProductReplyInfo(int mno){
+		List<ProductVO> list = new ArrayList<ProductVO>();
+		SqlSession session = null;
+		
+		try {
+			session = ssf.openSession();
+			list = session.selectList("myProductReplyInfo", mno);
+			
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			
+		} finally {
+			if (session != null){
+			    session.close();
+			}
+		}
+		return list;
+	}
+	public static List<Product_replyVO> myReplyInfo(int mno){
+		List<Product_replyVO> list = new ArrayList<Product_replyVO>();
+		SqlSession session = null;
+		
+		try {
+			session = ssf.openSession();
+			list = session.selectList("myReplyInfo", mno);
+			
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			
+		} finally {
+			if (session != null){
+			    session.close();
+			}
+		}
+		return list;
+	}
+	
+	
+	
 	public static String getBrandImg(String brand){
 		String brandImg = null;
 		SqlSession session = null;
@@ -71,7 +111,6 @@ public class ProfileDAO {
 
 		return pnoList;
 	}
-	
 	// 리스트로 받은 product_no 매개변수로 각각의 ProductVO 가져온다
 	public static ProductVO getLikeProductVO(int pno){
 		ProductVO pvo = new ProductVO();
@@ -91,6 +130,23 @@ public class ProfileDAO {
 		}
 
 		return pvo;
+	}
+	// like상품 삭제
+	public static void deleteLikeProduct(Product_jjimVO vo){
+		SqlSession session = null;
+		   
+		   try{
+			   session = ssf.openSession(true); 
+			   session.delete("deleteLikeProduct",vo);
+			   
+		   }catch(Exception ex){
+			   ex.printStackTrace();
+			   
+		   }finally{
+			   if(session != null){
+				   session.close();
+			   }
+		   }
 	}
 	
 	// pouch_no 리스트로 받음
@@ -150,6 +206,26 @@ public class ProfileDAO {
 		}
 
 		return vo;
+	}
+	
+	// 즐찾 상품 총페이지
+	public static int likeProductTotalPage(int mno){
+		int total = 0;
+		SqlSession session = null;
+		
+		try {
+			session = ssf.openSession();
+			total = session.selectOne("likeProductTotalPage");
+			
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			
+		} finally {
+			if (session != null){
+			    session.close();
+			}
+		}
+		return total;
 	}
 	
 }

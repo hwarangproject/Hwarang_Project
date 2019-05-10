@@ -774,6 +774,7 @@ img.content-image{
 						<!-- 회원정보 -->
 						<section class="section2 clearfix"><br><br>
 						<h3>PRODUCT</h3><br><br>
+						 
 						  <c:forEach var="pvo" items="${pvoList }">
 							<div class="col-sm-2">
 								<div class="product-image-wrapper">	
@@ -789,12 +790,13 @@ img.content-image{
 									</div>
 									<div class="choose">
 										<ul class="nav nav-pills nav-justified">
-											<li><a href='#'><img src="https://image.flaticon.com/icons/svg/812/812853.svg" height="20" width="20"></a></li>												
+											<li><a href='likeProduct_delete.hr?mno=${vo.member_no }&pno=${pvo.product_no}'><img src="https://image.flaticon.com/icons/svg/812/812853.svg" height="20" width="20"></a></li>												
 										</ul>
 									</div>
 								</div>
 							</div>
 					     </c:forEach>
+					     
 						</section>
 						<section>						 
 						  <div class="pagination p1">

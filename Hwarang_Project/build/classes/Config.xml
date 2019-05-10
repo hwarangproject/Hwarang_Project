@@ -34,6 +34,7 @@
 		<typeAlias type="com.hwarang.vo.PouchVO" alias="PouchVO"/>
 		<typeAlias type="com.hwarang.vo.Pouch_jjimVO" alias="Pouch_jjimVO"/>
 		<typeAlias type="com.hwarang.vo.NewsVO" alias="NewsVO"/>
+		<typeAlias type="com.hwarang.vo.Product_replyVO" alias="Product_replyVO"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
