@@ -562,7 +562,7 @@ span {
 								<div class="row grid clearfix">
 									<div class="col2 first">
 										<img
-											src="${vo.profile_img }"
+											src="${sessionScope.profile_img }"
 											alt="" width=120px height=120px>
 										<h1>${vo.name }</h1>
 										<h4>${vo.nickname }</h4>
@@ -614,11 +614,11 @@ span {
 									      MY POUCH
 									      </a> --%>
 									      <c:choose>
-											  <c:when test = '${vo.pouch_no!=0}'>
+											  <c:when test = '${vo.pouch_no==0}'>
 											    <a href='profile_pouch.hr'>MY POUCH</a>
 											  </c:when>
 											  <c:otherwise>
-											    <a href='../pouch/pouch_detail.hr'>MY POUCH</a>
+											    <a href='../pouch/pouch_detail.hr?pouch_no=${vo.pouch_no }'>MY POUCH</a>
 											  </c:otherwise>
 									      </c:choose>								      
 									    </li>									    
@@ -636,13 +636,16 @@ span {
 									<div>
 										<!-- class="col-sm-12" -->
 										<h3>내가 쓴 리뷰</h3>
+										
 										<div id="item-list">
+											<c:forEach var="vo" items="${pList }" varStatus="s">
 											<ul>
-												<li><a class="expand">
+											  	<li>
+													<a class="expand">
 														<div class="right-arrow">+</div>
-														<div class="icon london"></div>
-														<h2>상품 1</h2> <span>댓글 내용</span>
-												</a>
+														<div class="icon london"><img src="${vo.product_img }"></div>
+														<h2>${vo.product_name }</h2> <span>${prList[s.index].reply_content }</span>
+													</a>
 
 													<div class="detail">
 														<div>
@@ -654,47 +657,11 @@ span {
 																nulla facilisi.</span>
 														</div>
 														<br /> <span class="button">Connect</span>
-													</div></li>
-												<li><a class="expand">
-														<div class="right-arrow">+</div>
-														<div class="icon newyork"></div>
-														<h2>New York</h2> <span>Duis autem vel eum iriure
-															dolor in hendrerit in vulputate velit esse molestie
-															consequat</span>
-												</a>
-
-													<div class="detail">
-														<div>
-															<span>Duis autem vel eum iriure dolor in hendrerit
-																in vulputate velit esse molestie consequat, vel illum
-																dolore eu feugiat nulla facilisis at vero eros et
-																accumsan et iusto odio dignissim qui blandit praesent
-																luptatum zzril delenit augue duis dolore te feugait
-																nulla facilisi.</span>
-														</div>
-														<br /> <span class="button">Connect</span>
-													</div></li>
-												<li><a class="expand">
-														<div class="right-arrow">+</div>
-														<div class="icon paris"></div>
-														<h2>Paris</h2> <span>Claritas est etiam processus
-															dynamicus, qui sequitur mutationem consuetudium lectorum</span>
-												</a>
-
-													<div class="detail">
-														<div>
-															<span>Duis autem vel eum iriure dolor in hendrerit
-																in vulputate velit esse molestie consequat, vel illum
-																dolore eu feugiat nulla facilisis at vero eros et
-																accumsan et iusto odio dignissim qui blandit praesent
-																luptatum zzril delenit augue duis dolore te feugait
-																nulla facilisi.</span>
-														</div>
-														<br /> <span class="button">Connect</span>
-
-													</div> <a href="#" class="btn btn-xs ">더보기</a></li>
+													</div>
+											  </li>										
 											</ul>
-										</div>
+											</c:forEach>
+										</div>										
 									</div>
 									<div>
 										<h3></h3>
@@ -723,6 +690,7 @@ span {
 										<div class="recent_pro">
 											<div id="app">
 												<div class="flow" ref="flow">
+												<%-- <c:forEach var="vo" items="${list }"> --%>
 													<div v-for="tab of tabs" class="item2"
 														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"></div>
 													<div v-for="tab of tabs" class="item2"

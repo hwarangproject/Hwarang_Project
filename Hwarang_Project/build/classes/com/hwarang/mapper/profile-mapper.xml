@@ -4,7 +4,55 @@
   <select id="getMemberData" resultType="MemberVO" parameterType="String">
     SELECT * FROM member WHERE id = #{id}
   </select>
+  <!-- @@@@@@@@@@@@@@@ my activity @@@@@@@@@@@@@ -->
+  <select id="myProductReplyInfo" resultType="ProductVO" parameterType="int">
+    SELECT a.product_img, a.product_name
+    FROM product a, product_reply b
+    WHERE a.product_no = b.product_no
+    AND member_no = #{member_no}
+  </select>
+  <select id="myReplyInfo" resultType="Product_replyVO" parameterType="int">
+    SELECT product_rate, reply_content
+    FROM product_reply
+    WHERE member_no = #{member_no}
+  </select>
+  
   <select id="getBrandImg" resultType="String" parameterType="String">
     SELECT DISTINCT brand_img FROM product WHERE brand = #{brand}
   </select>
+  
+  <!-- 즐겨찾기 상품 가져오기 -->
+  <select id="getLikeProduct_no" resultType="int" parameterType="int">
+    SELECT product_no 
+    FROM product_jjim 
+    WHERE member_no = #{member_no}
+  </select>
+  <select id="getLikeProductVO" resultType="ProductVO" parameterType="int">
+    SELECT * FROM product WHERE product_no = #{product_no}
+  </select>
+  <!-- 즐겨찾기 상품 삭제 -->
+  <delete id="deleteLikeProduct" parameterType="Product_jjimVO">
+    DELETE FROM product_jjim
+    WHERE product_no = #{product_no} AND member_no = #{member_no}
+  </delete>
+  
+  <!-- 즐겨찾기 파우치 가져오기 -->
+  <select id="getLikePouch_no" resultType="int" parameterType="int">
+    SELECT pouch_no 
+    FROM pouch_jjim 
+    WHERE member_no = #{member_no}
+  </select>
+  <select id="getLikePouchVO" resultType="PouchVO" parameterType="int">
+    SELECT * FROM pouch WHERE pouch_no = #{pouch_no}
+  </select>  
+  <select id="getPouchMemberData" resultType="MemberVO" parameterType="int">
+  	SELECT * FROM member WHERE pouch_no = #{pouch_no}
+  </select>
+
+  <!-- 즐찾 상품 리스트 총페이지 -->
+  <select id="likeProductTotalPage" resultType="int" parameterType="int">
+    SELECT CEIL(COUNT(*) / 12.0) FROM product_jjim WHERE member_no = #{member_no}
+  </select>
+  
+  
 </mapper>

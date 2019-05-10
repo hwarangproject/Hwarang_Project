@@ -3,6 +3,7 @@ package com.hwarang.vo;
 public class Product_jjimVO {
 	private int member_no;
 	private int product_no;
+	
 	public int getMember_no() {
 		return member_no;
 	}
