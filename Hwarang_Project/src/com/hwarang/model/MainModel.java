@@ -1,16 +1,15 @@
 package com.hwarang.model;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
 import com.hwarang.controller.RequestMapping;
-import com.hwarang.dao.ProductDAO;
-import com.hwarang.vo.ProductVO;
-import com.hwarang.manager.Item;
-import com.hwarang.manager.NewsManager;
-import com.hwarang.manager.NaverNewsManager;
-import com.hwarang.vo.NewsVO;
+import com.hwarang.dao.*;
+import com.hwarang.vo.*;
+import com.hwarang.manager.*;
 
 public class MainModel {
 	@RequestMapping("main/main.hr")
@@ -19,9 +18,14 @@ public class MainModel {
 		
 		List<ProductVO> list=ProductDAO.productListData();
 		
+		// 메인 뉴스 출력
 		NaverNewsManager news=new NaverNewsManager();
 		List<NewsVO> newsList=news.newsAllData("화장품");
 		request.setAttribute("newsList", newsList);
+		
+		// 메인 파우치 목록
+		List<PouchVO> main_pouch_list=PouchDAO.mainPouchListData();
+		request.setAttribute("main_pouch_list", main_pouch_list);
 		
 		
 		request.setAttribute("productListData", list);
@@ -40,4 +44,5 @@ public class MainModel {
 		request.setAttribute("main_jsp", "../news/news.jsp");
 		return "../main/main.jsp";
 	}
+	
 }

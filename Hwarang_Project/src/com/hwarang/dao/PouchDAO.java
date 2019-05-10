@@ -2,6 +2,7 @@ package com.hwarang.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -64,4 +65,30 @@ public class PouchDAO {
 
 		return vo;
 	}
+	
+	//////////////////////////////////메인 파우치 부분/////////////////////////////////////////////////////////////
+	
+	// 파우치 리스트 구하기
+	public static List<PouchVO> mainPouchListData() {
+		List<PouchVO> list = new ArrayList<PouchVO>();
+		// Connection얻기
+		SqlSession session = null;
+		try {
+			// Connection,PreparedStatement
+			session = ssf.openSession();
+			list = session.selectList("mainPouchListData");
+		} 
+		catch (Exception ex) {
+			// error처리
+			System.out.println("mainPouchListData:"+ex.getMessage());
+			ex.printStackTrace();
+		} 
+		finally {
+			// 반환
+			if (session != null)
+				session.close();
+		}
+		return list;
+	}
+	
 }

@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico" />
+
 </head>
 <body>
 <section id="slider"><!--slider-->
@@ -83,7 +84,7 @@
 					<!--features_items-->
 					<h2 class="title text-center">TOP RANKING</h2>
 
-					<!-- 첫번째 상품 -->
+				<!-- 첫번째 상품 -->
 				<c:forEach var="vo" items="${productListData }">
 					<div class="col-xs-3">
 						<div class="product-image-wrapper">
@@ -219,72 +220,16 @@
 		</div>
 		<!--features_items-->
 		
-		
-		<!-- ------------------------------------------------------------------------------------------------
+		<!-- 뉴스 , 파우치 목록 -->
 		<div class="container">
-		<div class="row">
-			<table class="table">
-				<c:forEach var="vo" items="${news_list }">
-					<tr>
-						<td width=30% class="text-center" rowspan="2">
-							<img src="${vo.url }" width=180 height=150>
-						</td>
-						<td class="text-center">${vo.title }(${vo.author })</td>
-					</tr>
-					<tr>
-						<td>${vo.description }</td>
-					</tr>
-				</c:forEach>
-			</table>
-		</div>
-	</div>
-	 -->
-		<div class="container">
+			<!-- 뉴스 출력 -->
 			<div class="col-xs-6">
 				<jsp:include page="../news/news_main.jsp"></jsp:include>
 			</div>
 
-
-
+			<!-- 파우치 출력 -->
 			<div class="col-xs-6">
-				<table class="table table-hover">
-					<h3 class="text-center">파우치 목록</h3>
-					<%
-						for (int i = 1; i <= 5; i++) {
-					%>
-					<tr>
-						<td><%=i%></td>
-						<td><img src="../images/home/pouch/pouch1.jpg" width="30"
-							height="30"></td>
-						<td><%=i%>등파우치</td>
-						<td>뷰티유투버</td>
-					</tr>
-					<%
-						}
-					%>
-				</table>
-
-				<table class="table">
-					<tr>
-						<td class="text-center">
-							<ul class="pagination">
-								<li><a href="list.jsp?page=1"><img
-										src="../images/home/pouch/lleft.gif"></a></li>
-								<li><a href="list.jsp?page="><img
-										src="../images/home/pouch/tit_prev.gif"></a></li>
-								<li class="text-center"><a href="#">1</a></li>
-								<li class="text-center"><a href="main.jsp?no=2">2</a></li>
-								<li class="text-center"><a href="#">3</a></li>
-								<li class="text-center"><a href="#">4</a></li>
-								<li class="text-center"><a href="#">5</a></li>
-								<li><a href="list.jsp?page="><img
-										src="../images/home/pouch/tit_next.gif"></a></li>
-								<li><a href="list.jsp?page="><img
-										src="../images/home/pouch/rright.gif"></a></li>
-							</ul>
-						</td>
-					</tr>
-				</table>
+				<jsp:include page="../pouch/pouch_main.jsp"></jsp:include>
 			</div>
 		</div>
 
