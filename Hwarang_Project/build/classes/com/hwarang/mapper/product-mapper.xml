@@ -71,5 +71,25 @@
 	<select id="brandListTotalPage" resultType="int" parameterType="hashmap">
 		SELECT CEIL(count(distinct brand)/20.0) FROM product WHERE brand BETWEEN NCHR(#{start}) AND NCHR(#{end})
 	</select>
+	
+	<!-- 상품 댓글 -->
+	<select id="productReplyListData" resultType="Product_replyVO" parameterType="int">
+     SELECT a.*, b.profile_img, b.id, b.sex, b.skin_type, b.age_group  
+     FROM product_reply a, member b
+     WHERE a.member_no = b.member_no
+     AND product_no = #{product_no}
+     ORDER BY a.reply_regdate 
+    </select>
+	<insert id="productReplyInsert" parameterType="Product_replyVO">
+     INSERT INTO product_reply VALUES(
+       #{reply_content},
+       SYSDATE,
+       #{product_rate},
+       #{product_no},
+       #{member_no},
+       (SELECT NVL(MAX(reply_no)+1,1) FROM product_reply WHERE member_no = #{member_no2})
+     )
+   </insert>
+   
 </mapper>
 

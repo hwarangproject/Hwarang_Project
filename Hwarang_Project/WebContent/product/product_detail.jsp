@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -37,6 +37,23 @@
 <script src="js/price-range.js"></script>
 <script src="js/jquery.prettyPhoto.js"></script>
 <script src="js/main.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+
+    $('input[name="star-input"]').each(function() {
+        var value = $(this).val();              // value
+        var checked = $(this).prop('checked');  
+ 
+        if(checked){
+        	$('input:hidden[name="product_rate"]:input[value=' + value + ']');
+        }
+        else{
+        	$('input:hidden[name="product_rate"]:input[value="5"]');
+        }
+    })
+
+
+</script>
 
 <!-- 내가 설정한 스타일 -->
 <style type="text/css">
@@ -326,7 +343,7 @@ margin-left: 1.2em;
                   </div>
                
                <!--/brands_products 창-->
-                  <div class="brands_products"><!--brands_products-->
+                 <!--  <div class="brands_products">brands_products
                      <h2>Brands</h2>
                      <div class="brands-name">
                         <ul class="nav nav-pills nav-stacked">
@@ -339,7 +356,7 @@ margin-left: 1.2em;
                            <li><a href=""> <span class="pull-right">(4)</span>Rösch creative culture</a></li>
                         </ul>
                      </div>
-                  </div>
+                  </div> -->
                   
                   
                   
@@ -478,15 +495,24 @@ margin-left: 1.2em;
                            <p>케이스가 일단 예뻐요! 자석이라 편하기도하구요 베러립스톡,베러립스톡 둘다 써봤는데 둘다 색이넘이뻐여 특히 땡큐땡모반이랑 무드업, 빈티지웨이 컬러가 예뻐서 매장에서 테스트하고 세개 사왔어요 :) 빈티지웨이는 집에있는 맥 씨쉬어랑 거의 존똑이더라구요 살짝 톤다운된 피치컬러라 데일리로 바르기 좋은컬러에요</p>
                           </div>
                         </div>
-                        
-                           
-                        <div class="col-sm-12">
+                        <c:forEach var="prvo" items="${prList }">
+                          <div class="col-sm-12">
+                          <div class="a">
+                           <ul>
+                              <li><a href=""><img src="${prvo.profile_img }" width=30 height=30 class="img-circle"></img>&nbsp;&nbsp;${prvo.id }</a></li>
+                              <li><a href=""></i>성별:${prvo.sex} / 피부타입:${prvo.skin_type} / 연령대:${prvo.age_group}대 / 별점:${prvo.product_rate }</a></li>
+                           </ul>
+                           <p>${prvo.reply_content}</p>
+                          </div>
+                        </div>
+                        </c:forEach>
+                      <div class="col-sm-12">
                            <p><b>Write Your Review</b></p>
+                          <c:if test="${sessionScope.id != null }">
                            <form method="post" action="../product/product_reply_insert.hr">
                               <textarea name="reply_content" ></textarea>
-                              <input type="hidden" name="id" value="${sessionScope.id }">
-                              <input type="hidden" name="product_no" value="${vo.product_no}">
-                           </form>  
+                              <input type="hidden" name="pno" value="${vo.product_no}">
+                           
                               <!-- 평점주기 -->
                             <span class="star-input">
 							  <span class="input">
@@ -501,13 +527,22 @@ margin-left: 1.2em;
     							<input type="radio" name="star-input" value="5" id="p5">
     							<label for="p5">5</label>
   							  </span>
+  							  <input type="hidden" name="product_rate" value="5">
   							  <!-- <output for="star-input"><b>0</b>점</output> -->
 							</span>
 							
-                              <button type="button" class="btn btn-default pull-right">
+                              <button type="submit" class="btn btn-default pull-right">
                                  Submit
                               </button>
+                            </form> 
+                          </c:if>
+                          <c:if test="${sessionScope.id == null }">
                            
+                              <textarea name="reply_content2" >
+                                                             로그인이 필요합니다
+                              </textarea>
+                              
+                          </c:if>
                         </div>
                      </div>
                      
@@ -609,91 +644,6 @@ margin-left: 1.2em;
 					</div><!--/recommended_items-->
                
             </div>
-         </div>
-      </div>
    </section>
-	
-	<footer id="footer"><!--Footer-->
-		<div class="footer-top">
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-2">
-						<div class="companyinfo">
-							<h2><span>e</span>-shopper</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor</p>
-						</div>
-					</div>
-					<div class="col-xs-7">
-						<div class="col-xs-3">
-							<div class="video-gallery text-center">
-								<a href="#">
-									<div class="iframe-img">
-										<img src="images/home/iframe1.png" alt="" />
-									</div>
-									<div class="overlay-icon">
-										<i class="fa fa-play-circle-o"></i>
-									</div>
-								</a>
-								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
-							</div>
-						</div>
-						
-						<div class="col-xs-3">
-							<div class="video-gallery text-center">
-								<a href="#">
-									<div class="iframe-img">
-										<img src="images/home/iframe2.png" alt="" />
-									</div>
-									<div class="overlay-icon">
-										<i class="fa fa-play-circle-o"></i>
-									</div>
-								</a>
-								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
-							</div>
-						</div>
-						
-						<div class="col-xs-3">
-							<div class="video-gallery text-center">
-								<a href="#">
-									<div class="iframe-img">
-										<img src="images/home/iframe3.png" alt="" />
-									</div>
-									<div class="overlay-icon">
-										<i class="fa fa-play-circle-o"></i>
-									</div>
-								</a>
-								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
-							</div>
-						</div>
-						
-						<div class="col-xs-3">
-							<div class="video-gallery text-center">
-								<a href="#">
-									<div class="iframe-img">
-										<img src="images/home/iframe4.png" alt="" />
-									</div>
-									<div class="overlay-icon">
-										<i class="fa fa-play-circle-o"></i>
-									</div>
-								</a>
-								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
-							</div>
-						</div>
-					</div>
-					<div class="col-xs-3">
-						<div class="address">
-							<img src="images/home/map.png" alt="" />
-							<p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		
 </body>
 </html>

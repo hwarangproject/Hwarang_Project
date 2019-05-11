@@ -10,6 +10,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import com.hwarang.vo.*;
 
 
+
 public class ProductDAO {
 	private static SqlSessionFactory ssf;
 	static
@@ -114,4 +115,40 @@ public class ProductDAO {
 		return list;
 	}
 	
+	 // ªÛ«∞ ¥Ò±€ ¿–±‚
+	   public static List<Product_replyVO> productReplyListData(int pno){
+		   List<Product_replyVO> prlist = new ArrayList<Product_replyVO>();
+		   SqlSession session = null;
+		   
+		   try{
+			   session = ssf.openSession();
+			   prlist = session.selectList("productReplyListData", pno);
+			   
+		   }catch(Exception ex){
+			   ex.printStackTrace();
+			   
+		   }finally{
+			   if(session != null){
+				   session.close();
+			   }
+		   }
+		   return prlist;
+	   }
+	   
+    // ªÛ«∞ ¥Ò±€ insert
+	public static void productReplyInsert(Product_replyVO prvo){
+
+		SqlSession session=null;
+		try {
+			session = ssf.openSession(true);
+			session.insert("productReplyInsert",prvo);
+		} 
+		catch (Exception ex) {
+			ex.printStackTrace();
+		} 
+		finally {
+			if (session != null)
+				session.close();
+		}
+	}
 }
