@@ -1,79 +1,80 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico" />
 
 </head>
 <body>
-<section id="slider"><!--slider-->
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-12">
-				<div id="slider-carousel" class="carousel slide" data-ride="carousel">
-					<ol class="carousel-indicators">
-						<li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
-						<li data-target="#slider-carousel" data-slide-to="1"></li>
-						<li data-target="#slider-carousel" data-slide-to="2"></li>
-					</ol>
 
-				<div class="carousel-inner">
-                  <div class="item active">
-                     <div class="col-xs-6" id="custom_slider">
-                        <h1>
-                           <span>H</span>warang
-                        </h1>
-                        <h2>인기상품</h2>
-                        <p>하이드라비오 에센스 로션</p>
-                        <p>피부 컨디션을 끌어올려 속부터 차오르는 빛과 수분</p>
-                        <button type="button" class="btn btn-default get">
-                           <a href="product_detail.jsp">Get it now</a>
-                        </button>
-                     </div>
-                     <div class="col-xs-6">
-                        <img src="../images/home/slider/skin.png"
-                           class="girl img-responsive" alt="" width="300" height="250" />
-                        <!-- <img src="images/home/pricing.png"  class="pricing" alt="" /> -->
-                     </div>
-                  </div>
-             	<c:forEach var="vo" items="${productListData }" varStatus="s">
-             		<c:if test="${s.index<2 }">
-                  	<div class="item">
-						<div class="col-xs-6" id="custom_slider">
-							<h1>
-								<span>H</span>warang
-							</h1>
-							<h2>인기상품</h2>
-							<p>${vo.product_name }</p>
-							<p>${vo.description }</p>
-							<button type="button" class="btn btn-default get">
-								<a href="../product/product_detail.hr?pno=${vo.product_no }">Get it now</a>
-							</button>
+	<section id="slider"><!--slider-->
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<div id="slider-carousel" class="carousel slide" data-ride="carousel">
+						<ol class="carousel-indicators">
+							<li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
+							<li data-target="#slider-carousel" data-slide-to="1"></li>
+							<li data-target="#slider-carousel" data-slide-to="2"></li>
+						</ol>
+						
+						<div class="carousel-inner">
+							
+							<div class="item active">
+								<div class="col-sm-6">
+									<h1>
+			                           <span>H</span>warang
+			                        </h1>
+			                        <h2>인기상품</h2>
+			                        <p>하이드라비오 에센스 로션</p>
+			                        <p>피부 컨디션을 끌어올려 속부터 차오르는 빛과 수분</p>
+									<button type="button" class="btn btn-default get">
+			                           <a href="product_detail.jsp">Get it now</a>
+			                        </button>
+								</div>
+								<div class="col-xs-6">
+		                        	<img src="../images/home/slider/skin.png" class="girl img-responsive" alt="" width="300" height="250" />
+		                     	</div>
+							</div>
+							
+							<c:forEach var="vo" items="${productListData }" varStatus="s">
+	             				<c:if test="${s.index<2 }">
+	                  				<div class="item">
+										<div class="col-xs-6" id="custom_slider">
+											<h1>
+												<span>H</span>warang
+											</h1>
+											<h2>인기상품</h2>
+											<p>${vo.product_name }</p>
+											<p>${vo.description }</p>
+											<button type="button" class="btn btn-default get">
+												<a href="../product/product_detail.hr?pno=${vo.product_no }">Get it now</a>
+											</button>
+										</div>
+										<div class="col-xs-6">
+											<img src="${vo.product_img }" class="girl img-responsive" alt="" width="300" height="250" />
+										</div>
+									</div>
+								</c:if>
+							</c:forEach>			
 						</div>
-						<div class="col-xs-6">
-							<img src="${vo.product_img }" class="girl img-responsive" alt="" width="300" height="250" />
-						</div>
+						
+						<a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
+							<i class="fa fa-angle-left"></i>
+						</a>
+						<a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
+							<i class="fa fa-angle-right"></i>
+						</a>
 					</div>
-					</c:if>
-				</c:forEach>
-
-					<a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev"> 
-						<i class="fa fa-angle-left"></i>
-					</a> 
-					<a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next"> 
-						<i class="fa fa-angle-right"></i>
-					</a>
+					
 				</div>
 			</div>
 		</div>
-		</div>
-	</div>
-	</section>
-	<!--/slider-->
+	</section><!--/slider-->
 
 	<!-- 상품 출력 부분 -->
 	<!-- TOP RANKING -->

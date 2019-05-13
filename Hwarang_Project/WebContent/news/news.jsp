@@ -7,10 +7,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-.row{
-   margin: 0px auto;
-   width: 900px;
-}
 </style>
 </head>
 <body>
@@ -26,6 +22,11 @@
 					</tr>
 					<tr>
 						<td>${vo.description }</td>
+					</tr>
+					<tr>
+						<td class="text-right" colspan="2">
+							<a href="${vo.link }">보러가기</a>
+						</td>
 					</tr>
 				</c:forEach>
 			</table>
