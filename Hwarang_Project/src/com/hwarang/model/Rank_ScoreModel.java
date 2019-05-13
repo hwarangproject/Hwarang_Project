@@ -1,12 +1,13 @@
 package com.hwarang.model;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import com.hwarang.controller.RequestMapping;
 
 public class Rank_ScoreModel {
 	@RequestMapping("ranking/rank_score.hr")
-	public String rank_score_page(HttpServletRequest request) {
+	public String rank_score_page(HttpServletRequest request,HttpServletResponse response) {
 		request.setAttribute("main_jsp", "../ranking/rank_score.jsp");
 		return "../main/main.jsp";
 	}

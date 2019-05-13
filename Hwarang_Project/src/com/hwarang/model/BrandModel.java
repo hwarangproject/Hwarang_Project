@@ -1,6 +1,8 @@
 package com.hwarang.model;
 import java.util.*;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import com.hwarang.dao.*;
 import com.hwarang.vo.*;
 
@@ -8,7 +10,7 @@ import com.hwarang.controller.RequestMapping;
 
 public class BrandModel {
 	@RequestMapping("brand/brand.hr")
-	public String brand_list_page(HttpServletRequest request) {
+	public String brand_list_page(HttpServletRequest request,HttpServletResponse response) {
 		
 		String start=request.getParameter("start");
 		String end=request.getParameter("end");
@@ -89,7 +91,7 @@ public class BrandModel {
 	
 	
 	@RequestMapping("brand/brand_main.hr")
-	public String brand_Mainpage(HttpServletRequest request) {
+	public String brand_Mainpage(HttpServletRequest request,HttpServletResponse response) {
 		try
 		{
 			request.setCharacterEncoding("UTF-8"); // 컴파일 예외 => 반드시 컴파일 전 예외처리를 해야함
