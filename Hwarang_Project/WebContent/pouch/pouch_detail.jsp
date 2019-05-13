@@ -44,9 +44,10 @@
 </script>
 
 <style type="text/css">
-#pag{
+#pag {
 	padding-left: 450px;
 }
+
 .scrollbar {
 	float: left;
 	height: 250px;
@@ -584,12 +585,38 @@ body {
 												<%-- 	</c:forEach> --%>
 											</div>
 											<tr>
-											<ul class="pagination text-center" id="pag">
-													<li class="active"><a href="">1</a></li>
-													<li><a href="">2</a></li>
-													<li><a href="">3</a></li>
-													<li><a href="">&raquo;</a></li>
-												</ul>
+												<td class="text-center in" valign="top">
+													<ul class="pagination pagination-sm" style="padding: 0px">
+														<c:if test="${curpage>BLOCK }">
+															<li><a href="../pouch/pouch_detail.hr?page=1"> <font
+																	style="color: #FFB9B9;">◀◀</font>
+															</a></li>
+															<li><a href="../pouch/pouch_detail.hr?page=${startPage-1 }">
+																	<font style="color: #FFB9B9;">◀</font>
+															</a></li>
+														</c:if>
+
+														<c:set var="type" value="" />
+														<c:forEach var="i" begin="${startPage }" end="${endPage }">
+															<c:if test="${curpage==i }">
+																<c:set var="type" value="class=active" />
+															</c:if>
+															<c:if test="${curpage!=i }">
+																<c:set var="type" value="" />
+															</c:if>
+															<li ${type }><a href="../pouch/pouch_detail.hr?page=${i }">${i }</a></li>
+														</c:forEach>
+
+														<c:if test="${endPage<allPage }">
+															<li><a href="../pouch/pouch_detail.hr?page=${endPage+1 }">
+																	<font style="color: #FFB9B9;">▶</font>
+															</a></li>
+															<li><a href="../pouch/pouch_detail.hr?page=${allPage }">
+																	<font style="color: #FFB9B9;">▶▶</font>
+															</a></li>
+														</c:if>
+													</ul>
+												</td>
 											</tr>
 										</div>
 										<table class="table text-right">

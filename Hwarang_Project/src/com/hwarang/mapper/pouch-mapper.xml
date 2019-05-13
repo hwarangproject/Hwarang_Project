@@ -1,21 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.hwarang.mapper.pouch-mapper">
-	<select id="pouchListData" resultType="PouchVO">
-	  SELECT * FROM pouch 
+	<select id="pouchListData" resultType="PouchVO" parameterType="java.util.Map">
+		SELECT pouch_img,member_no,pouch_no,pouch_name,num FROM (SELECT pouch_img,member_no,pouch_no,pouch_name,rownum as num
+		FROM (SELECT pouch_img,member_no,pouch_no,pouch_name FROM pouch ORDER BY pouch_no DESC))
+		WHERE num BETWEEN #{start} AND #{end}
 	</select>
+	<!-- 2. 총페이지 -->
+	<select id="pouchTotalPage" resultType="int">
+     SELECT CEIL(COUNT(*)/5.0) FROM pouch
+   	</select>
 	
-	<select id="pouchDetailData" resultType="PouchVO" parameterType="int">
+	<!-- <select id="pouchDetailData" resultType="PouchVO" parameterType="int">
   	  SELECT * FROM pouch WHERE pouch_no=#{pouch_no}
-	</select>
+	</select> -->
 	
-	<insert id="pouchInsertReply" >
+	<!-- <insert id="pouchInsertReply" >
 	  <selectKey keyProperty="pouch_reply_no" resultType="int" order="BEFORE">
 			SELECT NVL(MAX(pouch_reply_no)+1,1) as pouch_reply_no FROM pouch_reply
 		</selectKey>
 		INSERT INTO pouch_reply
 		VALUES(#{pouch_reply_no},#{pouch_no},#{content},SYSDATE,#{member_no})
-	</insert>
+	</insert> -->
 	
 	<!--  <insert id="boardInsert" parameterType="BoardVO">
 		자동 증가번ㄶ호

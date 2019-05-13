@@ -12,4 +12,5 @@ public class Pouch_detailModel {
 		request.setAttribute("main_jsp", "../pouch/pouch_detail.jsp");
     	return "../main/main.jsp";
     }
+
 }
