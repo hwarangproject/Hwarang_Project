@@ -217,10 +217,10 @@ a {
 				<div class="col-sm-4">
 					<ul class="card-list">
 						<li class="card">
-							<a class="card-image" href="../pouch/pouch_detail.hr" style="background-image: url(${vo.pouch_img });" data-image-full="${vo.pouch_img }"> 
+							<a class="card-image" href="../pouch/pouch_detail.hr?no=${vo.pouch_no }" style="background-image: url(${vo.pouch_img });" data-image-full="${vo.pouch_img }"> 
 								<img src="${vo.pouch_img }" alt="${vo.pouch_content }" />
 							</a> 
-							<a class="card-description" href="../pouch/pouch_detail.hr" target="_blank">
+							<a class="card-description" href="../pouch/pouch_detail.hr?no=${vo.pouch_no }" target="_blank">
 								<h2>${vo.pouch_name }</h2>
 								<p>${vo.pouch_no }</p>
 							</a>
@@ -245,11 +245,11 @@ a {
 	       <td class="text-center in" valign="top">
 	         <ul class="pagination pagination-sm" style="padding:0px">
 	           <c:if test="${curpage>BLOCK }">
-	            <li><a href="../board/list.do?page=1">
-	                 <img src="../board/ico_list_pre2.gif" width=17 height=17>
+	            <li><a href="../pouch/pouch.hr?page=1">
+	                 <font style="color: #FFB9B9;">◀◀</font>
 	                </a></li>
-	            <li><a href="../board/list.do?page=${startPage-1 }">
-	                 <img src="../board/ico_list_pre1.gif" width=17 height=17>
+	            <li><a href="../pouch/pouch.hr?page=${startPage-1 }">
+	                 <font style="color: #FFB9B9;">◀</font>
 	                </a></li>
 	           </c:if>
 	           
@@ -266,10 +266,10 @@ a {
 	           
 	           <c:if test="${endPage<allPage }">
 	             <li><a href="../pouch/pouch.hr?page=${endPage+1 }">
-	                 <img src="../board/ico_list_next1.gif" width=17 height=17>
-	                </a></li>
+	                 <font style="color: #FFB9B9;">▶</font></a>
+	            </li>
 	            <li><a href="../pouch/pouch.hr?page=${allPage }">
-	                 <img src="../board/ico_list_next2.gif" width=17 height=17>
+	                 <font style="color: #FFB9B9;">▶▶</font>
 	                </a></li>
 	           </c:if>
 	         </ul>
