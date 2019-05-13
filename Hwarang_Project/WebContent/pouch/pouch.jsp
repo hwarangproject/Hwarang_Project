@@ -217,8 +217,8 @@ a {
 				<div class="col-sm-4">
 					<ul class="card-list">
 						<li class="card">
-							<a class="card-image" href="../pouch/pouch_detail.hr?no=${vo.pouch_no }" style="background-image: url(${vo.pouch_img });" data-image-full="${vo.pouch_img }"> 
-								<img src="${vo.pouch_img }" alt="${vo.pouch_content }" />
+							<a class="" href="../pouch/pouch_detail.hr?no=${vo.pouch_no }" style="background-image: url(${vo.pouch_img });"> 
+								<img src="${vo.pouch_img }" alt="${vo.pouch_content }" width="300" height="350" />
 							</a> 
 							<a class="card-description" href="../pouch/pouch_detail.hr?no=${vo.pouch_no }" target="_blank">
 								<h2>${vo.pouch_name }</h2>

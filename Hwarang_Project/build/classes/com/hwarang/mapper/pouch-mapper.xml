@@ -8,7 +8,7 @@
 	</select>
 	<!-- 2. 총페이지 -->
 	<select id="pouchTotalPage" resultType="int">
-     SELECT CEIL(COUNT(*)/10.0) FROM pouch
+     SELECT CEIL(COUNT(*)/5.0) FROM pouch
    	</select>
 	
 	<!-- <select id="pouchDetailData" resultType="PouchVO" parameterType="int">

@@ -588,10 +588,10 @@ body {
 												<td class="text-center in" valign="top">
 													<ul class="pagination pagination-sm" style="padding: 0px">
 														<c:if test="${curpage>BLOCK }">
-															<li><a href="../board/list.do?page=1"> <font
+															<li><a href="../pouch/pouch_detail.hr?page=1"> <font
 																	style="color: #FFB9B9;">◀◀</font>
 															</a></li>
-															<li><a href="../board/list.do?page=${startPage-1 }">
+															<li><a href="../pouch/pouch_detail.hr?page=${startPage-1 }">
 																	<font style="color: #FFB9B9;">◀</font>
 															</a></li>
 														</c:if>
@@ -604,14 +604,14 @@ body {
 															<c:if test="${curpage!=i }">
 																<c:set var="type" value="" />
 															</c:if>
-															<li ${type }><a href="../pouch/pouch.hr?page=${i }">${i }</a></li>
+															<li ${type }><a href="../pouch/pouch_detail.hr?page=${i }">${i }</a></li>
 														</c:forEach>
 
 														<c:if test="${endPage<allPage }">
-															<li><a href="../pouch/pouch.hr?page=${endPage+1 }">
+															<li><a href="../pouch/pouch_detail.hr?page=${endPage+1 }">
 																	<font style="color: #FFB9B9;">▶</font>
 															</a></li>
-															<li><a href="../pouch/pouch.hr?page=${allPage }">
+															<li><a href="../pouch/pouch_detail.hr?page=${allPage }">
 																	<font style="color: #FFB9B9;">▶▶</font>
 															</a></li>
 														</c:if>
