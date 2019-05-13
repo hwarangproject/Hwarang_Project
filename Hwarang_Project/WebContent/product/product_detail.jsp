@@ -42,9 +42,16 @@
 $(function(){
 	$('input[name="star-input"]').click(function() {
         var value = $(this).val();
-        alert(value);
      	$('#product_rate').attr('value',value);
     });
+	
+	$('.rupdateBtn').click(function(){
+	      
+	      var rno=$(this).attr("id");
+	      $('#b'+rno).hide();
+	      $('#a'+rno).show();
+
+	   });
 });
 </script>
 
@@ -491,14 +498,47 @@ margin-left: 1.2em;
                         <c:forEach var="prvo" items="${prList }">
                         	<c:if test="${sessionScope.id == prvo.id }"> <!-- 아이디 같을때 수정, 삭제 -->
 	                          <div class="col-sm-12">
-		                          <div class="a">
+		                          <div class="a before" id="b${prvo.reply_no }">
 		                           <ul>
 		                              <li><a href=""><img src="${prvo.profile_img }" width=30 height=30 class="img-circle"></img>&nbsp;&nbsp;${prvo.id }</a></li>
 		                              <li><a href=""></i>성별:${prvo.sex} / 피부타입:${prvo.skin_type} / 연령대:${prvo.age_group}대 / 별점:${prvo.product_rate }</a></li>
+		                              <li class="text-right">				              
+						                <a href="#" class="btn btn-xs btn-success rupdateBtn" id="${prvo.reply_no}">수정</a>
+						                <a href="../product/product_reply_delete.hr?rno=${prvo.reply_no }&pno=${vo.product_no }" class="btn btn-xs btn-danger" >삭제</a>
+                     	              </li>
 		                           </ul>
 		                           <p>${prvo.reply_content}</p>
-		                           <input type="hidden" name="reply_no" value="${prvo.reply_no }">
+		                           <input type="hidden" name="rno" value="${prvo.reply_no }">
 		                          </div>
+		                          <div class="a after" id="a${prvo.reply_no }" class="rupdate" style="display:none">
+		                           <form method="post" action="../product/product_reply_update.hr">
+		                           <ul>
+		                              <li><a href=""><img src="${prvo.profile_img }" width=30 height=30 class="img-circle"></img>&nbsp;&nbsp;${prvo.id }</a></li>
+		                              <li><a href=""></i>성별:${prvo.sex} / 피부타입:${prvo.skin_type} / 연령대:${prvo.age_group}대 / 별점:${prvo.product_rate }</a></li>
+		                              <li class="text-right">	
+		                               
+		                                <input type="submit" value="수정">			              
+						                <a href="#" class="btn btn-xs btn-success">취소</a>
+						                <input type="hidden" name="rno" value="${prvo.reply_no }">
+						                <input type="hidden" name="pno" value="${vo.product_no }">
+                     	              </li>                    	              
+		                           </ul>
+		                           <textarea name="reply_content">${prvo.reply_content}</textarea>
+		                           </form>
+		                          </div>
+		                            <%-- <table class="table">
+		                             <tr class="rupdate" style="display:none">
+		                              <td class="in">
+							            <form method="post" action="../product/product_reply_update.do">				
+							            <input type="hidden" name="rno" value="${prvo.reply_no }">
+							            <input type="hidden" name="pno" value="${vo.product_no }">
+							            <textarea rows="3" cols="80" name="reply_content" style="float:left">${prvo.reply_content}</textarea>
+							            <input type="submit" value="댓글수정" style="margin-left: 12px;" class="btn btn-xs btn-danger">
+							            </form>
+							          </td>
+							         </tr>
+		                            </table> --%>
+		                         
 	                          </div>
 	                        </c:if>
 	                        <c:if test="${sessionScope.id != prvo.id }"> 
@@ -509,9 +549,9 @@ margin-left: 1.2em;
 		                              <li><a href=""></i>성별:${prvo.sex} / 피부타입:${prvo.skin_type} / 연령대:${prvo.age_group}대 / 별점:${prvo.product_rate }</a></li>
 		                           </ul>
 		                           <p>${prvo.reply_content}</p>
-		                           <input type="hidden" name="reply_no" value="${prvo.reply_no }">
+		                           <input type="hidden" name="rno" value="${prvo.reply_no }">
 		                          </div>
-	                          </div>
+	                          </div>            
 	                        </c:if> 
                         </c:forEach>
                       <div class="col-sm-12">
@@ -535,7 +575,7 @@ margin-left: 1.2em;
     							<input type="radio" name="star-input" value="5" id="p5">
     							<label for="p5">5</label>
   							  </span>
-  							  <input type="hidden" id="product_rate" name="product_rate" value="">
+  							  <input type="hidden" id="product_rate" name="product_rate" value="5">
   							  <!-- <output for="star-input"><b>0</b>점</output> -->
 							</span>
 							
