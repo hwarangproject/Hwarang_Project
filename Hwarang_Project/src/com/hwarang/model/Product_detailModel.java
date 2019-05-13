@@ -3,6 +3,7 @@ package com.hwarang.model;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.hwarang.controller.RequestMapping;
@@ -13,7 +14,7 @@ import com.hwarang.vo.Product_replyVO;
 
 public class Product_detailModel {
 	@RequestMapping("product/product_detail.hr")
-    public String main_page(HttpServletRequest request)
+    public String main_page(HttpServletRequest request, HttpServletResponse response)
     {
 		try{
 			  request.setCharacterEncoding("UTF-8");
@@ -59,4 +60,47 @@ public class Product_detailModel {
 		
 		return "redirect:../product/product_detail.hr?pno="+pno;
 	}
+	
+	@RequestMapping("product/product_reply_delete.hr")
+	public String product_reply_delete(HttpServletRequest request, HttpServletResponse response){
+		HttpSession session = request.getSession();
+		String id = (String)session.getAttribute("id");
+		String reply_no = request.getParameter("reply_no");
+		MemberVO mvo = ProfileDAO.getMemberData(id);
+		String pno=request.getParameter("pno");
+		
+		Product_replyVO prvo = new Product_replyVO();
+		prvo.setMember_no(mvo.getMember_no());
+		prvo.setReply_no(Integer.parseInt(reply_no));
+		ProductDAO.productReplyDelete(prvo);
+		
+		return "redirect:../product/product_detail.hr?pno="+pno;
+	}
+	
+	@RequestMapping("product/product_reply_update.hr")
+	public String product_reply_update(HttpServletRequest request, HttpServletResponse response){
+		HttpSession session = request.getSession();
+		String id = (String)session.getAttribute("id");
+		String pno=request.getParameter("pno");
+		String reply_content = request.getParameter("reply_content");
+		String reply_no = request.getParameter("reply_no");
+		MemberVO mvo = ProfileDAO.getMemberData(id);
+		
+		Product_replyVO prvo = new Product_replyVO();
+		prvo.setMember_no(mvo.getMember_no());
+		prvo.setReply_no(Integer.parseInt(reply_no));
+		prvo.setReply_content(reply_content);
+		ProductDAO.productReplyUpdate(prvo);
+		
+		return "redirect:../product/product_detail.hr?pno="+pno;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

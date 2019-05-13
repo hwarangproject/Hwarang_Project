@@ -39,20 +39,13 @@
 <script src="js/main.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
-
-    $('input[name="star-input"]').each(function() {
-        var value = $(this).val();              // value
-        var checked = $(this).prop('checked');  
- 
-        if(checked){
-        	$('input:hidden[name="product_rate"]:input[value=' + value + ']');
-        }
-        else{
-        	$('input:hidden[name="product_rate"]:input[value="5"]');
-        }
-    })
-
-
+$(function(){
+	$('input[name="star-input"]').click(function() {
+        var value = $(this).val();
+        alert(value);
+     	$('#product_rate').attr('value',value);
+    });
+});
 </script>
 
 <!-- 내가 설정한 스타일 -->
@@ -496,15 +489,30 @@ margin-left: 1.2em;
                           </div>
                         </div>
                         <c:forEach var="prvo" items="${prList }">
-                          <div class="col-sm-12">
-                          <div class="a">
-                           <ul>
-                              <li><a href=""><img src="${prvo.profile_img }" width=30 height=30 class="img-circle"></img>&nbsp;&nbsp;${prvo.id }</a></li>
-                              <li><a href=""></i>성별:${prvo.sex} / 피부타입:${prvo.skin_type} / 연령대:${prvo.age_group}대 / 별점:${prvo.product_rate }</a></li>
-                           </ul>
-                           <p>${prvo.reply_content}</p>
-                          </div>
-                        </div>
+                        	<c:if test="${sessionScope.id == prvo.id }"> <!-- 아이디 같을때 수정, 삭제 -->
+	                          <div class="col-sm-12">
+		                          <div class="a">
+		                           <ul>
+		                              <li><a href=""><img src="${prvo.profile_img }" width=30 height=30 class="img-circle"></img>&nbsp;&nbsp;${prvo.id }</a></li>
+		                              <li><a href=""></i>성별:${prvo.sex} / 피부타입:${prvo.skin_type} / 연령대:${prvo.age_group}대 / 별점:${prvo.product_rate }</a></li>
+		                           </ul>
+		                           <p>${prvo.reply_content}</p>
+		                           <input type="hidden" name="reply_no" value="${prvo.reply_no }">
+		                          </div>
+	                          </div>
+	                        </c:if>
+	                        <c:if test="${sessionScope.id != prvo.id }"> 
+	                          <div class="col-sm-12">
+		                          <div class="a">
+		                           <ul>
+		                              <li><a href=""><img src="${prvo.profile_img }" width=30 height=30 class="img-circle"></img>&nbsp;&nbsp;${prvo.id }</a></li>
+		                              <li><a href=""></i>성별:${prvo.sex} / 피부타입:${prvo.skin_type} / 연령대:${prvo.age_group}대 / 별점:${prvo.product_rate }</a></li>
+		                           </ul>
+		                           <p>${prvo.reply_content}</p>
+		                           <input type="hidden" name="reply_no" value="${prvo.reply_no }">
+		                          </div>
+	                          </div>
+	                        </c:if> 
                         </c:forEach>
                       <div class="col-sm-12">
                            <p><b>Write Your Review</b></p>
@@ -527,7 +535,7 @@ margin-left: 1.2em;
     							<input type="radio" name="star-input" value="5" id="p5">
     							<label for="p5">5</label>
   							  </span>
-  							  <input type="hidden" name="product_rate" value="5">
+  							  <input type="hidden" id="product_rate" name="product_rate" value="">
   							  <!-- <output for="star-input"><b>0</b>점</output> -->
 							</span>
 							
