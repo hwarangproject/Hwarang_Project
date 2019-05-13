@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import com.hwarang.controller.RequestMapping;
 import com.hwarang.dao.*;
@@ -13,7 +14,7 @@ import com.hwarang.manager.*;
 
 public class MainModel {
 	@RequestMapping("main/main.hr")
-    public String main_page(HttpServletRequest request)
+    public String main_page(HttpServletRequest request,HttpServletResponse response)
     {
 		
 		List<ProductVO> list=ProductDAO.productListData();
@@ -35,7 +36,7 @@ public class MainModel {
 	
 	
 	@RequestMapping("news/news.hr")
-	public String main_news(HttpServletRequest request) {
+	public String main_news(HttpServletRequest request,HttpServletResponse response) {
 		String data = request.getParameter("data");
 		if (data == null)
 			data = "»≠¿Â«∞";

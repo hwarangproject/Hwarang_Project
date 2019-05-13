@@ -2,13 +2,15 @@ package com.hwarang.model;
 
 import java.util.*;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import com.hwarang.controller.RequestMapping;
 import com.hwarang.dao.ProductDAO;
 import com.hwarang.vo.*;
 
 public class Rank_ProductModel {
 	@RequestMapping("ranking/rank_product.hr")
-	public String rank_product_page(HttpServletRequest request) {
+	public String rank_product_page(HttpServletRequest request,HttpServletResponse response) {
 
 		String dcno=request.getParameter("dcno");
 		List<ProductVO> product_list=new ArrayList<ProductVO>();

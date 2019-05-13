@@ -3,6 +3,7 @@ package com.hwarang.model;
 import java.io.File;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.hwarang.controller.RequestMapping;
@@ -11,7 +12,7 @@ import com.hwarang.vo.MemberVO;
 
 public class LoginModel {
 	@RequestMapping("login/login.hr")
-	public String login_page(HttpServletRequest request) {
+	public String login_page(HttpServletRequest request,HttpServletResponse response) {
 		request.setAttribute("main_jsp", "../login/login.jsp");
 		return "../main/main.jsp";
 	}
@@ -19,7 +20,7 @@ public class LoginModel {
 
 	//로그인 클릭시 
 	@RequestMapping("login/login_ok.hr")
-	public String member_login_ok(HttpServletRequest request)
+	public String member_login_ok(HttpServletRequest request,HttpServletResponse response)
 	{
 		String id=request.getParameter("id");
 		String pwd=request.getParameter("pwd");
@@ -51,7 +52,7 @@ public class LoginModel {
 	}
 
 	@RequestMapping("login/logout.hr")
-	public String member_logout(HttpServletRequest request)
+	public String member_logout(HttpServletRequest request,HttpServletResponse response)
 	{
 		  //session에 있는 모든 데이터 삭제 => invalidate()
 		  // session생성 

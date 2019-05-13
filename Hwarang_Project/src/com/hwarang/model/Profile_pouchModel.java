@@ -1,6 +1,7 @@
 package com.hwarang.model;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.hwarang.controller.RequestMapping;
@@ -9,7 +10,7 @@ import com.hwarang.vo.MemberVO;
 
 public class Profile_pouchModel {
 	@RequestMapping("profile/profile_pouch.hr")
-	public String profile_myactivity_page(HttpServletRequest request) {
+	public String profile_myactivity_page(HttpServletRequest request,HttpServletResponse response) {
 		
 		HttpSession session = request.getSession();
 		String id = (String)session.getAttribute("id");

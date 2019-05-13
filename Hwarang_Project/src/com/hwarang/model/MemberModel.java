@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.sql.Date;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import com.hwarang.controller.RequestMapping;
 import com.hwarang.dao.MemberDAO;
@@ -16,19 +17,19 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 public class MemberModel {
 	@RequestMapping("member/member_make.hr")
-	public String memeber_make_page(HttpServletRequest request) {
+	public String memeber_make_page(HttpServletRequest request,HttpServletResponse response) {
 		request.setAttribute("main_jsp", "../member/member_make.jsp");
 		return "../main/main.jsp";
 	}
 
 	@RequestMapping("Hwarang/skin_test.hr")
-	public String skintest_page(HttpServletRequest request) {
+	public String skintest_page(HttpServletRequest request,HttpServletResponse response) {
 		return "../Hwarang/skin_test.jsp";
 
 	}
 	
 	@RequestMapping("Hwarang/skin_test_ok.hr")
-	public String skintest_ok(HttpServletRequest request) {
+	public String skintest_ok(HttpServletRequest request,HttpServletResponse response) {
 		
 		String checklist = request.getParameter("check");
 		System.out.println("checklist:"+checklist);
@@ -62,12 +63,12 @@ public class MemberModel {
 	
 	
 	@RequestMapping("member/idcheck.hr")
-	public String id_check(HttpServletRequest request) {
+	public String id_check(HttpServletRequest request,HttpServletResponse response) {
 		return "../member/idcheck.jsp";
 	}
 
 	@RequestMapping("member/idcheck_result.hr")
-	public String idcheck_result(HttpServletRequest request) {
+	public String idcheck_result(HttpServletRequest request,HttpServletResponse response) {
 		String id = request.getParameter("id");
 		// DAO연결
 		int count = MemberDAO.idcheck(id);
@@ -84,7 +85,7 @@ public class MemberModel {
 	 * NUMBER
 	 */
 	@RequestMapping("member/member_make_ok.hr")
-	public String member_join_ok(HttpServletRequest request) throws ParseException {
+	public String member_join_ok(HttpServletRequest request,HttpServletResponse response) throws ParseException {
 
 		MemberVO vo = new MemberVO();
 		// 요청값 받기

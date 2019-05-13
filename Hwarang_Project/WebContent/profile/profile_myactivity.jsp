@@ -691,7 +691,14 @@ span {
 											<div id="app">
 												<div class="flow" ref="flow">
 												<%-- <c:forEach var="vo" items="${list }"> --%>
+												<c:forEach var="cookies" items="${cookieList }">
 													<div v-for="tab of tabs" class="item2"
+														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"> 
+														 <img
+														src="${cookies.product_img }" style="height:100px; width:100px;">
+													</div>
+												</c:forEach>
+													<!-- <div v-for="tab of tabs" class="item2"
 														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"></div>
 													<div v-for="tab of tabs" class="item2"
 														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"></div>
@@ -710,9 +717,7 @@ span {
 													<div v-for="tab of tabs" class="item2"
 														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"></div>
 													<div v-for="tab of tabs" class="item2"
-														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"></div>
-													<div v-for="tab of tabs" class="item2"
-														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"></div>
+														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"></div> -->
 												</div>
 											</div>
 

@@ -1,6 +1,7 @@
 package com.hwarang.model;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.hwarang.controller.RequestMapping;
@@ -12,7 +13,7 @@ import java.util.*;
 
 public class Profile_likeModel {
 	@RequestMapping("profile/profile_like.hr")
-	public String profile_myactivity_page(HttpServletRequest request) {
+	public String profile_myactivity_page(HttpServletRequest request,HttpServletResponse response) {
 		HttpSession session = request.getSession();
 		String id = (String)session.getAttribute("id");
 		MemberVO vo = ProfileDAO.getMemberData(id);
@@ -56,7 +57,7 @@ public class Profile_likeModel {
 	
 	// 즐겨찾기 상품 삭제
 	@RequestMapping("profile/likeProduct_delete.hr")
-	  public String reply_delete(HttpServletRequest request){
+	  public String reply_delete(HttpServletRequest request,HttpServletResponse response){
 		  String pno = request.getParameter("pno");
 		  String mno = request.getParameter("mno");
 		  

@@ -62,7 +62,7 @@ public class DispatcherServlet extends HttpServlet {
 						// return "redirect:list.do"
 						// return "main/main.jsp"
 						// 2가지 방식
-						String jsp=(String)m.invoke(obj, request);
+						String jsp=(String)m.invoke(obj, request, response);
 						if(jsp.startsWith("redirect")){
 							jsp=jsp.substring(jsp.indexOf(":")+1);
 							response.sendRedirect(jsp);
