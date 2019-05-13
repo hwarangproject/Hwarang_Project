@@ -27,45 +27,43 @@ public class PouchDAO {
 	static {
 		ssf = CreateSqlSessionFactory.getSsf();
 	}
-
-	// product목록
-	public static List<PouchVO> pouchListData() {
-		List<PouchVO> list = new ArrayList<PouchVO>();
-		// 연결: Sqlsession (Connection, PreparedStatement)
-		SqlSession session = null;
-
-		try {
-			session = ssf.openSession(); // connection연결
-			list = session.selectList("pouchListData");// 목록 list에 저장,
-														// while(rs.next()) 역할
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		} finally {
-			// DBCP: 사용후 반드시 반환
-			if (session != null)
-				session.close();
+	//////////////////////////////////파우치 부분 //////////////////////////////////////////////////////////////////
+	// 목록
+		public static List<PouchVO> pouchListData(Map map) {
+			List<PouchVO> list = new ArrayList<PouchVO>();
+			// Connection얻기
+			SqlSession session = null;
+			try {
+				// Connection,PreparedStatement
+				session = ssf.openSession();
+				list = session.selectList("pouchListData", map);
+			} catch (Exception ex) {
+				// error처리
+				ex.printStackTrace();
+			} finally {
+				// 반환
+				if (session != null)
+					session.close();
+			}
+			return list;
 		}
 
-		return list;
-	}
-
-	// 상품 디테일
-	public static PouchVO pouchDetailData(int pno) {
-		PouchVO vo = new PouchVO();
-		SqlSession session = null;
-		try {
-			session = ssf.openSession();
-			vo = session.selectOne("pouchDetailData", pno);
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		} finally {
-			if (session != null)
-				session.close();
+		// 총페이지
+		public static int pouchTotalPage() {
+			int total = 0;
+			SqlSession session = null;
+			try {
+				// session생성
+				session = ssf.openSession();
+				total = session.selectOne("pouchTotalPage");
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			} finally {
+				if (session != null)
+					session.close();
+			}
+			return total;
 		}
-
-		return vo;
-	}
-	
 	//////////////////////////////////메인 파우치 부분/////////////////////////////////////////////////////////////
 	
 	// 파우치 리스트 구하기

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -212,76 +213,73 @@ a {
 	<!--  카드  -->
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-12">
-				<ul class="card-list">
-					<li class="card">
-						<a class="card-image" href="../pouch/pouch_detail.hr" target="_blank" style="background-image: url();" data-image-full=""> 
-							<img src="" alt="Psychopomp" />
-						</a> 
-					
-						<a class="card-description" href="../pouch/pouch_detail.hr" target="_blank">
-							<h2>Psychopomp</h2>
-							<p>Japanese Breakfast</p>
-						</a>
-					</li>
-
-					<li class="card"><a class="card-image" href="" target="_blank"
-						style="background-image: url();" data-image-full=""> <img
-							src="" alt="let's go" />
-					</a> <a class="card-description" href="" target="_blank">
-							<h2>let's go</h2>
-							<p>In Love With A Ghost</p>
-					</a></li>
-
-					<li class="card"><a class="card-image" href="" target="_blank"
-						style="background-image: url(images/blog/blog-three.jpg);"
-						data-image-full="images/blog/blog-three.jpg"> <img
-							src="images/blog/blog-three.jpg" alt="The Beautiful Game" />
-					</a> <a class="card-description" href="" target="_blank">
-							<h2>The Beautiful Game</h2>
-							<p>Vulfpeck</p>
-					</a></li>
-
-					<li class="card"><a class="card-image" href="" target="_blank"
-						style="background-image: url();" data-image-full=""> <img
-							src="" alt="Jane Doe" />
-					</a> <a class="card-description" href="" target="_blank">
-							<h2>Jane Doe</h2>
-							<p>Converge</p>
-					</a></li>
-
-					<li class="card"><a class="card-image" href="" target="_blank"
-						style="background-image: url();" data-image-full=""> <img
-							src="" alt="Jane Doe" />
-					</a> <a class="card-description" href="" target="_blank">
-							<h2>Jane Doe</h2>
-							<p>Converge</p>
-					</a></li>
-
-					<li class="card"><a class="card-image" href="" target="_blank"
-						style="background-image: url();" data-image-full=""> <img
-							src="" alt="Jane Doe" />
-					</a> <a class="card-description" href="" target="_blank">
-							<h2>Jane Doe</h2>
-							<p>Converge</p>
-					</a></li>
-
-				</ul>
-			</div>
+			<c:forEach var="vo" items="${list }">
+				<div class="col-sm-4">
+					<ul class="card-list">
+						<li class="card">
+							<a class="card-image" href="../pouch/pouch_detail.hr" style="background-image: url(${vo.pouch_img });" data-image-full="${vo.pouch_img }"> 
+								<img src="${vo.pouch_img }" alt="${vo.pouch_content }" />
+							</a> 
+							<a class="card-description" href="../pouch/pouch_detail.hr" target="_blank">
+								<h2>${vo.pouch_name }</h2>
+								<p>${vo.pouch_no }</p>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</c:forEach>
 		</div>
+		<table class="table">
+	      <tr>
+	       <td class="text-rigth in" valign="middle">
+	         <form method="post" action="../pouch/pouch_find.hr">
+		         <select name="fs" class="input-sm" >
+		           <option value="name">이름</option>
+		           <option value="subject">제목</option>
+		           <option value="content">내용</option>
+		         </select>
+		         <input type=text name=ss size=12 class="input-sm">
+		         <input type=submit value="찾기"  class="btn btn-sm btn-info">
+	         </form>
+	       </td>
+	       <td class="text-center in" valign="top">
+	         <ul class="pagination pagination-sm" style="padding:0px">
+	           <c:if test="${curpage>BLOCK }">
+	            <li><a href="../board/list.do?page=1">
+	                 <img src="../board/ico_list_pre2.gif" width=17 height=17>
+	                </a></li>
+	            <li><a href="../board/list.do?page=${startPage-1 }">
+	                 <img src="../board/ico_list_pre1.gif" width=17 height=17>
+	                </a></li>
+	           </c:if>
+	           
+	           <c:set var="type" value=""/>
+	           <c:forEach var="i" begin="${startPage }" end="${endPage }">
+	             <c:if test="${curpage==i }">
+	              <c:set var="type" value="class=active"/>
+	             </c:if>
+	             <c:if test="${curpage!=i }">
+	              <c:set var="type" value=""/>
+	             </c:if>
+	             <li ${type }><a href="../pouch/pouch.hr?page=${i }">${i }</a></li>
+	           </c:forEach>
+	           
+	           <c:if test="${endPage<allPage }">
+	             <li><a href="../pouch/pouch.hr?page=${endPage+1 }">
+	                 <img src="../board/ico_list_next1.gif" width=17 height=17>
+	                </a></li>
+	            <li><a href="../pouch/pouch.hr?page=${allPage }">
+	                 <img src="../board/ico_list_next2.gif" width=17 height=17>
+	                </a></li>
+	           </c:if>
+	         </ul>
+	       </td>
+	      </tr>
+     </table>
 	</div>
 
 	<!--  페이지 -->
-	<table class="arrows-div">
-		<tr>
-			<td class="back-td"><a href="#" class="button prev">Back</a></td>
-			<td class="paging-td"><a class="page-numbers current">1</a> <a
-				class="page-numbers" href="#">2</a> <a class="page-numbers" href="#">3</a>
-				<a class="page-numbers" href="#">4</a></td>
-			<td class="prev-td"><a href="#" class="button next">Next</a></td>
-		</tr>
-	</table>
-	<br>
+	
 	
 </body>
 </html>
