@@ -1,26 +1,16 @@
 package com.hwarang.model;
 
 import javax.servlet.http.HttpServletRequest;
-
 import javax.servlet.http.HttpServletResponse;
 
-
 import java.util.*;
-
 import com.hwarang.controller.RequestMapping;
 import com.hwarang.vo.*;
 import com.hwarang.dao.*;
 
 public class PouchModel {
 	@RequestMapping("pouch/pouch.hr")
-
-    public String pouch_page(HttpServletRequest request,HttpServletResponse response)
-    {
-		request.setAttribute("main_jsp", "../pouch/pouch.jsp");
-    	return "../main/main.jsp";
-    }
-
-	  public String pouch_list(HttpServletRequest request)
+	  public String pouch_list(HttpServletRequest request, HttpServletResponse response)
 	  {
 		  String page=request.getParameter("page");
 		  if(page==null)
