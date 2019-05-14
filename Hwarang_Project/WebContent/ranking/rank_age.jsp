@@ -384,23 +384,21 @@ a {
 					<div id="ranking-slide">
 						<ol>
 						<c:forEach var="vo" items="${product_10_age }" varStatus="s">
-						<c:if test="${s.index%9==0 }">
+						<c:if test="${s.index==0 }">
 							<li>
 								<a href="../product/product_detail.hr?pno=${vo.product_no }">
 									<img src="${vo.product_img }" width="336" height="335">
 								</a>
 							</li>
 						</c:if>
-						<c:if test="${s.index%9!=0 }">
 							<li>
 								<a href="../product/product_detail.hr?pno=${vo.product_no }">
 									<img src="${vo.product_img }" width="159" height="159">
 								</a>
 							</li>
-						</c:if>
 						</c:forEach>
 						</ol>
-						<a href="../#" class="prev" onclick="prev()"></a> <a href="../#"
+						<a href="#" class="prev" onclick="prev()"></a> <a href="#"
 							class="next" onclick="next()"></a>
 					</div>
 					
@@ -419,17 +417,22 @@ a {
 					<div id="ranking-slide">
 						<ol>
 						<c:forEach var="vo" items="${product_20_age }" varStatus="s">
-							<c:if test="${s.index<20 }">
-								<li>
-									<a href="../product/product_detail.hr?pno=${vo.product_no }">
-										<img src="${vo.product_img }" width="120" height="120">
-									</a>
-								</li>
-							</c:if>
+						<c:if test="${s.index==0 }">
+							<li>
+								<a href="../product/product_detail.hr?pno=${vo.product_no }">
+									<img src="${vo.product_img }" width="336" height="335">
+								</a>
+							</li>
+						</c:if>
+							<li>
+								<a href="../product/product_detail.hr?pno=${vo.product_no }">
+									<img src="${vo.product_img }" width="159" height="159">
+								</a>
+							</li>
 						</c:forEach>
 						</ol>
-						<a href="../#" class="prev" onclick="prev()"></a> <a href="../#"
-							class="next" onclick="next()"></a>
+						<a href="#" class="prev" onclick="prev()"></a> 
+						<a href="#" class="next" onclick="next()"></a>
 					</div>
 					
 					<div class="row">
@@ -445,42 +448,23 @@ a {
 			  	<h2 class="title text-center">30's choice</h2>
 					<div id="ranking-slide">
 						<ol>
-						<li>
-							<a href="#">
-							</a>
-						</li>
-						<li>
-							<a href="#">
-							</a>
-						</li>
-						<li>
-							<a href="#">
-							</a>
-						</li>
-						<li>
-							<a href="#">
-							</a>
-						</li>
-						<li>
-							<a href="#">
-							</a>
-						</li>
-						<li>
-							<a href="#">
-							</a>
-						</li>
-						
-						<%-- <c:forEach var="vo" items="${product_30_age }" varStatus="s">
-							<c:if test="${s.index<20 }">
-								<li>
-									<a href="../product/product_detail.hr?pno=${vo.product_no }">
-										<img src="${vo.product_img }" width="120" height="120">
-									</a>
-								</li>
-							</c:if>
-						</c:forEach> --%>
+						<c:forEach var="vo" items="${product_30_age }" varStatus="s">
+						<c:if test="${s.index==0 }">
+							<li>
+								<a href="../product/product_detail.hr?pno=${vo.product_no }">
+									<img src="${vo.product_img }" width="336" height="335">
+								</a>
+							</li>
+						</c:if>
+							<li>
+								<a href="../product/product_detail.hr?pno=${vo.product_no }">
+									<img src="${vo.product_img }" width="159" height="159">
+								</a>
+							</li>
+						</c:forEach>
 						</ol>
-						<a href="../#" class="prev" onclick="prev()"></a> <a href="../#"
+		
+						<a href="#" class="prev" onclick="prev()"></a> <a href="#"
 							class="next" onclick="next()"></a>
 					</div>
 					
@@ -498,17 +482,22 @@ a {
 					<div id="ranking-slide">
 						<ol>
 						<c:forEach var="vo" items="${product_40_age }" varStatus="s">
-							<c:if test="${s.index<20 }">
-								<li>
-									<a href="../product/product_detail.hr?pno=${vo.product_no }">
-										<img src="${vo.product_img }" width="120" height="120">
-									</a>
-								</li>
-							</c:if>
+						<c:if test="${s.index==0 }">
+							<li>
+								<a href="../product/product_detail.hr?pno=${vo.product_no }">
+									<img src="${vo.product_img }" width="336" height="335">
+								</a>
+							</li>
+						</c:if>
+							<li>
+								<a href="../product/product_detail.hr?pno=${vo.product_no }">
+									<img src="${vo.product_img }" width="159" height="159">
+								</a>
+							</li>
 						</c:forEach>
 						</ol>
-						<a href="../#" class="prev" onclick="prev()"></a> <a href="../#"
-							class="next" onclick="next()"></a>
+						<a href="#" class="prev" onclick="prev()"></a> 
+						<a href="#" class="next" onclick="next()"></a>
 					</div>
 					
 					<div class="row">
@@ -525,17 +514,22 @@ a {
 					<div id="ranking-slide">
 						<ol>
 						<c:forEach var="vo" items="${product_50_age }" varStatus="s">
-							<c:if test="${s.index<20 }">
-								<li>
-									<a href="../product/product_detail.hr?pno=${vo.product_no }">
-										<img src="${vo.product_img }" width="120" height="120">
-									</a>
-								</li>
-							</c:if>
+						<c:if test="${s.index==0 }">
+							<li>
+								<a href="../product/product_detail.hr?pno=${vo.product_no }">
+									<img src="${vo.product_img }" width="336" height="335">
+								</a>
+							</li>
+						</c:if>
+							<li>
+								<a href="../product/product_detail.hr?pno=${vo.product_no }">
+									<img src="${vo.product_img }" width="159" height="159">
+								</a>
+							</li>
 						</c:forEach>
 						</ol>
-						<a href="../#" class="prev" onclick="prev()"></a> <a href="../#"
-							class="next" onclick="next()"></a>
+						<a href="#" class="prev" onclick="prev()"></a> 
+						<a href="#" class="next" onclick="next()"></a>
 					</div>
 					
 					<div class="row">
