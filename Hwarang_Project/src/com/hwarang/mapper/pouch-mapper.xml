@@ -1,36 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.hwarang.mapper.pouch-mapper">
+	<!-- 파우치 리스트 -->
 	<select id="pouchListData" resultType="PouchVO" parameterType="java.util.Map">
-		SELECT pouch_img,member_no,pouch_no,pouch_name,num FROM (SELECT pouch_img,member_no,pouch_no,pouch_name,rownum as num
-		FROM (SELECT pouch_img,member_no,pouch_no,pouch_name FROM pouch ORDER BY pouch_no DESC))
+		SELECT pouch_img,member_no,pouch_no,pouch_name,num FROM (SELECT
+		pouch_img,member_no,pouch_no,pouch_name,rownum as num
+		FROM (SELECT
+		pouch_img,member_no,pouch_no,pouch_name FROM pouch ORDER BY pouch_no
+		DESC))
 		WHERE num BETWEEN #{start} AND #{end}
 	</select>
 	<!-- 2. 총페이지 -->
 	<select id="pouchTotalPage" resultType="int">
-     SELECT CEIL(COUNT(*)/5.0) FROM pouch
-   	</select>
-	
-	<!-- <select id="pouchDetailData" resultType="PouchVO" parameterType="int">
-  	  SELECT * FROM pouch WHERE pouch_no=#{pouch_no}
-	</select> -->
-	
-	<!-- <insert id="pouchInsertReply" >
-	  <selectKey keyProperty="pouch_reply_no" resultType="int" order="BEFORE">
-			SELECT NVL(MAX(pouch_reply_no)+1,1) as pouch_reply_no FROM pouch_reply
-		</selectKey>
-		INSERT INTO pouch_reply
-		VALUES(#{pouch_reply_no},#{pouch_no},#{content},SYSDATE,#{member_no})
-	</insert> -->
-	
-	<!--  <insert id="boardInsert" parameterType="BoardVO">
-		자동 증가번ㄶ호
-		<selectKey keyProperty="no" resultType="int" order="BEFORE">
-			SELECT NVL(MAX(no)+1,1) as no FROM databoard
-			rs.getInt(1) rs.getInt("no")
-		</selectKey>
-		INSERT INTO databoard
-		VALUES(#{no},#{name},#{subject},#{content},#{pwd},SYSDATE,0,#{filename},#{filesize})
-	</insert> -->
-	 
+		SELECT CEIL(COUNT(*)/5.0) FROM pouch
+	</select>
+
+	<!-- 파우치 디테일 -->
+	<select id="pouchDetailData" resultType="PouchVO" parameterType="int">
+		SELECT a. pouch_img,a.member_no,a.pouch_no,a.pouch_name,a.pouch_score,a.pouch_like,a.regdate,a.pouch_content, b.skin_type, b.id, b.nickname, b.profile_img
+		FROM pouch a ,member b
+		WHERE a.member_no = b.member_no
+		AND a.pouch_no = #{pouch_no}
+	</select>
+
+
+	<!-- <select id="boardDetailData" resultType="BoardVO" parameterType="int"> 
+		SELECT no,name,subject,content,regdate,hit,pwd FROM replyBoard WHERE no=#{no} 
+		</select> -->
+
+	<!-- <insert id="pouchInsertReply" > <selectKey keyProperty="pouch_reply_no" 
+		resultType="int" order="BEFORE"> SELECT NVL(MAX(pouch_reply_no)+1,1) as pouch_reply_no 
+		FROM pouch_reply </selectKey> INSERT INTO pouch_reply VALUES(#{pouch_reply_no},#{pouch_no},#{content},SYSDATE,#{member_no}) 
+		</insert> -->
+
+	<!-- <insert id="boardInsert" parameterType="BoardVO"> 자동 증가번ㄶ호 <selectKey 
+		keyProperty="no" resultType="int" order="BEFORE"> SELECT NVL(MAX(no)+1,1) 
+		as no FROM databoard rs.getInt(1) rs.getInt("no") </selectKey> INSERT INTO 
+		databoard VALUES(#{no},#{name},#{subject},#{content},#{pwd},SYSDATE,0,#{filename},#{filesize}) 
+		</insert> -->
+
 </mapper>

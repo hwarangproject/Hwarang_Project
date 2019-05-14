@@ -7,7 +7,7 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-import com.hwarang.vo.PouchVO;
+import com.hwarang.vo.*;
 
 /*
 	private int pouch_no;
@@ -27,16 +27,73 @@ public class PouchDAO {
 	static {
 		ssf = CreateSqlSessionFactory.getSsf();
 	}
-	//////////////////////////////////파우치 부분 //////////////////////////////////////////////////////////////////
+
+	////////////////////////////////// 파우치 부분//////////////////////////////////////////////////////////////////
 	// 목록
-		public static List<PouchVO> pouchListData(Map map) {
-			List<PouchVO> list = new ArrayList<PouchVO>();
+	public static List<PouchVO> pouchListData(Map map) {
+		List<PouchVO> list = new ArrayList<PouchVO>();
+		// Connection얻기
+		SqlSession session = null;
+		try {
+			// Connection,PreparedStatement
+			session = ssf.openSession();
+			list = session.selectList("pouchListData", map);
+		} catch (Exception ex) {
+			// error처리
+			ex.printStackTrace();
+		} finally {
+			// 반환
+			if (session != null)
+				session.close();
+		}
+		return list;
+	}
+
+	// 총페이지
+	public static int pouchTotalPage() {
+		int total = 0;
+		SqlSession session = null;
+		try {
+			// session생성
+			session = ssf.openSession();
+			total = session.selectOne("pouchTotalPage");
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			if (session != null)
+				session.close();
+		}
+		return total;
+	}
+
+	// 상세보기
+	public static PouchVO pouchDetailData(int pouch_no) {
+		PouchVO vo = new PouchVO();
+		SqlSession session = null;
+
+		try {
+			// Connection
+			session = ssf.openSession();
+			vo = session.selectOne("pouchDetailData", pouch_no);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (session != null)
+				session.close();
+		}
+
+		return vo;
+	}
+	//////////////////////////////////파우치 화장품 목록 부분/////////////////////////////////////////////////////
+	/*// 목록
+		public static List<ProductVO> productPouchListData(Map map) {
+			List<ProductVO> list = new ArrayList<ProductVO>();
 			// Connection얻기
 			SqlSession session = null;
 			try {
 				// Connection,PreparedStatement
 				session = ssf.openSession();
-				list = session.selectList("pouchListData", map);
+				list = session.selectList("productPouchListData", map);
 			} catch (Exception ex) {
 				// error처리
 				ex.printStackTrace();
@@ -47,15 +104,15 @@ public class PouchDAO {
 			}
 			return list;
 		}
-
-		// 총페이지
-		public static int pouchTotalPage() {
+		
+	//페이지
+		public static int productPouchTotalPage() {
 			int total = 0;
 			SqlSession session = null;
 			try {
 				// session생성
 				session = ssf.openSession();
-				total = session.selectOne("pouchTotalPage");
+				total = session.selectOne("productPouchTotalPage");
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			} finally {
@@ -63,9 +120,9 @@ public class PouchDAO {
 					session.close();
 			}
 			return total;
-		}
-	//////////////////////////////////메인 파우치 부분/////////////////////////////////////////////////////////////
-	
+		}*/
+	////////////////////////////////// 메인 파우치부분/////////////////////////////////////////////////////////////
+
 	// 파우치 리스트 구하기
 	public static List<PouchVO> mainPouchListData() {
 		List<PouchVO> list = new ArrayList<PouchVO>();
@@ -75,18 +132,16 @@ public class PouchDAO {
 			// Connection,PreparedStatement
 			session = ssf.openSession();
 			list = session.selectList("mainPouchListData");
-		} 
-		catch (Exception ex) {
+		} catch (Exception ex) {
 			// error처리
-			System.out.println("mainPouchListData:"+ex.getMessage());
+			System.out.println("mainPouchListData:" + ex.getMessage());
 			ex.printStackTrace();
-		} 
-		finally {
+		} finally {
 			// 반환
 			if (session != null)
 				session.close();
 		}
 		return list;
 	}
-	
+
 }

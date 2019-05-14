@@ -22,6 +22,15 @@ public class PouchVO {
 	private Date regdate;
 	private Date expdate;
 	private int member_no;
+	
+	//조인할 친구들
+	private String nickname;
+	private String profile_img;
+	private String skin_type;
+	
+	
+	
+	
 	public int getPouch_no() {
 		return pouch_no;
 	}
@@ -75,6 +84,24 @@ public class PouchVO {
 	}
 	public void setMember_no(int member_no) {
 		this.member_no = member_no;
+	}
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+	public String getProfile_img() {
+		return profile_img;
+	}
+	public void setProfile_img(String profile_img) {
+		this.profile_img = profile_img;
+	}
+	public String getSkin_type() {
+		return skin_type;
+	}
+	public void setSkin_type(String skin_type) {
+		this.skin_type = skin_type;
 	}
 
 }

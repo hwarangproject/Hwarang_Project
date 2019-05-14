@@ -28,20 +28,16 @@
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->
-<link rel="shortcut icon" href="images/ico/favicon.ico">
+<link rel="shortcut icon" href="../images/ico/favicon.ico">
 <link href="../css/profile-upload.css" rel="stylesheet">
 
-<script src="js/jquery.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.scrollUp.min.js"></script>
-<script src="js/price-range.js"></script>
-<script src="js/main.js"></script>
+<script src="../js/jquery.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/jquery.scrollUp.min.js"></script>
+<script src="../js/price-range.js"></script>
+<script src="../js/main.js"></script>
 <script src="../js/jquery-1.11.3.min.js"></script>
 <script src="../js/star.js"></script>
-<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
-<script type="text/javascript">
-	
-</script>
 
 <style type="text/css">
 #pag {
@@ -507,23 +503,24 @@ body {
 												<div>
 													<div class="row grid clearfix">
 														<div class="col2 first">
-															<img id="profile_img" src="../images/shop/product12.jpg"
+															<img id="profile_img" src="${vo.profile_img }"
 																style="width: 180px; height: 180px;">
 														</div>
+
 														<div class="col2 last">
 															<div class="grid clearfix">
 																<div class="col3 first">
 																	<a href="#" style="color: gray;"> <span>회원ID</span>
-																		<h1>닉네임</h1></a>
+																		<h1>${vo.nickname }</h1></a>
 																</div>
 																<div class="col3">
 																	<span>피부타입</span>
-																	<h1>건성</h1>
+																	<h1>${vo.skin_type }</h1>
 
 																</div>
 																<div class="col3 last">
 																	<span>좋아요<font style="color: pink;">♡</font></span>
-																	<h1>0</h1>
+																	<h1>${vo.pouch_like }</h1>
 																	<td><input type="checkbox" id="like" /> <label
 																		for="like"> <svg
 																				xmlns="http://www.w3.org/2000/svg"
@@ -531,30 +528,40 @@ body {
 																				d="M12 21.35l-1.45-1.32c-5.15-4.67-8.55-7.75-8.55-11.53 0-3.08 2.42-5.5 5.5-5.5 1.74 0 3.41.81 4.5 2.09 1.09-1.28 2.76-2.09 4.5-2.09 3.08 0 5.5 2.42 5.5 5.5 0 3.78-3.4 6.86-8.55 11.54l-1.45 1.31z" />
 																			</svg>
 																	</label></td> <br> <br> <br> <br>
-
 																</div>
 															</div>
 														</div>
 													</div>
+
 												</div>
 											</div>
 										</div>
 										</section>
 									</div>
-									<div class="col-sm-4">
-										<h2 class="subject_intro">
-											제목
-											<h4>안녕하세오 고돌이에오</h4>
+
+									<td>
+										<div class="col-sm-4">
+											<h2 class="subject_intro">
+												제목
+												<h4>${vo.pouch_name }</h4>
+											</h2>
+										</div>
+									</td>
+
+								</div>
+
+								<td>
+									<div class="col-sm-12">
+										<h2 class="subject_intro" class="text-center">
+											파우치 소개
+											<h4>${vo.pouch_content }</h4>
 										</h2>
 									</div>
-								</div>
-								<div class="col-sm-12">
-									<h2 class="subject_intro" class="text-center">
-										파우치 소개
-										<h4>안녕하세오 고돌이에오.. 너무 졸려오.. 자고싶어오...</h4>
-									</h2>
-								</div>
+								</td>
+
 							</div>
+
+
 
 
 
@@ -591,7 +598,8 @@ body {
 															<li><a href="../pouch/pouch_detail.hr?page=1"> <font
 																	style="color: #FFB9B9;">◀◀</font>
 															</a></li>
-															<li><a href="../pouch/pouch_detail.hr?page=${startPage-1 }">
+															<li><a
+																href="../pouch/pouch_detail.hr?page=${startPage-1 }">
 																	<font style="color: #FFB9B9;">◀</font>
 															</a></li>
 														</c:if>
@@ -604,15 +612,18 @@ body {
 															<c:if test="${curpage!=i }">
 																<c:set var="type" value="" />
 															</c:if>
-															<li ${type }><a href="../pouch/pouch_detail.hr?page=${i }">${i }</a></li>
+															<li ${type }><a
+																href="../pouch/pouch_detail.hr?page=${i }">${i+1 }</a></li>
 														</c:forEach>
 
 														<c:if test="${endPage<allPage }">
-															<li><a href="../pouch/pouch_detail.hr?page=${endPage+1 }">
+															<li><a
+																href="../pouch/pouch_detail.hr?page=${endPage+1 }">
 																	<font style="color: #FFB9B9;">▶</font>
 															</a></li>
-															<li><a href="../pouch/pouch_detail.hr?page=${allPage }">
-																	<font style="color: #FFB9B9;">▶▶</font>
+															<li><a
+																href="../pouch/pouch_detail.hr?page=${allPage }"> <font
+																	style="color: #FFB9B9;">▶▶</font>
 															</a></li>
 														</c:if>
 													</ul>
@@ -641,71 +652,70 @@ body {
 	<div class="container">
 		<div class="con1">
 			<div class="inner">
-
-				<div class="rating">
-
-					<span class="rating-num">${vo.score }</span><br>
-					<div class="rating-stars">
-						<span><i class="active icon-star"></i></span> <span><i
-							class="active icon-star"></i></span> <span><i
-							class="active icon-star"></i></span> <span><i
-							class="active icon-star"></i></span> <span><i class="icon-star"></i></span>
-						&#9733;&#9733;&#9733;&#9733;&#9734;
-					</div>
-					<div class="rating-users">
-						&#128077; <i class="icon-user"></i> 1,014,004 total
-					</div>
-				</div>
-
-				<div class="histo">
-					<div class="five histo-rate">
-						<span class="histo-star"> <i class="active icon-star"></i>
-							5
-						</span> <span class="bar-block"> <span id="bar-five" class="bar">
-								<span>566,784</span>&nbsp;
-						</span>
-						</span>
+				<c:forEach var="score" items="${pList}">
+					<div class="rating">
+						<span class="rating-num">${score.pouch_score }</span><br>
+						<div class="rating-stars">
+							<span><i class="active icon-star"></i></span> <span><i
+								class="active icon-star"></i></span> <span><i
+								class="active icon-star"></i></span> <span><i
+								class="active icon-star"></i></span> <span><i class="icon-star"></i></span>
+							&#9733;&#9733;&#9733;&#9733;&#9734;
+						</div>
+						<div class="rating-users">
+							&#128077; <i class="icon-user"></i> 1,014,004 total
+						</div>
 					</div>
 
-					<div class="four histo-rate">
-						<span class="histo-star"> <i class="active icon-star"></i>
-							4
-						</span> <span class="bar-block"> <span id="bar-four" class="bar">
-								<span>171,298</span>&nbsp;
-						</span>
-						</span>
-					</div>
+					<div class="histo">
+						<div class="five histo-rate">
+							<span class="histo-star"> <i class="active icon-star"></i>
+								5
+							</span> <span class="bar-block"> <span id="bar-five" class="bar">
+									<span>566,784</span>&nbsp;
+							</span>
+							</span>
+						</div>
 
-					<div class="three histo-rate">
-						<span class="histo-star"> <i class="active icon-star"></i>
-							3
-						</span> <span class="bar-block"> <span id="bar-three" class="bar">
-								<span>94,940</span>&nbsp;
-						</span>
-						</span>
-					</div>
+						<div class="four histo-rate">
+							<span class="histo-star"> <i class="active icon-star"></i>
+								4
+							</span> <span class="bar-block"> <span id="bar-four" class="bar">
+									<span>171,298</span>&nbsp;
+							</span>
+							</span>
+						</div>
 
-					<div class="two histo-rate">
-						<span class="histo-star"> <i class="active icon-star"></i>
-							2
-						</span> <span class="bar-block"> <span id="bar-two" class="bar">
-								<span>44,525</span>&nbsp;
-						</span>
-						</span>
-					</div>
+						<div class="three histo-rate">
+							<span class="histo-star"> <i class="active icon-star"></i>
+								3
+							</span> <span class="bar-block"> <span id="bar-three" class="bar">
+									<span>94,940</span>&nbsp;
+							</span>
+							</span>
+						</div>
 
-					<div class="one histo-rate">
-						<span class="histo-star"> <i class="active icon-star"></i>
-							1
-						</span> <span class="bar-block"> <span id="bar-one" class="bar">
-								<span>136,457</span>&nbsp;
-						</span>
-						</span>
+						<div class="two histo-rate">
+							<span class="histo-star"> <i class="active icon-star"></i>
+								2
+							</span> <span class="bar-block"> <span id="bar-two" class="bar">
+									<span>44,525</span>&nbsp;
+							</span>
+							</span>
+						</div>
+
+						<div class="one histo-rate">
+							<span class="histo-star"> <i class="active icon-star"></i>
+								1
+							</span> <span class="bar-block"> <span id="bar-one" class="bar">
+									<span>136,457</span>&nbsp;
+							</span>
+							</span>
+						</div>
 					</div>
-				</div>
+				</c:forEach>
 			</div>
 		</div>
-	</div>
 	</div>
 	<!--/product-details-->
 	<div class="container">
@@ -753,9 +763,6 @@ body {
 								<b>Write Your Review</b>
 							</p>
 							<form action="#">
-								<span> <input type="text" placeholder="Your Name" /> <input
-									type="password" placeholder="password" />
-								</span>
 								<textarea name="" id="r_content"></textarea>
 
 								<!-- 평점주기 -->
