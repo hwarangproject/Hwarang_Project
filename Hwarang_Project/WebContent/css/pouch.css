@@ -175,7 +175,7 @@ keyframes like-a { 100% {
 
 /* 프로필 이미지 */
 .grid .col2 {
-	width: 50%;
+	width: 100%;
 	padding: 0 10px 0 0;
 }
 
@@ -280,7 +280,7 @@ keyframes like-a { 100% {
 .section1 .col2.last .col3.last {
 	text-align: center;
 	line-height: 28px;
-	border-right: 1px solid #a2a2a2;
+	border-right: 0px solid #a2a2a2;
 }
 @media only screen and (max-width: 660px) {
 	.section1 .col2.first {
