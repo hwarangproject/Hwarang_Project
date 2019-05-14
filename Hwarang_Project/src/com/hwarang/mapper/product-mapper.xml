@@ -125,6 +125,25 @@
        (SELECT NVL(MAX(reply_no)+1,1) FROM product_reply WHERE member_no = #{member_no2})
      )
    </insert>
+   <update id="productReplyCntIncrement" parameterType="int">
+     UPDATE product
+     SET review_cnt = review_cnt + 1
+     WHERE product_no = #{product_no}
+   </update>
+   <update id="productReplyCntDecrement" parameterType="int">
+     UPDATE product
+     SET review_cnt = review_cnt - 1
+     WHERE product_no = #{product_no}
+   </update>
+   <update id="productReplyUpdate" parameterType="Product_replyVO">
+     UPDATE product_reply SET
+     reply_content = #{reply_content}
+     WHERE member_no = #{member_no} AND reply_no = #{reply_no}
+   </update>
+   <delete id="productReplyDelete" parameterType="Product_replyVO">
+    DELETE FROM product_reply
+    WHERE member_no = #{member_no} AND reply_no = #{reply_no}
+   </delete>
    
 </mapper>
 

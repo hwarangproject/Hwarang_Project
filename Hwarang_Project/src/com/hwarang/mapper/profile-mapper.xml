@@ -6,14 +6,16 @@
   </select>
   <!-- @@@@@@@@@@@@@@@ my activity @@@@@@@@@@@@@ -->
   <select id="myProductReplyInfo" resultType="ProductVO" parameterType="int">
-    SELECT a.product_img, a.product_name
-    FROM product a natural join product_reply b
+    SELECT a.product_img, a.product_name, b.reply_regdate
+    FROM product a NATURAL JOIN product_reply b
     WHERE member_no = #{member_no}
+    ORDER BY b.reply_regdate DESC
   </select>
   <select id="myReplyInfo" resultType="Product_replyVO" parameterType="int">
-    SELECT product_rate, reply_content
+    SELECT product_rate, reply_content, product_no, reply_regdate
     FROM product_reply
     WHERE member_no = #{member_no}
+    ORDER BY reply_regdate DESC
   </select>
   
   <select id="getBrandImg" resultType="String" parameterType="String">

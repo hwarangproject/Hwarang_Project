@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -55,7 +55,7 @@ html, body {
 	font-size: 1rem;
 	text-decoration: none;
 	overflow: hidden;
-	box-shadow: 0 0 3rem -1rem rgba(0, 0, 0, 0.5);
+	box-shadow: 0 0 3rem -1rem rgba(0, 0, 0, 0.1);
 	transition: transform 0.1s ease-in-out, box-shadow 0.1s;
 }
 
@@ -82,7 +82,6 @@ html, body {
 /* html {
 	background-color: #9fd4e2;
 } */
-
 a {
 	text-decoration: none;
 }
@@ -206,6 +205,41 @@ a {
 	text-align: center;
 }
 
+.input-sm {
+	width: 10em;
+}
+/* #FFB9B9 핑크 */
+.btn-danger {
+    color: #000;
+    background-color: #f0f0e9;
+    border-color: #f0f0e9;
+}
+.btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active,
+	.open .dropdown-toggle.btn-danger {
+	color: #fff;
+	background-color: #FFB9B9;
+	border-color: #FFB9B9
+}
+
+.btn-danger:active, .btn-danger.active, .open .dropdown-toggle.btn-danger
+	{
+	background-image: none
+}
+
+.btn-danger.disabled, .btn-danger[disabled], fieldset[disabled] .btn-danger,
+	.btn-danger.disabled:hover, .btn-danger[disabled]:hover, fieldset[disabled] .btn-danger:hover,
+	.btn-danger.disabled:focus, .btn-danger[disabled]:focus, fieldset[disabled] .btn-danger:focus,
+	.btn-danger.disabled:active, .btn-danger[disabled]:active, fieldset[disabled] .btn-danger:active,
+	.btn-danger.disabled.active, .btn-danger[disabled].active, fieldset[disabled] .btn-danger.active
+	{
+	background-color: #d9534f;
+	border-color: #d43f3a
+}
+
+.btn-danger .badge {
+	color: #f0f0e9;
+	background-color: #fff
+}
 </style>
 
 </head>
@@ -213,74 +247,73 @@ a {
 	<!--  카드  -->
 	<div class="container">
 		<div class="row">
+			<h2 class="title text-center">POUCH</h2>
 			<c:forEach var="vo" items="${list }">
 				<div class="col-sm-4">
 					<ul class="card-list">
-						<li class="card">
-							<a class="" href="../pouch/pouch_detail.hr?no=${vo.pouch_no }" style="background-image: url(${vo.pouch_img });"> 
-								<img src="${vo.pouch_img }" alt="${vo.pouch_content }" width="300" height="350" />
-							</a> 
-							<a class="card-description" href="../pouch/pouch_detail.hr?no=${vo.pouch_no }" target="_blank">
+						<li class="card"><a class=""
+							href="../pouch/pouch_detail.hr?no=${vo.pouch_no }"
+							style="background-image: url(${vo.pouch_img });"> <img
+								src="${vo.pouch_img }" alt="${vo.pouch_content }" width="300"
+								height="350" />
+						</a> <a class="card-description"
+							href="../pouch/pouch_detail.hr?no=${vo.pouch_no }"
+							target="_blank">
 								<h2>${vo.pouch_name }</h2>
 								<p>${vo.pouch_no }</p>
-							</a>
-						</li>
+						</a></li>
 					</ul>
 				</div>
 			</c:forEach>
 		</div>
 		<table class="table">
-	      <tr>
-	       <td class="text-rigth in" valign="middle">
-	         <form method="post" action="../pouch/pouch_find.hr">
-		         <select name="fs" class="input-sm" >
-		           <option value="name">이름</option>
-		           <option value="subject">제목</option>
-		           <option value="content">내용</option>
-		         </select>
-		         <input type=text name=ss size=12 class="input-sm">
-		         <input type=submit value="찾기"  class="btn btn-sm btn-info">
-	         </form>
-	       </td>
-	       <td class="text-center in" valign="top">
-	         <ul class="pagination pagination-sm" style="padding:0px">
-	           <c:if test="${curpage>BLOCK }">
-	            <li><a href="../pouch/pouch.hr?page=1">
-	                 <font style="color: #FFB9B9;">◀◀</font>
-	                </a></li>
-	            <li><a href="../pouch/pouch.hr?page=${startPage-1 }">
-	                 <font style="color: #FFB9B9;">◀</font>
-	                </a></li>
-	           </c:if>
-	           
-	           <c:set var="type" value=""/>
-	           <c:forEach var="i" begin="${startPage }" end="${endPage }">
-	             <c:if test="${curpage==i }">
-	              <c:set var="type" value="class=active"/>
-	             </c:if>
-	             <c:if test="${curpage!=i }">
-	              <c:set var="type" value=""/>
-	             </c:if>
-	             <li ${type }><a href="../pouch/pouch.hr?page=${i }">${i }</a></li>
-	           </c:forEach>
-	           
-	           <c:if test="${endPage<allPage }">
-	             <li><a href="../pouch/pouch.hr?page=${endPage+1 }">
-	                 <font style="color: #FFB9B9;">▶</font></a>
-	            </li>
-	            <li><a href="../pouch/pouch.hr?page=${allPage }">
-	                 <font style="color: #FFB9B9;">▶▶</font>
-	                </a></li>
-	           </c:if>
-	         </ul>
-	       </td>
-	      </tr>
-     </table>
+			<tr>
+				<td class="text-center in"  align="center">
+					<ul class="pagination pagination-sm" style="padding: 0px">
+						<c:if test="${curpage>BLOCK }">
+							<li><a href="../pouch/pouch.hr?page=1"> <font
+									style="color: #FFB9B9;">◀◀</font>
+							</a></li>
+							<li><a href="../pouch/pouch.hr?page=${startPage-1 }"> <font
+									style="color: #FFB9B9;">◀</font>
+							</a></li>
+						</c:if>
+						<c:set var="type" value="" />
+						<c:forEach var="i" begin="${startPage }" end="${endPage }">
+							<c:if test="${curpage==i }">
+								<c:set var="type" value="class=active" />
+							</c:if>
+							<c:if test="${curpage!=i }">
+								<c:set var="type" value="" />
+							</c:if>
+							<li ${type }><a href="../pouch/pouch.hr?page=${i }">${i }</a></li>
+						</c:forEach>
+
+						<c:if test="${endPage<allPage }">
+							<li><a href="../pouch/pouch.hr?page=${endPage+1 }"> <font
+									style="color: #FFB9B9;">▶</font></a></li>
+							<li><a href="../pouch/pouch.hr?page=${allPage }"> <font
+									style="color: #FFB9B9;">▶▶</font>
+							</a></li>
+						</c:if>
+					</ul>
+				</td>
+				<td class="text-rigth in"  align="right">
+					<form method="post" action="../pouch/pouch_find.hr">
+						<select name="fs" class="input-sm">
+							<option value="name">이름</option>
+							<option value="subject">제목</option>
+							<option value="content">내용</option>
+						</select> <input type=text name=ss size=12 class="input-sm"> <input
+							type=submit value="찾기" class="btn btn-sm btn-danger">
+					</form>
+				</td>
+			</tr>
+		</table>
 	</div>
 
 	<!--  페이지 -->
-	
-	
+
+
 </body>
 </html>
-	

@@ -135,13 +135,49 @@ public class ProductDAO {
 		   return prlist;
 	   }
 	   
-    // 상품 댓글 insert
+    // 상품 댓글 생성
 	public static void productReplyInsert(Product_replyVO prvo){
 
 		SqlSession session=null;
 		try {
-			session = ssf.openSession(true);
+			session = ssf.openSession();
 			session.insert("productReplyInsert",prvo);
+			session.update("productReplyCntIncrement",prvo.getProduct_no());
+			session.commit();
+		} 
+		catch (Exception ex) {
+			ex.printStackTrace();
+		} 
+		finally {
+			if (session != null)
+				session.close();
+		}
+	}
+	// 상품 댓글 삭제
+	public static void productReplyDelete(Product_replyVO prvo){
+
+		SqlSession session=null;
+		try {
+			session = ssf.openSession();
+			session.insert("productReplyDelete",prvo);
+			session.update("productReplyCntDecrement",prvo.getProduct_no());
+			session.commit();
+		} 
+		catch (Exception ex) {
+			ex.printStackTrace();
+		} 
+		finally {
+			if (session != null)
+				session.close();
+		}
+	}
+	// 상품 댓글 수정
+	public static void productReplyUpdate(Product_replyVO prvo){
+
+		SqlSession session=null;
+		try {
+			session = ssf.openSession(true);
+			session.insert("productReplyUpdate",prvo);
 		} 
 		catch (Exception ex) {
 			ex.printStackTrace();

@@ -18,6 +18,7 @@ import com.hwarang.vo.Product_replyVO;
 public class Product_detailModel {
 	@RequestMapping("product/product_detail.hr")
     public String main_page(HttpServletRequest request,HttpServletResponse response) 
+
     {
 		try{
 			  request.setCharacterEncoding("UTF-8");
@@ -33,8 +34,8 @@ public class Product_detailModel {
 		//쿠키 생성
 		Cookie cookie=new Cookie(pno,vo.getProduct_img());
 		cookie.setPath("/"); // 모든경로에서 접근가능하도록
-		System.out.println("쿠키이름:"+cookie.getName());
-		System.out.println("쿠키값"+cookie.getValue());
+//		System.out.println("쿠키이름:"+cookie.getName());
+//		System.out.println("쿠키값"+cookie.getValue());
 	    cookie.setMaxAge(60*60*24);
 	    response.addCookie(cookie);
 		
@@ -74,4 +75,51 @@ public class Product_detailModel {
 		
 		return "redirect:../product/product_detail.hr?pno="+pno;
 	}
+	
+	@RequestMapping("product/product_reply_delete.hr")
+	public String product_reply_delete(HttpServletRequest request, HttpServletResponse response){
+		HttpSession session = request.getSession();
+		String id = (String)session.getAttribute("id");
+		String rno = request.getParameter("rno");
+		MemberVO mvo = ProfileDAO.getMemberData(id);
+		String pno=request.getParameter("pno");
+		
+		Product_replyVO prvo = new Product_replyVO();
+		prvo.setMember_no(mvo.getMember_no());
+		prvo.setReply_no(Integer.parseInt(rno));
+		ProductDAO.productReplyDelete(prvo);
+		
+		return "redirect:../product/product_detail.hr?pno="+pno;
+	}
+	
+	@RequestMapping("product/product_reply_update.hr")
+	public String product_reply_update(HttpServletRequest request, HttpServletResponse response){
+		try{
+			  request.setCharacterEncoding("UTF-8");
+		  }catch(Exception ex){}
+		
+		HttpSession session = request.getSession();
+		String id = (String)session.getAttribute("id");
+		String pno = request.getParameter("pno");
+		String reply_content = request.getParameter("reply_content");
+		String rno = request.getParameter("rno");
+		MemberVO mvo = ProfileDAO.getMemberData(id);
+		
+		Product_replyVO prvo = new Product_replyVO();
+		prvo.setMember_no(mvo.getMember_no());
+		prvo.setReply_no(Integer.parseInt(rno));
+		prvo.setReply_content(reply_content);
+		ProductDAO.productReplyUpdate(prvo);
+		
+		return "redirect:../product/product_detail.hr?pno="+pno;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

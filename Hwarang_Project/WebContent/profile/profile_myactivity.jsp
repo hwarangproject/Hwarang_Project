@@ -644,7 +644,8 @@ span {
 													<a class="expand">
 														<div class="right-arrow">+</div>
 														<div class="icon london"><img src="${pvo.product_img }"></div>
-														<h2>${pvo.product_name }</h2> <span>${prList[s.index].reply_content }</span>
+														<a href="../product/product_detail.hr?pno=${prList[s.index].product_no }"><h2>${pvo.product_name }</h2></a> 
+														<span>${prList[s.index].reply_content }</span>
 													</a>
 
 													<!-- <div class="detail">
