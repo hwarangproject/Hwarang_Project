@@ -151,4 +151,95 @@ public class ProductDAO {
 				session.close();
 		}
 	}
+	
+	////////////////////////////////// 연령별 ////////////////////////////////////////////
+	// 10대가 좋아하는 순
+	public static List<ProductVO> product_10_age() {
+		List<ProductVO> list = new ArrayList<ProductVO>();
+		SqlSession session = null;
+
+		try {
+			session = ssf.openSession();
+			list = session.selectList("product_10_age");
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			if (session != null)
+				session.close();
+		}
+
+		return list;
+	}
+
+	// 20대가 좋아하는 순
+	public static List<ProductVO> product_20_age() {
+		List<ProductVO> list = new ArrayList<ProductVO>();
+		SqlSession session = null;
+
+		try {
+			session = ssf.openSession();
+			list = session.selectList("product_20_age");
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			if (session != null)
+				session.close();
+		}
+
+		return list;
+	}
+
+	// 30대가 좋아하는 순
+	public static List<ProductVO> product_30_age() {
+		List<ProductVO> list = new ArrayList<ProductVO>();
+		SqlSession session = null;
+
+		try {
+			session = ssf.openSession();
+			list = session.selectList("product_30_age");
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			if (session != null)
+				session.close();
+		}
+
+		return list;
+	}
+
+	// 40대가 좋아하는 순
+	public static List<ProductVO> product_40_age() {
+		List<ProductVO> list = new ArrayList<ProductVO>();
+		SqlSession session = null;
+
+		try {
+			session = ssf.openSession();
+			list = session.selectList("product_40_age");
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			if (session != null)
+				session.close();
+		}
+
+		return list;
+	}
+
+	// 50대가 좋아하는 순
+	public static List<ProductVO> product_50_age() {
+		List<ProductVO> list = new ArrayList<ProductVO>();
+		SqlSession session = null;
+
+		try {
+			session = ssf.openSession();
+			list = session.selectList("product_50_age");
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			if (session != null)
+				session.close();
+		}
+
+		return list;
+	}
 }

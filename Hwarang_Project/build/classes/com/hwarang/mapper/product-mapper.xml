@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.hwarang.mapper.product-mapper">
+	<!-- 메인 테스트 -->
 	<select id="productListData" resultType="ProductVO">
 	  SELECT * FROM product WHERE product_no BETWEEN 2 AND 5
 	</select>
@@ -24,6 +25,40 @@
 	<select id="detail_cate_list" resultType="DetailcateVO">
 		SELECT * FROM detailcate
 	</select>
+	
+	<!-- ############################### 연령별 ################################################ -->
+	
+	<select id="product_10_age" resultType="ProductVO">
+		<![CDATA[
+			SELECT * FROM (SELECT * FROM product ORDER BY like_10 DESC) WHERE ROWNUM<=100
+		]]> 
+	</select>
+	
+	<select id="product_20_age" resultType="ProductVO">
+		<![CDATA[
+			SELECT * FROM (SELECT * FROM product ORDER BY like_20 DESC) WHERE ROWNUM<=100
+		]]>
+	</select>
+	
+	<select id="product_30_age" resultType="ProductVO">
+		<![CDATA[
+			SELECT * FROM (SELECT * FROM product ORDER BY like_30 DESC) WHERE ROWNUM<=100
+		]]>
+	</select>
+	
+	<select id="product_40_age" resultType="ProductVO">
+		<![CDATA[
+			SELECT * FROM (SELECT * FROM product ORDER BY like_40 DESC) WHERE ROWNUM<=100
+		]]>
+	</select>
+	
+	<select id="product_50_age" resultType="ProductVO">
+		<![CDATA[
+			SELECT * FROM (SELECT * FROM product ORDER BY like_50 DESC) WHERE ROWNUM<=100
+		]]>
+	</select>
+	
+	<!-- ################################ 연령별 끝 ############################################### -->
 	
 	<!-- 브랜드 초성 검색 출력 -->
 	<select id="brandListSearch" resultType="ProductVO" parameterType="java.util.Map">

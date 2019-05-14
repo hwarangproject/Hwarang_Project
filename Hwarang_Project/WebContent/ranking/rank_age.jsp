@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 <title>연령별 목록</title>
 
 <style type="text/css">
@@ -256,7 +257,7 @@
 
 #ranking-slide li>a {
 	cursor: pointer;
-	position: relative;
+	position: absolute;
 	display: block;
 	background: #efefef;
 	border-radius: 5px;
@@ -382,56 +383,22 @@ a {
 					<h2 class="title text-center">10's choice</h2>
 					<div id="ranking-slide">
 						<ol>
-							<li><a href="../product_detail.jsp"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
+						<c:forEach var="vo" items="${product_10_age }" varStatus="s">
+						<c:if test="${s.index%9==0 }">
+							<li>
+								<a href="../product/product_detail.hr?pno=${vo.product_no }">
+									<img src="${vo.product_img }" width="336" height="335">
+								</a>
+							</li>
+						</c:if>
+						<c:if test="${s.index%9!=0 }">
+							<li>
+								<a href="../product/product_detail.hr?pno=${vo.product_no }">
+									<img src="${vo.product_img }" width="159" height="159">
+								</a>
+							</li>
+						</c:if>
+						</c:forEach>
 						</ol>
 						<a href="../#" class="prev" onclick="prev()"></a> <a href="../#"
 							class="next" onclick="next()"></a>
@@ -446,60 +413,20 @@ a {
 						</a>
 					</div>
 			  </div>
+			  
 			  <div class="tab-pane" id="tab-2">
 			  	<h2 class="title text-center">20's choice</h2>
 					<div id="ranking-slide">
 						<ol>
-							<li><a href="../product_detail.jsp"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
+						<c:forEach var="vo" items="${product_20_age }" varStatus="s">
+							<c:if test="${s.index<20 }">
+								<li>
+									<a href="../product/product_detail.hr?pno=${vo.product_no }">
+										<img src="${vo.product_img }" width="120" height="120">
+									</a>
+								</li>
+							</c:if>
+						</c:forEach>
 						</ol>
 						<a href="../#" class="prev" onclick="prev()"></a> <a href="../#"
 							class="next" onclick="next()"></a>
@@ -518,56 +445,40 @@ a {
 			  	<h2 class="title text-center">30's choice</h2>
 					<div id="ranking-slide">
 						<ol>
-							<li><a href="../product_detail.jsp"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
+						<li>
+							<a href="#">
+							</a>
+						</li>
+						<li>
+							<a href="#">
+							</a>
+						</li>
+						<li>
+							<a href="#">
+							</a>
+						</li>
+						<li>
+							<a href="#">
+							</a>
+						</li>
+						<li>
+							<a href="#">
+							</a>
+						</li>
+						<li>
+							<a href="#">
+							</a>
+						</li>
+						
+						<%-- <c:forEach var="vo" items="${product_30_age }" varStatus="s">
+							<c:if test="${s.index<20 }">
+								<li>
+									<a href="../product/product_detail.hr?pno=${vo.product_no }">
+										<img src="${vo.product_img }" width="120" height="120">
+									</a>
+								</li>
+							</c:if>
+						</c:forEach> --%>
 						</ol>
 						<a href="../#" class="prev" onclick="prev()"></a> <a href="../#"
 							class="next" onclick="next()"></a>
@@ -586,56 +497,15 @@ a {
 			  	<h2 class="title text-center">40's choice</h2>
 					<div id="ranking-slide">
 						<ol>
-							<li><a href="../product_detail.jsp"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
+						<c:forEach var="vo" items="${product_40_age }" varStatus="s">
+							<c:if test="${s.index<20 }">
+								<li>
+									<a href="../product/product_detail.hr?pno=${vo.product_no }">
+										<img src="${vo.product_img }" width="120" height="120">
+									</a>
+								</li>
+							</c:if>
+						</c:forEach>
 						</ol>
 						<a href="../#" class="prev" onclick="prev()"></a> <a href="../#"
 							class="next" onclick="next()"></a>
@@ -654,56 +524,15 @@ a {
 			  	<h2 class="title text-center">50's choice</h2>
 					<div id="ranking-slide">
 						<ol>
-							<li><a href="../product_detail.jsp"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
-							<li><a href="../"></a></li>
+						<c:forEach var="vo" items="${product_50_age }" varStatus="s">
+							<c:if test="${s.index<20 }">
+								<li>
+									<a href="../product/product_detail.hr?pno=${vo.product_no }">
+										<img src="${vo.product_img }" width="120" height="120">
+									</a>
+								</li>
+							</c:if>
+						</c:forEach>
 						</ol>
 						<a href="../#" class="prev" onclick="prev()"></a> <a href="../#"
 							class="next" onclick="next()"></a>
