@@ -7,10 +7,14 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico" />
+<style type="text/css">
+#recommend_img{
+	width: 50%;
+}
+</style>
 
 </head>
 <body>
-
 	<section id="slider"><!--slider-->
 		<div class="container">
 			<div class="row">
@@ -234,7 +238,8 @@
 			</div>
 		</div>
 
-
+		
+		<!-- 화장품 추천(파우치에 많이 담긴 화장품 순) -->
 		<div class="recommended_items">
 			<!--recommended_items-->
 			<h2 class="title text-center">recommended items</h2>
@@ -242,93 +247,45 @@
 			<div id="recommended-item-carousel" class="carousel slide"
 				data-ride="carousel">
 				<div class="carousel-inner">
+					
 					<div class="item active">
-						<div class="col-xs-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="../images/home/recommend1.jpg" alt="" />
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i
-											class="fa fa-shopping-cart"></i>Add to cart</a>
+						<c:forEach var="vo" items="${recommend_ProductData }" varStatus="i">
+							<c:if test="${i.index<3 }">
+								<div class="col-xs-4">
+									<div class="product-image-wrapper">
+										<div class="single-products">
+											<div class="productinfo text-center">
+												<img src="${vo.product_img }" id="recommend_img" height="200" alt="" />
+												<h2>${vo.price }원</h2>
+												<p>${vo.product_name.length()>13? vo.product_name.substring(1,13)+="...":vo.product_name }</p>
+												<a href="#" class="btn btn-default add-to-cart">
+												<i class="fa fa-shopping-cart"></i>Add to cart</a>
+											</div>
+										</div>
 									</div>
-
 								</div>
-							</div>
-						</div>
-						<div class="col-xs-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="../images/home/recommend2.jpg" alt="" />
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i
-											class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-
-								</div>
-							</div>
-						</div>
-						<div class="col-xs-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="../images/home/recommend3.jpg" alt="" />
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i
-											class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-
-								</div>
-							</div>
-						</div>
+							</c:if>
+						</c:forEach>
 					</div>
+					
 					<div class="item">
-						<div class="col-xs-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="../images/home/recommend1.jpg" alt="" />
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i
-											class="fa fa-shopping-cart"></i>Add to cart</a>
+						<c:forEach var="vo" items="${recommend_ProductData }" varStatus="i">
+							<c:if test="${i.index>3 && i.index<7 }">
+								<div class="col-xs-4">
+									<div class="product-image-wrapper">
+										<div class="single-products">
+											<div class="productinfo text-center">
+												<img src="${vo.product_img }" id="recommend_img" height="200" alt="" />
+												<h2>${vo.price }원</h2>
+												<p>${vo.product_name.length()>13? vo.product_name.substring(1,13)+="...":vo.product_name }</p>
+												<a href="#" class="btn btn-default add-to-cart">
+												<i class="fa fa-shopping-cart"></i>Add to cart</a>
+											</div>
+										</div>
 									</div>
-
 								</div>
-							</div>
-						</div>
-						<div class="col-xs-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="../images/home/recommend2.jpg" alt="" />
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i
-											class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-
-								</div>
-							</div>
-						</div>
-						<div class="col-xs-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="../images/home/recommend3.jpg" alt="" />
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i
-											class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-
-								</div>
-							</div>
-						</div>
+							</c:if>
+						</c:forEach>
 					</div>
 				</div>
 				<a class="left recommended-item-control"

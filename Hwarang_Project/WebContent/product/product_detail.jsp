@@ -248,10 +248,12 @@ margin-left: 1.2em;
                         
                         <span>
                            <span>${vo.cap_col } / ${vo.price } 원</span>
-                           <button type="button" class="btn btn-fefault cart">
+                            <c:if test="${sessionScope.id !=null && count==0 }">
+                           <a href="../cart/cart_ok.hr?pno=${vo.product_no }"><button type="button" class="btn btn-fefault cart">
                               <i class="fa fa-shopping-cart"></i>
                               Add to cart
-                           </button>
+                           </button></a>
+                           </c:if>
                         </span>
                         <p><b>카테고리:</b> SKIN(변수없음)</p>
                   <!--  <p><b>유해성분:</b> ${vo.harm_ingre }</p>   -->

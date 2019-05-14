@@ -695,9 +695,8 @@ span {
 												<c:forEach var="cookies" items="${cookieList }">
 													<div v-for="tab of tabs" class="item2"
 														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"> 
-														 <img
-														src="${cookies.product_img }" style="height:100px; width:100px;">
-													</div>
+														 <a href="../product/product_detail.hr?pno=${cookies.product_no }"><img src="${cookies.product_img }" style="height:100px; width:100px;">
+													</a></div>
 												</c:forEach>
 													<!-- <div v-for="tab of tabs" class="item2"
 														v-bind:style="{ backgroundImage: 'url(' + tab + ')' }"></div>

@@ -391,11 +391,13 @@ a {
 								</a>
 							</li>
 						</c:if>
+						<c:if test="${s.index!=0 }">
 							<li>
 								<a href="../product/product_detail.hr?pno=${vo.product_no }">
 									<img src="${vo.product_img }" width="159" height="159">
 								</a>
 							</li>
+						</c:if>
 						</c:forEach>
 						</ol>
 						<a href="#" class="prev" onclick="prev()"></a> <a href="#"
@@ -424,11 +426,13 @@ a {
 								</a>
 							</li>
 						</c:if>
+						<c:if test="${s.index!=0 }">
 							<li>
 								<a href="../product/product_detail.hr?pno=${vo.product_no }">
 									<img src="${vo.product_img }" width="159" height="159">
 								</a>
 							</li>
+						</c:if>	
 						</c:forEach>
 						</ol>
 						<a href="#" class="prev" onclick="prev()"></a> 
@@ -456,11 +460,13 @@ a {
 								</a>
 							</li>
 						</c:if>
+						<c:if test="${s.index!=0 }">
 							<li>
 								<a href="../product/product_detail.hr?pno=${vo.product_no }">
 									<img src="${vo.product_img }" width="159" height="159">
 								</a>
 							</li>
+						</c:if>
 						</c:forEach>
 						</ol>
 		
@@ -489,11 +495,13 @@ a {
 								</a>
 							</li>
 						</c:if>
+						<c:if test="${s.index!=0 }">
 							<li>
 								<a href="../product/product_detail.hr?pno=${vo.product_no }">
 									<img src="${vo.product_img }" width="159" height="159">
 								</a>
 							</li>
+						</c:if>
 						</c:forEach>
 						</ol>
 						<a href="#" class="prev" onclick="prev()"></a> 
@@ -521,11 +529,13 @@ a {
 								</a>
 							</li>
 						</c:if>
+						<c:if test="${s.index!=0 }">
 							<li>
 								<a href="../product/product_detail.hr?pno=${vo.product_no }">
 									<img src="${vo.product_img }" width="159" height="159">
 								</a>
 							</li>
+						</c:if>
 						</c:forEach>
 						</ol>
 						<a href="#" class="prev" onclick="prev()"></a> 

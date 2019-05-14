@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -186,54 +186,37 @@ label {
 			<label class="product-image" id="label_image_text">image</label> 
 			<label class="product-detail">Product</label> 
 			<label class="product-price">Price</label>
-			<label class="product-quantity">Quantity</label> 
+			<!-- <label class="product-quantity">Quantity</label>  -->
 			<label class="product-removal">Remove</label> 
-			<label class="product-line-price">Total</label>
+	<!-- 		<label class="product-line-price">Total</label> -->
 		</div>
-
+		<c:forEach var="vo" items="${plist }" varStatus="i">
 		<div class="product">
 			<div class="product-image">
-				<img src="../images/cart/skin.png">
+				<img src="${vo.product_img }">
 			</div>
 			<div class="product-detail">
-				<div class="product-title">하이드라비오 에센스 로션</div>
-				<p class="product-description">피부 컨디션을 끌어올려 속부터 차오르는 빛과 수분</p>
+				<a href="../product/product_detail.hr?pno=${vo.product_no }"><h4><div class="product-title">${vo.product_name }</div></h4>
+				</a>
+				<br>
+				<p class="product-description">${vo.description }</p>
 			</div>
-			<div class="product-price">20000</div>
-			<div class="product-quantity">
+			<div class="product-price">${vo.price }</div>
+			<!-- <div class="product-quantity">
 				<input type="number" value="1" min="1">
 				
-			</div>
+			</div> -->
 			<div class="product-removal">
-				<button class="remove-product">Remove</button>
+				<a href="../cart/cart_delete.hr?cno=${clist[i.index] }" class="remove-product">Remove</a>
 			</div>
-			<div class="product-line-price">20000</div>
+			<!-- <div class="product-line-price">20000</div> -->
 		</div>
-
-		<div class="product">
-			<div class="product-image">
-				<img src="../images/cart/skin2.png">
-			</div>
-			
-			<div class="product-detail">
-				<div class="product-title">블루베리 리밸런싱 스킨</div>
-				<p class="product-description">블루베리의 항산화력을 담아 건강한 피부 pH와 유수분밸런스를 맞춰 편안한 피부로 가꿔주는 촉촉한 스킨</p>
-			</div>
-			<div class="product-price">20000</div>
-			<div class="product-quantity">
-				<input type="number" value="1" min="1">
-			</div>
-			<div class="product-removal">
-				<button class="remove-product">Remove</button>
-			</div>
-			<div class="product-line-price">20000</div>
-		</div>
-
-		<div class="totals">
+		</c:forEach>
+		<!-- <div class="totals">
 			<div class="totals-item">
 				<label>Total</label>
 				<div class="totals-value" id="cart-subtotal">40000</div>
-			</div>
+			</div> -->
 
 		<button class="checkout">Checkout</button>
 

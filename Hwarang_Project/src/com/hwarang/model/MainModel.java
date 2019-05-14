@@ -28,6 +28,10 @@ public class MainModel {
 		List<PouchVO> main_pouch_list=PouchDAO.mainPouchListData();
 		request.setAttribute("main_pouch_list", main_pouch_list);
 		
+		// 화장품 추천(파우치 많이 담긴 수)
+		List<ProductVO> recommend_ProductData=ProductDAO.recommend_ProductData();
+		request.setAttribute("recommend_ProductData", recommend_ProductData);
+		
 		
 		request.setAttribute("productListData", list);
 		request.setAttribute("main_jsp", "default.jsp");

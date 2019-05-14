@@ -5,4 +5,9 @@
 	<select id="mainPouchListData" resultType="PouchVO">
 		SELECT * FROM pouch ORDER BY pouch_score DESC
 	</select>
+	
+	<!-- 추천 아이템 -->
+	<select id="recommend_ProductData" resultType="ProductVO">
+		SELECT * FROM product ORDER BY pouch_jjim_count DESC
+	</select>
 </mapper>

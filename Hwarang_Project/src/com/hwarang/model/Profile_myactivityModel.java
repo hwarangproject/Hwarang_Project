@@ -13,7 +13,7 @@ import com.hwarang.vo.*;
 
 public class Profile_myactivityModel {
 	@RequestMapping("profile/profile_myactivity.hr")
-	public String profile_myactivity_page(HttpServletRequest request,HttpServletResponse response) {
+	public String profile_myactivity_page(HttpServletRequest request, HttpServletResponse response) {
 
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("id");
@@ -23,29 +23,31 @@ public class Profile_myactivityModel {
 		// 내가 쓴 댓글
 		List<ProductVO> pList = ProfileDAO.myProductReplyInfo(mno);
 		List<Product_replyVO> prList = ProfileDAO.myReplyInfo(mno);
-		
-		
+
 		Cookie[] getCookie = request.getCookies();
+
 		List<ProductVO> cookielist = new ArrayList<ProductVO>();
-		System.out.println("쿠키크기:"+getCookie.length);
-		if (getCookie.length != 0) {
-			//i = 0은 jsessionid 자동발급되는 쿠키id
-			for (int i = 1; i < getCookie.length; i++) {
-				ProductVO cookie_vo = new ProductVO();
+		System.out.println("쿠키크기:" + getCookie.length);
+		if (getCookie.length > 1) {
+			// i = 0은 jsessionid 자동발급되는 쿠키id
+			for (int i = getCookie.length - 1; i >= 1; i--) {
 				Cookie c = getCookie[i];
-				System.out.println("c:"+c.getName());
-				System.out.println("c2:"+c.getValue());
-				// 쿠키 이름 가져오기 String name = c.getName(); 
-				// 쿠키 값 가져오기  String value = c.getValue(); 
-				
-				cookie_vo.setProduct_no(Integer.parseInt(c.getName()));
-				cookie_vo.setProduct_img(c.getValue());
-				System.out.println(cookie_vo.getProduct_img());
-				System.out.println(cookie_vo.getProduct_no());
-				cookielist.add(cookie_vo);
+				if (c.getName().startsWith(id)) {
+
+					ProductVO cookie_vo = new ProductVO();
+					String s = c.getName().substring(c.getName().indexOf("|") + 1);
+					System.out.println("c:" + s);
+					System.out.println("c2:" + c.getValue());
+					// 쿠키 이름 가져오기 String name = c.getName();
+					// 쿠키 값 가져오기 String value = c.getValue();
+
+					cookie_vo.setProduct_no(Integer.parseInt(s));
+					cookie_vo.setProduct_img(c.getValue());
+					System.out.println(cookie_vo.getProduct_img());
+					System.out.println(cookie_vo.getProduct_no());
+					cookielist.add(cookie_vo);
+				}
 			}
-			
-			
 
 		}
 		request.setAttribute("cookieList", cookielist);

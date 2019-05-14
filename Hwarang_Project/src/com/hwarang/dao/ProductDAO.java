@@ -278,4 +278,22 @@ public class ProductDAO {
 
 		return list;
 	}
+	//////////////////////////////////////// 연령별 ////////////////////////////////////////////
+	
+	// 메인 화면 추천(파우치에 많이 담긴 화장품)
+	public static List<ProductVO> recommend_ProductData() {
+		List<ProductVO> list = new ArrayList<ProductVO>();
+		SqlSession session = null;
+		try {
+			session = ssf.openSession();
+			list = session.selectList("recommend_ProductData");
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			if (session != null)
+				session.close();
+		}
+
+		return list;
+	}
 }
