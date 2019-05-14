@@ -248,7 +248,7 @@ a {
 	<div class="container">
 		<div class="row">
 			<h2 class="title text-center">POUCH</h2>
-			<c:forEach var="vo" items="${list }">
+			<c:forEach var="vo" items="${list }" varStatus="s">
 				<div class="col-sm-4">
 					<ul class="card-list">
 						<li class="card"><a class=""href="../pouch/pouch_detail.hr?pouch_no=${vo.pouch_no }"
@@ -259,7 +259,7 @@ a {
 							href="../pouch/pouch_detail.hr?pouch_no=${vo.pouch_no }"
 							target="_blank">
 								<h2>${vo.pouch_name }</h2>
-								<p>${vo.pouch_no }</p>
+								<p>${mlist[s.index].nickname }</p>
 						</a></li>
 					</ul>
 				</div>

@@ -22,6 +22,10 @@
 		WHERE a.member_no = b.member_no
 		AND a.pouch_no = #{pouch_no}
 	</select>
+	
+	<select id="memberData" resultType="MemberVO"  parameterType="int">
+		SELECT * FROM member WHERE member_no=#{mno}
+	</select>
 
 
 	<!-- <select id="boardDetailData" resultType="BoardVO" parameterType="int"> 

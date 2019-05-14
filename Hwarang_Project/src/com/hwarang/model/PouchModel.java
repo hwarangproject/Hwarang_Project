@@ -22,8 +22,17 @@ public class PouchModel {
 		  int end=curpage*rowSize;// 10,20
 		  map.put("start", start);
 		  map.put("end", end);
+		  
 		  List<PouchVO> list=PouchDAO.pouchListData(map);
 		  int totalpage=PouchDAO.pouchTotalPage();
+		  
+		  List<MemberVO> mlist=new ArrayList<MemberVO>();
+		  for(int i=0; i<list.size(); i++){
+			  MemberVO mvo=new MemberVO();
+			  int mno=list.get(i).getMember_no();
+			  mvo=PouchDAO.memberData(mno);
+			  mlist.add(mvo);
+		  }
 		  
 		  // 페이지 출력 1~5 , 6~10 => curpage(1~5) => startPage=1
 		  final int BLOCK=5;
@@ -45,6 +54,9 @@ public class PouchModel {
 		  request.setAttribute("curpage", curpage);
 		  request.setAttribute("totalpage", totalpage);
 		  request.setAttribute("list", list);
+		  
+		  //멤버정보
+		  request.setAttribute("mlist", mlist);
 		  
 		  // 블럭별   출력
 		  request.setAttribute("BLOCK", BLOCK);

@@ -84,6 +84,23 @@ public class PouchDAO {
 
 		return vo;
 	}
+	
+	// 멤버 정보 가져오기
+	public static MemberVO memberData(int mno){
+		MemberVO vo=new MemberVO();
+		SqlSession session = null;
+		try {
+			// Connection
+			session = ssf.openSession();
+			vo = session.selectOne("memberData", mno);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (session != null)
+				session.close();
+		}
+		return vo;
+	}
 	//////////////////////////////////파우치 화장품 목록 부분/////////////////////////////////////////////////////
 	/*// 목록
 		public static List<ProductVO> productPouchListData(Map map) {
