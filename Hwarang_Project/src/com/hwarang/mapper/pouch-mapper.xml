@@ -41,7 +41,7 @@
 	</select>
 	
 	<!-- /////////////////////////////////////파우치 댓글 -->
-	<select id="pouchReplyListData" resultType="Pouch_ReplyVO" parameterType="int">
+	<!-- <select id="pouchReplyListData" resultType="Pouch_ReplyVO" parameterType="int">
      SELECT a.*, b.profile_img, b.id, b.sex, b.skin_type, b.age_group  
      FROM pouch_reply a, member b
      WHERE a.member_no = b.member_no
@@ -51,10 +51,10 @@
     
 	<insert id="pouchReplyInsert" parameterType="Pouch_ReplyVO">
      INSERT INTO pouch_reply VALUES(
-       #{reply_content},
+       #{content},
        SYSDATE,
        #{product_rate},
-       #{product_no},
+       #{pouch_no},
        #{member_no},
        (SELECT NVL(MAX(reply_no)+1,1) FROM pouch_reply WHERE member_no = #{member_no2})
      )
@@ -63,25 +63,25 @@
    <update id="pouchReplyCntIncrement" parameterType="int">
      UPDATE pouch
      SET review_cnt = review_cnt + 1
-     WHERE product_no = #{product_no}
+     WHERE pouch_no = #{pouch_no}
    </update>
    
    <update id="pouchReplyCntDecrement" parameterType="int">
-     UPDATE product
+     UPDATE pouch
      SET review_cnt = review_cnt - 1
-     WHERE product_no = #{product_no}
+     WHERE pouch_no = #{pouch_no}
    </update>
    
    <update id="pouchReplyUpdate" parameterType="Pouch_ReplyVO">
      UPDATE pouch_reply SET
-     reply_content = #{reply_content}
-     WHERE member_no = #{member_no} AND reply_no = #{reply_no}
+     reply_content = #{content}
+     WHERE member_no = #{member_no} AND pouch_reply_no = #{pouch_reply_no}
    </update>
    
    <delete id="pouchReplyDelete" parameterType="Pouch_ReplyVO">
     DELETE FROM pouch_reply
-    WHERE member_no = #{member_no} AND reply_no = #{reply_no}
-   </delete>
+    WHERE member_no = #{member_no} AND pouch_reply_no = #{pouch_reply_no}
+   </delete> -->
 	
 
 </mapper>
