@@ -12,6 +12,8 @@ import com.hwarang.vo.*;
 import java.util.*;
 
 public class Profile_likeModel {
+	//상품 좋아요 출력
+	
 	@RequestMapping("profile/profile_like.hr")
 	public String profile_myactivity_page(HttpServletRequest request,HttpServletResponse response) {
 		HttpSession session = request.getSession();
@@ -24,7 +26,7 @@ public class Profile_likeModel {
 		ProductVO pvo = new ProductVO();
 		List<ProductVO> pvoList = new ArrayList<ProductVO>();
 		
-		// pno로 각각의 pvo list로 받음
+		// pno로 각각의 pvo list로 받음  
 		for(int i : pnoList){
 			pvo = ProfileDAO.getLikeProductVO(i);
 			pvoList.add(pvo);
@@ -69,4 +71,26 @@ public class Profile_likeModel {
 		  ProfileDAO.deleteLikeProduct(vo);
 		  return "redirect:../profile/profile_like.hr"; 
 	  }
+	//상품 좋아요  INSERT
+	@RequestMapping("profile/profile_like_insert.hr")
+	public String profile_like_insert(HttpServletRequest request,HttpServletResponse response) {
+		HttpSession session = request.getSession();
+		String id = (String)session.getAttribute("id");
+		String pno = request.getParameter("pno");
+		
+		MemberVO vo = ProfileDAO.getMemberData(id);
+
+		Map map = new HashMap();
+		map.put("member_no", vo.getMember_no());
+		map.put("product_no", pno);
+		
+		
+		ProfileDAO.insertLikeProductVO(map);
+		int count=1;
+		request.setAttribute("like_count", count);
+		
+		
+		return "redirect:../product/product_detail.hr?pno=" + pno;
+	}
+	
 }

@@ -222,10 +222,12 @@ margin-left: 1.2em;
   background-color: #FF8B5A;
 }
 
-#cart_button {
+#cart_button{
 	background: gray;
 }
-
+#like_button {
+	background: gray;
+}
 </style>
 
 </head>
@@ -261,14 +263,16 @@ margin-left: 1.2em;
                         <table class="table">
                         	<tr>
                         		<td class="text-center">
-                        		    <c:if test="${sessionScope.id !=null && count==0 }">                                            	
-	                        			<a href="../cart/cart_ok.hr?pno=${vo.product_no }">
+                        			<!-- 좋아요 -->
+                        		    <c:if test="${sessionScope.id !=null && like_count !=1}">                                            	
+	                        			<a href="../profile/profile_like_insert.hr?pno=${vo.product_no }">
 				                           	<button type="button" class="btn btn-fefault cart">				                             
 				                              	찜 하기 ♥
 				                           	</button>
 				                        </a>
 			                        </c:if>
-			                        
+			                       
+			                        <!--  cart 담기  -->
 			                        <c:if test="${sessionScope.id !=null && count==0 }"> 
 				                        <a href="../cart/cart_ok.hr?pno=${vo.product_no }">
 				                           	<button type="button" class="btn btn-fefault cart">

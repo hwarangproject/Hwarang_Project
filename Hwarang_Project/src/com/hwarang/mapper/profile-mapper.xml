@@ -36,7 +36,10 @@
     DELETE FROM product_jjim
     WHERE product_no = #{product_no} AND member_no = #{member_no}
   </delete>
-  
+ 
+  <select id="insertLikeProductVO"  parameterType="java.util.Map">
+    INSERT INTO product_jjim VALUES(#{member_no},#{product_no})
+  </select>
   <!-- 즐겨찾기 파우치 가져오기 -->
   <select id="getLikePouch_no" resultType="int" parameterType="int">
     SELECT pouch_no 

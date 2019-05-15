@@ -131,6 +131,25 @@ public class ProfileDAO {
 
 		return pvo;
 	}
+	//상품 like insert
+	public static void insertLikeProductVO(Map map){
+	
+		SqlSession session = null;
+		try {
+			session = ssf.openSession(true);
+			session.insert("insertLikeProductVO", map);
+			
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			
+		} finally {
+			if (session != null){
+			    session.close();
+			}
+		}
+
+	}
+	
 	// like상품 삭제
 	public static void deleteLikeProduct(Product_jjimVO vo){
 		SqlSession session = null;
