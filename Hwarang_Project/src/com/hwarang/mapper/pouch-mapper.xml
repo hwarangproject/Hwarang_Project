@@ -10,7 +10,7 @@
 		DESC))
 		WHERE num BETWEEN #{start} AND #{end}
 	</select>
-	<!-- 2. 총페이지 -->
+	<!-- 총페이지 -->
 	<select id="pouchTotalPage" resultType="int">
 		SELECT CEIL(COUNT(*)/5.0) FROM pouch
 	</select>
@@ -26,12 +26,23 @@
 	<select id="memberData" resultType="MemberVO"  parameterType="int">
 		SELECT * FROM member WHERE member_no=#{mno}
 	</select>
-
-
-	<!-- <select id="boardDetailData" resultType="BoardVO" parameterType="int"> 
-		SELECT no,name,subject,content,regdate,hit,pwd FROM replyBoard WHERE no=#{no} 
-		</select> -->
-
+	
+	<!--  파우치 검색 -->
+	<select id="pouchFindCount" resultType="int" parameterType="java.util.Map">
+		SELECT COUNT(a.pouch_no) 
+		FROM pouch a LEFT JOIN member b ON a.member_no=b.member_no 
+		WHERE ${fs} LIKE '%'||#{ss}||'%'		<!-- 닉네임 어떻게 가져오나요.. -->
+	</select>
+	<select id="pouchFindData" resultType="PouchVO" parameterType="java.util.Map">
+	 	SELECT a.pouch_no,a.pouch_name,a.regdate,a.pouch_content,a.pouch_like,a.pouch_img,b.nickname 
+	 	FROM pouch a,member b 
+	 	WHERE a.member_no = b.member_no
+	 	AND ${fs} LIKE '%'||#{ss}||'%'
+	</select>
+	<!-- 
+		select count(C.BID) 
+		from eBoard B LEFT JOIN eComment C ON B.BID = C.BID 
+	 -->
 	<!-- <insert id="pouchInsertReply" > <selectKey keyProperty="pouch_reply_no" 
 		resultType="int" order="BEFORE"> SELECT NVL(MAX(pouch_reply_no)+1,1) as pouch_reply_no 
 		FROM pouch_reply </selectKey> INSERT INTO pouch_reply VALUES(#{pouch_reply_no},#{pouch_no},#{content},SYSDATE,#{member_no}) 

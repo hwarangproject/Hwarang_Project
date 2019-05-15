@@ -101,6 +101,47 @@ public class PouchDAO {
 		}
 		return vo;
 	}
+//  찾기
+	   public static List<PouchVO> pouchFindData(Map map)
+	   {
+		   List<PouchVO> list=
+				   new ArrayList<PouchVO>();
+		   SqlSession session=null;
+		   try
+		   {
+			   session=ssf.openSession();
+			   list=session.selectList("pouchFindData", map);
+		   }catch(Exception ex)
+		   {
+			   ex.printStackTrace();
+		   }
+		   finally
+		   {
+			   if(session!=null)
+				   session.close();
+		   }
+		   return list;
+	   }
+	   // 검색된 결과 (몇개)
+	   public static int pouchFindCount(Map map)
+	   {
+		   int count=0;
+		   SqlSession session=null;
+		   try
+		   {
+			   session=ssf.openSession();
+			   count=session.selectOne("pouchFindCount", map);
+		   }catch(Exception ex)
+		   {
+			   ex.printStackTrace();
+		   }
+		   finally
+		   {
+			   if(session!=null)
+				   session.close();
+		   }
+		   return count;
+	   }
 	//////////////////////////////////파우치 화장품 목록 부분/////////////////////////////////////////////////////
 	/*// 목록
 		public static List<ProductVO> productPouchListData(Map map) {
