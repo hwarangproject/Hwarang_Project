@@ -481,6 +481,10 @@ body {
 #intro-top {
 	border: 1px solid #F7F7F0;
 }
+
+h2{
+color: #FB4C22;
+}
 </style>
 
 </head>
@@ -511,7 +515,7 @@ body {
 															<div class="grid clearfix">
 																<div class="col3 first">
 																	<a href="#" style="color: gray;"> <span>회원ID</span>
-																		<h1>${vo.nickname }</h1></a>
+																		<h2>${vo.nickname }</h2></a>
 																</div>
 																<div class="col3">
 																	<span>피부타입</span>
