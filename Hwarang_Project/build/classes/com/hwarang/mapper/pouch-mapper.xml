@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.hwarang.mapper.pouch-mapper">
-	<!-- 파우치 리스트 -->
+	<!--///////////////////////////////////////// 파우치 리스트 -->
 	<select id="pouchListData" resultType="PouchVO" parameterType="java.util.Map">
 		SELECT pouch_img,member_no,pouch_no,pouch_name,num FROM (SELECT
 		pouch_img,member_no,pouch_no,pouch_name,rownum as num
@@ -12,10 +12,10 @@
 	</select>
 	<!-- 총페이지 -->
 	<select id="pouchTotalPage" resultType="int">
-		SELECT CEIL(COUNT(*)/5.0) FROM pouch
+		SELECT CEIL(COUNT(*)/6.0) FROM pouch
 	</select>
 
-	<!-- 파우치 디테일 -->
+	<!--////////////////////////////////////////// 파우치 디테일 -->
 	<select id="pouchDetailData" resultType="PouchVO" parameterType="int">
 		SELECT a. pouch_img,a.member_no,a.pouch_no,a.pouch_name,a.pouch_score,a.pouch_like,a.regdate,a.pouch_content, b.skin_type, b.id, b.nickname, b.profile_img
 		FROM pouch a ,member b
@@ -27,11 +27,11 @@
 		SELECT * FROM member WHERE member_no=#{mno}
 	</select>
 	
-	<!--  파우치 검색 -->
+	<!-- ////////////////////////////////////////// 파우치 검색 -->
 	<select id="pouchFindCount" resultType="int" parameterType="java.util.Map">
 		SELECT COUNT(a.pouch_no) 
 		FROM pouch a LEFT JOIN member b ON a.member_no=b.member_no 
-		WHERE ${fs} LIKE '%'||#{ss}||'%'		<!-- 닉네임 어떻게 가져오나요.. -->
+		WHERE ${fs} LIKE '%'||#{ss}||'%'		
 	</select>
 	<select id="pouchFindData" resultType="PouchVO" parameterType="java.util.Map">
 	 	SELECT a.pouch_no,a.pouch_name,a.regdate,a.pouch_content,a.pouch_like,a.pouch_img,b.nickname 
@@ -39,19 +39,49 @@
 	 	WHERE a.member_no = b.member_no
 	 	AND ${fs} LIKE '%'||#{ss}||'%'
 	</select>
-	<!-- 
-		select count(C.BID) 
-		from eBoard B LEFT JOIN eComment C ON B.BID = C.BID 
-	 -->
-	<!-- <insert id="pouchInsertReply" > <selectKey keyProperty="pouch_reply_no" 
-		resultType="int" order="BEFORE"> SELECT NVL(MAX(pouch_reply_no)+1,1) as pouch_reply_no 
-		FROM pouch_reply </selectKey> INSERT INTO pouch_reply VALUES(#{pouch_reply_no},#{pouch_no},#{content},SYSDATE,#{member_no}) 
-		</insert> -->
-
-	<!-- <insert id="boardInsert" parameterType="BoardVO"> 자동 증가번ㄶ호 <selectKey 
-		keyProperty="no" resultType="int" order="BEFORE"> SELECT NVL(MAX(no)+1,1) 
-		as no FROM databoard rs.getInt(1) rs.getInt("no") </selectKey> INSERT INTO 
-		databoard VALUES(#{no},#{name},#{subject},#{content},#{pwd},SYSDATE,0,#{filename},#{filesize}) 
-		</insert> -->
+	
+	<!-- /////////////////////////////////////파우치 댓글 -->
+	<select id="pouchReplyListData" resultType="Pouch_ReplyVO" parameterType="int">
+     SELECT a.*, b.profile_img, b.id, b.sex, b.skin_type, b.age_group  
+     FROM pouch_reply a, member b
+     WHERE a.member_no = b.member_no
+     AND pouch_no = #{pouch_no}
+     ORDER BY a.regdate 
+    </select>
+    
+	<insert id="pouchReplyInsert" parameterType="Pouch_ReplyVO">
+     INSERT INTO pouch_reply VALUES(
+       #{reply_content},
+       SYSDATE,
+       #{product_rate},
+       #{product_no},
+       #{member_no},
+       (SELECT NVL(MAX(reply_no)+1,1) FROM pouch_reply WHERE member_no = #{member_no2})
+     )
+   </insert>
+   
+   <update id="pouchReplyCntIncrement" parameterType="int">
+     UPDATE pouch
+     SET review_cnt = review_cnt + 1
+     WHERE product_no = #{product_no}
+   </update>
+   
+   <update id="pouchReplyCntDecrement" parameterType="int">
+     UPDATE product
+     SET review_cnt = review_cnt - 1
+     WHERE product_no = #{product_no}
+   </update>
+   
+   <update id="pouchReplyUpdate" parameterType="Pouch_ReplyVO">
+     UPDATE pouch_reply SET
+     reply_content = #{reply_content}
+     WHERE member_no = #{member_no} AND reply_no = #{reply_no}
+   </update>
+   
+   <delete id="pouchReplyDelete" parameterType="Pouch_ReplyVO">
+    DELETE FROM pouch_reply
+    WHERE member_no = #{member_no} AND reply_no = #{reply_no}
+   </delete>
+	
 
 </mapper>
