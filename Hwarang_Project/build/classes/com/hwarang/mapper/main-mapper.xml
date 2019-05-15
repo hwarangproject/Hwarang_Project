@@ -3,7 +3,7 @@
 <mapper namespace="com.hwarang.mapper.main-mapper">
 	<!-- 파우치 리스트, 페이지 구하기 -->
 	<select id="mainPouchListData" resultType="PouchVO">
-		SELECT * FROM pouch ORDER BY pouch_score DESC
+		SELECT * FROM pouch ORDER BY pouch_like DESC
 	</select>
 	
 	<!-- 추천 아이템 -->

@@ -31,13 +31,13 @@
 	<select id="pouchFindCount" resultType="int" parameterType="java.util.Map">
 		SELECT COUNT(a.pouch_no) 
 		FROM pouch a LEFT JOIN member b ON a.member_no=b.member_no 
-		WHERE ${fs} LIKE '%'||#{ss}||'%'		
+		WHERE upper(${fs}) LIKE '%'||upper(#{ss})||'%'		
 	</select>
 	<select id="pouchFindData" resultType="PouchVO" parameterType="java.util.Map">
 	 	SELECT a.pouch_no,a.pouch_name,a.regdate,a.pouch_content,a.pouch_like,a.pouch_img,b.nickname 
 	 	FROM pouch a,member b 
 	 	WHERE a.member_no = b.member_no
-	 	AND ${fs} LIKE '%'||#{ss}||'%'
+	 	AND upper(${fs}) LIKE '%'||upper(#{ss})||'%'
 	</select>
 	
 	<!-- /////////////////////////////////////파우치 댓글 -->
