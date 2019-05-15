@@ -172,7 +172,15 @@ label {
 .checkout:hover {
   background-color: #494;
 }
-
+#buy_product{
+  border: 0;
+  padding: 4px 8px;
+  background-color: green;
+  color: #fff;
+  font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium";
+  font-size: 12px;
+  border-radius: 3px;
+}
 </style>
 
 </head>
@@ -188,6 +196,7 @@ label {
 			<label class="product-price">Price</label>
 			<!-- <label class="product-quantity">Quantity</label>  -->
 			<label class="product-removal">Remove</label> 
+			<label class="product-removal">buy</label> 
 	<!-- 		<label class="product-line-price">Total</label> -->
 		</div>
 		<c:forEach var="vo" items="${plist }" varStatus="i">
@@ -208,7 +217,12 @@ label {
 			</div> -->
 			<div class="product-removal">
 				<a href="../cart/cart_delete.hr?cno=${clist[i.index] }" class="remove-product">Remove</a>
+				
 			</div>
+			<div class="product-removal">
+				<a href="https://search.shopping.naver.com/search/all.nhn?query=${vo.product_name }" class="remove-product" id="buy_product" target="_blank" >최저가 비교</a>	
+			</div>
+		
 			<!-- <div class="product-line-price">20000</div> -->
 		</div>
 		</c:forEach>
