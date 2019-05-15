@@ -166,6 +166,11 @@ img {
 ul, li {
 	float: left;
 }
+
+#brand_page{
+	margin-top: 10px;
+	margin-left: 800px;
+}
 </style>
 </head>
 <body>
@@ -255,7 +260,7 @@ ul, li {
 		</section>
 		
 	</div>
-					<div class="row text-center">
+					<div class="row text-center" id="brand_page">
 						<ul class="pagination">
 							<c:if test="${curpage>BLOCK }">
 								<li><a href="../brand/brand.hr?start=${start }&end=${end }&page=1">&laquo;</a></li>

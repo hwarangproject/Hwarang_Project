@@ -222,6 +222,9 @@ margin-left: 1.2em;
   background-color: #FF8B5A;
 }
 
+#cart_button {
+	background: gray;
+}
 
 </style>
 
@@ -248,19 +251,41 @@ margin-left: 1.2em;
                         
                         <span>
                            <span>${vo.cap_col } / ${vo.price } 원</span>
-                            <c:if test="${sessionScope.id !=null && count==0 }">
-                           <a href="../cart/cart_ok.hr?pno=${vo.product_no }"><button type="button" class="btn btn-fefault cart">
-                              <i class="fa fa-shopping-cart"></i>
-                              Add to cart
-                           </button></a>
-                           </c:if>
+                        
                         </span>
                         <p><b>카테고리:</b> SKIN(변수없음)</p>
-                  <!--  <p><b>유해성분:</b> ${vo.harm_ingre }</p>   -->
                         <p><b>판매처:</b> ${vo.sell_link }</p>
                         <p><b>컬러/타입:</b> ${vo.cap_col}</p>
                         <p><b>설명:</b> ${vo.description }</p>
                         <p><b>태그:</b> ${vo.tag }</p>
+                        <table class="table">
+                        	<tr>
+                        		<td class="text-center">
+                        		    <c:if test="${sessionScope.id !=null && count==0 }">                                            	
+	                        			<a href="../cart/cart_ok.hr?pno=${vo.product_no }">
+				                           	<button type="button" class="btn btn-fefault cart">				                             
+				                              	찜 하기 ♥
+				                           	</button>
+				                        </a>
+			                        </c:if>
+			                        
+			                        <c:if test="${sessionScope.id !=null && count==0 }"> 
+				                        <a href="../cart/cart_ok.hr?pno=${vo.product_no }">
+				                           	<button type="button" class="btn btn-fefault cart">
+				                              <i class="fa fa-shopping-cart"></i>
+				                              Add to cart
+				                           	</button>
+				                        </a>
+			                        </c:if>
+			                        <c:if test="${sessionScope.id !=null && count!=0 }">
+			                        	<button type="button" class="btn btn-fefault cart" id="cart_button">
+				                              <i class="fa fa-shopping-cart"></i>
+				                              Add to cart
+				                        </button>		                              
+			                        </c:if>
+                        		</td>
+                        	</tr>
+                        </table>
                       </div>
                      </div>
                  </div>
@@ -282,14 +307,14 @@ margin-left: 1.2em;
         &#9733;&#9733;&#9733;&#9733;&#9734;
       </div>
       <div class="rating-users">
-      	&#128077; <i class="icon-user"></i> 1,014,004 total
+      	&#128077; <i class="icon-user"></i> 10000 total
       </div>
     </div>
     
     <div class="histo">
       <div class="five histo-rate">
         <span class="histo-star">
-          <i class="active icon-star"></i> 5           </span>
+          <i class="active icon-star"></i> 5</span>
         <span class="bar-block">
           <span id="bar-five" class="bar">
             <span>566,784</span>&nbsp;
