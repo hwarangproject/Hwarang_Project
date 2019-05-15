@@ -13,9 +13,11 @@ public class Rank_ProductModel {
 	public String rank_product_page(HttpServletRequest request,HttpServletResponse response) {
 
 		String dcno=request.getParameter("dcno");
+		String page = request.getParameter("page");
 		List<ProductVO> product_list=new ArrayList<ProductVO>();
 		
 		Map map=new HashMap();
+		
 		if(dcno==null){
 			String start=request.getParameter("start");
 			String end=request.getParameter("end");
@@ -30,19 +32,92 @@ public class Rank_ProductModel {
 			map.put("start",start);
 			map.put("end",end);
 			
-			product_list=ProductDAO.product_category(map);
+			if (page == null)
+				page = "1";
+			int curpage = Integer.parseInt(page);
+
+			
+			int rowSize = 12;
+			int start2 = (curpage * rowSize) - (rowSize - 1); // 1 , 11
+			int end2 = curpage * rowSize;// 10,20
+			
+			map.put("start2", start2);
+			map.put("end2", end2);
+			
+			product_list=ProductDAO.productMainPage_Total(map);
+			int totalpage=ProductDAO.productTotalPage(map);
+			
+			// 페이지 출력 1~5, 6~10 => curpage(1~5) => startPage=1
+			final int BLOCK=5;
+			int startPage=((curpage-1)/BLOCK*BLOCK)+1;
+			int endPage=((curpage-1)/BLOCK*BLOCK)+BLOCK;
+			
+			// 페이지수를 총페이지로 맞춤
+			int allPage=totalpage;
+			if(endPage>allPage){
+				endPage=allPage;
+			}
+			
+			request.setAttribute("start", start);
+			request.setAttribute("end", end);
+			
+			// 블럭별 출력
+			request.setAttribute("BLOCK", BLOCK);
+			request.setAttribute("startPage", startPage);
+			request.setAttribute("endPage", endPage);
+			request.setAttribute("allPage", allPage);
+			
+			// 현재 페이지, 총페이지, list
+			request.setAttribute("curpage", curpage);
+			request.setAttribute("totalpage", totalpage);
+			request.setAttribute("productMainPage_Total", product_list);
+			
 		}
 		else{
-			product_list=ProductDAO.product_detail_category(Integer.parseInt(dcno));
+			if (page == null)
+				page = "1";
+			
+			int curpage=Integer.parseInt(page);
+			int rowSize=12;
+			int start2=(curpage*rowSize)-(rowSize)+1; // 1, 13
+			int end2=curpage*rowSize; // 12 24
+			
+			map.put("start2", start2);
+			map.put("end2", end2);
+			map.put("dcno", dcno);
+			
+			product_list=ProductDAO.productMainPage(map);
+			int totalpage=ProductDAO.productTotalPage(map);
+			
+			final int BLOCK=5;
+			int startPage=((curpage-1)/BLOCK*BLOCK)+1; 
+			int endPage=((curpage-1)/BLOCK*BLOCK)+BLOCK;
+			
+			int allPage=totalpage;
+			if(endPage>allPage)
+				endPage=allPage;
+			
+			// 블럭별 출력
+			request.setAttribute("dcno", dcno);
+			request.setAttribute("BLOCK", BLOCK);
+			request.setAttribute("startPage", startPage);
+			request.setAttribute("endPage", endPage);
+			request.setAttribute("allPage", allPage);
+					
+			// 현재 페이지, 총페이지, List
+			request.setAttribute("curpage", curpage);
+			request.setAttribute("totalpage", totalpage);		
+			request.setAttribute("productMainPage", product_list);
 		}
 		
 		List<DetailcateVO> detail_cate_list=ProductDAO.detail_cate_list();
-		
-		//request.setAttribute("product_detail_category", product_detail_category);
 		request.setAttribute("product_cate_list", product_list);
 		request.setAttribute("detail_cate_list", detail_cate_list);
 		request.setAttribute("main_jsp", "../ranking/rank_product.jsp");
 		return "../main/main.jsp";
 	}
-
 }
+
+	
+
+

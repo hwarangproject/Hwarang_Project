@@ -1,25 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.hwarang.mapper.product-mapper">
-	<!-- 메인 테스트 -->
+	<!--#### 슬라이더  ####-->
 	<select id="productListData" resultType="ProductVO">
 	  SELECT * FROM product WHERE product_no BETWEEN 2 AND 5
 	</select>
+
 	
 	<select id="productDetailData" resultType="ProductVO" parameterType="int">
   	  SELECT * FROM product WHERE product_no=#{pno}
-	</select>
-	
-	<!-- 카테고리 항목 전체목록 출력 -->
-	<select id="product_category" resultType="ProductVO" parameterType="java.util.Map">
-		SELECT * FROM product WHERE detcategory_no BETWEEN #{start} AND #{end}
-	</select>
-	
-	
-	<!-- 카테고리 항목 하나 출력-->
-	<select id="product_detail_category" resultType="ProductVO" parameterType="int">
-		SELECT * FROM product WHERE detcategory_no=#{dcno}
-	</select>
+	</select>	
 	
 	<!-- 카테고리 리스트 출력 ex) 목록들 -->
 	<select id="detail_cate_list" resultType="DetailcateVO">
@@ -27,7 +17,6 @@
 	</select>
 	
 	<!-- ############################### 연령별 ################################################ -->
-	
 	<select id="product_10_age" resultType="ProductVO">
 		<![CDATA[
 			SELECT * FROM (SELECT * FROM product ORDER BY like_10 DESC) WHERE ROWNUM<=100
@@ -57,7 +46,6 @@
 			SELECT * FROM (SELECT * FROM product ORDER BY like_50 DESC) WHERE ROWNUM<=100
 		]]>
 	</select>
-	
 	<!-- ################################ 연령별 끝 ############################################### -->
 	
 	<!-- 브랜드 초성 검색 출력 -->
@@ -89,7 +77,7 @@
 	<select id="brandTotalPage" resultType="int" parameterType="String">
 		SELECT CEIL(COUNT(*)/12.0) FROM product WHERE brand=#{brand} -->
 	</select>
-	<!-- 브랜드 페이지 나누기 -->
+	<!-- 브랜드 상세 페이지 나누기 -->
 	<select id="brandListPageDivision" resultType="ProductVO" parameterType="hashmap">
 	SELECT distinct brand,brand_img, num 
 	FROM (SELECT distinct brand,brand_img, rownum as num
@@ -102,10 +90,39 @@
 			#{name} ==> vo.getName() => vo가 가지고 있는 변수명과 일치
 	 -->
 	</select>
-	<!-- 브랜드 총페이지 -->
+	<!-- 브랜드 리스트 총페이지 -->
 	<select id="brandListTotalPage" resultType="int" parameterType="hashmap">
 		SELECT CEIL(count(distinct brand)/20.0) FROM product WHERE brand BETWEEN NCHR(#{start}) AND NCHR(#{end})
 	</select>
+	
+	<!-- ///////////////////////////// 랭킹 상품 페이지 나누기 //////////////////////////////////////////////// -->
+	<!-- 상품 페이지 나누기 (전체) -->
+	<select id="productMainPage_Total" resultType="ProductVO" parameterType="hashmap">
+		SELECT distinct product_no, brand, product_name, price, score, brand_img, product_img, num 
+		FROM (SELECT distinct product_no, brand, product_name, price, score, brand_img, product_img, rownum as num 
+		FROM (SELECT distinct product_no, brand, product_name, price, score, brand_img, product_img FROM product WHERE detcategory_no BETWEEN #{start} AND #{end} ORDER BY score DESC ))  	
+		WHERE num BETWEEN #{start2} AND #{end2}
+	</select>
+	
+	<!-- 상품 페이지 나누기 (개별) -->
+	<select id="productMainPage" resultType="ProductVO" parameterType="hashmap">
+		SELECT distinct product_no, brand, product_name, price, score, brand_img, product_img, num 
+		FROM (SELECT distinct product_no, brand, product_name, price, score, brand_img, product_img, rownum as num 
+		FROM (SELECT distinct product_no, brand, product_name, price, score, brand_img, product_img FROM product WHERE detcategory_no=#{dcno} ORDER BY score DESC ))  
+		WHERE num BETWEEN #{start2} AND #{end2}
+	</select>
+	
+	<!-- 상품 전체 페이지 -->
+	<select id="productTotalPage" resultType="int" parameterType="hashmap">
+		SELECT CEIL(count(*)/12.0) FROM product 
+		<if test="start!=null">
+		WHERE detcategory_no BETWEEN ${start} AND ${end}
+		</if>
+		<if test="dcno!=null">
+		WHERE detcategory_no=${dcno}
+		</if>
+	</select>
+	<!-- ///////////////////////////// 랭킹 상품 페이지 나누기 끝 //////////////////////////////////////////////// -->
 	
 	<!-- 상품 댓글 -->
 	<select id="productReplyListData" resultType="Product_replyVO" parameterType="int">

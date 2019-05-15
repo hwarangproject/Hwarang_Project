@@ -175,10 +175,7 @@ background-color: #ffeae8;
 						</div>
 						</div>
 			<%-- 		</c:if> --%>
-					</c:forEach>
-					
-					
-					
+					</c:forEach>				
 				</div>
 				<!--features_items-->
 
@@ -209,10 +206,10 @@ background-color: #ffeae8;
 						</ul>
 						<div class="text-center">
 						${curpage } page / ${totalpage } pages
-					</div>
+						</div>
 					</div>
 					
-				</div>
+			</div>
 		</div>
 	</div>
 	</section>

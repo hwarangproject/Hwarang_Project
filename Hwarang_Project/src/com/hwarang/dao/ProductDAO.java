@@ -18,7 +18,7 @@ public class ProductDAO {
 		ssf=CreateSqlSessionFactory.getSsf();
 	}
 	
-	//product목록
+	//////////////////////////// 슬라이더//////////////////////////////////
 	public static List<ProductVO> productListData()
 	{
 		List<ProductVO> list=new ArrayList<ProductVO>();
@@ -42,7 +42,7 @@ public class ProductDAO {
 		
 		return list;
 	}
-	
+	////////////////////////////슬라이더//////////////////////////////////
 	
 	//상품 디테일
 	public static ProductVO productDetailData(int pno){
@@ -59,42 +59,6 @@ public class ProductDAO {
 				   session.close();
 		   }
 		   return vo;
-	}
-	
-	// 상품 리스트 카테고리
-	public static List<ProductVO> product_category(Map map) {
-		List<ProductVO> list = new ArrayList<ProductVO>();
-		SqlSession session=null;
-		try {
-			session = ssf.openSession();
-			list = session.selectList("product_category", map);
-		} 
-		catch (Exception ex) {
-			ex.printStackTrace();
-		} 
-		finally {
-			if (session != null)
-				session.close();
-		}
-		return list;
-	}
-	
-	// 카테고리 항목 하나 출력
-	public static List<ProductVO> product_detail_category(int dcno) {
-		List<ProductVO> list = new ArrayList<ProductVO>();
-		SqlSession session=null;
-		try {
-			session = ssf.openSession();
-			list = session.selectList("product_detail_category", dcno);
-		} 
-		catch (Exception ex) {
-			System.out.println("product_detail_category:"+ex.getMessage());
-		} 
-		finally {
-			if (session != null)
-				session.close();
-		}
-		return list;
 	}
 	
 	// 카테고리 리스트
@@ -295,5 +259,61 @@ public class ProductDAO {
 		}
 
 		return list;
+	}
+	
+	// 상품 페이지 나누기 (전체)
+	public static List<ProductVO> productMainPage_Total(Map map) {
+		List<ProductVO> list = new ArrayList<ProductVO>();
+		SqlSession session=null;
+		try {
+			session = ssf.openSession();
+			list = session.selectList("productMainPage_Total", map);
+		} 
+		catch (Exception ex) {
+			System.out.println("productMainpage_Total:"+ex.getMessage());
+			ex.printStackTrace();
+		} 
+		finally {
+			if (session != null)
+				session.close();
+		}
+		return list;
+	}
+		
+	// 상품 페이지 나누기 (개별)
+	public static List<ProductVO> productMainPage(Map map) {
+		List<ProductVO> list = new ArrayList<ProductVO>();
+		SqlSession session=null;
+		try {
+			session = ssf.openSession();
+			list = session.selectList("productMainPage", map);
+		} 
+		catch (Exception ex) {
+			ex.printStackTrace();
+		} 
+		finally {
+			if (session != null)
+				session.close();
+		}
+		return list;
+	}
+			
+	// 상품 페이지 구하기
+	public static int productTotalPage(Map map) {
+		int total=0;
+		SqlSession session=null;
+		try {
+			session = ssf.openSession();
+			total = session.selectOne("productTotalPage", map);
+		} 
+		catch (Exception ex) {
+			System.out.println("productTotalPage:"+ex.getMessage());
+			ex.printStackTrace();
+		} 
+		finally {
+			if (session != null)
+				session.close();
+		}
+		return total;
 	}
 }

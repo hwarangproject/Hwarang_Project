@@ -274,19 +274,11 @@
 								</div>
 							</div>
 						</div>
-						<!-- 브랜드 카테는 DB데이터 픽스되면 진행예정 -->
-						<div class="panel panel-default"></div>
-						<div class="panel panel-default"></div>
-						<div class="panel panel-default"></div>
-						<div class="panel panel-default"></div>
-						<div class="panel panel-default"></div>
-						<div class="panel panel-default"></div>
-						<div class="panel panel-default"></div>
 					</div>
 					<!--/category-productsr-->
 
-					<div class="brands_products">
-						<!--brands_products-->
+					<!-- <div class="brands_products">
+						brands_products
 						<h2>Brands</h2>
 						<div class="brands-name">
 							<ul class="nav nav-pills nav-stacked">
@@ -308,7 +300,7 @@
 								</a></li>
 							</ul>
 						</div>
-					</div>
+					</div> -->
 					<!--/brands_products-->
 
 					<%-- 
@@ -320,12 +312,13 @@
 							</div>
 						</div><!--/price-range-->
 						--%>
+						
+					<!-- 광고판 -->	
 					<div class="shipping text-center">
 						<!--shipping-->
 						<img src="../images/home/SkinCondition.JPG" alt="" width=225px
 							height=350px />
 					</div>
-					<!--/shipping-->
 
 				</div>
 			</div>
@@ -350,8 +343,9 @@
 									<h5>${vo.product_name.length()>13? vo.product_name.substring(1,13)+="...":vo.product_name }</h5>
 								</a>
 									<p>${vo.price }원</p>
+									<p>평점:${vo.score }</p>
 									<div class="star-rating" style="text-align: center">
-											<div style="width:30%" class="star-rating-percentage"  style="display:inline-block"></div>
+											<div style="width:${vo.score*20 }%;" class="star-rating-percentage" style="display:inline-block"></div>
 									</div>
 								</div>
 							</div>
@@ -365,16 +359,87 @@
 						</div>
 					</c:if>
 					</c:forEach>
-					
-					<ul class="pagination">
-						<li class="active">
-						<a href="">1</a></li>
-						<li><a href="">2</a></li>
-						<li><a href="">3</a></li>
-						<li><a href="">&raquo;</a></li>
-					</ul>
 				</div>
 				<!--features_items-->
+				<div class="row text-center">
+					<c:if test="${dcno==null }">
+						<ul class="pagination">
+							<c:if test="${curpage>BLOCK }">
+								<li>
+									<a href="../ranking/rank_product.hr?start=${start }&end=${end }&page=1">
+										&laquo;
+									</a>								
+								</li>
+								<li>
+									<a href="../ranking/rank_product.hr?start=${start }&end=${end }&page=${startPage-1 }">
+										&lsaquo;
+									</a>
+								</li>
+							</c:if>
+							<c:set var="type" value="" />
+							
+							<c:forEach var="i" begin="${startPage }" end="${endPage }">
+								<c:if test="${curpage==i }">
+									<c:set var="type" value="class=active" />
+								</c:if>
+								<c:if test="${curpage!=i }">
+									<c:set var="type" value="" />
+								</c:if>
+								<li ${type }><a
+									href="../ranking/rank_product.hr?start=${start }&end=${end }&page=${i }">${i }</a></li>
+							</c:forEach>
+							
+							<c:if test="${curpage<allPage}">
+								<li><a
+									href="../ranking/rank_product.hr?start=${start }&end=${end }&page=${endPage+1 }">&rsaquo;</a></li>
+								<li><a
+									href="../ranking/rank_product.hr?start=${start }&end=${end }&page=${allPage }">&raquo;</a></li>
+							</c:if>
+						</ul>						
+						<div class="text-center">
+							${curpage } page / ${totalpage } pages
+						</div>
+					</c:if>
+					
+					<c:if test="${dcno!=null }">
+						<ul class="pagination">
+							<c:if test="${curpage>BLOCK }">
+								<li>
+									<a href="../ranking/rank_product.hr?dcno=${dcno }&page=1">
+										&laquo;
+									</a>								
+								</li>
+								<li>
+									<a href="../ranking/rank_product.hr?dcno=${dcno }&page=${startPage-1 }">
+										&lsaquo;
+									</a>
+								</li>
+							</c:if>
+							<c:set var="type" value="" />
+							
+							<c:forEach var="i" begin="${startPage }" end="${endPage }">
+								<c:if test="${curpage==i }">
+									<c:set var="type" value="class=active" />
+								</c:if>
+								<c:if test="${curpage!=i }">
+									<c:set var="type" value="" />
+								</c:if>
+								<li ${type }><a
+									href="../ranking/rank_product.hr?dcno=${dcno }&page=${i }">${i }</a></li>
+							</c:forEach>
+							
+							<c:if test="${curpage<allPage}">
+								<li><a
+									href="../ranking/rank_product.hr?dcno=${dcno }&page=${endPage+1 }">&rsaquo;</a></li>
+								<li><a
+									href="../ranking/rank_product.hr?dcno=${dcno }&page=${allPage }">&raquo;</a></li>
+							</c:if>
+						</ul>						
+						<div class="text-center">
+							${curpage } page / ${totalpage } pages
+						</div>
+					</c:if>
+				</div>
 			</div>
 		</div>
 	</div>
