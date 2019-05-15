@@ -60,7 +60,36 @@
 }
 
 </style>
-
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('#aaa').show();
+	$('#keyword').keyup(function(){
+		var k=$('#keyword').val();
+		if(k!="")
+		{
+		$.ajax({
+			type:'POST',
+			data:{"key":k},
+			url:'../find/product_find.hr',
+			success:function(response)
+			{
+				$('#print').show();
+				$('#print').html(response);
+				$('#main').hide();
+			}
+			
+		});
+		}
+		else
+		{
+			$('#print').hide();
+			$('#main').show();
+		}
+		
+	});
+});
+</script>
 </head>
 <body>
 <header id="header"><!--header-->
@@ -182,7 +211,7 @@
 				</div>
 				<div class="col-xs-3">
 					<div class="search_box pull-right">
-						<input type="text" placeholder="Search" />
+						<input type="text" placeholder="Search" id="keyword"/>
 					</div>
 				</div>
 			</div>
@@ -191,8 +220,22 @@
 	<!--/header-bottom--> 
 </header>
 	<!--/header-->
-
+	<%-- <c:if test="${key==null }">
+		<jsp:include page="${main_jsp }"></jsp:include>
+	</c:if>
+	
+	<c:if test="${key!=null }">
+		<div class="container" id="print">
+		
+		</div>
+	</c:if> --%>
+	
+	<div class="container" id="print">
+		
+	</div>
+	<div id="main">
 	<jsp:include page="${main_jsp }"></jsp:include>
+	</div>
 	
 <footer id="footer"><!--Footer-->
 	<div class="footer-top">

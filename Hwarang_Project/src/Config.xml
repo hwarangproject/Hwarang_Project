@@ -67,6 +67,7 @@
 		<mapper resource="com/hwarang/mapper/profile-mapper.xml"/>
 		<mapper resource="com/hwarang/mapper/main-mapper.xml"/>
 		<mapper resource="com/hwarang/mapper/cart-mapper.xml"/>
+		<mapper resource="com/hwarang/mapper/find-mapper.xml"/>
 	</mappers>
 	
 </configuration>
