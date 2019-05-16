@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 <style type="text/css">
 #pouch_list {
-	color: black;
+	color: #5ad67d;
 }
 #caption {
 	margin-bottom: 15px;

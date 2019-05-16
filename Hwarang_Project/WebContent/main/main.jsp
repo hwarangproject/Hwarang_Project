@@ -2,10 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 
 <!-- 템플릿 링크 -->
 <!-- 반응형 제거 -->
@@ -100,15 +100,25 @@ $(function(){
 				<div class="col-xs-6">
 					<div class="contactinfo">
 						<ul class="nav nav-pills">
-							<li><a href="../main/main.hr">Hwarang</a></li>
+							<!-- 로그인 안했을 때 -->
+							<c:if test="${sessionScope.id==null }">
+								<li><a href="#">Hwarang</a></li>
+							</c:if>
+							<!-- 로그인 했을 때 -->
+							<c:if test="${sessionScope.id!=null }">
+								<li><a href="#">${sessionScope.id}님이 로그인 중입니다</a></li>
+							</c:if>
+							<li><li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-xs-6">
 					<div class="social-icons pull-right">
 						<ul class="nav navbar-nav">
+							<!-- 로그인 안했을 때 -->
 							<c:if test="${sessionScope.id==null }">
 							</c:if>
+							<!-- 로그인 했을 때 -->
 							<c:if test="${sessionScope.id!=null }">
 							<li>
 								<a href="../profile/profile_myactivity.hr">

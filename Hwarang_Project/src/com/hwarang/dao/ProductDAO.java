@@ -19,7 +19,7 @@ public class ProductDAO {
 	}
 	
 	//////////////////////////// 슬라이더//////////////////////////////////
-	public static List<ProductVO> productListData()
+	public static List<ProductVO> productList_RandomData()
 	{
 		List<ProductVO> list=new ArrayList<ProductVO>();
 		//연결: Sqlsession (Connection, PreparedStatement)
@@ -28,7 +28,7 @@ public class ProductDAO {
 		try
 		{
 			session=ssf.openSession(); //connection연결
-			list=session.selectList("productListData");//목록 list에 저장, while(rs.next()) 역할
+			list=session.selectList("productList_RandomData");//목록 list에 저장, while(rs.next()) 역할
 		}catch(Exception ex)
 		{
 			ex.printStackTrace();

@@ -63,4 +63,21 @@ public class CartModel {
 		return "redirect:../cart/cart.hr";
 
 	}
+	
+	@RequestMapping("cart/main_cart_ok.hr")
+	public String main_cart_ok(HttpServletRequest request, HttpServletResponse response) {
+
+		String pno = request.getParameter("pno");
+		// insert
+		HttpSession session = request.getSession();
+		String id = (String) session.getAttribute("id");
+
+		CartVO vo = new CartVO();
+		vo.setProduct_no(Integer.parseInt(pno));
+		vo.setId(id);
+		CartDAO.cartInsert(vo);
+
+		return "redirect:../main/main.hr";
+
+	}
 }

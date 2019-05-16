@@ -17,7 +17,7 @@ public class MainModel {
     public String main_page(HttpServletRequest request,HttpServletResponse response)
     {
 		
-		List<ProductVO> list=ProductDAO.productListData();
+		List<ProductVO> list=ProductDAO.productList_RandomData();
 		
 		// 메인 뉴스 출력
 		NaverNewsManager news=new NaverNewsManager();
@@ -33,7 +33,7 @@ public class MainModel {
 		request.setAttribute("recommend_ProductData", recommend_ProductData);
 		
 		
-		request.setAttribute("productListData", list);
+		request.setAttribute("productList_RandomData", list);
 		request.setAttribute("main_jsp", "default.jsp");
     	return "main.jsp";
     }
