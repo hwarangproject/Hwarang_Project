@@ -130,14 +130,12 @@
 		</div>
 		<!--features_items-->
 		<div class="row text-center">
-			<c:if test="${dcno==null }">
 				<ul class="pagination">
 					<c:if test="${curpage>BLOCK }">
-						<li><a
-							href="../ranking/rank_product.hr?start=${start }&end=${end }&page=1">
+						<li><a href="../find/product_find.hr?page=1">
 								&laquo; </a></li>
 						<li><a
-							href="../ranking/rank_product.hr?start=${start }&end=${end }&page=${startPage-1 }">
+							href="../find/product_find.hr?page=${startPage-1 }">
 								&lsaquo; </a></li>
 					</c:if>
 					<c:set var="type" value="" />
@@ -150,52 +148,17 @@
 							<c:set var="type" value="" />
 						</c:if>
 						<li ${type }><a
-							href="../ranking/rank_product.hr?start=${start }&end=${end }&page=${i }">${i }</a></li>
+							href="../find/product_find.hr?page=${i }">${i }</a></li>
 					</c:forEach>
 
 					<c:if test="${curpage<allPage}">
 						<li><a
-							href="../ranking/rank_product.hr?start=${start }&end=${end }&page=${endPage+1 }">&rsaquo;</a></li>
+							href="../find/product_find.hr?page=${endPage+1 }">&rsaquo;</a></li>
 						<li><a
-							href="../ranking/rank_product.hr?start=${start }&end=${end }&page=${allPage }">&raquo;</a></li>
+							href="../find/product_find.hr?page=${allPage }">&raquo;</a></li>
 					</c:if>
 				</ul>
-				<div class="text-center">${curpage } page / ${totalpage }
-					pages</div>
-			</c:if>
-
-			<c:if test="${dcno!=null }">
-				<ul class="pagination">
-					<c:if test="${curpage>BLOCK }">
-						<li><a href="../ranking/rank_product.hr?dcno=${dcno }&page=1">
-								&laquo; </a></li>
-						<li><a
-							href="../ranking/rank_product.hr?dcno=${dcno }&page=${startPage-1 }">
-								&lsaquo; </a></li>
-					</c:if>
-					<c:set var="type" value="" />
-
-					<c:forEach var="i" begin="${startPage }" end="${endPage }">
-						<c:if test="${curpage==i }">
-							<c:set var="type" value="class=active" />
-						</c:if>
-						<c:if test="${curpage!=i }">
-							<c:set var="type" value="" />
-						</c:if>
-						<li ${type }><a
-							href="../ranking/rank_product.hr?dcno=${dcno }&page=${i }">${i }</a></li>
-					</c:forEach>
-
-					<c:if test="${curpage<allPage}">
-						<li><a
-							href="../ranking/rank_product.hr?dcno=${dcno }&page=${endPage+1 }">&rsaquo;</a></li>
-						<li><a
-							href="../ranking/rank_product.hr?dcno=${dcno }&page=${allPage }">&raquo;</a></li>
-					</c:if>
-				</ul>
-				<div class="text-center">${curpage } page / ${totalpage }
-					pages</div>
-			</c:if>
+				<div class="text-center">${curpage } page / ${totalpage } pages </div>
 		</div>
 	</div>
 

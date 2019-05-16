@@ -144,14 +144,14 @@
 									</div>
 								</div>
 							</div>
-							<div class="choose">
+							<%-- <div class="choose">
 								<ul class="nav nav-pills nav-justified">
 									<li><a href="../cart/main_cart_ok.hr?pno=${vo.product_no }"><i class="fa fa-plus-square"></i>Add
 											to cart</a></li>
 									<li><a href="#"><i class="fa fa-plus-square"></i>Add
 											to pouch</a></li>
 								</ul>
-							</div>
+							</div> --%>
 						</div>
 					</div>
 					</c:if>
@@ -183,14 +183,14 @@
 										class="fa fa-shopping-cart"></i>Add to cart</a> --%>
 								</div>
 							</div>
-							<div class="choose">
+							<%-- <div class="choose">
 								<ul class="nav nav-pills nav-justified">
 									<li><a href="../cart/main_cart_ok.hr?pno=${vo.product_no }"><i class="fa fa-plus-square"></i>Add
 											to cart</a></li>
 									<li><a href="#"><i class="fa fa-plus-square"></i>Add
 											to pouch</a></li>
 								</ul>
-							</div>
+							</div> --%>
 						</div>
 					</div>
 					</c:if>

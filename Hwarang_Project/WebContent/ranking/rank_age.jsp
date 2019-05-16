@@ -6,7 +6,25 @@
 <head>
 <meta charset="UTF-8">
 <title>연령별 목록</title>
-
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('#age_detail').click(function(){
+		var ad=$('#age_detail').val();
+		
+		$.ajax({
+			type:'POST',
+			data:{"age_detail":ad},
+			url:'../ranking/rank_age_detail.hr',
+			success:function(response)
+			{
+				$('#print').html(response);
+			}
+			
+		});		
+	});
+});
+</script>
 <style type="text/css">
 .scrollbar {
 	float: left;
@@ -94,7 +112,7 @@
 	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
-}
+} 
 
 #container {
 	width: 715px;
@@ -368,6 +386,11 @@ a {
 <section>
 	<div class="container">
 		<div class="row">
+		
+		<div class="container" id="print">
+		
+		</div>
+		
 			<ul class="nav nav-pills">
 			  <li class="active">
 			  	<a href="#tab-1" data-toggle="tab">10대</a>
@@ -405,12 +428,10 @@ a {
 					</div>
 					
 					<div class="row">
-						<a href="../shop.jsp"> 
 							<div class="button-2">
-							<div class="eff-2"></div>
-								<a href="../shop.jsp"> 더보기 
+								<div class="eff-2"></div>
+								<a href="../ranking/rank_age_detail.hr" id="age_detail">더보기</a>
 							</div>
-						</a>
 					</div>
 			  </div>
 			  
@@ -440,12 +461,10 @@ a {
 					</div>
 					
 					<div class="row">
-						<a href="../shop.jsp"> 
-							<div class="button-2">
+						<div class="button-2">
 							<div class="eff-2"></div>
-								<a href="../shop.jsp"> 더보기 
-							</div>
-						</a>
+							<a href="../shop.jsp"> 더보기 </a>
+						</div>
 					</div>
 			  </div>
 			  <div class="tab-pane" id="tab-3">
@@ -475,12 +494,10 @@ a {
 					</div>
 					
 					<div class="row">
-						<a href="../shop.jsp"> 
-							<div class="button-2">
+						<div class="button-2">
 							<div class="eff-2"></div>
-								<a href="../shop.jsp"> 더보기 
-							</div>
-						</a>
+							<a href="../shop.jsp"> 더보기 </a>
+						</div>
 					</div>
 			  </div>
 			  <div class="tab-pane" id="tab-4">
@@ -509,12 +526,10 @@ a {
 					</div>
 					
 					<div class="row">
-						<a href="../shop.jsp"> 
-							<div class="button-2">
+						<div class="button-2">
 							<div class="eff-2"></div>
-								<a href="../shop.jsp"> 더보기 
-							</div>
-						</a>
+							<a href="../shop.jsp"> 더보기 </a>
+						</div>
 					</div>
 			  </div>
 			  <div class="tab-pane" id="tab-5">
@@ -543,12 +558,10 @@ a {
 					</div>
 					
 					<div class="row">
-						<a href="../shop.jsp"> 
-							<div class="button-2">
+						<div class="button-2">
 							<div class="eff-2"></div>
-								<a href="../shop.jsp"> 더보기 
-							</div>
-						</a>
+							<a href="../shop.jsp"> 더보기 </a>
+						</div>
 					</div>
 			  </div>
 			</div>

@@ -34,4 +34,18 @@ public class Rank_AgeModel {
 		request.setAttribute("main_jsp", "../ranking/rank_age.jsp");
 		return "../main/main.jsp";
 	}
+	
+	@RequestMapping("ranking/rank_age_detail.hr")
+	public String rank_age_page_detail(HttpServletRequest request,HttpServletResponse response) {
+		List<ProductVO> product_10_age=new ArrayList<ProductVO>();
+		
+		String age_detail=request.getParameter("age_detail");
+		System.out.println("age_detail:"+age_detail);
+		
+		product_10_age=ProductDAO.product_10_age();
+		
+		request.setAttribute("product_10_age", product_10_age);
+		request.setAttribute("main_jsp", "../ranking/rank_age_detail.jsp");
+		return "../ranking/rank_age.jsp";
+	}
 }

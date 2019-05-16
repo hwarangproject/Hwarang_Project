@@ -243,8 +243,9 @@ $(function(){
 	<div class="container" id="print">
 		
 	</div>
+	
 	<div id="main">
-	<jsp:include page="${main_jsp }"></jsp:include>
+		<jsp:include page="${main_jsp }"></jsp:include>
 	</div>
 	
 <footer id="footer"><!--Footer-->

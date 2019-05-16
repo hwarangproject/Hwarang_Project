@@ -78,6 +78,5 @@ public class CartModel {
 		CartDAO.cartInsert(vo);
 
 		return "redirect:../main/main.hr";
-
 	}
 }
