@@ -54,9 +54,20 @@
     WHERE pouch_no = #{pouch_no}
   </select>
 
-  <!-- 즐찾 상품 리스트 총페이지 -->
+  <!-- 즐찾 댓글 리스트 총페이지 -->
   <select id="likeProductTotalPage" resultType="int" parameterType="int">
-    SELECT CEIL(COUNT(*) / 12.0) FROM product_jjim WHERE member_no = #{member_no}
+    SELECT CEIL(COUNT(*)/7.0) FROM product_reply WHERE member_no = #{member_no}
+  </select>
+  
+  <!-- 즐찾 댓글 페이지 나누기 -->
+  <select id="prodReplyPageDivision" resultType="Product_replyVO" parameterType="java.util.Map">
+    SELECT product_no, reply_content, product_img, product_rate, reply_regdate, product_name, member_no, num
+	FROM (SELECT product_no, reply_content, product_img, product_rate, reply_regdate, product_name, member_no, rownum as num
+	FROM (SELECT a.product_name, a.product_img, product_no, b.reply_content, b.reply_regdate, b.product_rate , member_no
+	      FROM product a NATURAL JOIN product_reply b  
+	      WHERE member_no = #{member_no}
+	      ORDER BY reply_regdate DESC))
+	WHERE num BETWEEN #{start} AND #{end}
   </select>
   
   

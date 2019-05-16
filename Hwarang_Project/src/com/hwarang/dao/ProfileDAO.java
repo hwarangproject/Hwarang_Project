@@ -230,23 +230,41 @@ public class ProfileDAO {
 	}
 	
 	// ¡Ò√£ ªÛ«∞ √—∆‰¿Ã¡ˆ
-	public static int likeProductTotalPage(int mno){
-		int total = 0;
-		SqlSession session = null;
-		
-		try {
-			session = ssf.openSession();
-			total = session.selectOne("likeProductTotalPage");
+		public static int likeProductTotalPage(int mno){
+			int total = 0;
+			SqlSession session = null;
 			
-		} catch (Exception ex) {
-			ex.printStackTrace();
-			
-		} finally {
-			if (session != null){
-			    session.close();
+			try {
+				session = ssf.openSession();
+				total = session.selectOne("likeProductTotalPage",mno);
+				
+			} catch (Exception ex) {
+				ex.printStackTrace();
+				
+			} finally {
+				if (session != null){
+				    session.close();
+				}
 			}
+			return total;
 		}
-		return total;
-	}
+		public static List<Product_replyVO> prodReplyPageDivision(Map map){
+			List<Product_replyVO> prList = new ArrayList<Product_replyVO>();
+			
+			SqlSession session = null;
+			try {
+				session = ssf.openSession();
+				prList = session.selectList("prodReplyPageDivision", map);
+				
+			} catch (Exception ex) {
+				ex.printStackTrace();
+				
+			} finally {
+				if (session != null){
+				    session.close();
+				}
+			}
+			return prList;
+		}
 	
 }

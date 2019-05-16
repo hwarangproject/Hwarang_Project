@@ -935,9 +935,14 @@ select option {
 									      </a>
 									    </li>
 									    <li>
-									      <a href='../pouch/pouch_detail.hr'>
-									        MY POUCH
-									      </a>
+									      <c:choose>
+											  <c:when test = '${vo.pouch_no == 0}'>
+											    <a href='profile_pouch.hr'>MY POUCH</a>
+											  </c:when>
+											  <c:otherwise>
+											    <a href='../pouch/pouch_detail.hr?pouch_no=${vo.pouch_no }'>MY POUCH</a>
+											  </c:otherwise>
+									      </c:choose>	
 									    </li>									    
 									    <div class='marker'></div>
 									  </ul>

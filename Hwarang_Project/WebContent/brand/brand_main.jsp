@@ -83,6 +83,16 @@ padding-top:10px;
 background-color: #ffeae8;
 }
 
+a {
+	color: #363432;
+	text-decoration: none
+}
+
+a:hover, a:focus {
+	color: #f98585;
+	text-decoration: underline
+}
+
 </style>
 </head>
 <body>

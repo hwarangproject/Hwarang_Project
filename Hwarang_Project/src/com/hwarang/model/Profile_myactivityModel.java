@@ -8,8 +8,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.hwarang.controller.RequestMapping;
-import com.hwarang.dao.ProfileDAO;
+import com.hwarang.dao.*;
 import com.hwarang.vo.*;
+
 
 public class Profile_myactivityModel {
 	@RequestMapping("profile/profile_myactivity.hr")
@@ -50,6 +51,45 @@ public class Profile_myactivityModel {
 			}
 
 		}
+		
+		// 페이지 나누기  /page=1
+		String page=request.getParameter("page");
+		  if(page == null){
+			  page = "1";
+		  }
+		  
+		  int curpage = Integer.parseInt(page);
+		  Map map = new HashMap();
+		  int rowSize = 7;
+		  int start = (curpage * rowSize) - (rowSize - 1);//1 8
+		  int end = curpage * rowSize;//7 14
+		  
+		  map.put("member_no", mno);
+		  map.put("start", start);
+		  map.put("end", end);
+		  
+		  List<Product_replyVO> pprList = ProfileDAO.prodReplyPageDivision(map);
+		  int totalpage = ProfileDAO.likeProductTotalPage(mno);
+		  
+		  final int BLOCK = 5;
+		  int startPage = ((curpage - 1) / BLOCK * BLOCK) + 1;
+		  int endPage = ((curpage - 1) / BLOCK * BLOCK) + BLOCK;
+		  int allPage = totalpage;
+		  if(endPage > allPage){
+			  endPage = allPage; 
+		  }
+		
+		// 현재페이지,총페이지,List
+		request.setAttribute("curpage", curpage);
+	    request.setAttribute("totalpage", totalpage);
+		request.setAttribute("pprList", pprList);
+		  
+		// 블럭별 출력하기
+		request.setAttribute("BLOCK", BLOCK);
+		request.setAttribute("startPage", startPage);
+		request.setAttribute("endPage", endPage);
+		request.setAttribute("allPage", allPage);
+		  
 		request.setAttribute("cookieList", cookielist);
 		request.setAttribute("pList", pList);
 		request.setAttribute("prList", prList);

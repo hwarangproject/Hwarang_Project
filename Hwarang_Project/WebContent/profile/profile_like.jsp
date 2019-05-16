@@ -44,7 +44,14 @@
 
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
+$(function(){
+	$('#marginForHover').hover(function() {
+		  $(this).css("background-color", "#ffb9b996");
+		});
 	
+
+});
+
 </script>
 
 
@@ -464,6 +471,13 @@ label[for="new-task"] {
     text-transform: uppercase;
     text-decoration: none;
   }
+  .choose ul li a {
+    color: #B3AFA8;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    padding-left: 75px;
+    padding-right: 0;
+}
   
   /* title */
 
@@ -559,7 +573,7 @@ label[for="new-task"] {
   height: 17px;
   width: 17px;
   background: #D4F618;
-  border-radius: 100%;
+  border-radius: 5%;
   bottom: 15px;
   right: 0;
 }
@@ -701,6 +715,28 @@ img.content-image{
   margin-bottom: 0.5em;
   text-transform: uppercase;
 }
+
+#prod_container{
+  width: 168px;
+  height: 257px;
+}
+
+#prod_name{
+  width: 200px;
+  height: 330px;
+}
+
+#marginForHover{
+  padding: 15px;
+}
+
+/* #marginForHover a:hover{
+  padding: 15px;
+  background-color: #4a556866;
+  color: #fff;
+} */
+
+
 </style>
 
 
@@ -760,9 +796,14 @@ img.content-image{
 									      </a>
 									    </li>
 									    <li>
-									      <a href='../pouch/pouch_detail.hr'>
-									        MY POUCH
-									      </a>
+									     <c:choose>
+											  <c:when test = '${vo.pouch_no == 0}'>
+											    <a href='profile_pouch.hr'>MY POUCH</a>
+											  </c:when>
+											  <c:otherwise>
+											    <a href='../pouch/pouch_detail.hr?pouch_no=${vo.pouch_no }'>MY POUCH</a>
+											  </c:otherwise>
+									      </c:choose>	
 									    </li>									    
 									    <div class='marker'></div>
 									  </ul>
@@ -776,14 +817,15 @@ img.content-image{
 						<h3>PRODUCT</h3><br><br>
 						 
 						  <c:forEach var="pvo" items="${pvoList }">
-							<div class="col-sm-2">
+							<div class="col-sm-2" id="prod_name">
 								<div class="product-image-wrapper">	
 									<div class="single-products">
-										<div class="productinfo text-center">
+										<div class="productinfo text-center" id="prod_container">
 										
 											<a href="../product/product_detail.hr">
-											<img src="${pvo.product_img }" alt="" width=280.8px height=280.8px/>
-											<h5>${pvo.brand } / ${pvo.product_name }</h5>
+											<img src="${pvo.product_img }" alt="" width=200px height=200px/>
+											<h5>${pvo.brand }</h5><br/>
+											<h5><b>${pvo.product_name }</b></h5>
 											</a>
 											<p>${pvo.price }</p>		
 										</div>
@@ -817,14 +859,14 @@ img.content-image{
 						  <h3>POUCH</h3>
 						  <div class="app-container">
 							  <div class="app-content">
-							    <div class="friends-container">
+							    <div class="friends-container" id="marginForHover">
 							     <c:forEach var="povo" items="${povoList}" varStatus="s">
-							      <article class="profile profile--padding">
-							        <div class="profile__img"><img src="${mList[s.index].profile_img }"/>
+							      <article class="profile profile--padding" id="marginForHover">
+							        <div class="profile__img"><img src="${povo.pouch_img }" style="width:90px; height:90px"/>
 							        </div>
 							        <div class="profile__info profile__info--bordered">
-							          <h3 class="profile__info__name">${povo.pouch_score }</h3>
-							          <p class="profile__info__contact">${povo.pouch_like }</p>
+							          <h3 class="profile__info__name">${mList[s.index].nickname }</h3><h6><b>${pouch_score }</b></h6>
+							          <p class="profile__info__contact">${mList[s.index].email }</p>
 							        </div>
 							      </article>
 							     </c:forEach>
@@ -834,7 +876,7 @@ img.content-image{
 						</section>
 						
 						<br><br>
-						<section>
+						<%-- <section>
 						  <h3>BRAND</h3>
 						    <div class="col-sm-3">
 								<div class="content1">
@@ -848,7 +890,7 @@ img.content-image{
 									</a>
 								</div>
 							</div>
-						</section>
+						</section> --%>
 						
 					</div>
 				</div>

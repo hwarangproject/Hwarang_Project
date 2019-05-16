@@ -13,7 +13,7 @@ REPLY_NO               NUMBER
  */
 public class Product_replyVO {
 	private String reply_content;
-	private Date regdate;
+	private Date reply_regdate;
 	private int product_rate;
 	private int product_no;
 	private int member_no;
@@ -24,11 +24,28 @@ public class Product_replyVO {
 	private String sex;
 	private String skin_type;
 	private String age_group;
+	private String product_name;
+	private String product_img;
+	
 	//È®ÀÎ¿ë
 	private int member_no2;
 	
 	
 	
+	
+	
+	public String getProduct_name() {
+		return product_name;
+	}
+	public void setProduct_name(String product_name) {
+		this.product_name = product_name;
+	}
+	public String getProduct_img() {
+		return product_img;
+	}
+	public void setProduct_img(String product_img) {
+		this.product_img = product_img;
+	}
 	public int getMember_no2() {
 		return member_no2;
 	}
@@ -71,11 +88,11 @@ public class Product_replyVO {
 	public void setReply_content(String reply_content) {
 		this.reply_content = reply_content;
 	}
-	public Date getRegdate() {
-		return regdate;
+	public Date getReply_regdate() {
+		return reply_regdate;
 	}
-	public void setRegdate(Date regdate) {
-		this.regdate = regdate;
+	public void setReply_regdate(Date reply_regdate) {
+		this.reply_regdate = reply_regdate;
 	}
 	public int getProduct_rate() {
 		return product_rate;

@@ -17,26 +17,32 @@
 
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
-	new Vue({
-		el : "#app",
-		data : function() {
-			var tabs = [];
-			for (var i = 50; i > 20; --i) {
-				tabs.push("https://picsum.photos/300/300?image=" + i);
-			}
-			return {
-				tabs : tabs
-			};
-		},
-		mounted : function() {
-			ScrollOut({
-				scrollingElement : ".flow",
-				targets : ".item"
-			});
-		}
-	});
 
+/* $(function() {
+	  $(".expand").on( "click", function() {
+	    $(this).next().slideToggle(100);
+	    $(".expand") = $(this).find(">:first-child");
+	    
+	    if($(".expand").text() == "+") {
+	    	$(".expand").text("-");
+	    } else {
+	    	$(".expand").text("+");
+	    }
+	  });
+	}); */
 
+/* $(function() {
+	  $(".expand").on( "click", function() {
+	    $(this).next().slideToggle(100);
+	    $expand = $(this).find(">:first-child");
+	    
+	    if($expand.text() == "+") {
+	      $expand.text("-");
+	    } else {
+	      $expand.text("+");
+	    }
+	  });
+	}); */
 </script>
 <style type="text/css">
 
@@ -438,16 +444,6 @@ section.section2 {
 	background: #efefef;
 }
 
-.button1 {
-	padding: 8px 12px;
-	font-size: 14px;
-	background: #ccc;
-	display: block:
-  width: 200px;
-	border-radius: 3px;
-	cursor: pointer;
-}
-
 .expand {
 	display: block;
 	text-decoration: none;
@@ -487,17 +483,6 @@ span {
 	margin: 0 15px 0 0;
 }
 
-.london {
-	background: url("http://placehold.it/50x50") top left no-repeat;
-}
-
-.newyork {
-	background: url("http://placehold.it/50x50") top left no-repeat;
-}
-
-.paris {
-	background: url("http://placehold.it/50x50") top left no-repeat;
-}
 /* 내 활동 끝 */
 
 /* 최근본 상품 */
@@ -545,6 +530,42 @@ span {
 [data-scroll="in"] {
 	opacity: 1;
 	transform: translateY(0px) scale(1);
+}
+
+/*  pagination  */
+.pagination{
+  padding: 20px 400px;
+}
+
+.pagination ul{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.pagination a{
+  display: inline-block;
+  padding: 10px 18px;
+  color: #222;
+}
+.p1 a{
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  padding: 0;
+  text-align: center;
+}
+
+.p1 a:hover{
+  background-color: #ffb9b99e;
+  border-radius: 100%;
+  color: #fff;
+}
+
+.p1 a.is-active{
+  background-color: #ffb9b9;
+  border-radius: 100%;
+  color: #fff;
 }
 
 </style>
@@ -614,7 +635,7 @@ span {
 									      MY POUCH
 									      </a> --%>
 									      <c:choose>
-											  <c:when test = '${vo.pouch_no==0}'>
+											  <c:when test = '${vo.pouch_no == 0}'>
 											    <a href='profile_pouch.hr'>MY POUCH</a>
 											  </c:when>
 											  <c:otherwise>
@@ -638,31 +659,55 @@ span {
 										<h3>내가 쓴 리뷰</h3>
 										
 										<div id="item-list">
-											<c:forEach var="pvo" items="${pList }" varStatus="s">
+											<c:forEach var="pvo" items="${pprList }" >
 											<ul>
 											  	<li>
 													<a class="expand">
 														<div class="right-arrow">+</div>
 														<div class="icon london"><img src="${pvo.product_img }"></div>
-														<a href="../product/product_detail.hr?pno=${prList[s.index].product_no }"><h2>${pvo.product_name }</h2></a> 
-														<span>${prList[s.index].reply_content }</span>
+														<a href="../product/product_detail.hr?pno=${pvo.product_no }"><h2>${pvo.product_name }</h2></a> 
+														<span>${pvo.reply_content }</span>
 													</a>
 
-													<!-- <div class="detail">
+													 <div class="detail">
 														<div>
-															<span>Duis autem vel eum iriure dolor in hendrerit
-																in vulputate velit esse molestie consequat, vel illum
-																dolore eu feugiat nulla facilisis at vero eros et
-																accumsan et iusto odio dignissim qui blandit praesent
-																luptatum zzril delenit augue duis dolore te feugait
-																nulla facilisi.</span>
+															<span>${pvo.reply_content }</span>
 														</div>
-														<br /> <span class="button">Connect</span>
-													</div> -->
-											  </li>										
+														
+													</div> 
+											  </li>	
+																			
 											</ul>
 											</c:forEach>
-										</div>										
+										</div>
+										<section>						 
+										  <div class="pagination p1">
+										      <ul class="pagination">
+										        <c:if test="${curpage > BLOCK }">
+								                    <li>
+								                      <a href="../profile/profile_myactivity.hr?page=${startPage-1 }"><</a>
+								                    </li>   
+								                </c:if> 
+								                <c:forEach var="i" begin="${startPage }" end="${endPage }">
+								                    <li>
+								                      <a href="../profile/profile_myactivity.hr?page=${i }">${i }</a>
+								                    </li>
+								                </c:forEach>
+										        <c:if test="${endPage < allPage }">
+							                      <li>
+								                      <a href="../profile/profile_myactivity.hr?page=${endPage + 1 }">></a>
+								                  </li>  
+							                    </c:if>
+										       <!--  <a class="is-active" href="#"><li>1</li></a>
+										        <a href="#"><li>2</li></a>
+										        <a href="#"><li>3</li></a>
+										        <a href="#"><li>4</li></a>
+										        <a href="#"><li>5</li></a>
+										        <a href="#"><li>6</li></a>
+										        <a href="#"><li>></li></a> -->
+										      </ul>
+										    </div>					    
+										</section>										
 									</div>
 									<div>
 										<h3></h3>
