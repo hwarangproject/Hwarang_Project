@@ -482,8 +482,8 @@ body {
 	border: 1px solid #F7F7F0;
 }
 
-h2{
-color: #FB4C22;
+h2 {
+	color: #FB4C22;
 }
 </style>
 
@@ -724,6 +724,7 @@ color: #FB4C22;
 	<!--/product-details-->
 	<div class="container">
 		<div class="category-tab shop-details-tab">
+
 			<!--category-tab-->
 			<div class="col-sm-12">
 				<ul class="nav nav-tabs">
@@ -733,68 +734,95 @@ color: #FB4C22;
 			<div class="tab-content">
 				<div class="tab-pane fade active in" id="reviews">
 					<table>
-						<div class="col-sm-12">
-							<div class="a">
-								<ul>
-									<li><a href=""><img
-											src="../images/product-details/kira.png" width=30 height=30
-											class="img-circle"></img>&nbsp;&nbsp;회원 ID</a></li>
-									<li><a href=""></i>성별:남자 / 피부타입:건성 / 연령대:20대 / 별점:3</a></li>
-								</ul>
-								<p>제품에 쓰여진 대로 솜에 잔뜩 묻혀서 부드럽게 닦아내주면 정말 개운한 느낌이 들어요 꽤 민감한 편인데
-									필링토너라해서 자극적이거나 그러지 않았구요 외출 후 집에 돌아오자마자 얼굴에 쌓인 먼지닦아낼 때나 아침에 세수하기
-									귀찮을 때 닦아내기 좋더라구요</p>
-							</div>
-						</div>
-
-						<div class="col-sm-12">
-							<div class="a">
-								<ul>
-									<li><a href=""><img
-											src="../images/product-details/kiragf.jpg" width=30 height=30
-											class="img-circle"></img>&nbsp;&nbsp;회원 ID</a></li>
-									<li><a href=""></i>성별:여자 / 피부타입:지성 / 연령대:30대 / 별점:4</a></li>
-								</ul>
-								<p>케이스가 일단 예뻐요! 자석이라 편하기도하구요 베러립스톡,베러립스톡 둘다 써봤는데 둘다 색이넘이뻐여
-									특히 땡큐땡모반이랑 무드업, 빈티지웨이 컬러가 예뻐서 매장에서 테스트하고 세개 사왔어요 :) 빈티지웨이는 집에있는
-									맥 씨쉬어랑 거의 존똑이더라구요 살짝 톤다운된 피치컬러라 데일리로 바르기 좋은컬러에요</p>
-							</div>
-						</div>
-
-
-						<div class="col-sm-12">
-							<p>
-								<b>Write Your Review</b>
-							</p>
-							<form action="#">
-								<textarea name="" id="r_content"></textarea>
-
-								<!-- 평점주기 -->
-								<div>
-									<span class="star-input"> <span class="input"> <input
-											type="radio" name="star-input" value="1" id="p1"> <label
-											for="p1">1</label> <input type="radio" name="star-input"
-											value="2" id="p2"> <label for="p2">2</label> <input
-											type="radio" name="star-input" value="3" id="p3"> <label
-											for="p3">3</label> <input type="radio" name="star-input"
-											value="4" id="p4"> <label for="p4">4</label> <input
-											type="radio" name="star-input" value="5" id="p5"> <label
-											for="p5">5</label>
-									</span> <!-- <output for="star-input"><b>0</b>점</output> -->
-									</span>
-
-									<button type="button" class="btn btn-default pull-right">
-										Submit</button>
-								</div>
-							</form>
-						</div>
-					</table>
-				</div>
-
-			</div>
-		</div>
-	</div>
-	<!--/category-tab-->
+						<c:forEach var="revo" items="${reList }">
+                        	<c:if test="${sessionScope.id == revo.id }"> <!-- 아이디 같을때 수정, 삭제 -->
+	                          <div class="col-sm-12">
+		                          <div class="a before" id="b ${revo.pouch_reply_no }">
+		                           <ul>
+		                              <li><a href=""><img src="${revo.profile_img }" width=30 height=30 class="img-circle"></img>&nbsp;&nbsp;${revo.id }</a></li>
+		                              <li><a href=""></i>성별:${revo.sex} / 피부타입:${revo.skin_type} / 연령대:${revo.age_group}대 / 별점:${revo.pouch_rate }</a></li>
+		                              <li class="text-right">				              
+						                <a href="#" class="btn btn-xs btn-success rupdateBtn" id="${revo.pouch_reply_no}">수정</a>
+						                <a href="../pouch/pouch_reply_delete.hr?pouch_reply_no=${revo.pouch_reply_no }&pouch_no=${vo.pouch_no }" class="btn btn-xs btn-danger" >삭제</a>
+                     	              </li>
+		                           </ul>
+		                           <p>${revo.content}</p>
+		                           <input type="hidden" name="rno" value="${revo.pouch_reply_no }">
+		                          </div>
+		                          <div class="a after" id="a${revo.pouch_reply_no }" class="rupdate" style="display:none">
+		                           <form method="post" action="../pouch/pouch_reply_update.hr">
+		                           <ul>
+		                              <li><a href=""><img src="${revo.profile_img }" width=30 height=30 class="img-circle"></img>&nbsp;&nbsp;${revo.id }</a></li>
+		                              <li><a href=""></i>성별:${revo.sex} / 피부타입:${revo.skin_type} / 연령대:${revo.age_group}대 / 별점:${revo.pouch_rate }</a></li>
+		                              <li class="text-right">	
+		                               
+		                                <input type="submit" value="수정">			              
+						                <a href="#" class="btn btn-xs btn-success">취소</a>
+						                <input type="hidden" name="pouch_reply_no" value="${revo.pouch_reply_no }">
+						                <input type="hidden" name="pouch_no" value="${vo.pouch_no }">
+                     	              </li>                    	              
+		                           </ul>
+		                           <textarea name="content">${revo.content}</textarea>
+		                           </form>
+		                          </div>
+		                         
+	                          </div>
+	                        </c:if>
+	                        <c:if test="${sessionScope.id != revo.id }"> 
+	                          <div class="col-sm-12">
+		                          <div class="a">
+		                           <ul>
+		                              <li><a href=""><img src="${revo.profile_img }" width=30 height=30 class="img-circle"></img>&nbsp;&nbsp;${revo.id }</a></li>
+		                              <li><a href=""></i>성별:${revo.sex} / 피부타입:${revo.skin_type} / 연령대:${revo.age_group}대 / 별점:${revo.pouch_rate }</a></li>
+		                           </ul>
+		                           <p>${revo.content}</p>
+		                           <input type="hidden" name="rno" value="${revo.pouch_reply_no }">
+		                          </div>
+	                          </div>            
+	                        </c:if> 
+                        </c:forEach>
+                      <div class="col-sm-12">
+                           <p><b>Write Your Review</b></p>
+                          <c:if test="${sessionScope.id != null }">
+                           <form method="post" action="../pouch/pouch_reply_insert.hr">
+                              <textarea name="content" ></textarea>
+                              <input type="hidden" name="pno" value="${vo.pouch_no}">
+                           
+                              <!-- 평점주기 -->
+                            <span class="star-input"> 
+							  <span class="input">
+    							<input type="radio" name="star-input" value="1" id="p1">
+    							<label for="p1">1</label>
+    							<input type="radio" name="star-input" value="2" id="p2">
+    							<label for="p2">2</label>
+    							<input type="radio" name="star-input" value="3" id="p3">
+    							<label for="p3">3</label>
+    							<input type="radio" name="star-input" value="4" id="p4">
+    							<label for="p4">4</label>
+    							<input type="radio" name="star-input" value="5" id="p5">
+    							<label for="p5">5</label>
+  							  </span>
+  							  <input type="hidden" id="pouch_rate" name="pouch_rate" value="5">
+  							  <!-- <output for="star-input"><b>0</b>점</output> -->
+							</span>
+							
+                              <button type="submit" class="btn btn-default pull-right">
+                                 Submit
+                              </button>
+                            </form> 
+                          </c:if>
+                          <c:if test="${sessionScope.id == null }">
+                           
+                              <textarea name="content2" >
+                                                             로그인이 필요합니다
+                              </textarea>
+                              
+                          </c:if>
+                        </div>
+                     </div>
+                     
+                  </div>
+               </div><!--/category-tab-->
 
 
 	<div class="recommended_items">
