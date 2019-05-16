@@ -304,7 +304,6 @@ section.section2 {
 		font-size: 18px;
 	}
 }
-
 /* 네비게이션 메뉴바 */
 .header-nav {
   position: relative;

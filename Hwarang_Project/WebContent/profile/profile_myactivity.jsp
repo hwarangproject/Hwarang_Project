@@ -569,8 +569,6 @@ span {
 }
 
 </style>
-
-
 </head>
 <body class="font-sans">
 	<div>

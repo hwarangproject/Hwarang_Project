@@ -53,8 +53,6 @@ $(function(){
 });
 
 </script>
-
-
 <style type="text/css">
 
 body {

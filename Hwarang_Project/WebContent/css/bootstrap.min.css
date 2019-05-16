@@ -280,6 +280,7 @@ a {
 }
 
 a:hover, a:focus {
+	
 	color: #f97979;
 	text-decoration: underline
 }
