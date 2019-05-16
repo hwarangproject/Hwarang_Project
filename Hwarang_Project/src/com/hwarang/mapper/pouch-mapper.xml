@@ -40,49 +40,51 @@
 	 	AND upper(${fs}) LIKE '%'||upper(#{ss})||'%'
 	</select>
 	
-	<!-- /////////////////////////////////////파우치 댓글 -->
+	<!-- 상품 댓글 -->
 	<select id="pouchReplyListData" resultType="Pouch_ReplyVO" parameterType="int">
      SELECT a.*, b.profile_img, b.id, b.sex, b.skin_type, b.age_group  
      FROM pouch_reply a, member b
      WHERE a.member_no = b.member_no
-     AND pouch_no = #{pouch_no}
+     AND a.pouch_no = #{pouch_no}
      ORDER BY a.regdate 
     </select>
-    
 	<insert id="pouchReplyInsert" parameterType="Pouch_ReplyVO">
      INSERT INTO pouch_reply VALUES(
-       #{pouch_reply_no},
+       (SELECT NVL(MAX(pouch_reply_no)+1,1) FROM pouch_reply WHERE member_no = #{member_no}),
        #{pouch_no},
        #{content},
        SYSDATE,
-       #{member_no},
-       #{pouch_rate},
-       (SELECT NVL(MAX(reply_cnt)+1,1) FROM pouch_reply WHERE member_no = #{member_no})
+       #{member_no2},
+       #{pouch_rate}
      )
    </insert>
-   
    <update id="pouchReplyCntIncrement" parameterType="int">
      UPDATE pouch
      SET review_cnt = review_cnt + 1
      WHERE pouch_no = #{pouch_no}
    </update>
-   
    <update id="pouchReplyCntDecrement" parameterType="int">
      UPDATE pouch
      SET review_cnt = review_cnt - 1
      WHERE pouch_no = #{pouch_no}
    </update>
-   
    <update id="pouchReplyUpdate" parameterType="Pouch_ReplyVO">
      UPDATE pouch_reply SET
      content = #{content}
      WHERE member_no = #{member_no} AND pouch_reply_no = #{pouch_reply_no}
    </update>
-   
    <delete id="pouchReplyDelete" parameterType="Pouch_ReplyVO">
     DELETE FROM pouch_reply
     WHERE member_no = #{member_no} AND pouch_reply_no = #{pouch_reply_no}
    </delete>
+<!-- 
+POUCH_REPLY_NO NOT NULL NUMBER 
+POUCH_NO       NOT NULL NUMBER 
+CONTENT        NOT NULL CLOB   
+REGDATE                 DATE   
+MEMBER_NO               NUMBER 
+POUCH_RATE              NUMBER 
+ -->
 	
 
 </mapper>

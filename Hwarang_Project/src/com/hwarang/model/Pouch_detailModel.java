@@ -30,6 +30,8 @@ public class Pouch_detailModel {
 	
 			List<PouchVO> pList = new ArrayList<PouchVO>();
 			List<Pouch_ReplyVO> reList=new ArrayList<Pouch_ReplyVO>();
+			List<Pouch_ReplyVO> prList = PouchDAO.pouchReplyListData(Integer.parseInt(pouch_no));
+			request.setAttribute("prList", prList);
 			// JSP전송
 			request.setAttribute("vo", vo);
 			request.setAttribute("pList", pList);
@@ -41,81 +43,71 @@ public class Pouch_detailModel {
 
 		return "../main/main.jsp";
 	}
-	////////////////////////////////////////////////댓글
-	@RequestMapping("pouch/pouch_reply_insert.hr")
-	public String pouch_reply_insert(HttpServletRequest request, HttpServletResponse response) {
-		HttpSession session = request.getSession();
-		String id = (String)session.getAttribute("id");
-		MemberVO mvo = ProfileDAO.getMemberData(id);
-		String pouch_no = request.getParameter("pouch_no");
-		String content = request.getParameter("content");
-		String pouch_rate = request.getParameter("pouch_rate");
-		String pouch_reply_no=request.getParameter("pouch_reply_no");
-		
-		// DAO로 데이터 전송
-		Pouch_ReplyVO revo = new Pouch_ReplyVO();
-		revo.setContent(content);
-		revo.setPouch_rate(Integer.parseInt(pouch_rate));
-		revo.setPouch_no(Integer.parseInt(pouch_no));
-		revo.setMember_no(mvo.getMember_no());
-		revo.setPouch_reply_no(Integer.parseInt(pouch_reply_no));
-		PouchDAO.pouchReplyInsert(revo);
-		try {
-			request.setCharacterEncoding("UTF-8");
-		} catch (Exception e) {
-			
-			
-			System.out.println("aaaa:"+pouch_reply_no);
-			System.out.println("bbbb"+pouch_rate);
+	// 댓글
+		@RequestMapping("pouch/pouch_reply_insert.hr")
+		public String pouch_reply_insert(HttpServletRequest request, HttpServletResponse response) {
+			try {
+				request.setCharacterEncoding("UTF-8");
+			} catch (Exception ex) {
+			}
+
+			HttpSession session = request.getSession();
+			String id = (String) session.getAttribute("id");
+			MemberVO mvo = ProfileDAO.getMemberData(id);
+			String pouch_no = request.getParameter("pouch_no");
+			String content = request.getParameter("content");
+			String pouch_rate = request.getParameter("pouch_rate");
+
+			// DAO로 데이터 전송
+			Pouch_ReplyVO prvo = new Pouch_ReplyVO();
+			prvo.setContent(content);
+			prvo.setPouch_rate(Integer.parseInt(pouch_rate));
+			prvo.setPouch_no(Integer.parseInt(pouch_no));
+			prvo.setMember_no(mvo.getMember_no());
+			prvo.setMember_no2(mvo.getMember_no());
+			PouchDAO.pouchReplyInsert(prvo);
+
+			request.setAttribute("main_jsp", "../pouch/pouch_detail.jsp");
+
+			return "redirect:../pouch/pouch_detail.hr?pouch_no=" + pouch_no;
 		}
 
-		
-		
-		
-		
-		//request.setAttribute("revo", revo);
+		@RequestMapping("pouch/pouch_reply_delete.hr")
+		public String pouch_reply_delete(HttpServletRequest request, HttpServletResponse response) {
+			HttpSession session = request.getSession();
+			String id = (String) session.getAttribute("id");
+			String pouch_reply_no = request.getParameter("pouch_reply_no");
+			MemberVO mvo = ProfileDAO.getMemberData(id);
+			String pouch_no = request.getParameter("pouch_no");
 
-		//request.setAttribute("main_jsp", "../pouch/pouch_detail.jsp");
+			Pouch_ReplyVO prvo = new Pouch_ReplyVO();
+			prvo.setMember_no(mvo.getMember_no());
+			prvo.setPouch_reply_no(Integer.parseInt(pouch_reply_no));
+			PouchDAO.pouchReplyDelete(prvo);
 
-		return "redirect:../pouch/pouch_detail.hr?pouch_no=" + pouch_no;
-	}
-
-	@RequestMapping("pouch/poucht_reply_delete.hr")
-	public String poucht_reply_delete(HttpServletRequest request, HttpServletResponse response) {
-		HttpSession session = request.getSession();
-		String id = (String) session.getAttribute("id");
-		String pouch_reply_no = request.getParameter("pouch_reply_no");
-		MemberVO mvo = ProfileDAO.getMemberData(id);
-		String pouch_no = request.getParameter("pouch_no");
-
-		Pouch_ReplyVO revo = new Pouch_ReplyVO();
-		revo.setMember_no(mvo.getMember_no());
-		revo.setPouch_reply_no(Integer.parseInt(pouch_reply_no));
-		PouchDAO.pouchReplyDelete(revo);
-
-		return "redirect:../pouch/pouch_detail.hr?pouch_no=" + pouch_no;
-	}
-
-	@RequestMapping("pouch/pouch_reply_update.hr")
-	public String pouch_reply_update(HttpServletRequest request, HttpServletResponse response) {
-		try {
-			request.setCharacterEncoding("UTF-8");
-		} catch (Exception ex) {
+			return "redirect:../pouch/pouch_detail.hr?pouch_no=" + pouch_no;
 		}
 
-		HttpSession session = request.getSession();
-		String id = (String) session.getAttribute("id");
-		String pouch_no = request.getParameter("pouch_no");
-		String content = request.getParameter("content");
-		String pouch_reply_no = request.getParameter("pouch_reply_no");
-		MemberVO mvo = ProfileDAO.getMemberData(id);
+		@RequestMapping("pouch/pouch_reply_update.hr")
+		public String pouch_reply_update(HttpServletRequest request, HttpServletResponse response) {
+			try {
+				request.setCharacterEncoding("UTF-8");
+			} catch (Exception ex) {
+			}
 
-		Pouch_ReplyVO revo = new Pouch_ReplyVO();
-		revo.setMember_no(mvo.getMember_no());
-		revo.setPouch_reply_no(Integer.parseInt(pouch_reply_no));
-		revo.setContent(content);
-		PouchDAO.pouchReplyUpdate(revo);
+			HttpSession session = request.getSession();
+			String id = (String) session.getAttribute("id");
+			String pouch_no = request.getParameter("pouch_no");
+			String content = request.getParameter("content");
+			String pouch_reply_no = request.getParameter("pouch_reply_no");
+			MemberVO mvo = ProfileDAO.getMemberData(id);
 
-		return "redirect:../pouch/pouch_detail.hr?pouch_no=" + pouch_no;
-	}
+			Pouch_ReplyVO prvo = new Pouch_ReplyVO();
+			prvo.setMember_no(mvo.getMember_no());
+			prvo.setPouch_reply_no(Integer.parseInt(pouch_reply_no));
+			prvo.setContent(content);
+			PouchDAO.pouchReplyUpdate(prvo);
+
+			return "redirect:../pouch/pouch_detail.hr?pouch_no=" + pouch_no;
+		}
 }

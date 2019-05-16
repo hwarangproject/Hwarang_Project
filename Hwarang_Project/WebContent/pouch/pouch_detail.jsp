@@ -38,6 +38,24 @@
 <script src="../js/main.js"></script>
 <script src="../js/jquery-1.11.3.min.js"></script>
 <script src="../js/star.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('input[name="star-input"]').click(function() {
+        var value = $(this).val();
+     	$('#pouch_rate').attr('value',value);
+    });
+	
+	$('.rupdateBtn').click(function(){
+	      
+	      var rno=$(this).attr("id");
+	      $('#b'+rno).hide();
+	      $('#a'+rno).show();
+
+	   });
+});
+</script>
+
 
 <style type="text/css">
 #pag {
@@ -724,7 +742,6 @@ h2 {
 	<!--/product-details-->
 	<div class="container">
 		<div class="category-tab shop-details-tab">
-
 			<!--category-tab-->
 			<div class="col-sm-12">
 				<ul class="nav nav-tabs">
@@ -733,96 +750,108 @@ h2 {
 			</div>
 			<div class="tab-content">
 				<div class="tab-pane fade active in" id="reviews">
-					<table>
-						<c:forEach var="revo" items="${reList }">
-                        	<c:if test="${sessionScope.id == revo.id }"> <!-- 아이디 같을때 수정, 삭제 -->
-	                          <div class="col-sm-12">
-		                          <div class="a before" id="b ${revo.pouch_reply_no }">
-		                           <ul>
-		                              <li><a href=""><img src="${revo.profile_img }" width=30 height=30 class="img-circle"></img>&nbsp;&nbsp;${revo.id }</a></li>
-		                              <li><a href=""></i>성별:${revo.sex} / 피부타입:${revo.skin_type} / 연령대:${revo.age_group}대 / 별점:${revo.pouch_rate }</a></li>
-		                              <li class="text-right">				              
-						                <a href="#" class="btn btn-xs btn-success rupdateBtn" id="${revo.pouch_reply_no}">수정</a>
-						                <a href="../pouch/pouch_reply_delete.hr?pouch_reply_no=${revo.pouch_reply_no }&pouch_no=${vo.pouch_no }" class="btn btn-xs btn-danger" >삭제</a>
-                     	              </li>
-		                           </ul>
-		                           <p>${revo.content}</p>
-		                           <input type="hidden" name="rno" value="${revo.pouch_reply_no }">
-		                          </div>
-		                          <div class="a after" id="a${revo.pouch_reply_no }" class="rupdate" style="display:none">
-		                           <form method="post" action="../pouch/pouch_reply_update.hr">
-		                           <ul>
-		                              <li><a href=""><img src="${revo.profile_img }" width=30 height=30 class="img-circle"></img>&nbsp;&nbsp;${revo.id }</a></li>
-		                              <li><a href=""></i>성별:${revo.sex} / 피부타입:${revo.skin_type} / 연령대:${revo.age_group}대 / 별점:${revo.pouch_rate }</a></li>
-		                              <li class="text-right">	
-		                               
-		                                <input type="submit" value="수정">			              
-						                <a href="#" class="btn btn-xs btn-success">취소</a>
-						                <input type="hidden" name="pouch_reply_no" value="${revo.pouch_reply_no }">
-						                <input type="hidden" name="pouch_no" value="${vo.pouch_no }">
-                     	              </li>                    	              
-		                           </ul>
-		                           <textarea name="content">${revo.content}</textarea>
-		                           </form>
-		                          </div>
-		                         
-	                          </div>
-	                        </c:if>
-	                        <c:if test="${sessionScope.id != revo.id }"> 
-	                          <div class="col-sm-12">
-		                          <div class="a">
-		                           <ul>
-		                              <li><a href=""><img src="${revo.profile_img }" width=30 height=30 class="img-circle"></img>&nbsp;&nbsp;${revo.id }</a></li>
-		                              <li><a href=""></i>성별:${revo.sex} / 피부타입:${revo.skin_type} / 연령대:${revo.age_group}대 / 별점:${revo.pouch_rate }</a></li>
-		                           </ul>
-		                           <p>${revo.content}</p>
-		                           <input type="hidden" name="rno" value="${revo.pouch_reply_no }">
-		                          </div>
-	                          </div>            
-	                        </c:if> 
-                        </c:forEach>
-                      <div class="col-sm-12">
-                           <p><b>Write Your Review</b></p>
-                          <c:if test="${sessionScope.id != null }">
-                           <form method="post" action="../pouch/pouch_reply_insert.hr">
-                              <textarea name="content" ></textarea>
-                              <input type="hidden" name="pno" value="${vo.pouch_no}">
-                           
-                              <!-- 평점주기 -->
-                            <span class="star-input"> 
-							  <span class="input">
-    							<input type="radio" name="star-input" value="1" id="p1">
-    							<label for="p1">1</label>
-    							<input type="radio" name="star-input" value="2" id="p2">
-    							<label for="p2">2</label>
-    							<input type="radio" name="star-input" value="3" id="p3">
-    							<label for="p3">3</label>
-    							<input type="radio" name="star-input" value="4" id="p4">
-    							<label for="p4">4</label>
-    							<input type="radio" name="star-input" value="5" id="p5">
-    							<label for="p5">5</label>
-  							  </span>
-  							  <input type="hidden" id="pouch_rate" name="pouch_rate" value="5">
-  							  <!-- <output for="star-input"><b>0</b>점</output> -->
-							</span>
-							
-                              <button type="submit" class="btn btn-default pull-right">
-                                 Submit
-                              </button>
-                            </form> 
-                          </c:if>
-                          <c:if test="${sessionScope.id == null }">
-                           
-                              <textarea name="content2" >
+					<c:forEach var="prvo" items="${prList }">
+						<c:if test="${sessionScope.id == prvo.id }">
+							<!-- 아이디 같을때 수정, 삭제 -->
+							<div class="col-sm-12">
+								<div class="a before" id="b${prvo.pouch_reply_no }">
+									<ul>
+										<li>
+											<a href=""><img src="${prvo.profile_img }" width=30 height=30 class="img-circle">
+												&nbsp;&nbsp;${prvo.id }
+											</a>
+										</li>
+										<li>
+											<a href="">
+												성별:${prvo.sex} / 피부타입:${prvo.skin_type} / 연령대:${prvo.age_group}대 / 별점:${prvo.pouch_rate }
+											</a>
+										</li>
+										<li class="text-right">
+										<a href="#" class="btn btn-xs btn-success rupdateBtn" id="${prvo.pouch_reply_no}">수정</a> 
+										<a href="../pouch/pouch_reply_delete.hr?pouch_reply_no=${prvo.pouch_reply_no }&pouch_no=${vo.pouch_no }" class="btn btn-xs btn-danger">삭제</a>
+										</li>
+									</ul>
+									<p>${prvo.content}</p>
+									<input type="hidden" name="pouch_reply_no" value="${prvo.pouch_reply_no }">
+								</div>
+								<div class="a after" id="a${prvo.pouch_reply_no }" class="rupdate"
+									style="display: none">
+									<form method="post" action="../pouch/pouch_reply_update.hr">
+										<ul>
+											<li><a href=""><img src="${prvo.profile_img }"
+													width=30 height=30 class="img-circle"></img>&nbsp;&nbsp;${prvo.id }</a></li>
+											<li><a href=""></i>성별:${prvo.sex} /
+													피부타입:${prvo.skin_type} / 연령대:${prvo.age_group}대 /
+													별점:${prvo.pouch_rate }</a></li>
+											<li class="text-right"><input type="submit" value="수정">
+												<a href="#" class="btn btn-xs btn-success">취소</a> <input
+												type="hidden" name="pouch_reply_no" value="${prvo.pouch_reply_no }">
+												<input type="hidden" name="pouch_no" value="${vo.pouch_no }">
+											</li>
+										</ul>
+										<textarea name="content">${prvo.content}</textarea>
+									</form>
+
+								</div>
+							</div>
+						</c:if>
+						<c:if test="${sessionScope.id != prvo.id }">
+							<div class="col-sm-12">
+								<div class="a">
+									<ul>
+										<li><a href=""><img src="${prvo.profile_img }"
+												width=30 height=30 class="img-circle"></img>&nbsp;&nbsp;${prvo.id }</a></li>
+										<li><a href=""></i>성별:${prvo.sex} /
+												피부타입:${prvo.skin_type} / 연령대:${prvo.age_group}대 /
+												별점:${prvo.pouch_rate }</a></li>
+									</ul>
+									<p>${prvo.content}</p>
+									<input type="hidden" name="pouch_reply_no" value="${prvo.pouch_reply_no }">
+								</div>
+							</div>
+						</c:if>
+					</c:forEach>
+					</div>
+					<div class="col-sm-12">
+						<p>
+							<b>Write Your Review</b>
+						</p>
+						<c:if test="${sessionScope.id != null }">
+							<form method="post" action="../pouch/pouch_reply_insert.hr">
+								<textarea name="content"></textarea>
+								<input type="hidden" name="pouch_no" value="${vo.pouch_no}">
+
+								<!-- 평점주기 -->
+								<span class="star-input"> <span class="input"> <input
+										type="radio" name="star-input" value="1" id="p1"> <label
+										for="p1">1</label> <input type="radio" name="star-input"
+										value="2" id="p2"> <label for="p2">2</label> <input
+										type="radio" name="star-input" value="3" id="p3"> <label
+										for="p3">3</label> <input type="radio" name="star-input"
+										value="4" id="p4"> <label for="p4">4</label> <input
+										type="radio" name="star-input" value="5" id="p5"> <label
+										for="p5">5</label>
+								</span> <input type="hidden" id="pouch_rate" name="pouch_rate"
+									value="5"> <!-- <output for="star-input"><b>0</b>점</output> -->
+								</span>
+
+								<button type="submit" class="btn btn-default pull-right">
+									Submit</button>
+							</form>
+						</c:if>
+						
+						<c:if test="${sessionScope.id == null }">
+
+							<textarea name="content2">
                                                              로그인이 필요합니다
-                              </textarea>
-                              
-                          </c:if>
-                        </div>
-                     </div>
-                     
-                  </div>
-               </div><!--/category-tab-->
+                            </textarea>
+
+						</c:if>
+					</div><!-- col-sm-12 -->
+				</div>
+
+			</div>
+		</div><!--/category-tab-->
 
 
 	<div class="recommended_items">
