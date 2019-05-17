@@ -9,11 +9,7 @@
 
 <!-- 내가 설정한 스타일 -->
 <style type="text/css">
-/* .form-group{
-width:800px;
-position:center;
 
-} */
 #navBtn {
 	position: relative; //
 	display: block;

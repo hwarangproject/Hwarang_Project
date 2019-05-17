@@ -17,10 +17,6 @@
 <link href="css/main.css" rel="stylesheet">
 <link href="css/responsive.css" rel="stylesheet">
 
-<!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
-    <![endif]-->
 <link rel="shortcut icon" href="images/ico/favicon.ico">
 <link rel="apple-touch-icon-precomposed" sizes="144x144"
 	href="images/ico/apple-touch-icon-144-precomposed.png">
@@ -358,22 +354,6 @@ body {
 			</table>
 		</div>
 	</div>
-
-
-	<!-- <div style="border: 1px solid gold; float: left; width: 25%;">
-첫번째 영역
-</div>
-<div style="border: 1px solid red; float: left; width: 25%;">
-두번째 영역
-</div>
-<div style="border: 1px solid blue; float: left; width: 25%;">
-세번째 영역 
-</div> 
-<div style="border: 1px solid blue; float: left; width: 25%;">
-세번째 영역 
-</div>  -->
-
-
 
 	<div class="container">
 		<div class="row">
