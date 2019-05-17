@@ -9,6 +9,7 @@
 
 <!-- 내가 설정한 스타일 -->
 <style type="text/css">
+
 #navBtn {
 	position: relative; //
 	display: block;
