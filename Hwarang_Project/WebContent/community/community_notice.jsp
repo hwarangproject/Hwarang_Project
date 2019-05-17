@@ -396,7 +396,6 @@ color: #000000;
 
 				<thead>
 					<tr>
-						<th width=10% class="text-center">번호</th>
 						<th width=45% class="text-center">제목</th>
 						<th width=15% class="text-center">작성자</th>
 						<th width=20% class="text-center">날짜</th>
@@ -406,7 +405,6 @@ color: #000000;
 				<tbody>
 					<c:forEach var="vo" items="${list }">
 						<tr>
-							<td width=10% class="text-center">${vo.b_no }</td>
 							<td width=45% class="text-center">
 							<a href="../community/community_detail.hr?b_no=${vo.b_no}&b_cate_no=${b_cate_no}" id="subid">${vo.b_subject }</a></td>
 							<td width=15% class="text-center">${vo.name }</td>

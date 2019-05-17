@@ -28,9 +28,17 @@ public class PouchVO {
 	private String profile_img;
 	private String skin_type;
 	
+	private String review_cnt;
 	
 	
 	
+	
+	public String getReview_cnt() {
+		return review_cnt;
+	}
+	public void setReview_cnt(String review_cnt) {
+		this.review_cnt = review_cnt;
+	}
 	public int getPouch_no() {
 		return pouch_no;
 	}

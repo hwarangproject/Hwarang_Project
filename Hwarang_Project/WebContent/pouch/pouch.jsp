@@ -259,7 +259,7 @@ a {
 							href="../pouch/pouch_detail.hr?pouch_no=${vo.pouch_no }"
 							target="_blank">
 								<h2>${vo.pouch_name }</h2>
-								<p>${mlist[s.index].nickname }</p>
+								<p>${mlist[s.index].nickname } / ${mlist[s.index].skin_type }</p>
 						</a></li>
 					</ul>
 				</div>

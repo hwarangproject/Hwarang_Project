@@ -28,6 +28,66 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
 	
+<%-- 댓글 별점--%>
+	$(function() {
+		$('input[name="star-input"]').click(function() {
+			var value = $(this).val();
+			$('#pouch_rate').attr('value', value);
+		});
+
+		$('.rupdateBtn').click(function() {
+
+			var rno = $(this).attr("id");
+			$('#b' + rno).hide();
+			$('#a' + rno).show();
+
+		});
+
+	});
+<%-- 좋아요--%>
+	$(function() {
+		var no = 0;
+		$('#pouch_like_before').show();
+		$('#like').click(function() {
+
+			var pouch_no = $('#pouch_no').val();
+			if (no == 0) {
+				$.ajax({
+					type : 'POST',
+					data : {
+						"pouch_no" : pouch_no
+					},
+					url : '../pouch/pouch_like_ok.hr',
+					success : function(response) {
+						$('#pouch_like_before').hide();
+						$('#pouch_like_after').text(response);
+						$('#pouch_like_after').show();
+					}
+
+				});
+				no = 1;
+			}
+
+			else if (no == 1) {
+				$.ajax({
+					type : 'POST',
+					data : {
+						"pouch_no" : pouch_no
+					},
+					url : '../pouch/pouch_like_ok_descent.hr',
+					success : function(response) {
+						$('#pouch_like_before').hide();
+						$('#pouch_like_after').text(response);
+						$('#pouch_like_after').show();
+					}
+
+				});
+
+				no = 0;
+			}
+
+		});
+	});
 </script>
 <style type="text/css">
 </style>
@@ -41,7 +101,7 @@
 					<h2 class="title text-center">POUCH</h2>
 					<div class="col-sm-12">
 						<!-- 개인 정보 -->
-						<form action="pouch_detail.hr" method="post">
+						
 
 							<div class="product-details">
 								<div class="row text-center" id="intro-top">
@@ -67,8 +127,11 @@
 
 																</div>
 																<div class="col3 last">
-																	<span>좋아요<font style="color: pink;">♡</font></span>
-																	<h1>0</h1>
+																	<input type="hidden" id="pouch_no"
+																		value="${vo.pouch_no}"> <span>좋아요<font
+																		style="color: pink;">♡</font></span>
+																	<h1 id="pouch_like_after"></h1>
+																	<h1 id="pouch_like_before">${vo.pouch_like }</h1>
 																	<td><input type="checkbox" id="like" /> <label
 																		for="like"> <svg
 																				xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +139,6 @@
 																				d="M12 21.35l-1.45-1.32c-5.15-4.67-8.55-7.75-8.55-11.53 0-3.08 2.42-5.5 5.5-5.5 1.74 0 3.41.81 4.5 2.09 1.09-1.28 2.76-2.09 4.5-2.09 3.08 0 5.5 2.42 5.5 5.5 0 3.78-3.4 6.86-8.55 11.54l-1.45 1.31z" />
 																			</svg>
 																	</label></td> <br> <br> <br> <br>
-
 																</div>
 															</div>
 														</div>
@@ -93,12 +155,29 @@
 										</h2>
 									</div>
 								</div>
-								<div class="col-sm-12" >
-										<h2 class="subject_intro" class="text-center">
-											파우치 소개 
-											<textarea rows="5" cols="10" name="pouch_intro"></textarea>
-										</h2>
-									</div>
+								
+									<!-- 수정눌렀을때 -->
+							<div>
+									<form method="post" action="../pouch/pouch_make_ok.hr?pouch_no=${vo.pouch_no }">
+										<div class="col-sm-12">
+											<input type="hidden" name="pouch_no" value="${vo.pouch_no }">--%>	
+ 										<h2 class="subject_intro" class="text-center">
+												파우치 소개
+												<textarea rows="5" cols="10" name="pouch_intro">${vo.pouch_content }</textarea>
+											</h2>
+										</div>
+										<table class="table text-right">
+
+											<tr>
+												<td><input type="submit" value="완료"
+													class="btn btn-sm btn-primary" /> <input type="button"
+													value="취소" onclick="javascript:history.back()"
+													class="btn btn-sm btn-primary" /></td>
+											</tr>
+
+										</table>
+									</form>
+						   </div>
 							</div>
 
 
@@ -150,7 +229,7 @@
 									</div>
 								</div>
 							</div>
-						</form>
+					
 					</div>
 				</div>
 			</div>

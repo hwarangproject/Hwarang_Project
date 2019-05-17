@@ -215,7 +215,11 @@ $(function(){
                                     </ul> --></li>
 							<li><a href="../news/news.hr">소식</a></li>
 							<li><a href="../pouch/pouch.hr">파우치</a></li>
-							<li><a href="../community/community_notice.hr?b_cate_no=1">커뮤니티</a></li>
+							<c:if test="${sessionScope.id==null }">
+							</c:if>
+							<c:if test="${sessionScope.id!=null }">
+								<li><a href="../community/community_notice.hr?b_cate_no=1">커뮤니티</a></li>
+							</c:if>							
 						</ul>
 					</div>
 				</div>

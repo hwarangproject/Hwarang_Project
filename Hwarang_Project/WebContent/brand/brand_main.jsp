@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 
-<title>상품별 목록</title>
+<title>브랜드 목록</title>
 
 <style type="text/css">
 .scrollbar {
@@ -115,23 +115,7 @@ a:hover, a:focus {
 						</c:forEach>
 						</div>
 					</div>
-					<div class="brands_products">
-						<!--brands_products-->
-						<h2>SEARCH</h2>
-						<div class="brands-name">
-						<c:forEach var="vo" items="${brandPageDivision }" varStatus="s">
-						<c:if test="${s.index<1 }">
-							<ul class="nav nav-pills nav-stacked">
-							<li><img src="${vo.brand_img }" width=260 height=150></li>
-								<li class="text-center" style="font-weight:bold; font-size:x-large;">${vo.brand }</li>
-								
-							</ul>
-						</c:if>
-						</c:forEach>
-						</div>
-					</div>
-
-					<%-- 
+										<%-- 
 						<div class="price-range"><!--price-range-->
 							<h2>Price Range</h2>
 							<div class="well">

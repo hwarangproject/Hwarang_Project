@@ -634,14 +634,28 @@ h2 {
 
 								</div>
 
-								<td>
-									<div class="col-sm-12">
-										<h2 class="subject_intro" class="text-center">
-											파우치 소개
-											<h4>${vo.pouch_content }</h4>
-										</h2>
-									</div>
-								</td>
+								<div class="col-sm-12">
+									<h2 class="subject_intro" class="text-center">
+										파우치 소개
+										<h4>${vo.pouch_content }</h4>
+									</h2>
+								</div>
+								<!-- 수정눌렀을때 -->
+
+								<c:if test="${sessionScope.pouch_no == vo.pouch_no  }">
+
+									<table class="table text-right">
+										<tr>
+											<td><a
+												href="../pouch/pouch_make.hr?pouch_no=${vo.pouch_no }">
+													<input type="button" value="수정"
+													class="btn btn-sm btn-primary" />
+											</a> <input type="button" value="취소"
+												onclick="javascript:history.back()"
+												class="btn btn-sm btn-primary" /></td>
+										</tr>
+									</table>
+								</c:if>
 
 							</div>
 

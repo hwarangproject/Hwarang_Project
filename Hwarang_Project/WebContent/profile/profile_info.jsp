@@ -864,6 +864,13 @@ select option {
 
 #profile-upload:hover .fa:after { height:100%; }
 
+#Bold{
+	font-size: 13px;
+}
+#number{
+	font-size: 30px;
+}
+
 </style>
 
 
@@ -883,23 +890,23 @@ select option {
 										<img
 											src="${vo.profile_img }"
 											alt="" width=120px height=120px>
-										<h1>${vo.name }</h1>
+										<h1><b style="font-size: 26px">${vo.name }</b>님</h1>
 										<h4>${vo.nickname }</h4>
 										<p id="skt">${vo.skin_type }</p>
 									</div>
 									<div class="col2 last">
 										<div class="grid clearfix">
 											<div class="col3 first">
-												<h1>14</h1>
-												<span>Pouch</span>
+												<h1 id="number"><b>${likeMeCnt }</b></h1>
+												<span id="Bold"><b>나를 즐겨찾기한 사용자</b></span>
 											</div>
 											<div class="col3">
-												<h1>35</h1>
-												<span>Product</span>
+												<h1 id="number"><b>${MelikeCnt }</b></h1>
+												<span id="Bold"><b>내가 즐겨찾기한 사용자</b></span>
 											</div>
 											<div class="col3 last">
-												<h1>5</h1>
-												<span>Brand</span>
+												<h1 id="number"><b>${productCnt }</b></h1>
+												<span id="Bold"><b>내가 즐겨찾기한 상품</b></span>
 											</div>
 										</div>
 									</div>
@@ -923,14 +930,9 @@ select option {
 									      </a>
 									    </li>
 									    <li>
-									      <c:choose>
-											  <c:when test = '${vo.pouch_no == 0}'>
-											    <a href='profile_pouch.hr'>MY POUCH</a>
-											  </c:when>
-											  <c:otherwise>
-											    <a href='../pouch/pouch_detail.hr?pouch_no=${vo.pouch_no }'>MY POUCH</a>
-											  </c:otherwise>
-									      </c:choose>	
+                                          <a href='../pouch/pouch_detail.hr?pouch_no=${vo.pouch_no }'>
+                                        MY POUCH
+                                          </a>
 									    </li>									    
 									    <div class='marker'></div>
 									  </ul>

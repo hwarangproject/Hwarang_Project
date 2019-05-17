@@ -378,4 +378,26 @@ public class PouchDAO {
 				session.close();
 		}
 	}
+	
+	//파우치 컨텐트 수정 
+	
+	public static void pouchContentUpdate(Map map) {
+		
+		// Connection얻기
+		SqlSession session = null;
+		try {
+			// Connection,PreparedStatement
+			session = ssf.openSession(true);
+	    	session.update("pouchContentUpdate", map);
+		} catch (Exception ex) {
+			// error처리
+		
+			ex.printStackTrace();
+		} finally {
+			// 반환
+			if (session != null)
+				session.close();
+		}
+		
+	}
 }

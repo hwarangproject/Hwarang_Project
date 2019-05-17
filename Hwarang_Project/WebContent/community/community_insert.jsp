@@ -298,10 +298,10 @@ width: 150px;
 				<div class="form-group " id="board_select">
 					<label for="select" class="text-left">게시판 선택</label> 
 					<select name="b_cate_no" class="form-control" id="select">
-						<option value="1" selected="selected">문의사항</option>
-						<option value="2">화장법</option>
-						<option value="3">화장품 추천</option>
-						<option value="4">기타</option>
+						<option value="1" selected="selected">공지사항</option>
+						<option value="2">FAQ</option>
+						<option value="3">뷰티 테스터</option>
+						<option value="4">자유게시판</option>
 					</select>
 
 

@@ -483,7 +483,7 @@ body {
 								<span class="histo-star"> <i class="active icon-star"></i>
 									10대
 								</span> <span class="bar-block"> 
-									<span class="bar text-center" style="width: 30%; background-color: #9FC05A;">
+									<span class="bar text-center" style="width: ${vo.like_10*100/sum}%; background-color: #9FC05A;">
 										<span>${vo.like_10 } ♥</span>&nbsp;
 									</span>
 								</span>
@@ -493,7 +493,7 @@ body {
 								<span class="histo-star"> <i class="active icon-star"></i>
 									20대
 								</span> <span class="bar-block"> 
-									<span class="bar text-center" style="width: 30%; background-color: #ADD633;">
+									<span class="bar text-center" style="width: ${vo.like_20*100/sum}%; background-color: #ADD633;">
 										<span>${vo.like_20 } ♥</span>&nbsp;
 									</span>
 								</span>
@@ -504,7 +504,7 @@ body {
 									30대
 								</span> 
 								<span class="bar-block"> 
-									<span class="bar text-center" style="width: 30%; background-color: #FFD834;"> 
+									<span class="bar text-center" style="width: ${vo.like_30*100/sum}%; background-color: #FFD834;"> 
 											<span>${vo.like_30 } ♥</span>&nbsp;
 									</span>
 								</span>
@@ -514,7 +514,7 @@ body {
 								<span class="histo-star"> <i class="active icon-star"></i>
 									40대
 								</span> <span class="bar-block"> 
-									<span class="bar text-center" style="width: 30%; background-color: #FFB234;">
+									<span class="bar text-center" style="width: ${vo.like_40*100/sum}%; background-color: #FFB234;">
 										<span>${vo.like_40 } ♥</span>&nbsp;
 									</span>
 								</span>
@@ -524,7 +524,7 @@ body {
 								<span class="histo-star"> <i class="active icon-star"></i>
 									50대
 								</span> <span class="bar-block"> 
-									<span class="bar text-center" style="width: 30%; background-color: #FF8B5A;">
+									<span class="bar text-center" style="width: ${vo.like_50*100/sum}%; background-color: #FF8B5A;">
 										<span>${vo.like_50 } ♥</span>&nbsp;
 									</span>
 								</span>
@@ -635,112 +635,6 @@ body {
 
 			</div>
 		</div>
-
-
-
-		<div class="recommended_items">
-			<!--recommended_items-->
-			<h2 class="title text-center">recommended items</h2>
-
-			<div id="recommended-item-carousel" class="carousel slide"
-				data-ride="carousel">
-				<div class="carousel-inner">
-					<div class="item active">
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="../images/home/recommand1.jpg" alt="" />
-										<p>1등 상품</p>
-										<a href="#" class="btn btn-default add-to-cart"><i
-											class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="../images/home/recommand2.jpg" alt="" />
-										<p>2등 상품</p>
-										<a href="#" class="btn btn-default add-to-cart"><i
-											class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="../images/home/recommand3.jpg" alt="" />
-										<p>3등 상품</p>
-										<a href="#" class="btn btn-default add-to-cart"><i
-											class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="../images/home/recommand4.jpg" alt="" />
-										<p>4등 상품</p>
-										<a href="#" class="btn btn-default add-to-cart"><i
-											class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="../images/home/recommand5.jpg" alt="" />
-										<p>5등 상품</p>
-										<a href="#" class="btn btn-default add-to-cart"><i
-											class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="../images/home/recommand6.jpg" alt="" />
-										<p>6등 상품</p>
-										<a href="#" class="btn btn-default add-to-cart"><i
-											class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<a class="left recommended-item-control"
-					href="#recommended-item-carousel" data-slide="prev"> <i
-					class="fa fa-angle-left"></i>
-				</a> <a class="right recommended-item-control"
-					href="#recommended-item-carousel" data-slide="next"> <i
-					class="fa fa-angle-right"></i>
-				</a>
-			</div>
-		</div>
-		<!--/recommended_items-->
-
 	</div>
-	</section>
 </body>
 </html>

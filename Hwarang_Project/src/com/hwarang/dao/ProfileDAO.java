@@ -361,5 +361,60 @@ public class ProfileDAO {
 							}
 						}
 					}
+					
+					public static int getLikemeCnt(int pno){
+						int total = 0;
+						SqlSession session = null;
+						
+						try {
+							session = ssf.openSession();
+							total = session.selectOne("getLikemeCnt",pno);
+							
+						} catch (Exception ex) {
+							ex.printStackTrace();
+							
+						} finally {
+							if (session != null){
+							    session.close();
+							}
+						}
+						return total;
+					}
+					public static int getMelikeCnt(int mno){
+						int total = 0;
+						SqlSession session = null;
+						
+						try {
+							session = ssf.openSession();
+							total = session.selectOne("getMelikeCnt",mno);
+							
+						} catch (Exception ex) {
+							ex.printStackTrace();
+							
+						} finally {
+							if (session != null){
+							    session.close();
+							}
+						}
+						return total;
+					}
+					public static int getProductCnt(int mno){
+						int total = 0;
+						SqlSession session = null;
+						
+						try {
+							session = ssf.openSession();
+							total = session.selectOne("getProductCnt",mno);
+							
+						} catch (Exception ex) {
+							ex.printStackTrace();
+							
+						} finally {
+							if (session != null){
+							    session.close();
+							}
+						}
+						return total;
+					}
 	
 }

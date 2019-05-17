@@ -171,4 +171,66 @@ public class Pouch_detailModel {
 
 			return "../pouch/pouch_like_ok.jsp";
 		}
+		
+		@RequestMapping("pouch/pouch_make.hr")
+		public String pouch_make(HttpServletRequest request, HttpServletResponse response) {
+		try {
+			request.setCharacterEncoding("UTF-8");
+		} catch (Exception ex) {
+		}
+
+		HttpSession session = request.getSession();
+		String id = (String) session.getAttribute("id");
+		String pouch_no = request.getParameter("pouch_no");
+	
+		MemberVO mvo = ProfileDAO.getMemberData(id);
+		PouchVO vo = PouchDAO.pouchDetailData(Integer.parseInt(pouch_no));
+		
+		//List<PouchVO> pList = new ArrayList<PouchVO>();
+		List<Integer> product_no_in_pouch_list = PouchDAO.product_in_pouch(mvo.getPouch_no());
+		List<ProductVO> product_list = new ArrayList<ProductVO>();
+		for (int pno : product_no_in_pouch_list) {
+			ProductVO pvo = ProductDAO.productDetailData(pno);
+			product_list.add(pvo);
+		}
+		request.setAttribute("product_list", product_list);
+		
+		
+		// JSP전송
+		request.setAttribute("vo", vo);
+	//	request.setAttribute("pList", pList);
+
+		
+		request.setAttribute("main_jsp", "../pouch/pouch_make.jsp");
+		return "../main/main.jsp";
+	}
+		
+		
+
+		@RequestMapping("pouch/pouch_make_ok.hr")
+		public String pouch_make_ok(HttpServletRequest request, HttpServletResponse response) {
+		try {
+			request.setCharacterEncoding("UTF-8");
+		} catch (Exception ex) {}
+
+		HttpSession session = request.getSession();
+		String id = (String) session.getAttribute("id");
+		String pouch_no = request.getParameter("pouch_no");
+		String pouch_intro = request.getParameter("pouch_intro");
+		System.out.println("아이디:"+id);
+		System.out.println("파우치번호:"+pouch_no);
+		System.out.println("파우치소개:"+pouch_intro);
+		MemberVO mvo = ProfileDAO.getMemberData(id);
+		PouchVO vo = PouchDAO.pouchDetailData(Integer.parseInt(pouch_no));
+		
+		//pouch_content
+		Map map = new HashMap();
+		map.put("pouch_no",Integer.parseInt(pouch_no));
+		map.put("pouch_content", pouch_intro);
+		PouchDAO.pouchContentUpdate(map);
+		
+		//
+
+		return "redirect:../pouch/pouch_detail.hr?pouch_no=" + pouch_no;
+	}
 }

@@ -86,6 +86,13 @@ public class Profile_likeModel {
 			mList.add(mvo);
 		}
 			
+		int likeMeCnt = ProfileDAO.getLikemeCnt(vo.getMember_no());
+		int MelikeCnt = ProfileDAO.getMelikeCnt(vo.getMember_no());
+		int productCnt = ProfileDAO.getProductCnt(vo.getMember_no());
+		request.setAttribute("likeMeCnt", likeMeCnt);
+		request.setAttribute("productCnt", productCnt);
+		request.setAttribute("MelikeCnt", MelikeCnt);
+		
 		request.setAttribute("mList", mList);
 		request.setAttribute("povoList", povoList);
 		request.setAttribute("pvoList", pvoList);

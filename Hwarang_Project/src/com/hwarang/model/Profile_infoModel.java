@@ -18,6 +18,7 @@ public class Profile_infoModel {
 		String id = (String)session.getAttribute("id");
 		MemberVO vo = ProfileDAO.getMemberData(id);
 		
+		
 		// 생년월일 나누기
 		Date date = vo.getBday();  
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");  
@@ -34,7 +35,13 @@ public class Profile_infoModel {
 		else{
 			addr = vo.getAddr();
 		}
-	
+		
+		int likeMeCnt = ProfileDAO.getLikemeCnt(vo.getMember_no());
+		int MelikeCnt = ProfileDAO.getMelikeCnt(vo.getMember_no());
+		int productCnt = ProfileDAO.getProductCnt(vo.getMember_no());
+		request.setAttribute("likeMeCnt", likeMeCnt);
+		request.setAttribute("productCnt", productCnt);
+		request.setAttribute("MelikeCnt", MelikeCnt);
 		request.setAttribute("year", year);
 		request.setAttribute("month", month);
 		request.setAttribute("day", day);
@@ -50,7 +57,12 @@ public class Profile_infoModel {
 		String id = (String)session.getAttribute("id");
 		String pwd = request.getParameter("pwdCheck");
 		MemberVO vo = ProfileDAO.getMemberData(id);
-
+		int likeMeCnt = ProfileDAO.getLikemeCnt(vo.getMember_no());
+		int MelikeCnt = ProfileDAO.getMelikeCnt(vo.getMember_no());
+		int productCnt = ProfileDAO.getProductCnt(vo.getMember_no());
+		request.setAttribute("likeMeCnt", likeMeCnt);
+		request.setAttribute("productCnt", productCnt);
+		request.setAttribute("MelikeCnt", MelikeCnt);
 		
 		request.setAttribute("main_jsp", "../profile/profile_info_pwdCheck.jsp");
 		request.setAttribute("vo", vo);

@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.hwarang.dao.CreateSqlSessionFactory;
 import com.hwarang.vo.MemberVO;
+import com.hwarang.vo.PouchVO;
 import com.hwarang.vo.ProductVO;
 
 public class MemberDAO {
@@ -56,6 +57,26 @@ public class MemberDAO {
 		   {
 			   session=ssf.openSession(true);//commit
 			   session.insert("memberInsert",vo);
+			   
+		   }catch(Exception ex)
+		   {
+			   ex.printStackTrace();
+		   }
+		   finally
+		   {
+			   if(session!=null)
+				   session.close();
+		   }
+	   }
+	   
+	   // 糕滚积己矫 颇快摹 积己
+	   public static void pouchInsert(PouchVO vo)
+	   {
+		   SqlSession session=null;
+		   try
+		   {
+			   session=ssf.openSession(true);//commit
+			   session.insert("pouchInsert",vo);
 			   
 		   }catch(Exception ex)
 		   {

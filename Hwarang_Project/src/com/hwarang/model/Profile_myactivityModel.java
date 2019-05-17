@@ -78,6 +78,13 @@ public class Profile_myactivityModel {
 		  if(endPage > allPage){
 			  endPage = allPage; 
 		  }
+		  
+		  int likeMeCnt = ProfileDAO.getLikemeCnt(vo.getMember_no());
+			int MelikeCnt = ProfileDAO.getMelikeCnt(vo.getMember_no());
+			int productCnt = ProfileDAO.getProductCnt(vo.getMember_no());
+			request.setAttribute("likeMeCnt", likeMeCnt);
+			request.setAttribute("productCnt", productCnt);
+			request.setAttribute("MelikeCnt", MelikeCnt);
 		
 		// 현재페이지,총페이지,List
 		request.setAttribute("curpage", curpage);

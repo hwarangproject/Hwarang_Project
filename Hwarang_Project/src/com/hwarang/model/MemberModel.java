@@ -95,6 +95,7 @@ public class MemberModel {
 	public String member_join_ok(HttpServletRequest request,HttpServletResponse response) throws ParseException {
 
 		MemberVO vo = new MemberVO();
+		PouchVO pvo = new PouchVO();
 		// 요청값 받기
 		try { // 한글 변환
 			request.setCharacterEncoding("UTF-8");
@@ -111,14 +112,18 @@ public class MemberModel {
 			
 			mr = new MultipartRequest(request, path, size, enctype, new DefaultFileRenamePolicy());
 			String profile_img = mr.getOriginalFileName("logo");
+			String pouch_img = mr.getOriginalFileName("logo");
 			System.out.println("이미지파일:" + profile_img);
 			vo.setProfile_img(profile_img);
+			pvo.setPouch_img(pouch_img);
 			if (profile_img == null) {
 				vo.setProfile_img("profile_defalut.jpg");
+				pvo.setPouch_img("pouch_img.jpg");
 		
 			} else {
 				//File file = new File(path + "\\" + profile_img);
 				vo.setProfile_img(profile_img);
+				pvo.setPouch_img(pouch_img);
 			}
 			
 			
@@ -172,8 +177,13 @@ public class MemberModel {
 			// DAO연결
 			MemberDAO.memberInsert(vo);
 			
-			String pouch_content=mr.getParameter("id");
-			String pouch_name=mr.getParameter("id");
+//			String pouch_content=mr.getParameter("id")+"파우치";
+//			String pouch_name=mr.getParameter("id");
+//			
+//			pvo.setPouch_content(pouch_content);
+//			pvo.setPouch_name(pouch_name);
+//			
+//			MemberDAO.pouchInsert(pvo);
 
 
 		} catch (Exception e) {

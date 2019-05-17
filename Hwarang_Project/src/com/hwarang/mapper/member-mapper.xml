@@ -50,10 +50,11 @@
    
    <insert id="pouchInsert" parameterType="PouchVO">
 	   <selectKey keyProperty="member_no" resultType="int" order="BEFORE">
-	       SELECT NVL(MAX(pouch_no)+1,1) as pouch_no FROM pouch
+	       SELECT NVL(MAX(member_no)+1,1) as member_no FROM member
 	    </selectKey>
+	    
 	   	INSERT INTO pouch(pouch_no, pouch_score, pouch_img, pouch_like, regdate, expdate, member_no, pouch_content, pouch_name, review_cnt) VALUES(
-	   		#{pouch_no}
+	   		#{member_no},
 	   		0,
 	   		#{pouch_img},
 	   		0,
@@ -63,7 +64,7 @@
 	   		#{pouch_content},
 	   		#{pouch_name},
 	   		0
-   	)
+   		)
    </insert>
    
    <select id="brand_name" resultType="ProductVO">

@@ -106,5 +106,15 @@
     WHERE member_no = #{member_no}
   </update>
   
+  <select id="getLikemeCnt" resultType="int" parameterType="int">
+    select count(*) from pouch_jjim where pouch_no = #{pouch_no}
+  </select>
+  <select id="getMelikeCnt" resultType="int" parameterType="int">
+    select count(*) from pouch_jjim where member_no = #{member_no}
+  </select>
+  <select id="getProductCnt" resultType="int" parameterType="int">
+    select count(*) from product_jjim where member_no = #{member_no}
+  </select>
+   
   
 </mapper>
