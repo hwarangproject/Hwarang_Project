@@ -32,6 +32,44 @@ public class Profile_likeModel {
 			pvoList.add(pvo);
 		}
 		
+		// 페이지 나누기
+		String page=request.getParameter("page");
+		  if(page == null){
+			  page = "1";
+		  }
+		  
+		  int curpage = Integer.parseInt(page);
+		  Map map = new HashMap();
+		  int rowSize = 6;
+		  int start = (curpage * rowSize) - (rowSize - 1);//1 8
+		  int end = curpage * rowSize;//7 14
+		  
+		map.put("member_no", vo.getMember_no());
+	    map.put("start", start);
+		map.put("end", end);
+		List<ProductVO> lpList = new ArrayList<ProductVO>();
+		lpList = ProfileDAO.likeProdPageDivision(map);
+		int totalpage = ProfileDAO.likeProdTotalPage(vo.getMember_no());
+		
+		final int BLOCK = 5;
+		  int startPage = ((curpage - 1) / BLOCK * BLOCK) + 1;
+		  int endPage = ((curpage - 1) / BLOCK * BLOCK) + BLOCK;
+		  int allPage = totalpage;
+		  if(endPage > allPage){
+			  endPage = allPage; 
+		  }
+		
+		// 현재페이지,총페이지,List
+		request.setAttribute("curpage", curpage);
+	    request.setAttribute("totalpage", totalpage);
+		request.setAttribute("lpList", lpList);
+		  
+		// 블럭별 출력하기
+		request.setAttribute("BLOCK", BLOCK);
+		request.setAttribute("startPage", startPage);
+		request.setAttribute("endPage", endPage);
+		request.setAttribute("allPage", allPage);
+		
 		// pouch_no list로 받는다
 		List<Integer> ponoList = ProfileDAO.getLikePouch_no(vo.getMember_no());
 		PouchVO povo = new PouchVO();

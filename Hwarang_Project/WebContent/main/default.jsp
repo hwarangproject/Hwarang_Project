@@ -126,9 +126,9 @@
 			<div class="col-xs-12">
 				<div class="features_items">
 					<!--features_items-->
-					<h2 class="title text-center">TOP RANKING</h2>
+					<h2 class="title text-center">리뷰가 많은 화장품</h2>
 
-				<c:forEach var="vo" items="${productList_RandomData }" varStatus="s">
+				<c:forEach var="vo" items="${review_ProductData }" varStatus="s">
 					<c:if test="${s.index<4 }">
 					<div class="col-xs-3">
 						<div class="product-image-wrapper">
@@ -144,14 +144,6 @@
 									</div>
 								</div>
 							</div>
-							<%-- <div class="choose">
-								<ul class="nav nav-pills nav-justified">
-									<li><a href="../cart/main_cart_ok.hr?pno=${vo.product_no }"><i class="fa fa-plus-square"></i>Add
-											to cart</a></li>
-									<li><a href="#"><i class="fa fa-plus-square"></i>Add
-											to pouch</a></li>
-								</ul>
-							</div> --%>
 						</div>
 					</div>
 					</c:if>
@@ -165,7 +157,7 @@
 		<div class="container">
 			<div class="row">
 				<h2 class="title text-center">많이 찜한 화장품</h2>
-				<c:forEach var="vo" items="${productList_RandomData }" varStatus="s">
+				<c:forEach var="vo" items="${jjim_ProductData }" varStatus="s">
 				<c:if test="${s.index<4 }">
 					<div class="col-xs-3">
 						<div class="product-image-wrapper">

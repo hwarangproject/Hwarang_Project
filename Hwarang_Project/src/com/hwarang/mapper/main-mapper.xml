@@ -1,13 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.hwarang.mapper.main-mapper">
-	<!-- 파우치 리스트, 페이지 구하기 -->
+	<!--#### 슬라이더  ####-->
+	<select id="productList_RandomData" resultType="ProductVO">
+		<![CDATA[
+	 		 SELECT * FROM(SELECT * FROM product ORDER BY dbms_random.random) WHERE rownum<6
+	 	]]>
+	</select>
+
+	<!-- 메인 파우치 리스트 -->
 	<select id="mainPouchListData" resultType="PouchVO">
-		SELECT * FROM pouch ORDER BY pouch_like DESC
+		<![CDATA[
+			SELECT * FROM(SELECT * FROM pouch ORDER BY pouch_like DESC) WHERE rownum<10
+		]]>
 	</select>
 	
-	<!-- 추천 아이템 -->
+	<!-- 파우치 추천 아이템 -->
 	<select id="recommend_ProductData" resultType="ProductVO">
-		SELECT * FROM product ORDER BY pouch_jjim_count DESC
+		<![CDATA[
+			SELECT * FROM(SELECT * FROM product ORDER BY pouch_jjim_count DESC) WHERE rownum<15
+		]]>
+	</select>
+	
+	<!-- 화장품 찜 수 -->
+	<select id="jjim_ProductData" resultType="ProductVO">
+		<![CDATA[
+			SELECT * FROM(SELECT * FROM product ORDER BY product_like_cnt DESC) WHERE rownum<10
+		]]>
+	</select>
+	
+	<!-- 리뷰가 많은 수 -->
+	<select id="review_ProductData" resultType="ProductVO">
+		<![CDATA[
+			SELECT * FROM(SELECT * FROM product ORDER BY review_cnt DESC) WHERE rownum<10
+		]]>
 	</select>
 </mapper>

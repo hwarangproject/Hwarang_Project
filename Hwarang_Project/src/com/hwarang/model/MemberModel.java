@@ -2,6 +2,7 @@ package com.hwarang.model;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.List;
 import java.io.File;
 import java.io.IOException;
 import java.sql.Date;
@@ -11,13 +12,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.hwarang.controller.RequestMapping;
 import com.hwarang.dao.MemberDAO;
+import com.hwarang.dao.PouchDAO;
 import com.hwarang.vo.MemberVO;
+import com.hwarang.vo.PouchVO;
+import com.hwarang.vo.ProductVO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 public class MemberModel {
 	@RequestMapping("member/member_make.hr")
 	public String memeber_make_page(HttpServletRequest request,HttpServletResponse response) {
+		List<ProductVO> brand_name=MemberDAO.brand_name();
+		request.setAttribute("brand_name", brand_name);
+		
 		request.setAttribute("main_jsp", "../member/member_make.jsp");
 		return "../main/main.jsp";
 	}
@@ -164,6 +171,10 @@ public class MemberModel {
 			vo.setPostcode(postcode);
 			// DAO¿¬°á
 			MemberDAO.memberInsert(vo);
+			
+			String pouch_content=mr.getParameter("id");
+			String pouch_name=mr.getParameter("id");
+
 
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -399,7 +400,7 @@ function idcheck()
 			<h5>회원가입</h5>
 			<div class="row">
 				<h4>Account</h4>
-					
+
 					<div id='profile-upload' >
 						<div class="hvr-profile-img">
 							<input type="file" name="logo" id='getval' class="upload w180"
@@ -412,11 +413,7 @@ function idcheck()
 						<div class="input-icon">
 							<i class="fa fa-user" id="label_icon"></i>
 						</div>
-						
-						
 					</div>
-					
-					
 									
 					<div class="input-group input-group-icon">
 						<input type="text" name="name" placeholder="Name" />
@@ -496,27 +493,14 @@ function idcheck()
 
 				</div>
 			</div>
-			<!-- <div class="row">
-				<div class="col-half">
-					<h4>Baby (Y,N)</h4>
-					<div class="input-group">
-						<div class="col-second">
-							<input type="radio" name="baby" value="male" id="YES" /> <label
-								for="YES" id="Y">Y</label>
-						</div>
-						<div class="col-second">
-							<input type="radio" name="baby" value="female" id="NO" /> <label
-								for="NO" id="N">N</label>
-						</div>
-					</div>
-				</div>
-			</div> -->
+
 			<div class="row">
 				<h4>선호브랜드</h4>
 				<div class="input-group" >
 					<select name="brand_like">
-						<option>샤넬</option>
-						<option>미샤</option>
+					<c:forEach var="vo" items="${brand_name }" varStatus="s">
+						<option>${vo.brand }</option>
+					</c:forEach>
 					</select>
 				</div>
 			</div>
@@ -561,7 +545,7 @@ function idcheck()
 
 				<div class="col-harf text-center">
 					<input type="submit" value="가입">
-					<input type="button"	value="취소">
+					<input type="button" value="취소">
 				</div>
 			</div>
 			

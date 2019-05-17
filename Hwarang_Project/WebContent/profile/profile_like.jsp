@@ -44,13 +44,25 @@
 
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
-$(function(){
-	$('#marginForHover').hover(function() {
+/* $(function(){
+	$('a #marginForHover').hover(function() {
 		  $(this).css("background-color", "#ffb9b996");
 		});
 	
 
-});
+}); */
+
+$(function(){
+	var no=0;
+	$('.phover').hover(function(){  // tr태그에 갔다댔을 때
+		no=$(this).attr("id");
+		// 50개 mc중 갔다댄게 this.
+		no=no.substring(1);
+		$('#h'+no).css("background-color", "#ffb9b996");
+	},function(){ // else
+		$('#h'+no).css("background-color", "#fff");
+	})
+})
 
 </script>
 <style type="text/css">
@@ -560,7 +572,7 @@ label[for="new-task"] {
   margin-right: 20px;
 }
 .profile--padding {
-  padding-bottom: 20px;
+  padding: 10px;
 }
 .profile__img {
   position: relative;
@@ -724,15 +736,11 @@ img.content-image{
   height: 330px;
 }
 
-#marginForHover{
-  padding: 15px;
-}
-
-/* #marginForHover a:hover{
+/* #marginForHover {
   padding: 15px;
   background-color: #4a556866;
   color: #fff;
-} */
+}  */
 
 
 </style>
@@ -789,7 +797,7 @@ img.content-image{
 									      </a>
 									    </li>
 									    <li>
-									      <a href='profile_info.hr'>
+									      <a href='profile_info_pwdCheck.hr'>
 									        내 정보
 									      </a>
 									    </li>
@@ -814,23 +822,23 @@ img.content-image{
 						<section class="section2 clearfix"><br><br>
 						<h3>PRODUCT</h3><br><br>
 						 
-						  <c:forEach var="pvo" items="${pvoList }">
+						  <c:forEach var="pvo" items="${lpList }">
 							<div class="col-sm-2" id="prod_name">
 								<div class="product-image-wrapper">	
 									<div class="single-products">
 										<div class="productinfo text-center" id="prod_container">
 										
-											<a href="../product/product_detail.hr">
-											<img src="${pvo.product_img }" alt="" width=200px height=200px/>
+											<a href="../product/product_detail.hr?pno=${pvo.product_no }">
+											<img src="${pvo.product_img }" alt="" style="width: 168px; height:168px;" />
 											<h5>${pvo.brand }</h5><br/>
-											<h5><b>${pvo.product_name }</b></h5>
+											<h5><b>${pvo.product_name.length()>30? pvo.product_name.substring(1,30)+="...":pvo.product_name }</b></h5>
 											</a>
-											<p>${pvo.price }</p>		
+											<p>${pvo.price }원</p>		
 										</div>
 									</div>
 									<div class="choose">
 										<ul class="nav nav-pills nav-justified">
-											<li><a href='likeProduct_delete.hr?mno=${vo.member_no }&pno=${pvo.product_no}'><img src="https://image.flaticon.com/icons/svg/812/812853.svg" height="20" width="20"></a></li>												
+											<li><a href='likeProduct_delete.hr?mno=${pvo.member_no }&pno=${pvo.product_no}'><img src="https://image.flaticon.com/icons/svg/812/812853.svg" height="20" width="20"></a></li>												
 										</ul>
 									</div>
 								</div>
@@ -839,27 +847,36 @@ img.content-image{
 					     
 						</section>
 						<section>						 
-						  <div class="pagination p1">
-						      <ul>
-						        <a href="#"><li><</li></a>
-						        <a class="is-active" href="#"><li>1</li></a>
-						        <a href="#"><li>2</li></a>
-						        <a href="#"><li>3</li></a>
-						        <a href="#"><li>4</li></a>
-						        <a href="#"><li>5</li></a>
-						        <a href="#"><li>6</li></a>
-						        <a href="#"><li>></li></a>
-						      </ul>
-						    </div>					    
+						  <div class="pagination p1">						    
+						    <ul class="pagination">
+					        <c:if test="${curpage > BLOCK }">
+					           <a href="../profile/profile_like.hr?page=${startPage-1 }"><li><</li></a>
+			                </c:if> 
+			                <c:forEach var="i" begin="${startPage }" end="${endPage }">
+					           <a class="is-active" href="../profile/profile_like.hr?page=${i }"><li>${i }</li></a> 
+					        </c:forEach> 
+					        <c:if test="${endPage < allPage }">
+					           <a href="../profile/profile_like.hr?page=${endPage + 1}"><li>></li></a>
+		                    </c:if>
+					       <!--  <a class="is-active" href="#"><li>1</li></a>
+					        <a href="#"><li>2</li></a>
+					        <a href="#"><li>3</li></a>
+					        <a href="#"><li>4</li></a>
+					        <a href="#"><li>5</li></a>
+					        <a href="#"><li>6</li></a>
+					        <a href="#"><li>></li></a> -->
+					      </ul>	
+					     </div>				    
 						</section>
 						
 						<section>
 						  <h3>POUCH</h3>
 						  <div class="app-container">
 							  <div class="app-content">
-							    <div class="friends-container" id="marginForHover">
+							    <div class="friends-container">
 							     <c:forEach var="povo" items="${povoList}" varStatus="s">
-							      <article class="profile profile--padding" id="marginForHover">
+							      <a href="../pouch/pouch_detail.hr?pouch_no=${povo.pouch_no }"  >
+							      <article class="profile profile--padding phover" id="h${povo.pouch_no }">
 							        <div class="profile__img"><img src="${povo.pouch_img }" style="width:90px; height:90px"/>
 							        </div>
 							        <div class="profile__info profile__info--bordered">
@@ -867,6 +884,7 @@ img.content-image{
 							          <p class="profile__info__contact">${mList[s.index].email }</p>
 							        </div>
 							      </article>
+							      </a>
 							     </c:forEach>
 							    </div>
 							  </div>

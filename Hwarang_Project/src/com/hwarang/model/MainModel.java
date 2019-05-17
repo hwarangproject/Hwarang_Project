@@ -18,6 +18,7 @@ public class MainModel {
     {
 		
 		List<ProductVO> list=ProductDAO.productList_RandomData();
+		request.setAttribute("productList_RandomData", list);
 		
 		// 메인 뉴스 출력
 		NaverNewsManager news=new NaverNewsManager();
@@ -28,12 +29,18 @@ public class MainModel {
 		List<PouchVO> main_pouch_list=PouchDAO.mainPouchListData();
 		request.setAttribute("main_pouch_list", main_pouch_list);
 		
-		// 화장품 추천(파우치 많이 담긴 수)
+		// 메인 화면 추천(파우치에 많이 담긴 화장품)
 		List<ProductVO> recommend_ProductData=ProductDAO.recommend_ProductData();
 		request.setAttribute("recommend_ProductData", recommend_ProductData);
 		
+		// 많이 찜한 화장품
+		List<ProductVO> jjim_ProductData=ProductDAO.jjim_ProductData();
+		request.setAttribute("jjim_ProductData", jjim_ProductData);
 		
-		request.setAttribute("productList_RandomData", list);
+		List<ProductVO> review_ProductData=ProductDAO.review_ProductData();
+		request.setAttribute("review_ProductData", review_ProductData);
+		
+		
 		request.setAttribute("main_jsp", "default.jsp");
     	return "main.jsp";
     }

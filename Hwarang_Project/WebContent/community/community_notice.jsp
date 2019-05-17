@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -40,32 +40,9 @@
 <script src="js/jquery-3.1.1.js"></script>
 <script src="js/bootstrap.js"></script>
 
-<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
-<script type="text/javascript">
-var i=0;
-$(function(){
-	$('.rupdateBtn').click(function() {
-        var value = $(this).attr("id")
-      	
-        if (i == 0) {
-        	$('#a'+value).show();
-        	i = 1;
-        } else if (i == 1) {
-        	$('#a'+value).hide();
-        	i = 0;
-        }
-    });
-});
-</script>
 
 <!-- 내가 설정한 스타일 -->
 <style type="text/css">
-.a{
-border-bottom: 0.1px solid #B6B6B4;
-margin-top: 3px;
-}
-
-
 #navBtn {
 	position: relative; //
 	display: block;
@@ -77,7 +54,7 @@ margin-top: 3px;
 	font-size: 15px;
 	letter-spacing: 2px;
 	color: #383736;
-	border: 2px #383736 solid;
+	border: 1.5px #383736 solid;
 	border-radius: 4px;
 	text-transform: uppercase;
 	outline: 0;
@@ -251,18 +228,14 @@ margin-top: 3px;
 }
 
 <!--
-검색--> 
-#fsearch
-{
-	width:50px;
+검색-->#fsearch {
+	width: 50px;
 }
 
-#dsearch
-{
-width:250px;
-align:center;
-margin-left:470px;
-
+#dsearch {
+	width: 250px;
+	align: center;
+	margin-left: 470px;
 }
 
 /* @import url(https://fonts.googleapis.com/css?family=Open+Sans);
@@ -344,15 +317,53 @@ body {
 	height: 70px;
 }
 
-#bbutton{
-margin-top:10px;
+#bbutton {
+	margin-top: 10px;
+}
+
+#hrbu {
+	width: 1150px;
+}
+
+#butag {
+	text-decoration: none;
+	color: #000000;
+}
+
+
+/*페이지 스타일 */
+
+#listyle
+{
+list-style: none; display:inline-block; width:3%;
+text-decoration: none;
 
 }
 
-#hrbu{
-width:1150px;
+#tdpage
+{
+align: center;
+
+margin-left: -90px;
 }
 
+#tbutton
+{
+align: center;
+
+margin-left: -90px;
+}
+
+#pagenum
+{
+color: #FFB9B9;
+}
+
+#subid
+{
+text-decoration: none;
+color: #000000;
+}
 </style>
 
 
@@ -361,136 +372,138 @@ width:1150px;
 <body>
 
 
-<div class="container" id="bbutton">
+
+	<div class="container" id="bbutton">
 		<div class="row">
 			<table rules="none" style="width: 100%;">
 				<tr style="width: 100%;">
-					<td style="width: 25%;"><a href="community_notice.hr?b_cate_no=1" id="butag"><button class="fill" width=25% id="navBtn">공지사항</button></a></td>
-					<td style="width: 25%;"><a href="community_notice.hr?b_cate_no=2" id="butag"><button class="fill" id="navBtn">FAQ</button></a></td>
-					<td style="width: 25%;"><a href="community_notice.hr?b_cate_no=3" id="butag"><button class="fill" id="navBtn">뷰티테스터</button></a></td>
-					<td style="width: 25%;"><a href="community_notice.hr?b_cate_no=4" id="butag"><button class="fill" id="navBtn">자유게시판</button></a></td>
+					<td style="width: 25%;"><a
+						href="community_notice.hr?b_cate_no=1" id="butag"><button
+								class="fill" width=25% id="navBtn">공지사항</button></a></td>
+					<td style="width: 25%;"><a
+						href="community_notice.hr?b_cate_no=2" id="butag"><button
+								class="fill" id="navBtn">FAQ</button></a></td>
+					<td style="width: 25%;"><a
+						href="community_notice.hr?b_cate_no=3" id="butag"><button
+								class="fill" id="navBtn">뷰티테스터</button></a></td>
+					<td style="width: 25%;"><a
+						href="community_notice.hr?b_cate_no=4" id="butag"><button
+								class="fill" id="navBtn">자유게시판</button></a></td>
 				</tr>
 			</table>
 		</div>
 	</div>
-	
 
 
-	<!-- <div style="border: 1px solid gold; float: left; width: 25%;">
-첫번째 영역
-</div>
-<div style="border: 1px solid red; float: left; width: 25%;">
-두번째 영역
-</div>
-<div style="border: 1px solid blue; float: left; width: 25%;">
-세번째 영역 
-</div> 
-<div style="border: 1px solid blue; float: left; width: 25%;">
-세번째 영역 
-</div>  -->
 	<div class="container">
 		<div class="row">
-			<h2>#</h2>
-			<table class="table table-hover">
-				<tr>
-					<th width=20% class="text-center">번호</th>
-					<td width=30% class="text-center">${vo.b_no }</td>
-					<th width=20% class="text-center">작성일</th>
-					<td width=30% class="text-center"><fmt:formatDate value="${vo.b_regdate }" pattern="yyyy-MM-dd"/></td>
-				</tr>
-				<tr>
-					<th width=20% class="text-center">이름</th>
-					<td width=30% class="text-center">${vo.member_no }</td>
-					<th width=20% class="text-center">조회수</th>
-					<td width=30% class="text-center">${vo.b_hit }</td>
-				</tr>
+			<h3 class="text-center"></h3>
+			<table class="table table-hover" rules="none">
 
-				<tr>
-					<th width=20% class="text-center">제목</th>
-					<td colspan="3" class="text-left">${vo.b_subject }</td>
-				</tr>
-
-				
-
-				<tr>
-					<td colspan="4" class="text-left" valign="top" height="200">
-					${vo.b_content }
-					</td>
-
-				</tr>
+				<thead>
+					<tr>
+						<th width=10% class="text-center">번호</th>
+						<th width=45% class="text-center">제목</th>
+						<th width=15% class="text-center">작성자</th>
+						<th width=20% class="text-center">날짜</th>
+						<th width=10% class="text-center">조회수</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach var="vo" items="${list }">
+						<tr>
+							<td width=10% class="text-center">${vo.b_no }</td>
+							<td width=45% class="text-center">
+							<a href="../community/community_detail.hr?b_no=${vo.b_no}&b_cate_no=${b_cate_no}" id="subid">${vo.b_subject }</a></td>
+							<td width=15% class="text-center">${vo.name }</td>
+							<td width=15% class="text-center">
+							<fmt:formatDate value="${vo.b_regdate }" pattern="yyyy-MM-dd" />
+							</td>
+							<td width=15% class="text-center">${vo.b_hit }</td>
+						</tr>
+					</c:forEach>
+				</tbody>
 			</table>
-			<table class="table">
-     	<tr>
-     		<td class="text-left">
-     		<a href="community_update.hr?b_no=${vo.b_no }&b_cate_no=${vo.b_cate_no}" class="btn btn-default">수정</a>
-     		<a href="community_delete.hr?b_no=${vo.b_no }&b_cate_no=${vo.b_cate_no}" class="btn btn-default">삭제</a>
-     		</td>
-     	
-     		<td class="text-right">
-     			<input type="button" value="목록" onclick="javascript:history.back()" class="btn btn-default">
-     		</td>
-     	</tr>
-     </table>
 
 
-			<!-- 댓글 출력 -->
-			<c:forEach var="rvo" items="${list }">
-				<div class="col-sm-12">
-					<div class="a">
-						<ul>
-							<li><img src="../images/product-details/kira.png" width=30
-								height=30 class="img-circle"></img>&nbsp;&nbsp;
-								${sessionScope.id } | ${sessionScope.name }</li>
-							<li>${rvo.r_content }</li>
-							<li class="text-right">
-							<a class="btn btn-xs btn-success rupdateBtn" id="${rvo.r_no}">수정</a>
-							<a href="../community/reply_delete.hr?b_no=${vo.b_no }&b_cate_no=${vo.b_cate_no}&r_no=${rvo.r_no}" class="btn btn-xs btn-danger">삭제</a></li>
-						</ul>
-					</div>
 
-					<div class="a after" id="a${rvo.r_no }" class="rupdate" style="display: none">
-						<form method="post" action="../community/reply_update.hr">
-							<ul>
-								<li>&nbsp;&nbsp;${sessionScope.id }</li>
-								<li class="text-right">
-									<textarea name="r_content">${rvo.r_content}</textarea>
-									<input type="submit" value="수정" id="rupdateBtn">
-									<a href="#" class="btn btn-xs btn-success">취소</a>
-									<input type="hidden" name="r_no" value="${rvo.r_no }">
-									<input type="hidden" name="b_cate_no" value="${vo.b_cate_no }">
-									<input type="hidden" name="b_no" value="${vo.b_no }">
-								</li>
-							</ul>
-							
-						</form>
-					</div>
-
-				</div>
-			</c:forEach>
+			<hr></hr>
+			<c:if test="${member_no!=0 && b_cate_no==4}">
+				<tr>
+					<td class="text-right">
+					<a href="../community/community_insert.hr?b_cate_no=${b_cate_no }"
+						class="btn btn-default pull-right">글쓰기</a></td>
+				</tr>
+			</c:if>
+			<c:if test="${member_no==0 && b_cate_no<4}">
+				<tr>
+					<td class="text-right">
+					<a href="../community/community_insert.hr?b_cate_no=${b_cate_no }"
+						class="btn btn-default pull-right">글쓰기</a></td>
+				</tr>
+			</c:if>
 			
-      
-				<%-- 댓글 --%>
-				<div class="col-sm-12">
-					<p>
-						<b>Write Your Review</b>
-					</p>
-					<form method="post" action="../community/reply_insert.hr">
-						<input type="hidden" name="b_no" value="${vo.b_no }"> <input
-							type="hidden" name="b_cate_no" value="${vo.b_cate_no }">
-						<textarea rows="10" cols="50" name="r_content"></textarea>
-						<button type="submit" class="btn btn-default pull-right">
-							댓글입력
-						</button>
-					</form>
+			
+			<form name="mysearchbar" action="../community/community_find.hr" method="post" id="fsearch">
+				<div class="input-group" id="dsearch">
+					<input name="q" type="text" class="form-control" placeholder="검색어 입력"/>
+					<input type="hidden" value="${b_cate_no}" name="b_cate_no">
+					<div class="input-group-addon">
+						<span class="glyphicon glyphicon-search"
+							onclick="document.mysearchbar.submit()"></span>
+					</div>
 				</div>
+			</form>
+
+			<br />
+
+			<form method="get" action="../community/community_notice.hr">
+				<input type="hidden" value="${member_no }" name="member_no">
+			</form>
 
 
-			</div>
+			<table class="table" rules="none" id="tbutton">
+				<tr>
+					<td class="text-center" id="tdpage">
+						<ul class="pagination">
+							<td class="text-center" align="center">
+							<c:if test="${curpage>BLOCK }">
+									<li id="listyle"><a href="../community/community_notice.hr?b_cate_no=${b_cate_no }&page=1">
+										<font style="color: #FFB9B9;">◀◀</font></a>
+									</li>
+									<li id="listyle"><a href="../community/community_notice.hr?b_cate_no=${b_cate_no }&page=${startPage-1 }">
+										<font style="color: #FFB9B9;">◀</font></a>
+									</li>
+							</c:if> <c:set var="type" value="" />
+							
+								<c:forEach var="i" begin="${startPage }" end="${endPage }">
+									<c:if test="${curpage==i }">
+										<c:set var="type" value="class=active" />
+									</c:if>
+									<c:if test="${curpage!=i }">
+										<c:set var="type" value="" />
+									</c:if>
+									<li ${type } id="listyle"><a
+										href="../community/community_notice.hr?b_cate_no=${b_cate_no }&page=${i }" id="pagenum">${i }</a></li>
+								</c:forEach> <c:if test="${endPage<allPage }">
+									<li id="listyle"><a
+										href="../community/community_notice.hr?b_cate_no=${b_cate_no }&page=${endPage+1 }">
+											<font style="color: #FFB9B9;">▶</font>
+									</a></li>
+									<li id="listyle"><a
+										href="../community/community_notice.hr?b_cate_no=${b_cate_no }&page=${allPage }">
+											<font style="color: #FFB9B9;">▶▶</font>
+									</a></li>
+								</c:if>
+							</td>
+						</ul>
+					</td>
+				<tr>
+			</table>
+			
+
 		</div>
 	</div>
-
-	
-	
 
 
 

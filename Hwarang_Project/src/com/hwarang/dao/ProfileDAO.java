@@ -229,42 +229,137 @@ public class ProfileDAO {
 		return mvo;
 	}
 	
-	// 즐찾 상품 총페이지
-		public static int likeProductTotalPage(int mno){
-			int total = 0;
+	// 내가쓴 댓글 총페이지
+			public static int prodReplyTotalPage(int mno){
+				int total = 0;
+				SqlSession session = null;
+				
+				try {
+					session = ssf.openSession();
+					total = session.selectOne("prodReplyTotalPage",mno);
+					
+				} catch (Exception ex) {
+					ex.printStackTrace();
+					
+				} finally {
+					if (session != null){
+					    session.close();
+					}
+				}
+				return total;
+			}
+			// 댓글 페이지 나누기
+			public static List<Product_replyVO> prodReplyPageDivision(Map map){
+				List<Product_replyVO> prList = new ArrayList<Product_replyVO>();
+				
+				SqlSession session = null;
+				try {
+					session = ssf.openSession();
+					prList = session.selectList("prodReplyPageDivision", map);
+					
+				} catch (Exception ex) {
+					ex.printStackTrace();
+					
+				} finally {
+					if (session != null){
+					    session.close();
+					}
+				}
+				return prList;
+			}
+		
+		// insertlikePouch_no 파우치 좋아요눌렀을때 즐겨찾기 파우치목록에 갱신(추가)
+		public static void insertlikePouch_no(Map map){
+		
 			SqlSession session = null;
-			
 			try {
-				session = ssf.openSession();
-				total = session.selectOne("likeProductTotalPage",mno);
+				session = ssf.openSession(true);
+				session.insert("insertlikePouch_no", map);
 				
 			} catch (Exception ex) {
 				ex.printStackTrace();
 				
 			} finally {
-				if (session != null){
-				    session.close();
-				}
+				if (session != null)
+					session.close();
 			}
-			return total;
+
+			
 		}
-		public static List<Product_replyVO> prodReplyPageDivision(Map map){
-			List<Product_replyVO> prList = new ArrayList<Product_replyVO>();
+		// deletelikePouch_no 파우치 좋아요 취소했을 때 테이블갱신
+		public static void deletelikePouch_no(Map map){
 			
 			SqlSession session = null;
 			try {
-				session = ssf.openSession();
-				prList = session.selectList("prodReplyPageDivision", map);
+				session = ssf.openSession(true);
+				session.delete("deletelikePouch_no", map);
 				
 			} catch (Exception ex) {
 				ex.printStackTrace();
 				
 			} finally {
-				if (session != null){
-				    session.close();
-				}
+				if (session != null)
+					session.close();
 			}
-			return prList;
+
+			
 		}
+		
+		// 즐겨찾기 상품 총페이지
+					public static int likeProdTotalPage(int mno){
+						int total = 0;
+						SqlSession session = null;
+						
+						try {
+							session = ssf.openSession();
+							total = session.selectOne("likeProdTotalPage",mno);
+							
+						} catch (Exception ex) {
+							ex.printStackTrace();
+							
+						} finally {
+							if (session != null){
+							    session.close();
+							}
+						}
+						return total;
+					}
+					// 즐겨찾기 상품 페이지 나누기
+					public static List<ProductVO> likeProdPageDivision(Map map){
+						List<ProductVO> prList = new ArrayList<ProductVO>();
+						
+						SqlSession session = null;
+						try {
+							session = ssf.openSession();
+							prList = session.selectList("likeProdPageDivision", map);
+							
+						} catch (Exception ex) {
+							ex.printStackTrace();
+							
+						} finally {
+							if (session != null){
+							    session.close();
+							}
+						}
+						return prList;
+					}
+					
+					// 개인정보 수정
+					public static void updateProfileInfo(MemberVO vo){
+						
+						SqlSession session = null;
+						try {
+							session = ssf.openSession(true);
+							session.update("updateProfileInfo", vo);
+							
+						} catch (Exception ex) {
+							ex.printStackTrace();
+							
+						} finally {
+							if (session != null){
+							    session.close();
+							}
+						}
+					}
 	
 }

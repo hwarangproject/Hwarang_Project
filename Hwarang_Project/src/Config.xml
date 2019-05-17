@@ -37,6 +37,8 @@
 		<typeAlias type="com.hwarang.vo.Product_replyVO" alias="Product_replyVO"/>
 		<typeAlias type="com.hwarang.vo.CartVO" alias="CartVO"/>
 		<typeAlias type="com.hwarang.vo.Pouch_ReplyVO" alias="Pouch_ReplyVO"/>
+		<typeAlias type="com.hwarang.vo.BoardVO" alias="BoardVO"/>
+		<typeAlias type="com.hwarang.vo.CommunityReplyVO" alias="CommunityReplyVO"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -69,6 +71,7 @@
 		<mapper resource="com/hwarang/mapper/main-mapper.xml"/>
 		<mapper resource="com/hwarang/mapper/cart-mapper.xml"/>
 		<mapper resource="com/hwarang/mapper/find-mapper.xml"/>
+		<mapper resource="com/hwarang/mapper/board-mapper.xml"/>
 	</mappers>
 	
 </configuration>

@@ -32,6 +32,8 @@ public class LoginModel {
 			session.setAttribute("id", id);
 			session.setAttribute("name", vo.getName());
 			session.setAttribute("skin_type", vo.getSkin_type());
+			session.setAttribute("pouch_no", vo.getPouch_no());
+			session.setAttribute("member_no", vo.getMember_no());
 			
 			if(vo.getMember_no() <=499)
 			{

@@ -18,6 +18,7 @@ public class ProductDAO {
 		ssf=CreateSqlSessionFactory.getSsf();
 	}
 	
+	// 메인 화면 //
 	//////////////////////////// 슬라이더//////////////////////////////////
 	public static List<ProductVO> productList_RandomData()
 	{
@@ -44,21 +45,109 @@ public class ProductDAO {
 	}
 	////////////////////////////슬라이더//////////////////////////////////
 	
+	
+	// 메인 화면 추천(파우치에 많이 담긴 화장품)
+	public static List<ProductVO> recommend_ProductData() {
+		List<ProductVO> list = new ArrayList<ProductVO>();
+		SqlSession session = null;
+		try {
+			session = ssf.openSession();
+			list = session.selectList("recommend_ProductData");
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			if (session != null)
+				session.close();
+		}
+
+		return list;
+	}
+	
+	// 찜수
+	public static List<ProductVO> jjim_ProductData() {
+		List<ProductVO> list = new ArrayList<ProductVO>();
+		SqlSession session = null;
+		try {
+			session = ssf.openSession();
+			list = session.selectList("jjim_ProductData");
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			if (session != null)
+				session.close();
+		}
+
+		return list;
+	}
+	
+	// 리뷰
+	public static List<ProductVO> review_ProductData() {
+		List<ProductVO> list = new ArrayList<ProductVO>();
+		SqlSession session = null;
+		try {
+			session = ssf.openSession();
+			list = session.selectList("review_ProductData");
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			if (session != null)
+				session.close();
+		}
+
+		return list;
+	}
+	
+	// 메인 화면 //
+	
 	//상품 디테일
 	public static ProductVO productDetailData(int pno){
-		   ProductVO vo=new ProductVO();
-		   SqlSession session=null;
-		   try
-		   {
-			   session=ssf.openSession();
-			   vo=session.selectOne("productDetailData",pno);
-		   }catch(Exception ex){ex.printStackTrace();}
-		   finally
-		   {
-			   if(session!=null)
-				   session.close();
-		   }
-		   return vo;
+		ProductVO vo=new ProductVO();
+		SqlSession session=null;
+		try
+		{
+			session=ssf.openSession();
+			vo=session.selectOne("productDetailData",pno);
+		}catch(Exception ex){ex.printStackTrace();}
+		finally
+		{
+			if(session!=null)
+				session.close();
+		}
+		return vo;
+	}
+	
+	// 상품 디테일 타입 가져오기
+	public static DetailcateVO productDetailData_Type(int pno){
+		DetailcateVO vo=new DetailcateVO();
+	    SqlSession session=null;
+	    try
+	    {
+		   session=ssf.openSession();
+		   vo=session.selectOne("productDetailData_Type",pno);
+	    }catch(Exception ex){ex.printStackTrace();}
+	    finally
+	    {
+		   if(session!=null)
+			   session.close();
+	    }
+	    return vo;
+	}
+	// 상품 연령별 합계
+	public static int productDetailData_Sum(int pno){
+		int sum=0;
+		SqlSession session=null;
+		try
+	    {
+		   session=ssf.openSession();
+		   sum=session.selectOne("productDetailData_Sum",pno);
+	    }catch(Exception ex){ex.printStackTrace();}
+	    finally
+	    {
+		   if(session!=null)
+			   session.close();
+	    }
+		
+		return sum;
 	}
 	
 	// 카테고리 리스트
@@ -243,23 +332,7 @@ public class ProductDAO {
 		return list;
 	}
 	//////////////////////////////////////// 연령별 ////////////////////////////////////////////
-	
-	// 메인 화면 추천(파우치에 많이 담긴 화장품)
-	public static List<ProductVO> recommend_ProductData() {
-		List<ProductVO> list = new ArrayList<ProductVO>();
-		SqlSession session = null;
-		try {
-			session = ssf.openSession();
-			list = session.selectList("recommend_ProductData");
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		} finally {
-			if (session != null)
-				session.close();
-		}
 
-		return list;
-	}
 	
 	// 상품 페이지 나누기 (전체)
 	public static List<ProductVO> productMainPage_Total(Map map) {
@@ -297,7 +370,43 @@ public class ProductDAO {
 		}
 		return list;
 	}
+	
+	// 상품 페이지 나누기 (전체)
+	public static List<ProductVO> productScorePage_Total(Map map) {
+		List<ProductVO> list = new ArrayList<ProductVO>();
+		SqlSession session=null;
+		try {
+			session = ssf.openSession();
+			list = session.selectList("productScorePage_Total", map);
+		} 
+		catch (Exception ex) {
+			System.out.println("productScorePage_Total:"+ex.getMessage());
+			ex.printStackTrace();
+		} 
+		finally {
+			if (session != null)
+				session.close();
+		}
+		return list;
+	}
 			
+	// 상품 페이지 나누기 (개별)
+	public static List<ProductVO> productScorePage(Map map) {
+		List<ProductVO> list = new ArrayList<ProductVO>();
+		SqlSession session=null;
+		try {
+			session = ssf.openSession();
+			list = session.selectList("productScorePage", map);
+		} 
+		catch (Exception ex) {
+			ex.printStackTrace();
+		} 
+		finally {
+			if (session != null)
+				session.close();
+		}
+		return list;
+	}		
 	// 상품 페이지 구하기
 	public static int productTotalPage(Map map) {
 		int total=0;

@@ -1,7 +1,19 @@
 package com.hwarang.vo;
 
 import java.util.*;
+/*
+<!-- 
+POUCH_REPLY_NO NOT NULL NUMBER 
+POUCH_NO       NOT NULL NUMBER 
+CONTENT        NOT NULL CLOB   
+REGDATE                 DATE   
+MEMBER_NO               NUMBER 
+POUCH_RATE              NUMBER 
+REVIEW_CNT              NUMBER 
 
+ b.profile_img, b.id, b.sex, b.skin_type, b.age_group  
+ -->
+ */
 public class Pouch_ReplyVO {
 	/*
 	 * 이름 널? 유형 -------------- -------- ------ POUCH_REPLY_NO NOT NULL NUMBER
@@ -22,6 +34,15 @@ public class Pouch_ReplyVO {
 	private String sex;
 	private String skin_type;
 	private String age_group;
+	private int member_no2;
+
+	public int getMember_no2() {
+		return member_no2;
+	}
+
+	public void setMember_no2(int member_no2) {
+		this.member_no2 = member_no2;
+	}
 
 	public String getProfile_img() {
 		return profile_img;

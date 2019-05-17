@@ -69,7 +69,7 @@ public class Profile_myactivityModel {
 		  map.put("end", end);
 		  
 		  List<Product_replyVO> pprList = ProfileDAO.prodReplyPageDivision(map);
-		  int totalpage = ProfileDAO.likeProductTotalPage(mno);
+		  int totalpage = ProfileDAO.prodReplyTotalPage(mno);
 		  
 		  final int BLOCK = 5;
 		  int startPage = ((curpage - 1) / BLOCK * BLOCK) + 1;

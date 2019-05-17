@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.hwarang.mapper.product-mapper">
-	<!--#### 슬라이더  ####-->
-	<select id="productList_RandomData" resultType="ProductVO">
-		<![CDATA[
-	 		 SELECT * FROM(SELECT * FROM product ORDER BY dbms_random.random) where rownum<6
-	 	]]>
-	</select>
 
+	<!-- 상품 디테일 정보 출력 -->
 	<select id="productDetailData" resultType="ProductVO" parameterType="int">
   	  SELECT * FROM product WHERE product_no=#{pno}
 	</select>	
+	
+	<!-- 상품 디테일 정보 타입 -->
+	<select id="productDetailData_Type" resultType="DetailcateVO" parameterType="int">
+		SELECT * FROM detailcate d,(SELECT detcategory_no FROM product WHERE product_no=#{pno}) p 
+		WHERE d.detcategory_no=p.detcategory_no
+	</select>
+	
+	<!-- 상품 좋아요 한 수 -->
+	<select id="productDetailData_Sum" resultType="int" parameterType="int">
+		SELECT SUM(like_10+like_20+like_30+like_40+like_50) FROM product where product_no=#{pno}
+	</select>
 	
 	<!-- 카테고리 리스트 출력 ex) 목록들 -->
 	<select id="detail_cate_list" resultType="DetailcateVO">
@@ -21,7 +27,7 @@
 	<select id="product_10_age" resultType="ProductVO">
 		<![CDATA[
 			SELECT * FROM (SELECT * FROM product ORDER BY like_10 DESC) WHERE ROWNUM<=100
-		]]> 
+		]]>
 	</select>
 	
 	<select id="product_20_age" resultType="ProductVO">
@@ -101,7 +107,7 @@
 	<select id="productMainPage_Total" resultType="ProductVO" parameterType="hashmap">
 		SELECT distinct product_no, brand, product_name, price, score, brand_img, product_img, num 
 		FROM (SELECT distinct product_no, brand, product_name, price, score, brand_img, product_img, rownum as num 
-		FROM (SELECT distinct product_no, brand, product_name, price, score, brand_img, product_img FROM product WHERE detcategory_no BETWEEN #{start} AND #{end} ORDER BY score DESC ))  	
+		FROM (SELECT distinct product_no, brand, product_name, price, score, brand_img, product_img FROM product WHERE detcategory_no BETWEEN #{start} AND #{end} ORDER BY product_no ))  	
 		WHERE num BETWEEN #{start2} AND #{end2}
 	</select>
 	
@@ -109,20 +115,34 @@
 	<select id="productMainPage" resultType="ProductVO" parameterType="hashmap">
 		SELECT distinct product_no, brand, product_name, price, score, brand_img, product_img, num 
 		FROM (SELECT distinct product_no, brand, product_name, price, score, brand_img, product_img, rownum as num 
-		FROM (SELECT distinct product_no, brand, product_name, price, score, brand_img, product_img FROM product WHERE detcategory_no=#{dcno} ORDER BY score DESC ))  
+		FROM (SELECT distinct product_no, brand, product_name, price, score, brand_img, product_img FROM product WHERE detcategory_no=#{dcno} ORDER BY product_no ))  
 		WHERE num BETWEEN #{start2} AND #{end2}
 	</select>
 	
-	<!-- 상품 전체 페이지 -->
-	<select id="productTotalPage" resultType="int" parameterType="hashmap">
-		SELECT CEIL(count(*)/12.0) FROM product 
-		<if test="start!=null">
-		WHERE detcategory_no BETWEEN ${start} AND ${end}
-		</if>
-		<if test="dcno!=null">
-		WHERE detcategory_no=${dcno}
-		</if>
+	<!-- 상품 평점 순 페이지 나누기 (전체) -->
+	<select id="productScorePage_Total" resultType="ProductVO" parameterType="hashmap">
+		SELECT distinct product_no, brand, product_name, price, score, brand_img, product_img, num 
+		FROM (SELECT distinct product_no, brand, product_name, price, score, brand_img, product_img, rownum as num 
+		FROM (SELECT distinct product_no, brand, product_name, price, score, brand_img, product_img FROM product WHERE detcategory_no BETWEEN #{start} AND #{end} ORDER BY score DESC ))  	
+		WHERE num BETWEEN #{start2} AND #{end2}
 	</select>
+	
+	<!-- 상품  평정 순 페이지 나누기 (개별) -->
+	<select id="productScorePage" resultType="ProductVO" parameterType="hashmap">
+		SELECT distinct product_no, brand, product_name, price, score, brand_img, product_img, num 
+		FROM (SELECT distinct product_no, brand, product_name, price, score, brand_img, product_img, rownum as num 
+		FROM (SELECT distinct product_no, brand, product_name, price, score, brand_img, product_img FROM product WHERE detcategory_no=#{dcno} ORDER BY score DESC ))  
+		WHERE num BETWEEN #{start2} AND #{end2}
+	</select>
+
+	<select resultType="int" id="productTotalPage" parameterType="hashmap">
+		SELECT CEIL(count(*)/12.0) FROM product 
+		<if test="start!=null">WHERE detcategory_no BETWEEN ${start} AND ${end} </if>
+		
+		<if test="dcno!=null">WHERE detcategory_no=${dcno} 
+	</if>
+
+</select>
 	<!-- ///////////////////////////// 랭킹 상품 페이지 나누기 끝 //////////////////////////////////////////////// -->
 	
 	<!-- 상품 댓글 -->

@@ -6,25 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <title>연령별 목록</title>
-<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
-<script type="text/javascript">
-$(function(){
-	$('#age_detail').click(function(){
-		var ad=$('#age_detail').val();
-		
-		$.ajax({
-			type:'POST',
-			data:{"age_detail":ad},
-			url:'../ranking/rank_age_detail.hr',
-			success:function(response)
-			{
-				$('#print').html(response);
-			}
-			
-		});		
-	});
-});
-</script>
 <style type="text/css">
 .scrollbar {
 	float: left;
@@ -386,11 +367,6 @@ a {
 <section>
 	<div class="container">
 		<div class="row">
-		
-		<div class="container" id="print">
-		
-		</div>
-		
 			<ul class="nav nav-pills">
 			  <li class="active">
 			  	<a href="#tab-1" data-toggle="tab">10대</a>
@@ -401,36 +377,39 @@ a {
 			  <li><a href="#tab-5" data-toggle="tab">50대</a></li>
 			</ul>
 		
+			<!-- <form method="post" action="../ranking/rank_age_detail.hr" name="ageFrm"> -->
 			<div class="tab-content well">
-			  <div class="tab-pane active" id="tab-1">
+				  <div class="tab-pane active" id="tab-1">
 					<h2 class="title text-center">10's choice</h2>
 					<div id="ranking-slide">
 						<ol>
 						<c:forEach var="vo" items="${product_10_age }" varStatus="s">
-						<c:if test="${s.index==0 }">
-							<li>
-								<a href="../product/product_detail.hr?pno=${vo.product_no }">
-									<img src="${vo.product_img }" width="336" height="335">
-								</a>
-							</li>
-						</c:if>
-						<c:if test="${s.index!=0 }">
-							<li>
-								<a href="../product/product_detail.hr?pno=${vo.product_no }">
-									<img src="${vo.product_img }" width="159" height="159">
-								</a>
-							</li>
-						</c:if>
+							<c:if test="${s.index==0 }">
+								<li>
+									<a href="../product/product_detail.hr?pno=${vo.product_no }">
+										<img src="${vo.product_img }" width="336" height="335">
+									</a>
+								</li>
+							</c:if>
+							
+							<c:if test="${s.index>0 && s.index<9 }">
+								<li>
+									<a href="../product/product_detail.hr?pno=${vo.product_no }">
+										<img src="${vo.product_img }" width="159" height="159">
+									</a>
+								</li>
+							</c:if>
 						</c:forEach>
 						</ol>
-						<a href="#" class="prev" onclick="prev()"></a> <a href="#"
-							class="next" onclick="next()"></a>
+
 					</div>
 					
 					<div class="row">
 							<div class="button-2">
 								<div class="eff-2"></div>
-								<a href="../ranking/rank_age_detail.hr" id="age_detail">더보기</a>
+								<a href="../ranking/rank_age_detail.hr?age=10">
+									더보기
+								</a>
 							</div>
 					</div>
 			  </div>
@@ -447,7 +426,7 @@ a {
 								</a>
 							</li>
 						</c:if>
-						<c:if test="${s.index!=0 }">
+						<c:if test="${s.index>0 && s.index<9 }">
 							<li>
 								<a href="../product/product_detail.hr?pno=${vo.product_no }">
 									<img src="${vo.product_img }" width="159" height="159">
@@ -456,14 +435,15 @@ a {
 						</c:if>	
 						</c:forEach>
 						</ol>
-						<a href="#" class="prev" onclick="prev()"></a> 
-						<a href="#" class="next" onclick="next()"></a>
+
 					</div>
 					
 					<div class="row">
 						<div class="button-2">
 							<div class="eff-2"></div>
-							<a href="../shop.jsp"> 더보기 </a>
+							<a href="../ranking/rank_age_detail.hr?age=20">
+								더보기
+							</a>
 						</div>
 					</div>
 			  </div>
@@ -479,7 +459,7 @@ a {
 								</a>
 							</li>
 						</c:if>
-						<c:if test="${s.index!=0 }">
+						<c:if test="${s.index>0 && s.index<9 }">
 							<li>
 								<a href="../product/product_detail.hr?pno=${vo.product_no }">
 									<img src="${vo.product_img }" width="159" height="159">
@@ -488,15 +468,14 @@ a {
 						</c:if>
 						</c:forEach>
 						</ol>
-		
-						<a href="#" class="prev" onclick="prev()"></a> <a href="#"
-							class="next" onclick="next()"></a>
 					</div>
 					
 					<div class="row">
 						<div class="button-2">
 							<div class="eff-2"></div>
-							<a href="../shop.jsp"> 더보기 </a>
+							<a href="../ranking/rank_age_detail.hr?age=30">
+								더보기
+							</a>
 						</div>
 					</div>
 			  </div>
@@ -512,7 +491,7 @@ a {
 								</a>
 							</li>
 						</c:if>
-						<c:if test="${s.index!=0 }">
+						<c:if test="${s.index>0 && s.index<9 }">
 							<li>
 								<a href="../product/product_detail.hr?pno=${vo.product_no }">
 									<img src="${vo.product_img }" width="159" height="159">
@@ -521,16 +500,18 @@ a {
 						</c:if>
 						</c:forEach>
 						</ol>
-						<a href="#" class="prev" onclick="prev()"></a> 
-						<a href="#" class="next" onclick="next()"></a>
 					</div>
 					
+					<form method="post" action="../ranking/rank_age_detail.hr" name="ageFrm">
 					<div class="row">
 						<div class="button-2">
 							<div class="eff-2"></div>
-							<a href="../shop.jsp"> 더보기 </a>
+							<a href="../ranking/rank_age_detail.hr?age=40">
+								더보기
+							</a>							
 						</div>
 					</div>
+					</form>
 			  </div>
 			  <div class="tab-pane" id="tab-5">
 			  	<h2 class="title text-center">50's choice</h2>
@@ -544,7 +525,7 @@ a {
 								</a>
 							</li>
 						</c:if>
-						<c:if test="${s.index!=0 }">
+						<c:if test="${s.index>0 && s.index<9 }">
 							<li>
 								<a href="../product/product_detail.hr?pno=${vo.product_no }">
 									<img src="${vo.product_img }" width="159" height="159">
@@ -553,18 +534,21 @@ a {
 						</c:if>
 						</c:forEach>
 						</ol>
-						<a href="#" class="prev" onclick="prev()"></a> 
-						<a href="#" class="next" onclick="next()"></a>
 					</div>
 					
+					<form method="post" action="../ranking/rank_age_detail.hr" name="ageFrm">
 					<div class="row">
 						<div class="button-2">
 							<div class="eff-2"></div>
-							<a href="../shop.jsp"> 더보기 </a>
+							<a href="../ranking/rank_age_detail.hr?age=50">
+								더보기
+							</a>
 						</div>
 					</div>
+					</form>
 			  </div>
 			</div>
+			<!-- </form> -->
 		</div>
 	</div>
 </section>
@@ -574,15 +558,6 @@ a {
 	<script src="../js/jquery-1.11.3.min.js"></script>
 	<script src="../js/star.js"></script>
 	<script type="text/javascript">
-	var div = document.getElementById('ranking-slide');
-
-	function prev(){
-		div.className = 'trans02';
-	}
-
-	function next(){
-		div.className = 'trans01';
-	}
 	</script>
 	
 

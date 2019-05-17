@@ -568,6 +568,19 @@ span {
   color: #fff;
 }
 
+.pagination li a, .pagination li span {
+    background-color: #fed7d791;
+    border: 0;
+    float: left;
+    line-height: 1.42857;
+    margin-left: -1px;
+    padding: 6px 12px;
+    position: relative;
+    text-decoration: none;
+    margin-right: 5px;
+    color: #4a5568e0;
+}
+
 </style>
 </head>
 <body class="font-sans">
@@ -618,20 +631,11 @@ span {
 									      </a>
 									    </li>
 									    <li>
-									      <a href='profile_info.hr' id="sss">
+									      <a href='profile_info_pwdCheck.hr' id="sss">
 									        내 정보
 									      </a>
 									    </li>
 									    <li>
-									      <%-- <c:if test='${vo.pouch_no == null}'>
-									      <a href='${pouchMake }'>
-									      MY POUCH
-									      </a>
-									      </c:if>
-									    
-									      <a href='../pouch/pouch_detail.hr'>
-									      MY POUCH
-									      </a> --%>
 									      <c:choose>
 											  <c:when test = '${vo.pouch_no == 0}'>
 											    <a href='profile_pouch.hr'>MY POUCH</a>

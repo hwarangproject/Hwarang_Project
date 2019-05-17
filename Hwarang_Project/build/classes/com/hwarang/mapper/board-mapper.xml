@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sist.mapper.board-mapper">
+
+	<!-- 1.게시물 목록 (페이지) -->
+	<select id="boardListData" resultType="BoardVO" parameterType="java.util.Map">
+	    SELECT b_no,b_subject,name,b_regdate,b_hit,num
+	    FROM
+		     (
+		       SELECT b_no,b_subject,name,b_regdate,b_hit,rownum as num
+	    FROM (
+		       SELECT b_no,b_subject,name,b_regdate,b_hit
+		       FROM board, member
+		       WHERE b_cate_no=#{b_cate_no} AND board.member_no=member.member_no ORDER BY b_no DESC
+		     ))
+	     WHERE num BETWEEN #{start} AND #{end}
+	</select>
+	
+	<!--원본 <select id="boardListData" resultType="BoardVO" parameterType="int">
+		SELECT *
+		FROM board, member
+		WHERE b_cate_no=#{b_cate_no} AND board.member_no=member.member_no ORDER BY b_no DESC
+	</select> -->
+	<!-- 2.총페이지 -->
+   <select id="boardTotalPage" resultType="int">
+     SELECT CEIL(COUNT(*)/10.0) FROM board
+   </select>
+	
+	<!-- 조회수 증가 -->
+	<update id="hitIncrement" parameterType="java.util.Map">
+		UPDATE board SET
+		b_hit=b_hit+1
+		WHERE b_cate_no=#{b_cate_no} AND b_no=#{b_no}
+	</update>
+	<!-- 상세 데이터 읽기 -->
+	<select id="boardDetailData" resultType="BoardVO" parameterType="java.util.Map">
+		SELECT b_no,b_cate_no,member_no,b_subject,b_content,b_regdate,b_hit
+		FROM board
+		WHERE b_cate_no=#{b_cate_no} AND b_no=#{b_no}
+	</select>
+
+	<!-- 3.수정 -->
+	<update id="boardUpdate" parameterType="BoardVO">
+		UPDATE board SET
+		b_subject=#{b_subject},
+		b_content=#{b_content}
+		WHERE b_no=#{b_no}
+	</update>
+	<!-- 4.삭제 -->
+	<delete id="boardDelete" parameterType="int">
+		DELETE FROM board
+		WHERE b_no=#{b_no}
+	</delete>
+	<!-- 5.추가 -->
+
+	<!-- <insert id="boardInsert" parameterType="BoardVO"> <selectKey keyProperty="b_no" 
+		resultType="int" order="BEFORE"> SELECT NVL(MAX(b_no)+1,1) as b_no FROM board 
+		rs.getInt(1) rs.getInt("no") </selectKey> INSERT INTO board VALUES( #{b_no}, 
+		#{b_cate_no}, #{member_no}, #{b_subject}, #{b_content}, SYSDATE,0 ) </insert> -->
+
+	<insert id="boardInsert" parameterType="BoardVO">
+		INSERT INTO board VALUES(
+		(SELECT NVL(MAX(b_no)+1,1) FROM board),
+		#{b_cate_no},
+		#{member_no},
+		#{b_subject},
+		#{b_content},
+		SYSDATE,0
+		)
+	</insert>
+
+	<!-- 찾기 -->
+	<select id="boardFindCount" resultType="int" parameterType="java.util.Map">
+		SELECT COUNT(*)
+		FROM board
+		WHERE b_subject LIKE ('%'||#{q}||'%')
+	</select>
+	
+	<select id="boardFindData" resultType="BoardVO" parameterType="java.util.Map">
+		SELECT *
+		FROM board,member
+		WHERE b_subject LIKE ('%'||#{q}||'%') AND b_cate_no=#{b_cate_no} AND board.member_no=member.member_no
+	</select>
+	
+	<!-- 2-2.댓글 쓰기 -->
+   <insert id="replyInsert" parameterType="CommunityReplyVO">
+     INSERT INTO community_reply_board(r_no,b_no,name,r_content,r_regdate) VALUES(
+       (SELECT NVL(MAX(r_no)+1,1) FROM community_reply_board),
+       #{b_no},
+       #{name},
+       #{r_content},
+       SYSDATE
+     )
+   </insert>
+
+	<!-- 2-3.댓글 수정 -->
+   <update id="boardReplyUpdate" parameterType="CommunityReplyVO">
+     UPDATE community_reply_board SET
+     r_content=#{r_content}
+     WHERE r_no=#{r_no}
+   </update>
+	
+	<!-- 2-1.댓글 읽기-->
+   <select id="replyListData" resultType="CommunityReplyVO" parameterType="int">
+     SELECT r_no,b_no,name,r_content,TO_CHAR(r_regdate,'YYYY-MM-DD HH24:MI:SS') as dbday
+     FROM community_reply_board
+     WHERE b_no=#{b_no}
+     ORDER BY r_no DESC
+   </select>
+   
+   <!-- 2-4.댓글 삭제 -->
+   <delete id="boardReplyDelete" parameterType="CommunityReplyVO">
+     DELETE FROM community_reply_board
+     WHERE r_no=#{r_no} AND b_no=#{b_no}
+   </delete>
+   
+</mapper>

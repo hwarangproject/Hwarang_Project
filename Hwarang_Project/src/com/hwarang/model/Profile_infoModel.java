@@ -43,5 +43,74 @@ public class Profile_infoModel {
 		request.setAttribute("main_jsp", "../profile/profile_info.jsp");
 		return "../main/main.jsp";
 	}
+	
+	@RequestMapping("profile/profile_info_pwdCheck.hr")
+	public String profile_info_pwdCheck_page(HttpServletRequest request, HttpServletResponse response){
+		HttpSession session = request.getSession();
+		String id = (String)session.getAttribute("id");
+		String pwd = request.getParameter("pwdCheck");
+		MemberVO vo = ProfileDAO.getMemberData(id);
+
+		
+		request.setAttribute("main_jsp", "../profile/profile_info_pwdCheck.jsp");
+		request.setAttribute("vo", vo);
+
+		return "../main/main.jsp";
+	}
+	
+	@RequestMapping("profile/profile_info_update.hr")
+	public String profile_info_update(HttpServletRequest request,HttpServletResponse response){
+		try {
+			request.setCharacterEncoding("UTF-8");
+		} catch (Exception ex) {
+		}
+		
+		HttpSession session = request.getSession();
+		String id = (String)session.getAttribute("id");
+		String pw = request.getParameter("pwd");
+		String postcode = request.getParameter("postcode");
+		String addr = request.getParameter("addr");
+		String addr2 = request.getParameter("addr2");
+		String nickname = request.getParameter("nickname");
+		String skin_type = request.getParameter("myskin_type");
+		MemberVO vo = ProfileDAO.getMemberData(id);
+		if(pw == null){
+			vo.setPw(vo.getPw());
+		}
+		vo.setPw(pw);
+		vo.setAddr(addr);
+		vo.setAddr2(addr2);
+		vo.setPostcode(postcode);
+		vo.setMember_no(vo.getMember_no());
+		vo.setNickname(nickname);
+		vo.setSkin_type(skin_type);
+		
+		ProfileDAO.updateProfileInfo(vo);
+	
+		request.setAttribute("vo", vo);
+		return "redirect:../profile/profile_info.hr";
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

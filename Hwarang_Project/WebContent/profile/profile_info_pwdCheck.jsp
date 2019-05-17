@@ -18,81 +18,32 @@
 <link rel="stylesheet" href="css/style.css">
 <link href="css/member_make.css" rel="stylesheet">
 
-<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
-<script type="text/javascript">
-$(function(){
-	$('input[name="skin_type"]').click(function() {
-        var value = $(this).val();
-     	$('input[name="myskin_type"]').attr('value',value);
-    });
-});
-</script>
-
-<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-   <script>
-      //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
-      function sample4_execDaumPostcode() {
-         new daum.Postcode(
-               {
-                  oncomplete : function(data) {
-                     // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-
-                     // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
-                     // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-                     var roadAddr = data.roadAddress; // 도로명 주소 변수
-                     var extraRoadAddr = ''; // 참고 항목 변수
-
-                     // 법정동명이 있을 경우 추가한다. (법정리는 제외)
-                     // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
-                     if (data.bname !== ''
-                           && /[동|로|가]$/g.test(data.bname)) {
-                        extraRoadAddr += data.bname;
-                     }
-                     // 건물명이 있고, 공동주택일 경우 추가한다.
-                     if (data.buildingName !== ''
-                           && data.apartment === 'Y') {
-                        extraRoadAddr += (extraRoadAddr !== '' ? ', '
-                              + data.buildingName : data.buildingName);
-                     }
-                     // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
-                     if (extraRoadAddr !== '') {
-                        extraRoadAddr = ' (' + extraRoadAddr + ')';
-                     }
-
-                     // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                     document.getElementById('sample4_postcode').value = data.zonecode;
-                     document.getElementById("sample4_roadAddress").value = roadAddr;
-                     document.getElementById("sample4_jibunAddress").value = data.jibunAddress;
-
-                     // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
-                     if (roadAddr !== '') {
-                        document.getElementById("sample4_extraAddress").value = extraRoadAddr;
-                     } else {
-                        document.getElementById("sample4_extraAddress").value = '';
-                     }
-
-                     var guideTextBox = document.getElementById("guide");
-                     // 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
-                     if (data.autoRoadAddress) {
-                        var expRoadAddr = data.autoRoadAddress
-                              + extraRoadAddr;
-                        guideTextBox.innerHTML = '(예상 도로명 주소 : '
-                              + expRoadAddr + ')';
-                        guideTextBox.style.display = 'block';
-
-                     } else if (data.autoJibunAddress) {
-                        var expJibunAddr = data.autoJibunAddress;
-                        guideTextBox.innerHTML = '(예상 지번 주소 : '
-                              + expJibunAddr + ')';
-                        guideTextBox.style.display = 'block';
-                     } else {
-                        guideTextBox.innerHTML = '';
-                        guideTextBox.style.display = 'none';
-                     }
-                  }
-               }).open();
-      }
-   </script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+	  $('#info-edit').click(function(){
+		  var value = $('input[name="pwdCheck"]').val();
+		  var pwd = $('input[name="pwdCheck2"]').attr('value');
+		  
+		  if(value != pwd){
+			  $( "#dialog-message" ).dialog({
+			      modal: true,
+			      buttons: {
+			          ok: function() {
+			          $( this ).dialog( "close" );
+			        }
+			      }
+			    });
+			  
+		  } else {
+			  $('#frm').submit();
+		  }
+	  });
+	  
+    
+  } );
+  </script>
 <style type="text/css">
 
 * {
@@ -918,7 +869,7 @@ select option {
 									      </a>
 									    </li>
 									    <li>
-									      <a href='profile_info_pwdCheck.hr'>
+									      <a href='profile_info.hr'>
 									        내 정보
 									      </a>
 									    </li>
@@ -938,114 +889,40 @@ select option {
 								</div>
 							</div>
 						</section>
-						<section class="section2 clearfix">
-						  <div class="grid">
+						<section class="section2 clearfix" style="margin-left: 350px;">
+						  <div class="grid" style="width: 450px">
 							<!-- 회원정보 -->
+							<form action="../profile/profile_info.hr" method="post" id="frm">
 							<div class="container2">
-							<form action="../profile/profile_info_update.hr" method="post">
-								<h5>내 정보</h5><br><br>
+							
+								<h5>비밀번호 확인</h5><br><br>
 								<div class="row">
-									<h4>Account</h4><br>
 									<div class="col-sm-4">
 										<div class="input-group input-group-icon">
-											<input type="text" name="id" placeholder="${vo.id }" value="${vo.id }"/>
-									
-											<div class="input-icon">
-												<i class="fa fa-user" id="label_icon"></i>
-											</div>
-										</div>
-										<div class="input-group input-group-icon">
-											<input type="password" name="pwd" placeholder="${vo.pw }" value="${vo.pw }"/>
-									
+											<input class="pwdCheck" value="" name="pwdCheck" type="password" style="margin-left: 80px;"/>
+											<input type="hidden" name="pwdCheck2" value="${vo.pw }">
 											<div class="input-icon">
 												<i class="fa fa-key" id="label_icon"></i>
 											</div>
 										</div>
-										<div class="input-group input-group-icon">
-											<input type="text" name="name" placeholder="${vo.name }" />
-											<div class="input-icon">
-												<i class="fa fa-user" id="label_icon"></i>
-											</div>
-										</div>
-										<div class="input-group input-group-icon">
-											<input type="text" placeholder="${vo.nickname }" name="nickname" value="${vo.nickname }"/>
-											<div class="input-icon">
-												<i class="fa fa-user" id="label_icon"></i>
-											</div>
-										</div>
-										<div class="input-group input-group-icon">
-											<input type="email" placeholder="${vo.email }" name="email" value="${vo.email }"/>
-											<div class="input-icon">
-												<i class="fa fa-envelope" id="label_icon"></i>
-											</div>
-										</div>
-										<div class="input-group input-group-icon" id = "address">
-							               <input type="text" id="sample4_postcode" name="postcode" placeholder="${vo.postcode }" value="${vo.postcode }">&nbsp;&nbsp;&nbsp;
-							               <input type="button" onclick="sample4_execDaumPostcode()" value="찾기" id="search_address" ><br>
-							               <input type="text" name="addr"  id="sample4_roadAddress" placeholder="${vo.addr }" value="${vo.addr }">
-							               <span id="guide" style="color: #999; display: none"></span>
-							               &nbsp;&nbsp;&nbsp;
-							               <input type="text" id="sample4_detailAddress" name="addr2" placeholder="${vo.addr2 }" value="${vo.addr2 }" width ="100%">
-							            </div>
-									</div>
-									<div class="col-sm-4">
-									<div id='profile-upload' >
-									  <div class="hvr-profile-img">
-									  	<input type="file" name="logo" id='getval'  class="upload w180" title="Dimensions 180 X 180" id="image">
-									  </div>
-									  <i class="fa fa-camera"></i>
-									</div>
-									</div>
-									
-						
-								</div>
-								<div class="row">
-									<div class="col-half">
-										<h4>Date of Birth</h4><br>
-										<div class="input-group">
-											<div class="col-third">
-												<input type="text" placeholder="${year }" readonly="readonly"/>
-											</div>
-											<div class="col-third">
-												<input type="text" placeholder="${month }" readonly="readonly"/>
-											</div>
-											<div class="col-third">
-												<input type="text" placeholder="${day }" readonly="readonly"/>
-											</div>
-										</div>
-									</div>
-								</div>
-				
-								<div class=row>
-									<h4>Skin Type</h4><br>
-									<div class="input-group2">
-									    <input type="hidden" name="myskin_type" value="">
-										<div class="col-fifth">
-											<input type="radio" name="skin_type" id="skin_type1" ${vo.skin_type=='건성'?"checked":"" } value="건성"/> <label for="skin_type1">건성</label>
-										</div>
-										<div class="col-fifth">
-											<input type="radio" name="skin_type" id="skin_type2" ${vo.skin_type=='지성'?"checked":"" } value="지성"/> <label for="skin_type2">지성</label>
-										</div>
-										<div class="col-fifth">
-											<input type="radio" name="skin_type" id="skin_type3" ${vo.skin_type=='지복합성'?"checked":"" } value="지복합성"/> <label for="skin_type3">지복합성</label>
-										</div>
-										<div class="col-fifth">
-											<input type="radio" name="skin_type" id="skin_type4" ${vo.skin_type=='민감성'?"checked":"" } value="민감성"/> <label for="skin_type4">민감성</label>
-										</div>
-										<div class="col-fifth">
-											<input type="radio" name="skin_type" id="skin_type5" ${vo.skin_type=='모르겠음'?"checked":"" } value="모르겠음"/> <label for="skin_type5">모르겠음</label>
-										</div>
-									</div>
-								</div>
+									</div>				
+								</div>								
 								<div class="row">	
 								   <br><br>			
 									<div class="col-harf text-center">
-										<input type="submit" value="수정" id="info-edit"> 
+										<input type="button" value="확인" id="info-edit"> 
 									</div>
 								</div>
-							</form>
-						</div>
+							
+						    </div>
 						  </div>
+						  <div id="dialog-message" title="비밀번호 확인" style="display:none">
+							  <p>
+							    <span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
+							    비밀번호가 일치하지 않습니다
+							  </p>
+							</div>
+							</form>
 						</section>
 					</div>
 				</div>

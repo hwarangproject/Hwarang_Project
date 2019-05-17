@@ -11,10 +11,7 @@ import javax.xml.ws.Response;
 
 import com.hwarang.controller.RequestMapping;
 import com.hwarang.dao.*;
-import com.hwarang.vo.CartVO;
-import com.hwarang.vo.MemberVO;
-import com.hwarang.vo.ProductVO;
-import com.hwarang.vo.Product_replyVO;
+import com.hwarang.vo.*;
 
 public class Product_detailModel {
 	@RequestMapping("product/product_detail.hr")
@@ -30,10 +27,13 @@ public class Product_detailModel {
 		String id = (String) session.getAttribute("id");
 		String pno = request.getParameter("pno");
 		ProductVO vo = ProductDAO.productDetailData(Integer.parseInt(pno));
+		DetailcateVO dvo=ProductDAO.productDetailData_Type(Integer.parseInt(pno));
+		int sum=ProductDAO.productDetailData_Sum(Integer.parseInt(pno));
 		request.setAttribute("vo", vo);
+		request.setAttribute("dvo", dvo);
+		request.setAttribute("sum", sum);
 
 		// ÄíÅ° »ý¼º
-
 		CartVO cartvo = new CartVO();
 		cartvo.setId(id);
 		cartvo.setProduct_no(vo.getProduct_no());

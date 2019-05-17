@@ -205,10 +205,14 @@ label {
 				<img src="${vo.product_img }">
 			</div>
 			<div class="product-detail">
-				<a href="../product/product_detail.hr?pno=${vo.product_no }"><h4><div class="product-title">${vo.product_name }</div></h4>
-				</a>
-				<br>
-				<p class="product-description">${vo.description }</p>
+				<div class="product-title">
+					<h4>
+						<a href="../product/product_detail.hr?pno=${vo.product_no }">				
+							${vo.product_name }				
+						</a>
+					</h4>
+				</div>
+				<p class="product-description">${vo.description.length()>50? vo.description.substring(1,50)+="...":vo.description }</p>
 			</div>
 			<div class="product-price">${vo.price }</div>
 			<!-- <div class="product-quantity">
@@ -232,12 +236,11 @@ label {
 				<div class="totals-value" id="cart-subtotal">40000</div>
 			</div> -->
 
-		<button class="checkout">Checkout</button>
 
 	</div>
 	</div>
 </div>	
-</div>
+
 	<!-- 장바구니 끝 -->
 	
 	<!-- 장바구니 스크립트-->

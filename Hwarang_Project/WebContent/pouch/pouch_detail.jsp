@@ -38,6 +38,71 @@
 <script src="../js/main.js"></script>
 <script src="../js/jquery-1.11.3.min.js"></script>
 <script src="../js/star.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+	
+<%-- 댓글 별점--%>
+	$(function() {
+		$('input[name="star-input"]').click(function() {
+			var value = $(this).val();
+			$('#pouch_rate').attr('value', value);
+		});
+
+		$('.rupdateBtn').click(function() {
+
+			var rno = $(this).attr("id");
+			$('#b' + rno).hide();
+			$('#a' + rno).show();
+
+		});
+
+	});
+<%-- 좋아요--%>
+	$(function() {
+		var no = 0;
+		$('#pouch_like_before').show();
+		$('#like').click(function() {
+
+			var pouch_no = $('#pouch_no').val();
+			if (no == 0) {
+				$.ajax({
+					type : 'POST',
+					data : {
+						"pouch_no" : pouch_no
+					},
+					url : '../pouch/pouch_like_ok.hr',
+					success : function(response) {
+						$('#pouch_like_before').hide();
+						$('#pouch_like_after').text(response);
+						$('#pouch_like_after').show();
+					}
+
+				});
+				no = 1;
+			}
+
+			else if (no == 1) {
+				$.ajax({
+					type : 'POST',
+					data : {
+						"pouch_no" : pouch_no
+					},
+					url : '../pouch/pouch_like_ok_descent.hr',
+					success : function(response) {
+						$('#pouch_like_before').hide();
+						$('#pouch_like_after').text(response);
+						$('#pouch_like_after').show();
+					}
+
+				});
+
+				no = 0;
+			}
+
+		});
+	});
+</script>
+
 
 <style type="text/css">
 #pag {
@@ -485,6 +550,19 @@ body {
 h2 {
 	color: #FB4C22;
 }
+.product_inner {
+	margin-left: 25px;
+	margin-top: 30px;
+}
+
+.product--pink {
+	padding: 0em;
+}
+
+.product-information span {
+	margin-bottom: 1px;
+	margin-top: 8px;
+}
 </style>
 
 </head>
@@ -523,8 +601,11 @@ h2 {
 
 																</div>
 																<div class="col3 last">
-																	<span>좋아요<font style="color: pink;">♡</font></span>
-																	<h1>${vo.pouch_like }</h1>
+																	<input type="hidden" id="pouch_no"
+																		value="${vo.pouch_no}"> <span>좋아요<font
+																		style="color: pink;">♡</font></span>
+																	<h1 id="pouch_like_after"></h1>
+																	<h1 id="pouch_like_before">${vo.pouch_like }</h1>
 																	<td><input type="checkbox" id="like" /> <label
 																		for="like"> <svg
 																				xmlns="http://www.w3.org/2000/svg"
@@ -538,11 +619,10 @@ h2 {
 													</div>
 
 												</div>
+												</section>
 											</div>
 										</div>
-										</section>
 									</div>
-
 									<td>
 										<div class="col-sm-4">
 											<h2 class="subject_intro">
@@ -572,77 +652,51 @@ h2 {
 							<!--product-details-->
 							<div class="row">
 								<div class="col-sm-12">
-									<div class="product-information">
-										<!--/product-information-->
+									<div class="product-information"
+										style="overflow: auto; width: 700; height: 700px; margin-top: 5em; margin-bottom: 5em;">
+										<!--
+												<div class="features_items" id="features_items_custom" style="overflow:auto; width:1200px; height:1000px; margin-top: 5em; margin-bottom: 5em;">
+											-->
 										<div class="left-sidebar">
 											<h2>화장품 목록</h2>
 											<div class="panel-group category-products" id="accordian">
-												<%-- <c:forEach var="pouch" items=""> --%>
-												<div class='product--pink '>
-													<div class='product_inner'>
-														<img
-															src='http://wellandgood.com/wp-content/uploads/2012/07/Nike-Free-30-Womens-Running-Shoe-511495_600_A.png'
-															width='300'>
-														<td>나이키</td> <br>
-														<td>Size 11</td> <br>
-														<td>Price £299.99</td> <br>
-														<button class="text-center">MORE +</button>
+												<c:forEach var="pvo" items="${product_list }">
+													<div class="col-sm-3">
+														<div class='product--pink '>
+															<div class='product_inner' style="width: 155px; height: 278px;">
+																<img src="${pvo.product_img}" style="width: 154px; height: 154px;">
+																	<span>${pvo.product_name.length()>10? pvo.product_name.substring(1,10)+="...":pvo.product_name }</span>
+																	<span class="text-center">${pvo.price }</span><br>
+																<a href="../product/product_detail.hr?pno=${pvo.product_no }">MORE +</a>
+																
+																<c:if test="${sessionScope.pouch_no==vo.pouch_no}">
+																	<a href="../profile/product_in_pouch_delete.hr?pno=${pvo.product_no }">DELETE -</a>
+																</c:if>
+																
+																
+																
+															</div>
+															<div class='product_overlay'>
+																<h2>Added to basket</h2>
+																<i class='fa fa-check'></i>
+															</div>
+
+														</div>
 													</div>
-													<div class='product_overlay'>
-														<h2>Added to basket</h2>
-														<i class='fa fa-check'></i>
-													</div>
-												</div>
-												<%-- 	</c:forEach> --%>
+												</c:forEach>
 											</div>
-											<tr>
-												<td class="text-center in" valign="top">
-													<ul class="pagination pagination-sm" style="padding: 0px">
-														<c:if test="${curpage>BLOCK }">
-															<li><a href="../pouch/pouch_detail.hr?page=1"> <font
-																	style="color: #FFB9B9;">◀◀</font>
-															</a></li>
-															<li><a
-																href="../pouch/pouch_detail.hr?page=${startPage-1 }">
-																	<font style="color: #FFB9B9;">◀</font>
-															</a></li>
-														</c:if>
-
-														<c:set var="type" value="" />
-														<c:forEach var="i" begin="${startPage }" end="${endPage }">
-															<c:if test="${curpage==i }">
-																<c:set var="type" value="class=active" />
-															</c:if>
-															<c:if test="${curpage!=i }">
-																<c:set var="type" value="" />
-															</c:if>
-															<li ${type }><a
-																href="../pouch/pouch_detail.hr?page=${i }">${i+1 }</a></li>
-														</c:forEach>
-
-														<c:if test="${endPage<allPage }">
-															<li><a
-																href="../pouch/pouch_detail.hr?page=${endPage+1 }">
-																	<font style="color: #FFB9B9;">▶</font>
-															</a></li>
-															<li><a
-																href="../pouch/pouch_detail.hr?page=${allPage }"> <font
-																	style="color: #FFB9B9;">▶▶</font>
-															</a></li>
-														</c:if>
-													</ul>
-												</td>
-											</tr>
 										</div>
-										<table class="table text-right">
-											<tr>
-												<td><input type="submit" value="수정"
-													class="btn btn-sm btn-primary" /> <input type="button"
-													value="취소" onclick="javascript:history.back()"
-													class="btn btn-sm btn-primary" /></td>
-											</tr>
-										</table>
 									</div>
+									<table class="table text-right">
+
+										<tr>
+											<td><input type="submit" value="수정"
+												class="btn btn-sm btn-primary" /> <input type="button"
+												value="취소" onclick="javascript:history.back()"
+												class="btn btn-sm btn-primary" /></td>
+										</tr>
+
+									</table>
 								</div>
 							</div>
 						</form>
@@ -651,287 +705,118 @@ h2 {
 			</div>
 		</div>
 	</div>
-
-	<!-- 상세평점 출력 -->
-	<div class="container">
-		<div class="con1">
-			<div class="inner">
-				<c:forEach var="score" items="${pList}">
-					<div class="rating">
-						<span class="rating-num">${score.pouch_score }</span><br>
-						<div class="rating-stars">
-							<span><i class="active icon-star"></i></span> <span><i
-								class="active icon-star"></i></span> <span><i
-								class="active icon-star"></i></span> <span><i
-								class="active icon-star"></i></span> <span><i class="icon-star"></i></span>
-							&#9733;&#9733;&#9733;&#9733;&#9734;
-						</div>
-						<div class="rating-users">
-							&#128077; <i class="icon-user"></i> 1,014,004 total
-						</div>
-					</div>
-
-					<div class="histo">
-						<div class="five histo-rate">
-							<span class="histo-star"> <i class="active icon-star"></i>
-								5
-							</span> <span class="bar-block"> <span id="bar-five" class="bar">
-									<span>566,784</span>&nbsp;
-							</span>
-							</span>
-						</div>
-
-						<div class="four histo-rate">
-							<span class="histo-star"> <i class="active icon-star"></i>
-								4
-							</span> <span class="bar-block"> <span id="bar-four" class="bar">
-									<span>171,298</span>&nbsp;
-							</span>
-							</span>
-						</div>
-
-						<div class="three histo-rate">
-							<span class="histo-star"> <i class="active icon-star"></i>
-								3
-							</span> <span class="bar-block"> <span id="bar-three" class="bar">
-									<span>94,940</span>&nbsp;
-							</span>
-							</span>
-						</div>
-
-						<div class="two histo-rate">
-							<span class="histo-star"> <i class="active icon-star"></i>
-								2
-							</span> <span class="bar-block"> <span id="bar-two" class="bar">
-									<span>44,525</span>&nbsp;
-							</span>
-							</span>
-						</div>
-
-						<div class="one histo-rate">
-							<span class="histo-star"> <i class="active icon-star"></i>
-								1
-							</span> <span class="bar-block"> <span id="bar-one" class="bar">
-									<span>136,457</span>&nbsp;
-							</span>
-							</span>
-						</div>
-					</div>
-				</c:forEach>
-			</div>
-		</div>
-	</div>
-	<!--/product-details-->
 	<div class="container">
 		<div class="category-tab shop-details-tab">
-
 			<!--category-tab-->
 			<div class="col-sm-12">
 				<ul class="nav nav-tabs">
-					<li class="active"><a href="#reviews" data-toggle="tab">Reviews(2)</a></li>
+					<li class="active"><a href="#reviews" data-toggle="tab">Reviews()</a></li>
 				</ul>
 			</div>
 			<div class="tab-content">
 				<div class="tab-pane fade active in" id="reviews">
-					<table>
-						<c:forEach var="revo" items="${reList }">
-                        	<c:if test="${sessionScope.id == revo.id }"> <!-- 아이디 같을때 수정, 삭제 -->
-	                          <div class="col-sm-12">
-		                          <div class="a before" id="b ${revo.pouch_reply_no }">
-		                           <ul>
-		                              <li><a href=""><img src="${revo.profile_img }" width=30 height=30 class="img-circle"></img>&nbsp;&nbsp;${revo.id }</a></li>
-		                              <li><a href=""></i>성별:${revo.sex} / 피부타입:${revo.skin_type} / 연령대:${revo.age_group}대 / 별점:${revo.pouch_rate }</a></li>
-		                              <li class="text-right">				              
-						                <a href="#" class="btn btn-xs btn-success rupdateBtn" id="${revo.pouch_reply_no}">수정</a>
-						                <a href="../pouch/pouch_reply_delete.hr?pouch_reply_no=${revo.pouch_reply_no }&pouch_no=${vo.pouch_no }" class="btn btn-xs btn-danger" >삭제</a>
-                     	              </li>
-		                           </ul>
-		                           <p>${revo.content}</p>
-		                           <input type="hidden" name="rno" value="${revo.pouch_reply_no }">
-		                          </div>
-		                          <div class="a after" id="a${revo.pouch_reply_no }" class="rupdate" style="display:none">
-		                           <form method="post" action="../pouch/pouch_reply_update.hr">
-		                           <ul>
-		                              <li><a href=""><img src="${revo.profile_img }" width=30 height=30 class="img-circle"></img>&nbsp;&nbsp;${revo.id }</a></li>
-		                              <li><a href=""></i>성별:${revo.sex} / 피부타입:${revo.skin_type} / 연령대:${revo.age_group}대 / 별점:${revo.pouch_rate }</a></li>
-		                              <li class="text-right">	
-		                               
-		                                <input type="submit" value="수정">			              
-						                <a href="#" class="btn btn-xs btn-success">취소</a>
-						                <input type="hidden" name="pouch_reply_no" value="${revo.pouch_reply_no }">
-						                <input type="hidden" name="pouch_no" value="${vo.pouch_no }">
-                     	              </li>                    	              
-		                           </ul>
-		                           <textarea name="content">${revo.content}</textarea>
-		                           </form>
-		                          </div>
-		                         
-	                          </div>
-	                        </c:if>
-	                        <c:if test="${sessionScope.id != revo.id }"> 
-	                          <div class="col-sm-12">
-		                          <div class="a">
-		                           <ul>
-		                              <li><a href=""><img src="${revo.profile_img }" width=30 height=30 class="img-circle"></img>&nbsp;&nbsp;${revo.id }</a></li>
-		                              <li><a href=""></i>성별:${revo.sex} / 피부타입:${revo.skin_type} / 연령대:${revo.age_group}대 / 별점:${revo.pouch_rate }</a></li>
-		                           </ul>
-		                           <p>${revo.content}</p>
-		                           <input type="hidden" name="rno" value="${revo.pouch_reply_no }">
-		                          </div>
-	                          </div>            
-	                        </c:if> 
-                        </c:forEach>
-                      <div class="col-sm-12">
-                           <p><b>Write Your Review</b></p>
-                          <c:if test="${sessionScope.id != null }">
-                           <form method="post" action="../pouch/pouch_reply_insert.hr">
-                              <textarea name="content" ></textarea>
-                              <input type="hidden" name="pno" value="${vo.pouch_no}">
-                           
-                              <!-- 평점주기 -->
-                            <span class="star-input"> 
-							  <span class="input">
-    							<input type="radio" name="star-input" value="1" id="p1">
-    							<label for="p1">1</label>
-    							<input type="radio" name="star-input" value="2" id="p2">
-    							<label for="p2">2</label>
-    							<input type="radio" name="star-input" value="3" id="p3">
-    							<label for="p3">3</label>
-    							<input type="radio" name="star-input" value="4" id="p4">
-    							<label for="p4">4</label>
-    							<input type="radio" name="star-input" value="5" id="p5">
-    							<label for="p5">5</label>
-  							  </span>
-  							  <input type="hidden" id="pouch_rate" name="pouch_rate" value="5">
-  							  <!-- <output for="star-input"><b>0</b>점</output> -->
+					<c:forEach var="prvo" items="${prList }">
+						<c:if test="${sessionScope.id == prvo.id }">
+							<!-- 아이디 같을때 수정, 삭제 -->
+							<div class="col-sm-12">
+								<div class="a before" id="b${prvo.pouch_reply_no }">
+									<ul>
+										<li><a href=""><img src="${prvo.profile_img }"
+												width=30 height=30 class="img-circle">
+												&nbsp;&nbsp;${prvo.id } </a></li>
+										<li><a href=""> 성별:${prvo.sex} /
+												피부타입:${prvo.skin_type} / 연령대:${prvo.age_group}대 /
+												별점:${prvo.pouch_rate } </a></li>
+										<li class="text-right"><a href="#"
+											class="btn btn-xs btn-primary rupdateBtn"
+											id="${prvo.pouch_reply_no}">수정</a> <a
+											href="../pouch/pouch_reply_delete.hr?pouch_reply_no=${prvo.pouch_reply_no }&pouch_no=${vo.pouch_no }"
+											class="btn btn-xs btn-default">삭제</a></li>
+									</ul>
+									<p>${prvo.content}</p>
+									<input type="hidden" name="pouch_reply_no"
+										value="${prvo.pouch_reply_no }">
+								</div>
+								<div class="a after" id="a${prvo.pouch_reply_no }"
+									class="rupdate" style="display: none">
+									<form method="post" action="../pouch/pouch_reply_update.hr">
+										<ul>
+											<li><a href=""><img src="${prvo.profile_img }"
+													width=30 height=30 class="img-circle"></img>&nbsp;&nbsp;${prvo.id }</a></li>
+											<li><a href=""></i>성별:${prvo.sex} /
+													피부타입:${prvo.skin_type} / 연령대:${prvo.age_group}대 /
+													별점:${prvo.pouch_rate }</a></li>
+											<li class="text-right"><input type="submit" value="수정">
+												<a href="#" class="btn btn-xs btn-success">취소</a> <input
+												type="hidden" name="pouch_reply_no"
+												value="${prvo.pouch_reply_no }"> <input
+												type="hidden" name="pouch_no" value="${vo.pouch_no }">
+											</li>
+										</ul>
+										<textarea name="content">${prvo.content}</textarea>
+									</form>
+
+								</div>
+							</div>
+						</c:if>
+						<c:if test="${sessionScope.id != prvo.id }">
+							<div class="col-sm-12">
+								<div class="a">
+									<ul>
+										<li><a href=""><img src="${prvo.profile_img }"
+												width=30 height=30 class="img-circle"></img>&nbsp;&nbsp;${prvo.id }</a></li>
+										<li><a href=""></i>성별:${prvo.sex} /
+												피부타입:${prvo.skin_type} / 연령대:${prvo.age_group}대 /
+												별점:${prvo.pouch_rate }</a></li>
+									</ul>
+									<p>${prvo.content}</p>
+									<input type="hidden" name="pouch_reply_no"
+										value="${prvo.pouch_reply_no }">
+								</div>
+							</div>
+						</c:if>
+					</c:forEach>
+				</div>
+				<div class="col-sm-12">
+					<p>
+						<b>Write Your Review</b>
+					</p>
+					<c:if test="${sessionScope.id != null }">
+						<form method="post" action="../pouch/pouch_reply_insert.hr">
+							<textarea name="content"></textarea>
+							<input type="hidden" name="pouch_no" value="${vo.pouch_no}">
+
+							<!-- 평점주기 -->
+							<span class="star-input"> <span class="input"> <input
+									type="radio" name="star-input" value="1" id="p1"> <label
+									for="p1">1</label> <input type="radio" name="star-input"
+									value="2" id="p2"> <label for="p2">2</label> <input
+									type="radio" name="star-input" value="3" id="p3"> <label
+									for="p3">3</label> <input type="radio" name="star-input"
+									value="4" id="p4"> <label for="p4">4</label> <input
+									type="radio" name="star-input" value="5" id="p5"> <label
+									for="p5">5</label>
+							</span> <input type="hidden" id="pouch_rate" name="pouch_rate" value="5">
+								<!-- <output for="star-input"><b>0</b>점</output> -->
 							</span>
-							
-                              <button type="submit" class="btn btn-default pull-right">
-                                 Submit
-                              </button>
-                            </form> 
-                          </c:if>
-                          <c:if test="${sessionScope.id == null }">
-                           
-                              <textarea name="content2" >
+
+							<button type="submit" class="btn btn-default pull-right">
+								Submit</button>
+						</form>
+					</c:if>
+
+					<c:if test="${sessionScope.id == null }">
+
+						<textarea name="content2">
                                                              로그인이 필요합니다
-                              </textarea>
-                              
-                          </c:if>
-                        </div>
-                     </div>
-                     
-                  </div>
-               </div><!--/category-tab-->
+                            </textarea>
 
-
-	<div class="recommended_items">
-		<!--recommended_items-->
-		<h2 class="title text-center">recommended items</h2>
-
-		<div id="recommended-item-carousel" class="carousel slide"
-			data-ride="carousel">
-			<div class="carousel-inner">
-				<div class="item active">
-					<div class="col-sm-4">
-						<div class="product-image-wrapper">
-							<div class="single-products">
-								<div class="productinfo text-center">
-									<img src="images/home/recommend1.jpg" alt="" />
-									<h2>$56</h2>
-									<p>Easy Polo Black Edition</p>
-									<a href="#" class="btn btn-default add-to-cart"><i
-										class="fa fa-shopping-cart"></i>Add to cart</a>
-								</div>
-
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="product-image-wrapper">
-							<div class="single-products">
-								<div class="productinfo text-center">
-									<img src="images/home/recommend2.jpg" alt="" />
-									<h2>$56</h2>
-									<p>Easy Polo Black Edition</p>
-									<a href="#" class="btn btn-default add-to-cart"><i
-										class="fa fa-shopping-cart"></i>Add to cart</a>
-								</div>
-
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="product-image-wrapper">
-							<div class="single-products">
-								<div class="productinfo text-center">
-									<img src="images/home/recommend3.jpg" alt="" />
-									<h2>$56</h2>
-									<p>Easy Polo Black Edition</p>
-									<a href="#" class="btn btn-default add-to-cart"><i
-										class="fa fa-shopping-cart"></i>Add to cart</a>
-								</div>
-
-							</div>
-						</div>
-					</div>
+					</c:if>
 				</div>
-				<div class="item">
-					<div class="col-sm-4">
-						<div class="product-image-wrapper">
-							<div class="single-products">
-								<div class="productinfo text-center">
-									<img src="images/home/recommend1.jpg" alt="" />
-									<h2>$56</h2>
-									<p>Easy Polo Black Edition</p>
-									<a href="#" class="btn btn-default add-to-cart"><i
-										class="fa fa-shopping-cart"></i>Add to cart</a>
-								</div>
-
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="product-image-wrapper">
-							<div class="single-products">
-								<div class="productinfo text-center">
-									<img src="images/home/recommend2.jpg" alt="" />
-									<h2>$56</h2>
-									<p>Easy Polo Black Edition</p>
-									<a href="#" class="btn btn-default add-to-cart"><i
-										class="fa fa-shopping-cart"></i>Add to cart</a>
-								</div>
-
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="product-image-wrapper">
-							<div class="single-products">
-								<div class="productinfo text-center">
-									<img src="images/home/recommend3.jpg" alt="" />
-									<h2>$56</h2>
-									<p>Easy Polo Black Edition</p>
-									<a href="#" class="btn btn-default add-to-cart"><i
-										class="fa fa-shopping-cart"></i>Add to cart</a>
-								</div>
-
-							</div>
-						</div>
-					</div>
-				</div>
+				<!-- col-sm-12 -->
 			</div>
-
-			<a class="left recommended-item-control"
-				href="#recommended-item-carousel" data-slide="prev"> <i
-				class="fa fa-angle-left"></i>
-			</a> <a class="right recommended-item-control"
-				href="#recommended-item-carousel" data-slide="next"> <i
-				class="fa fa-angle-right"></i>
-			</a>
 		</div>
 	</div>
-	<!--/recommended_items-->
 	</section>
 </body>
 </html>

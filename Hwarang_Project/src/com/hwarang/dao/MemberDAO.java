@@ -1,10 +1,14 @@
 package com.hwarang.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.hwarang.dao.CreateSqlSessionFactory;
 import com.hwarang.vo.MemberVO;
+import com.hwarang.vo.ProductVO;
 
 public class MemberDAO {
 	private static SqlSessionFactory ssf;
@@ -63,4 +67,28 @@ public class MemberDAO {
 				   session.close();
 		   }
 	   }
+	   
+	   public static List<ProductVO> brand_name(){
+		   List<ProductVO> brand_name=new ArrayList<ProductVO>();
+		   SqlSession session=null;
+		   try
+		   {
+			   session=ssf.openSession();
+			   brand_name=session.selectList("brand_name");
+			   /*
+			    *  selectOne
+			    *  selectList ==> 자동 형변환 
+			    */
+		   }catch(Exception ex)
+		   {
+			   ex.printStackTrace();
+		   }
+		   finally
+		   {
+			   if(session!=null)
+				   session.close();
+		   }
+		   return brand_name;
+	   }
+
 }

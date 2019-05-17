@@ -23,11 +23,11 @@
 
    <insert id="memberInsert" parameterType="MemberVO">
    
-   <selectKey keyProperty="member_no" resultType="int" order="BEFORE">
+   	<selectKey keyProperty="member_no" resultType="int" order="BEFORE">
        SELECT NVL(MAX(member_no)+1,1) as member_no FROM member
        <!-- rs.getInt(1)  rs.getInt("no")-->
     </selectKey>
-    INSERT INTO member(member_no,id,pw,email,name,nickname,bday,skin_type,brand_like,addr,sex,profile_img,age_group,addr2,postcode) VALUES(
+    INSERT INTO member(member_no,id,pw,email,name,nickname,bday,skin_type,brand_like,addr,sex,profile_img,age_group,addr2,postcode,pouch_no) VALUES(
       #{member_no},
       #{id},
       #{pw},
@@ -42,7 +42,31 @@
       #{profile_img},
       #{age_group},
       #{addr2},
-      #{postcode}
+      #{postcode},
+      <!-- 회원번호=파우치번호 -->
+      #{member_no}
     )
    </insert>
+   
+   <insert id="pouchInsert" parameterType="PouchVO">
+	   <selectKey keyProperty="member_no" resultType="int" order="BEFORE">
+	       SELECT NVL(MAX(pouch_no)+1,1) as pouch_no FROM pouch
+	    </selectKey>
+	   	INSERT INTO pouch(pouch_no, pouch_score, pouch_img, pouch_like, regdate, expdate, member_no, pouch_content, pouch_name, review_cnt) VALUES(
+	   		#{pouch_no}
+	   		0,
+	   		#{pouch_img},
+	   		0,
+	   		SYSDATE,
+	   		SYSDATE,
+	   		#{member_no},
+	   		#{pouch_content},
+	   		#{pouch_name},
+	   		0
+   	)
+   </insert>
+   
+   <select id="brand_name" resultType="ProductVO">
+   	SELECT DISTINCT brand from product
+   </select>
 </mapper>

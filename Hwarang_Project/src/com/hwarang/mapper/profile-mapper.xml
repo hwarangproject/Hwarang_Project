@@ -37,9 +37,19 @@
     WHERE product_no = #{product_no} AND member_no = #{member_no}
   </delete>
  
-  <select id="insertLikeProductVO"  parameterType="java.util.Map">
+<!--  <select id="insertLikeProductVO"  parameterType="java.util.Map">
     INSERT INTO product_jjim VALUES(#{member_no},#{product_no})
+  </select> -->
+   <select id="insertLikeProductVO"  parameterType="java.util.Map">
+    INSERT INTO product_jjim(member_no,product_no) VALUES(#{member_no},#{product_no})
   </select>
+ <!--  파우치 좋아요했을때 즐겨찾기 파우치에 추가  -->
+  <insert id="insertlikePouch_no" parameterType="int">
+  	INSERT INTO pouch_jjim(pouch_no,member_no) VALUES(#{pouch_no},#{member_no})
+  </insert>
+  <delete  id="deletelikePouch_no" parameterType="int">
+  	DELETE FROM pouch_jjim WHERE pouch_no=#{pouch_no} AND member_no=#{member_no}
+  </delete>
   <!-- 즐겨찾기 파우치 가져오기 -->
   <select id="getLikePouch_no" resultType="int" parameterType="int">
     SELECT pouch_no 
@@ -54,12 +64,12 @@
     WHERE pouch_no = #{pouch_no}
   </select>
 
-  <!-- 즐찾 댓글 리스트 총페이지 -->
-  <select id="likeProductTotalPage" resultType="int" parameterType="int">
+  <!-- 댓글 리스트 총페이지 -->
+  <select id="prodReplyTotalPage" resultType="int" parameterType="int">
     SELECT CEIL(COUNT(*)/7.0) FROM product_reply WHERE member_no = #{member_no}
   </select>
   
-  <!-- 즐찾 댓글 페이지 나누기 -->
+  <!-- 댓글 페이지 나누기 -->
   <select id="prodReplyPageDivision" resultType="Product_replyVO" parameterType="java.util.Map">
     SELECT product_no, reply_content, product_img, product_rate, reply_regdate, product_name, member_no, num
 	FROM (SELECT product_no, reply_content, product_img, product_rate, reply_regdate, product_name, member_no, rownum as num
@@ -69,6 +79,32 @@
 	      ORDER BY reply_regdate DESC))
 	WHERE num BETWEEN #{start} AND #{end}
   </select>
+  
+  <!-- 즐찾 상품 리스트 총페이지 -->
+  <select id="likeProdTotalPage" resultType="int" parameterType="int">
+    SELECT CEIL(COUNT(*)/6.0) FROM product_jjim WHERE member_no = #{member_no}
+  </select>
+  <!-- 즐찾 상품 페이지 나누기 -->
+  <select id="likeProdPageDivision" resultType="ProductVO" parameterType="java.util.Map">
+    SELECT product_name, product_img, product_no, price, brand, prod_jjim_no, member_no, num
+	FROM (SELECT product_name, product_img, product_no, price, brand, prod_jjim_no, member_no, rownum as num
+	FROM (SELECT a.product_name, a.product_img, product_no, a.price, a.brand ,b.prod_jjim_no, member_no
+	      FROM product a NATURAL JOIN product_jjim b  
+	      WHERE member_no = #{member_no}
+	      ORDER BY prod_jjim_no DESC))
+	WHERE num BETWEEN #{start} AND #{end}
+  </select>
+  
+  <update id="updateProfileInfo" parameterType="MemberVO">
+    UPDATE member SET
+    pw = #{pw},
+    nickname = #{nickname},
+    postcode = #{postcode},
+    addr = #{addr},
+    addr2 = #{addr2},
+    skin_type = #{skin_type}
+    WHERE member_no = #{member_no}
+  </update>
   
   
 </mapper>

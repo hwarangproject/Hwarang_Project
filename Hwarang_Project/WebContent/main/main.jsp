@@ -60,7 +60,7 @@
 }
 
 </style>
-<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script type="text/javascript">
 $(function(){
 	$('#aaa').show();
@@ -215,7 +215,7 @@ $(function(){
                                     </ul> --></li>
 							<li><a href="../news/news.hr">소식</a></li>
 							<li><a href="../pouch/pouch.hr">파우치</a></li>
-							<li><a href="../community/community_QnA.hr">커뮤니티</a></li>
+							<li><a href="../community/community_notice.hr?b_cate_no=1">커뮤니티</a></li>
 						</ul>
 					</div>
 				</div>
@@ -229,17 +229,6 @@ $(function(){
 	</div>
 	<!--/header-bottom--> 
 </header>
-	<!--/header-->
-	<%-- <c:if test="${key==null }">
-		<jsp:include page="${main_jsp }"></jsp:include>
-	</c:if>
-	
-	<c:if test="${key!=null }">
-		<div class="container" id="print">
-		
-		</div>
-	</c:if> --%>
-	
 	<div class="container" id="print">
 		
 	</div>
@@ -255,7 +244,8 @@ $(function(){
 				<div class="col-xs-12">
 					<div class="companyinfo">
 						<h2>
-							<span>H</span>warang
+							<span>H</span>warang TEAM Project
+							<br>
 							<br>
 							<font color="white">김기태, 박귀남, 이인혁, 윤다인, 정지수, 오유정, 최정혜</font>
 						</h2>
@@ -268,43 +258,6 @@ $(function(){
 	<div class="footer-widget">
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-3">
-					<div class="single-widget">
-						<h2>Service</h2>
-						<ul class="nav nav-pills nav-stacked">
-							<li><a href="#">공지사항</a></li>
-							<li><a href="#">QnA</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-xs-3">
-					<div class="single-widget">
-						<h2>Shop</h2>
-						<ul class="nav nav-pills nav-stacked">
-							<li><a href="#">상품별</a></li>
-							<li><a href="#">연령별</a></li>
-							<li><a href="#">평점별</a></li>
-							<li><a href="#">브랜드</a></li>
-						</ul>
-					</div>
-				</div>
-		
-				<div class="col-xs-3 col-xs-offset-1">
-					<div class="single-widget">
-						<h2>About Shopper</h2>
-						<form action="#" class="searchform">
-							<input type="text" placeholder="Your email address" />
-							<button type="submit" class="btn btn-default">
-								<i class="fa fa-arrow-circle-o-right"></i>
-							</button>
-							<p>
-								Get the most recent updates from <br />our site and be updated
-								your self...
-							</p>
-						</form>
-					</div>
-				</div>
-
 			</div>
 		</div>
 	</div>
@@ -326,9 +279,9 @@ $(function(){
 		</div>
 	</div>
 </footer>
-	<!--/Footer-->
+<!--/Footer-->
 	
-	<script src="../js/jquery.js"></script>
+<!-- 	<script src="../js/jquery.js"></script> -->
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/jquery.scrollUp.min.js"></script>
 	<script src="../js/price-range.js"></script>

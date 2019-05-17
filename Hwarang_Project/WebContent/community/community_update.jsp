@@ -297,37 +297,41 @@ width: 150px;
 
 	<!-- 글쓰기폼 -->
 	<div class="container" id="out">
-		<div class="row" id="in"> 
-			<form method="post" action="../community/community_insert_ok.hr">
+		<div class="row" id="in">
+			<form method="post" action="community_update_ok.hr">
 				<div class="form-group " id="board_select">
 					<label for="select" class="text-left">게시판 선택</label> 
-					<select name="b_cate_no" class="form-control" id="select">
-						<option value="1" selected="selected">문의사항</option>
-						<option value="2">화장법</option>
-						<option value="3">화장품 추천</option>
-						<option value="4">기타</option>
+					<select name="select" class="form-control" id="select">
+						<option value="none" selected="selected">문의사항</option>
+						<option value="jquery">화장법</option>
+						<option value="angularjs">화장품 추천</option>
+						<option value="mine">기타</option>
 					</select>
 
 
 					<hr>
 					<div class="form-group" id="write_subject">
 						<label for="name" class="text-left">제목</label> 
-						<input class="form-control" type="text" name="b_subject">
+						<input class="form-control" type="text" name="b_subject" value="${vo.b_subject }"/>
+						 <input type=hidden name="b_no" value="${vo.b_no }">
+						 <input type=hidden name="member_no" value="${vo.member_no }">
+						 <input type=hidden name="b_cate_no" value="${vo.b_cate_no }">
 					</div>
 					
 					<label for="message" class="text-left">내용</label>
-					<textarea class="form-control" name="b_content" rows="15" cols="25"></textarea>
-					<%-- <input type="hidden" name="b_no" value="${vo.b_no }"> --%>
-					<input type="hidden" name="member_no" value="${member_no }">
+					<textarea class="form-control" name="b_content" rows="15" cols="25">${vo.b_content }</textarea>
 					
-					
+					<label for="email" class="text-left">첨부파일</label> 
+					<input class="form-control" id="file" type=file name=upload class="input-sm"/>
+				  
 					<hr>
+					
 				</div>
 
 				<p align="center">
-					<input id="write_sub" type="submit" value="등록" class="btn btn-primary btn-block"/>
+					<input id="write_sub" type="submit" value="수정" class="btn btn-primary btn-block"/>
+					<input type="button" value="취소" onclick="javascript:history.back()" class="btn btn-sm btn-info">
 				</p>	
-				
 			</form>
 		</div>
 	</div>

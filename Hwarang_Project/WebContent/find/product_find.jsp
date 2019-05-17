@@ -82,11 +82,13 @@
 <body>
 	<div class="row">
 		<!-- #####################################   상품 출력 부분     ########################################################### -->
-		<div class="features_items" id="features_items_custom">
+		<div class="features_items" id="features_items_custom" style="overflow:auto; width:1200px; height:1000px; 
+		    margin-top: 5em;
+  			margin-bottom: 5em;">
 			<!--features_items-->
 			<h2 class="title text-center">Items</h2>
 			<c:if test="${count==0 }">
-				<div class="row">
+				<div class="row" style="margin:0em;">
 					<label class="text-center">
 						<h2>검색결과가 없습니다.</h2>
 					</label>
@@ -95,7 +97,7 @@
 
 			<c:if test="${count!=0 }">
 				<c:forEach var="vo" items="${product_find_list }" varStatus="s">
-					<c:if test="${s.index<12 }">
+					<%-- <c:if test="${s.index<12 }"> --%>
 						<div class="col-sm-4" id="custom_col-sm-4">
 							<div class="product-image-wrapper">
 								<div class="single-products">
@@ -124,42 +126,12 @@
 								</div>
 							</div>
 						</div>
-					</c:if>
+					<%-- </c:if> --%>
 				</c:forEach>
 			</c:if>
 		</div>
 		<!--features_items-->
-		<div class="row text-center">
-				<ul class="pagination">
-					<c:if test="${curpage>BLOCK }">
-						<li><a href="../find/product_find.hr?page=1">
-								&laquo; </a></li>
-						<li><a
-							href="../find/product_find.hr?page=${startPage-1 }">
-								&lsaquo; </a></li>
-					</c:if>
-					<c:set var="type" value="" />
-
-					<c:forEach var="i" begin="${startPage }" end="${endPage }">
-						<c:if test="${curpage==i }">
-							<c:set var="type" value="class=active" />
-						</c:if>
-						<c:if test="${curpage!=i }">
-							<c:set var="type" value="" />
-						</c:if>
-						<li ${type }><a
-							href="../find/product_find.hr?page=${i }">${i }</a></li>
-					</c:forEach>
-
-					<c:if test="${curpage<allPage}">
-						<li><a
-							href="../find/product_find.hr?page=${endPage+1 }">&rsaquo;</a></li>
-						<li><a
-							href="../find/product_find.hr?page=${allPage }">&raquo;</a></li>
-					</c:if>
-				</ul>
-				<div class="text-center">${curpage } page / ${totalpage } pages </div>
-		</div>
+		
 	</div>
 
 	<script src="../js/star.js"></script>

@@ -40,49 +40,90 @@
 	 	AND upper(${fs}) LIKE '%'||upper(#{ss})||'%'
 	</select>
 	
-	<!-- /////////////////////////////////////파우치 댓글 -->
+	<!-- 상품 댓글 -->
 	<select id="pouchReplyListData" resultType="Pouch_ReplyVO" parameterType="int">
      SELECT a.*, b.profile_img, b.id, b.sex, b.skin_type, b.age_group  
      FROM pouch_reply a, member b
      WHERE a.member_no = b.member_no
-     AND pouch_no = #{pouch_no}
+     AND a.pouch_no = #{pouch_no}
      ORDER BY a.regdate 
     </select>
-    
 	<insert id="pouchReplyInsert" parameterType="Pouch_ReplyVO">
      INSERT INTO pouch_reply VALUES(
-       #{pouch_reply_no},
+       (SELECT NVL(MAX(pouch_reply_no)+1,1) FROM pouch_reply WHERE member_no = #{member_no}),
        #{pouch_no},
        #{content},
        SYSDATE,
-       #{member_no},
-       #{pouch_rate},
-       (SELECT NVL(MAX(reply_cnt)+1,1) FROM pouch_reply WHERE member_no = #{member_no})
+       #{member_no2},
+       #{pouch_rate}
      )
    </insert>
-   
    <update id="pouchReplyCntIncrement" parameterType="int">
      UPDATE pouch
      SET review_cnt = review_cnt + 1
      WHERE pouch_no = #{pouch_no}
    </update>
-   
    <update id="pouchReplyCntDecrement" parameterType="int">
      UPDATE pouch
      SET review_cnt = review_cnt - 1
      WHERE pouch_no = #{pouch_no}
    </update>
-   
    <update id="pouchReplyUpdate" parameterType="Pouch_ReplyVO">
      UPDATE pouch_reply SET
      content = #{content}
      WHERE member_no = #{member_no} AND pouch_reply_no = #{pouch_reply_no}
    </update>
-   
    <delete id="pouchReplyDelete" parameterType="Pouch_ReplyVO">
     DELETE FROM pouch_reply
     WHERE member_no = #{member_no} AND pouch_reply_no = #{pouch_reply_no}
    </delete>
+<!-- 
+POUCH_REPLY_NO NOT NULL NUMBER 
+POUCH_NO       NOT NULL NUMBER 
+CONTENT        NOT NULL CLOB   
+REGDATE                 DATE   
+MEMBER_NO               NUMBER 
+POUCH_RATE              NUMBER 
+ -->
+ <!--  파우치detail에 상품추가 -->
+	 <select id="getMember_pouch_no" resultType="MemberVO" parameterType="int">
+       SELECT * FROM member WHERE member_no = #{member_no}
+   </select>
+   
+   
+   <select id="product_in_pouch" resultType="int" parameterType="int">
+   SELECT product_no FROM pouch_in_product where pouch_no = #{member_pouch_no}
+   </select>
+   
+	<!-- 마이 파우치detail에 상품제거  -->
+	<delete id="product_in_pouch_delete" parameterType="java.util.Map">
+	    DELETE FROM pouch_in_product
+	    WHERE product_no = #{product_no} AND pouch_no = #{pouch_no}
+   	</delete>
+   	
+   	<update id="pouch_jjim_cnt_update_Minus" parameterType="int">
+   		UPDATE product SET pouch_jjim_count=pouch_jjim_count-1 WHERE product_no=#{pno}
+   	</update>
 	
-
+	 <!-- ADD TO POUCH 상품디테일페이지에서 -->
+     <!-- 상품디테일페이지에서 add-to-pouch버튼 누를때 -->
+ 	<insert id="add_to_mypouch" parameterType="java.util.Map">
+ 		INSERT INTO pouch_in_product VALUES(#{pouch_no},#{product_no})
+ 	</insert>
+ 	<!-- 상품디테일페이지에서 add-to-pouch버튼 누를때  상품데이터에 파우치 찜수 추가 -->
+ 	<update id="pouch_jjim_count_add" parameterType="int">
+ 		UPDATE product SET POUCH_JJIM_COUNT = POUCH_JJIM_COUNT+1 WHERE product_no = #{pno}
+ 	</update>
+ 	
+ 	
+ 	
+ 	
+	<!-- 파우치 좋아요 수 증가 -->
+	<update id="pouch_like_increment"  parameterType="int">
+		UPDATE pouch SET pouch_like = pouch_like+1 WHERE pouch_no = #{pouch_no} 
+	</update>
+	<!-- 파우차 좋아요 감소 -->
+		<update id="pouch_like_descent"  parameterType="int">
+		UPDATE pouch SET pouch_like = pouch_like-1 WHERE pouch_no = #{pouch_no} 
+	</update>
 </mapper>

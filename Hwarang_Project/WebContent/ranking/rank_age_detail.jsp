@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 
-<title>연령별 목록</title>
+<title>평점별 목록</title>
 
 <style type="text/css">
 .scrollbar {
@@ -85,115 +85,120 @@
 			<div class="col-sm-12">
 				<div class="features_items" id="features_items_custom">
 					<!--features_items-->
-					<h2 class="title text-center">Items</h2>
-					
-					<c:forEach var="vo" items="${product_cate_list }" varStatus="s">
-					<c:if test="${s.index<12 }">
-						<div class="col-sm-4" id="custom_col-sm-4">
-						<div class="product-image-wrapper">
-							<div class="single-products">
-								<div class="productinfo text-center">
-								<a href="../product/product_detail.hr?pno=${vo.product_no }">
-									<img src="${vo.product_img }" alt="" width=280.8px height=280.8px/>
-									<h5>${vo.brand }</h5>
-									<h5>${vo.product_name.length()>13? vo.product_name.substring(1,13)+="...":vo.product_name }</h5>
-								</a>
-									<p>${vo.price }원</p>
-									<p>평점:${vo.score }</p>
-									<div class="star-rating" style="text-align: center">
-											<div style="width:${vo.score*20 }%;" class="star-rating-percentage" style="display:inline-block"></div>
+					<c:if test="${age==10 }">
+					<h2 class="title text-center">10's choice TOP 100</h2>
+						<c:forEach var="vo" items="${product_age }" varStatus="s">
+							<div class="col-sm-3" id="custom_col-sm-4">
+								<div class="product-image-wrapper">
+									<div class="single-products">
+										<div class="productinfo text-center">
+										<a href="../product/product_detail.hr?pno=${vo.product_no }">
+											<img src="${vo.product_img }" alt="" width=280.8px height=280.8px/>
+											<h5>${vo.brand }</h5>
+											<h5>${vo.product_name.length()>13? vo.product_name.substring(1,13)+="...":vo.product_name }</h5>
+										</a>
+											<p>${vo.price }원</p>
+											<p>평점:${vo.score }</p>
+											<div class="star-rating" style="text-align: center">
+													<div style="width:${vo.score*20 }%;" class="star-rating-percentage" style="display:inline-block"></div>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
-							<div class="choose">
-								<ul class="nav nav-pills nav-justified">
-									<li><a href=""><i class="fa fa-plus-square"></i>Add to pouch</a></li>
-									<li><a href=""><i class="fa fa-plus-square"></i>Add to cart</a></li>
-								</ul>
+						</c:forEach>
+					</c:if>
+					<c:if test="${age==20 }">
+					<h2 class="title text-center">20's choice TOP 100</h2>
+						<c:forEach var="vo" items="${product_age }" varStatus="s">
+							<div class="col-sm-3" id="custom_col-sm-4">
+								<div class="product-image-wrapper">
+									<div class="single-products">
+										<div class="productinfo text-center">
+										<a href="../product/product_detail.hr?pno=${vo.product_no }">
+											<img src="${vo.product_img }" alt="" width=280.8px height=280.8px/>
+											<h5>${vo.brand }</h5>
+											<h5>${vo.product_name.length()>13? vo.product_name.substring(1,13)+="...":vo.product_name }</h5>
+										</a>
+											<p>${vo.price }원</p>
+											<p>평점:${vo.score }</p>
+											<div class="star-rating" style="text-align: center">
+													<div style="width:${vo.score*20 }%;" class="star-rating-percentage" style="display:inline-block"></div>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
-						</div>
-						</div>
+						</c:forEach>
 					</c:if>
-					</c:forEach>
-				</div>
-				<!--features_items-->
-				<div class="row text-center">
-					<c:if test="${dcno==null }">
-						<ul class="pagination">
-							<c:if test="${curpage>BLOCK }">
-								<li>
-									<a href="../ranking/rank_product.hr?start=${start }&end=${end }&page=1">
-										&laquo;
-									</a>								
-								</li>
-								<li>
-									<a href="../ranking/rank_product.hr?start=${start }&end=${end }&page=${startPage-1 }">
-										&lsaquo;
-									</a>
-								</li>
-							</c:if>
-							<c:set var="type" value="" />
-							
-							<c:forEach var="i" begin="${startPage }" end="${endPage }">
-								<c:if test="${curpage==i }">
-									<c:set var="type" value="class=active" />
-								</c:if>
-								<c:if test="${curpage!=i }">
-									<c:set var="type" value="" />
-								</c:if>
-								<li ${type }><a
-									href="../ranking/rank_product.hr?start=${start }&end=${end }&page=${i }">${i }</a></li>
-							</c:forEach>
-							
-							<c:if test="${curpage<allPage}">
-								<li><a
-									href="../ranking/rank_product.hr?start=${start }&end=${end }&page=${endPage+1 }">&rsaquo;</a></li>
-								<li><a
-									href="../ranking/rank_product.hr?start=${start }&end=${end }&page=${allPage }">&raquo;</a></li>
-							</c:if>
-						</ul>						
-						<div class="text-center">
-							${curpage } page / ${totalpage } pages
-						</div>
+					<c:if test="${age==30 }">
+					<h2 class="title text-center">30's choice TOP 100</h2>
+						<c:forEach var="vo" items="${product_age }" varStatus="s">
+							<div class="col-sm-3" id="custom_col-sm-4">
+								<div class="product-image-wrapper">
+									<div class="single-products">
+										<div class="productinfo text-center">
+										<a href="../product/product_detail.hr?pno=${vo.product_no }">
+											<img src="${vo.product_img }" alt="" width=280.8px height=280.8px/>
+											<h5>${vo.brand }</h5>
+											<h5>${vo.product_name.length()>13? vo.product_name.substring(1,13)+="...":vo.product_name }</h5>
+										</a>
+											<p>${vo.price }원</p>
+											<p>평점:${vo.score }</p>
+											<div class="star-rating" style="text-align: center">
+													<div style="width:${vo.score*20 }%;" class="star-rating-percentage" style="display:inline-block"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</c:forEach>
 					</c:if>
-					
-					<c:if test="${dcno!=null }">
-						<ul class="pagination">
-							<c:if test="${curpage>BLOCK }">
-								<li>
-									<a href="../ranking/rank_product.hr?dcno=${dcno }&page=1">
-										&laquo;
-									</a>								
-								</li>
-								<li>
-									<a href="../ranking/rank_product.hr?dcno=${dcno }&page=${startPage-1 }">
-										&lsaquo;
-									</a>
-								</li>
-							</c:if>
-							<c:set var="type" value="" />
-							
-							<c:forEach var="i" begin="${startPage }" end="${endPage }">
-								<c:if test="${curpage==i }">
-									<c:set var="type" value="class=active" />
-								</c:if>
-								<c:if test="${curpage!=i }">
-									<c:set var="type" value="" />
-								</c:if>
-								<li ${type }><a
-									href="../ranking/rank_product.hr?dcno=${dcno }&page=${i }">${i }</a></li>
-							</c:forEach>
-							
-							<c:if test="${curpage<allPage}">
-								<li><a
-									href="../ranking/rank_product.hr?dcno=${dcno }&page=${endPage+1 }">&rsaquo;</a></li>
-								<li><a
-									href="../ranking/rank_product.hr?dcno=${dcno }&page=${allPage }">&raquo;</a></li>
-							</c:if>
-						</ul>						
-						<div class="text-center">
-							${curpage } page / ${totalpage } pages
-						</div>
+					<c:if test="${age==40 }">
+					<h2 class="title text-center">40's choice TOP 100</h2>
+						<c:forEach var="vo" items="${product_age }" varStatus="s">
+							<div class="col-sm-3" id="custom_col-sm-4">
+								<div class="product-image-wrapper">
+									<div class="single-products">
+										<div class="productinfo text-center">
+										<a href="../product/product_detail.hr?pno=${vo.product_no }">
+											<img src="${vo.product_img }" alt="" width=280.8px height=280.8px/>
+											<h5>${vo.brand }</h5>
+											<h5>${vo.product_name.length()>13? vo.product_name.substring(1,13)+="...":vo.product_name }</h5>
+										</a>
+											<p>${vo.price }원</p>
+											<p>평점:${vo.score }</p>
+											<div class="star-rating" style="text-align: center">
+													<div style="width:${vo.score*20 }%;" class="star-rating-percentage" style="display:inline-block"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</c:forEach>
+					</c:if>
+					<c:if test="${age==50 }">
+					<h2 class="title text-center">50's choice TOP 100</h2>
+						<c:forEach var="vo" items="${product_age }" varStatus="s">
+							<div class="col-sm-3" id="custom_col-sm-4">
+								<div class="product-image-wrapper">
+									<div class="single-products">
+										<div class="productinfo text-center">
+										<a href="../product/product_detail.hr?pno=${vo.product_no }">
+											<img src="${vo.product_img }" alt="" width=280.8px height=280.8px/>
+											<h5>${vo.brand }</h5>
+											<h5>${vo.product_name.length()>13? vo.product_name.substring(1,13)+="...":vo.product_name }</h5>
+										</a>
+											<p>${vo.price }원</p>
+											<p>평점:${vo.score }</p>
+											<div class="star-rating" style="text-align: center">
+													<div style="width:${vo.score*20 }%;" class="star-rating-percentage" style="display:inline-block"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</c:forEach>
 					</c:if>
 				</div>
 			</div>

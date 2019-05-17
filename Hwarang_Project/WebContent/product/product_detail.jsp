@@ -11,30 +11,7 @@
 <meta name="author" content="">
 
 <title>HWARANG PROJECT</title>
-<link href="../css/bootstrap.min.css" rel="stylesheet">
-<link href="../css/font-awesome.min.css" rel="stylesheet">
-<link href="../css/prettyPhoto.css" rel="stylesheet">
-<link href="../css/price-range.css" rel="stylesheet">
-<link href="../css/animate.css" rel="stylesheet">
-<link href="../css/main.css" rel="stylesheet">
-<link href="../css/responsive.css" rel="stylesheet">
 
-<link rel="shortcut icon" href="images/ico/favicon.ico">
-<link rel="apple-touch-icon-precomposed" sizes="144x144"
-	href="images/ico/apple-touch-icon-144-precomposed.png">
-<link rel="apple-touch-icon-precomposed" sizes="114x114"
-	href="images/ico/apple-touch-icon-114-precomposed.png">
-<link rel="apple-touch-icon-precomposed" sizes="72x72"
-	href="images/ico/apple-touch-icon-72-precomposed.png">
-<link rel="apple-touch-icon-precomposed"
-	href="images/ico/apple-touch-icon-57-precomposed.png">
-
-<script src="js/jquery.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.scrollUp.min.js"></script>
-<script src="js/price-range.js"></script>
-<script src="js/jquery.prettyPhoto.js"></script>
-<script src="js/main.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
 $(function(){
@@ -177,8 +154,7 @@ star-input>.input.focus {
 @import url(https://fonts.googleapis.com/css?family=Roboto:100,300,400);
 
 @import
-	url(https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css)
-	;
+	url(https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 
 body {
 	font-family: 'Roboto', Helvetica;
@@ -187,7 +163,7 @@ body {
 }
 
 #rate-title {
-	margin-left: 1.2em;
+	margin-left: 6em;
 }
 
 .con1 {
@@ -269,31 +245,6 @@ body {
 	display: block;
 }
 
-#bar-five {
-	width: 0;
-	background-color: #9FC05A;
-}
-
-#bar-four {
-	width: 0;
-	background-color: #ADD633;
-}
-
-#bar-three {
-	width: 0;
-	background-color: #FFD834;
-}
-
-#bar-two {
-	width: 0;
-	background-color: #FFB234;
-}
-
-#bar-one {
-	width: 0;
-	background-color: #FF8B5A;
-}
-
 #cart_button {
 	background: gray;
 }
@@ -301,6 +252,7 @@ body {
 #like_button {
 	background: gray;
 }
+
 </style>
 
 </head>
@@ -314,7 +266,7 @@ body {
 					<!--product-details-->
 					<div class="col-sm-5">
 						<div class="view-product">
-							</a><img src=${vo.product_img } alt="" />
+							<img src=${vo.product_img } alt="" />
 						</div>
 
 
@@ -329,11 +281,11 @@ body {
 								<img src="${vo.brand_img}" width=60 height=30> ${vo.brand }
 							</p>
 
-							<span> <span>${vo.cap_col } / ${vo.price } 원</span>
+							<span> <span>${vo.cap_col } / ${vo.price }원</span>
 
 							</span>
 							<p>
-								<b>카테고리:</b> SKIN(변수없음)
+								<b>카테고리:</b> ${dvo.detCategory_type }
 							</p>
 							<p>
 								<b>판매처:</b> ${vo.sell_link }
@@ -350,21 +302,42 @@ body {
 							<table class="table">
 								<tr>
 									<td class="text-center">
-										<!-- 좋아요 --> <c:if
+										<!-- 좋아요 --> 
+										<c:if
 											test="${sessionScope.id !=null && like_count !=1}">
 											<a
 												href="../profile/profile_like_insert.hr?pno=${vo.product_no }">
 												<button type="button" class="btn btn-fefault cart">
-													찜 하기 ♥</button>
+													♥ 찜 하기</button>
 											</a>
-										</c:if> <!--  cart 담기  --> <c:if
+										</c:if> 
+										<!-- 파우치에 담기 -->
+										<c:if
+											test="${sessionScope.id !=null  }">
+											<a href="../profile/profile_pouch_product_insert_ok.hr?pno=${vo.product_no }">
+												<button type="button" class="btn btn-fefault cart">
+													★ Add to pouch
+												</button>
+											</a>
+										</c:if>
+										
+										<c:if test="${sessionScope.id !=null && count!=0 }">
+											<button type="button" class="btn btn-fefault cart" id="cart_button">
+												★ Add to pouch
+											</button>
+										</c:if>
+										
+										<!--  cart 담기  --> 
+										<c:if
 											test="${sessionScope.id !=null && count==0 }">
 											<a href="../cart/cart_ok.hr?pno=${vo.product_no }">
 												<button type="button" class="btn btn-fefault cart">
 													<i class="fa fa-shopping-cart"></i> Add to cart
 												</button>
 											</a>
-										</c:if> <c:if test="${sessionScope.id !=null && count!=0 }">
+										</c:if> 
+										
+										<c:if test="${sessionScope.id !=null && count!=0 }">
 											<button type="button" class="btn btn-fefault cart"
 												id="cart_button">
 												<i class="fa fa-shopping-cart"></i> Add to cart
@@ -386,60 +359,174 @@ body {
 
 							<span class="rating-num">${vo.score }</span><br>
 							<div class="rating-stars">
-								<span><i class="active icon-star"></i></span> <span><i
-									class="active icon-star"></i></span> <span><i
-									class="active icon-star"></i></span> <span><i
-									class="active icon-star"></i></span> <span><i class="icon-star"></i></span>
-								&#9733;&#9733;&#9733;&#9733;&#9734;
+								<c:if test="${vo.score<=5 && vo.score>4 }">
+									<span>
+										<i class="active icon-star"></i>
+									</span> 
+									<span>
+									 	<i class="active icon-star"></i>
+									</span> 
+									<span>
+										<i class="active icon-star"></i>
+									</span> 
+									<span>
+										<i class="active icon-star"></i>
+									</span> 
+									<span>
+										<i class="icon-star"></i>
+									</span>
+									&#9733;&#9733;&#9733;&#9733;&#9733;
+								</c:if>
+								
+								<c:if test="${vo.score<=4 && vo.score>3 }">
+									<span>
+										<i class="active icon-star"></i>
+									</span> 
+									<span>
+									 	<i class="active icon-star"></i>
+									</span> 
+									<span>
+										<i class="active icon-star"></i>
+									</span> 
+									<span>
+										<i class="active icon-star"></i>
+									</span> 
+									<span>
+										<i class="icon-star"></i>
+									</span>
+									&#9733;&#9733;&#9733;&#9733;&#9734;
+								</c:if>
+								
+								<c:if test="${vo.score<=3 && vo.score>2 }">
+									<span>
+										<i class="active icon-star"></i>
+									</span> 
+									<span>
+									 	<i class="active icon-star"></i>
+									</span> 
+									<span>
+										<i class="active icon-star"></i>
+									</span> 
+									<span>
+										<i class="active icon-star"></i>
+									</span> 
+									<span>
+										<i class="icon-star"></i>
+									</span>
+									&#9733;&#9733;&#9733;&#9734;&#9734;
+								</c:if>
+								
+								<c:if test="${vo.score<=2 && vo.score>1 }">
+									<span>
+										<i class="active icon-star"></i>
+									</span> 
+									<span>
+									 	<i class="active icon-star"></i>
+									</span> 
+									<span>
+										<i class="active icon-star"></i>
+									</span> 
+									<span>
+										<i class="active icon-star"></i>
+									</span> 
+									<span>
+										<i class="icon-star"></i>
+									</span>
+									&#9733;&#9733;&#9734;&#9734;&#9734;
+								</c:if>
+								
+								<c:if test="${vo.score<=1 && vo.score>0 }">
+									<span>
+										<i class="active icon-star"></i>
+									</span> 
+									<span>
+									 	<i class="active icon-star"></i>
+									</span> 
+									<span>
+										<i class="active icon-star"></i>
+									</span> 
+									<span>
+										<i class="active icon-star"></i>
+									</span> 
+									<span>
+										<i class="icon-star"></i>
+									</span>
+									&#9733;&#9734;&#9734;&#9734;&#9734;
+								</c:if>
+								
+								<c:if test="${vo.score<=0 }">
+									<span>
+										<i class="active icon-star"></i>
+									</span> 
+									<span>
+									 	<i class="active icon-star"></i>
+									</span> 
+									<span>
+										<i class="active icon-star"></i>
+									</span> 
+									<span>
+										<i class="active icon-star"></i>
+									</span> 
+									<span>
+										<i class="icon-star"></i>
+									</span>
+									&#9734;&#9734;&#9734;&#9734;&#9734;
+								</c:if>
 							</div>
 							<div class="rating-users">
-								&#128077; <i class="icon-user"></i> 10000 total
+								&#128077; <i class="icon-user"></i>${sum } total
 							</div>
 						</div>
 
 						<div class="histo">
 							<div class="five histo-rate">
 								<span class="histo-star"> <i class="active icon-star"></i>
-									5
-								</span> <span class="bar-block"> <span id="bar-five" class="bar">
-										<span>566,784</span>&nbsp;
-								</span>
+									10대
+								</span> <span class="bar-block"> 
+									<span class="bar text-center" style="width: 30%; background-color: #9FC05A;">
+										<span>${vo.like_10 } ♥</span>&nbsp;
+									</span>
 								</span>
 							</div>
 
 							<div class="four histo-rate">
 								<span class="histo-star"> <i class="active icon-star"></i>
-									4
-								</span> <span class="bar-block"> <span id="bar-four" class="bar">
-										<span>171,298</span>&nbsp;
-								</span>
+									20대
+								</span> <span class="bar-block"> 
+									<span class="bar text-center" style="width: 30%; background-color: #ADD633;">
+										<span>${vo.like_20 } ♥</span>&nbsp;
+									</span>
 								</span>
 							</div>
 
 							<div class="three histo-rate">
 								<span class="histo-star"> <i class="active icon-star"></i>
-									3
-								</span> <span class="bar-block"> <span id="bar-three"
-									class="bar"> <span>94,940</span>&nbsp;
-								</span>
+									30대
+								</span> 
+								<span class="bar-block"> 
+									<span class="bar text-center" style="width: 30%; background-color: #FFD834;"> 
+											<span>${vo.like_30 } ♥</span>&nbsp;
+									</span>
 								</span>
 							</div>
 
 							<div class="two histo-rate">
 								<span class="histo-star"> <i class="active icon-star"></i>
-									2
-								</span> <span class="bar-block"> <span id="bar-two" class="bar">
-										<span>44,525</span>&nbsp;
-								</span>
+									40대
+								</span> <span class="bar-block"> 
+									<span class="bar text-center" style="width: 30%; background-color: #FFB234;">
+										<span>${vo.like_40 } ♥</span>&nbsp;
+									</span>
 								</span>
 							</div>
 
 							<div class="one histo-rate">
 								<span class="histo-star"> <i class="active icon-star"></i>
-									1
-								</span> <span class="bar-block"> <span id="bar-one" class="bar">
-										<span>136,457</span>&nbsp;
-								</span>
+									50대
+								</span> <span class="bar-block"> 
+									<span class="bar text-center" style="width: 30%; background-color: #FF8B5A;">
+										<span>${vo.like_50 } ♥</span>&nbsp;
+									</span>
 								</span>
 							</div>
 						</div>
@@ -489,8 +576,8 @@ body {
 										</ul>
 										<textarea name="reply_content">${prvo.reply_content}</textarea>
 									</form>
-
 								</div>
+							</div>
 						</c:if>
 						<c:if test="${sessionScope.id != prvo.id }">
 							<div class="col-sm-12">
@@ -498,7 +585,7 @@ body {
 									<ul>
 										<li><a href=""><img src="${prvo.profile_img }"
 												width=30 height=30 class="img-circle"></img>&nbsp;&nbsp;${prvo.id }</a></li>
-										<li><a href=""></i>성별:${prvo.sex} /
+										<li><a href="">성별:${prvo.sex} /
 												피부타입:${prvo.skin_type} / 연령대:${prvo.age_group}대 /
 												별점:${prvo.product_rate }</a></li>
 									</ul>
