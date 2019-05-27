@@ -17,6 +17,7 @@
 
 <link rel="stylesheet" href="css/style.css">
 <link href="css/member_make.css" rel="stylesheet">
+<!-- <link href="../css/profile-upload.css" rel="stylesheet"> -->
 
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">

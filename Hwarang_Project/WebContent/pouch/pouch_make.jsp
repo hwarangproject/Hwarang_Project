@@ -112,7 +112,7 @@
 												<div>
 													<div class="row grid clearfix">
 														<div class="col2 first">
-															<img id="profile_img" src="../images/shop/product12.jpg"
+															<img id="profile_img" src="${mvo.profile_img }"
 																style="width: 180px; height: 180px;">
 														</div>
 														<div class="col2 last">
@@ -150,8 +150,8 @@
 									</div>
 									<div class="col-sm-4">
 										<h2 class="subject_intro">
-											제목 
-											<textarea rows="1" cols="5" name="pouch_intro"></textarea>
+										<!-- 	제목 
+											<textarea rows="1" cols="5" name="pouch_intro"></textarea> -->
 										</h2>
 									</div>
 								</div>
@@ -179,172 +179,11 @@
 									</form>
 						   </div>
 							</div>
-
-
-
-							<!--product-details-->
-							<div class="row">
-								<div class="col-sm-12">
-									<div class="product-information">
-										<!--/product-information-->
-										<div class="left-sidebar">
-											<h2>화장품 목록</h2>
-											<div class="panel-group category-products" id="accordian">
-												<%-- <c:forEach var="pouch" items=""> --%>
-												<div class='product--pink'>
-													<div class='product_inner'>
-														<img
-															src='http://wellandgood.com/wp-content/uploads/2012/07/Nike-Free-30-Womens-Running-Shoe-511495_600_A.png'
-															width='300'>
-														<td>나이키</td>
-														<br>
-														<td>Size 11</td>
-														<br>
-														<td>Price £299.99</td>
-														<br>
-														<button class="text-center">MORE +</button>
-													</div>
-													<div class='product_overlay'>
-														<h2>Added to basket</h2>
-														<i class='fa fa-check'></i>
-													</div>
-												</div>
-												<%-- 	</c:forEach> --%>
-												<ul class="pagination" id="pag">
-													<li class="active"><a href="">1</a></li>
-													<li><a href="">2</a></li>
-													<li><a href="">3</a></li>
-													<li><a href="">&raquo;</a></li>
-												</ul>
-											</div>
-										</div>
-										<table class="table">
-											<tr>
-												<td><input type="submit" value="완료"
-													class="btn btn-sm btn-primary" /> <input type="button"
-													value="취소" onclick="javascript:history.back()"
-													class="btn btn-sm btn-primary" /></td>
-											</tr>
-										</table>
-									</div>
-								</div>
-							</div>
-					
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
-
-
-	<div class="recommended_items">
-		<!--recommended_items-->
-		<h2 class="title text-center">recommended items</h2>
-
-		<div id="recommended-item-carousel" class="carousel slide"
-			data-ride="carousel">
-			<div class="carousel-inner">
-				<div class="item active">
-					<div class="col-sm-4">
-						<div class="product-image-wrapper">
-							<div class="single-products">
-								<div class="productinfo text-center">
-									<img src="images/home/recommend1.jpg" alt="" />
-									<h2>$56</h2>
-									<p>Easy Polo Black Edition</p>
-									<a href="#" class="btn btn-default add-to-cart"><i
-										class="fa fa-shopping-cart"></i>Add to cart</a>
-								</div>
-
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="product-image-wrapper">
-							<div class="single-products">
-								<div class="productinfo text-center">
-									<img src="images/home/recommend2.jpg" alt="" />
-									<h2>$56</h2>
-									<p>Easy Polo Black Edition</p>
-									<a href="#" class="btn btn-default add-to-cart"><i
-										class="fa fa-shopping-cart"></i>Add to cart</a>
-								</div>
-
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="product-image-wrapper">
-							<div class="single-products">
-								<div class="productinfo text-center">
-									<img src="images/home/recommend3.jpg" alt="" />
-									<h2>$56</h2>
-									<p>Easy Polo Black Edition</p>
-									<a href="#" class="btn btn-default add-to-cart"><i
-										class="fa fa-shopping-cart"></i>Add to cart</a>
-								</div>
-
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="col-sm-4">
-						<div class="product-image-wrapper">
-							<div class="single-products">
-								<div class="productinfo text-center">
-									<img src="images/home/recommend1.jpg" alt="" />
-									<h2>$56</h2>
-									<p>Easy Polo Black Edition</p>
-									<a href="#" class="btn btn-default add-to-cart"><i
-										class="fa fa-shopping-cart"></i>Add to cart</a>
-								</div>
-
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="product-image-wrapper">
-							<div class="single-products">
-								<div class="productinfo text-center">
-									<img src="images/home/recommend2.jpg" alt="" />
-									<h2>$56</h2>
-									<p>Easy Polo Black Edition</p>
-									<a href="#" class="btn btn-default add-to-cart"><i
-										class="fa fa-shopping-cart"></i>Add to cart</a>
-								</div>
-
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="product-image-wrapper">
-							<div class="single-products">
-								<div class="productinfo text-center">
-									<img src="images/home/recommend3.jpg" alt="" />
-									<h2>$56</h2>
-									<p>Easy Polo Black Edition</p>
-									<a href="#" class="btn btn-default add-to-cart"><i
-										class="fa fa-shopping-cart"></i>Add to cart</a>
-								</div>
-
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<a class="left recommended-item-control"
-				href="#recommended-item-carousel" data-slide="prev"> <i
-				class="fa fa-angle-left"></i>
-			</a> <a class="right recommended-item-control"
-				href="#recommended-item-carousel" data-slide="next"> <i
-				class="fa fa-angle-right"></i>
-			</a>
-		</div>
-	</div>
-	<!--/recommended_items-->
 	</section>
 </body>
 </html>

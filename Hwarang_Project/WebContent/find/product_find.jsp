@@ -110,20 +110,20 @@
 										</a>
 										<p>${vo.price }원</p>
 										<p>평점:${vo.score }</p>
-										<div class="star-rating" style="text-align: center">
+										<div class="star-rating" style="text-align: center; margin-left: 125px;">
 											<div style="width:${vo.score*20 }%;"
 												class="star-rating-percentage" style="display:inline-block"></div>
 										</div>
 									</div>
 								</div>
-								<div class="choose">
+<!-- 								<div class="choose">
 									<ul class="nav nav-pills nav-justified">
 										<li><a href=""><i class="fa fa-plus-square"></i>Add
 												to mypage</a></li>
 										<li><a href=""><i class="fa fa-plus-square"></i>Add
 												to cart</a></li>
 									</ul>
-								</div>
+								</div> -->
 							</div>
 						</div>
 					<%-- </c:if> --%>

@@ -320,13 +320,7 @@ body {
 												</button>
 											</a>
 										</c:if>
-										
-										<c:if test="${sessionScope.id !=null && count!=0 }">
-											<button type="button" class="btn btn-fefault cart" id="cart_button">
-												★ Add to pouch
-											</button>
-										</c:if>
-										
+
 										<!--  cart 담기  --> 
 										<c:if
 											test="${sessionScope.id !=null && count==0 }">

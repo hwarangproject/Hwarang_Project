@@ -435,9 +435,10 @@ width:1150px;
 				<div class="col-sm-12">
 					<div class="a">
 						<ul>
-							<li><img src="../images/product-details/kira.png" width=30
-								height=30 class="img-circle"></img>&nbsp;&nbsp;
-								${sessionScope.id } | ${sessionScope.name }</li>
+							<!-- <li><img src="../images/product-details/kira.png" width=30
+								height=30 class="img-circle"></img>
+								&nbsp;&nbsp; -->
+							<li>${sessionScope.id } | ${sessionScope.name }</li>
 							<li>${rvo.r_content }</li>
 							<li class="text-right">
 							<a class="btn btn-xs btn-success rupdateBtn" id="${rvo.r_no}">수정</a>

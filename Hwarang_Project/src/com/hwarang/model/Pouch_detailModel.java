@@ -197,6 +197,7 @@ public class Pouch_detailModel {
 		
 		
 		// JSPÀü¼Û
+		request.setAttribute("mvo", mvo);
 		request.setAttribute("vo", vo);
 	//	request.setAttribute("pList", pList);
 
