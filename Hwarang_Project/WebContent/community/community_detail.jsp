@@ -387,7 +387,7 @@ width:1150px;
 </div>  -->
 	<div class="container">
 		<div class="row">
-			<h2>#</h2>
+		
 			<table class="table table-hover">
 				<tr>
 					<th width=20% class="text-center">번호</th>
