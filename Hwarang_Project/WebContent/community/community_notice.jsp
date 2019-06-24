@@ -507,8 +507,5 @@ margin-left:-90px;
 			</div>					
 		</div>
 	</div>
-
-
-
 </body>
 </html>
