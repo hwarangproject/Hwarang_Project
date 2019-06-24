@@ -9,7 +9,7 @@
 		     (
 		       SELECT b_no,b_subject,name,b_regdate,b_hit,rownum as num
 	    FROM (
-		       SELECT b_no,b_subject,name,b_regdate,b_hit
+		       SELECT b_no,b_subject,board.name,b_regdate,b_hit
 		       FROM board, member
 		       WHERE b_cate_no=#{b_cate_no} AND board.member_no=member.member_no ORDER BY b_no DESC
 		     ))
@@ -65,7 +65,8 @@
 		#{member_no},
 		#{b_subject},
 		#{b_content},
-		SYSDATE,0
+		SYSDATE,0,
+		#{name}
 		)
 	</insert>
 

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -296,14 +297,21 @@ width: 150px;
 		<div class="row" id="in"> 
 			<form method="post" action="../community/community_insert_ok.hr">
 				<div class="form-group " id="board_select">
-					<label for="select" class="text-left">게시판 선택</label> 
-					<select name="b_cate_no" class="form-control" id="select">
-						<option value="1" selected="selected">공지사항</option>
-						<option value="2">FAQ</option>
-						<option value="3">뷰티 테스터</option>
-						<option value="4">자유게시판</option>
-					</select>
-
+					<label for="select" class="text-left">게시판 선택</label>
+					
+					<c:if test="${member_no==0 }">
+						<select name="b_cate_no" class="form-control" id="select">
+							<option value="1" selected="selected">공지사항</option>
+							<option value="2">FAQ</option>
+							<option value="3">뷰티 테스터</option>
+						</select>
+					</c:if>
+					
+					<c:if test="${member_no!=0 }">
+						<select name="b_cate_no" class="form-control" id="select">
+							<option value="4">자유게시판</option>
+						</select>
+					</c:if>
 
 					<hr>
 					<div class="form-group" id="write_subject">
@@ -315,6 +323,7 @@ width: 150px;
 					<textarea class="form-control" name="b_content" rows="15" cols="25"></textarea>
 					<%-- <input type="hidden" name="b_no" value="${vo.b_no }"> --%>
 					<input type="hidden" name="member_no" value="${member_no }">
+					<input type="hidden" name="name" value="${name }">
 					
 					
 					<hr>

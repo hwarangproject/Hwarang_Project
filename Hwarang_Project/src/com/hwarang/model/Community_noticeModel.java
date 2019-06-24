@@ -25,7 +25,6 @@ public class Community_noticeModel {
 		HttpSession session=request.getSession();
 		int member_no=(int)session.getAttribute("member_no"); //login_ok.hr에서 받음
 		
-		System.out.println("member_no:"+member_no);
 		
 		request.setAttribute("member_no", member_no);
 		String b_no=request.getParameter("b_no");
@@ -122,12 +121,6 @@ public class Community_noticeModel {
 		String b_subject = request.getParameter("b_subject");
 		String b_content = request.getParameter("b_content");
 
-		System.out.println("b_no:" + b_no);
-		System.out.println("b_cate_no:" + b_cate_no);
-		System.out.println("member_no:" + member_no);
-		System.out.println("b_subject:" + b_subject);
-		System.out.println("b_content:" + b_content);
-
 		// DAO연결 mapper(SQL) => DAO에서 처리
 		BoardVO vo = new BoardVO();
 		vo.setB_no(Integer.parseInt(b_no));
@@ -147,8 +140,6 @@ public class Community_noticeModel {
 		HttpSession session = request.getSession();
 		String member_no=request.getParameter("member_no");
 		String b_cate_no = request.getParameter("b_cate_no");
-		System.out.println("member_no="+member_no);
-		System.out.println("카테번호:" + b_cate_no);
 		
 		request.setAttribute("member_no", member_no);
 		request.setAttribute("b_cate_no", b_cate_no);
@@ -171,16 +162,14 @@ public class Community_noticeModel {
 		// String b_no=request.getParameter("b_no");
 		HttpSession session=request.getSession();
 		int member_no=(int)session.getAttribute("member_no");
-		System.out.println("1:" + b_cate_no);
-		System.out.println("4:" + b_subject);
-		System.out.println("2:" + b_content);
-		System.out.println("3:" + member_no);
+		String name=(String) session.getAttribute("name");
 		// VO에 묶어서
 		BoardVO vo = new BoardVO();
 		vo.setB_subject(b_subject);
 		vo.setB_content(b_content);
 		vo.setB_cate_no(Integer.parseInt(b_cate_no));
 		vo.setMember_no(member_no);
+		vo.setName(name);
 		// DAO 연결
 		BoardDAO.boardInsert(vo);
 
@@ -211,7 +200,6 @@ public class Community_noticeModel {
 		Map map=new HashMap();
 		map.put("q", q);
 		map.put("b_cate_no", b_cate_no);
-		System.out.println("q:"+q);
 		
 		int count = BoardDAO.boardFindCount(map);
 		if (count != 0) {
@@ -238,9 +226,7 @@ public class Community_noticeModel {
 		  String b_cate_no=request.getParameter("b_cate_no");
 	
 		  String r_content=request.getParameter("r_content");
-		  System.out.println("b_no:"+b_no);
-		  System.out.println("b_cate_no:"+b_cate_no);
-		  System.out.println("r_content:"+r_content);
+
 		  // session
 		  HttpSession session=request.getSession();
 		  String id=(String)session.getAttribute("id");
@@ -272,12 +258,7 @@ public class Community_noticeModel {
 		  String b_no=request.getParameter("b_no");
 		  //hidden
 		  String r_content=request.getParameter("r_content");
-		  String r_no=request.getParameter("r_no");
-		  
-		  //받는지 확인
-		  System.out.println("b_cate_no:"+b_cate_no);
-		  System.out.println("b_no:"+b_no);
-		  System.out.println("r_no:"+r_no);
+		  String r_no=request.getParameter("r_no");	
 		  
 		  //DAO => Update 요청
 		  CommunityReplyVO rvo=new CommunityReplyVO();
@@ -299,10 +280,7 @@ public class Community_noticeModel {
 		  CommunityReplyVO vo=new CommunityReplyVO();
 		  vo.setR_no(Integer.parseInt(r_no));
 		  vo.setB_no(Integer.parseInt(b_no));
-		  //값 들어오나 확인
-		  System.out.println("r_no:"+r_no);
-		  System.out.println("b_no:"+b_no);
-		  System.out.println("b_cate_no:"+b_cate_no);
+
 		  //DAO연결
 		  BoardDAO.boardReplyDelete(vo);
 		  return "redirect:../community/community_detail.hr?b_no="+b_no+"&b_cate_no="+b_cate_no;

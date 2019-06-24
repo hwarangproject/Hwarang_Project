@@ -419,8 +419,8 @@ width:1150px;
 			<table class="table">
      	<tr>
      		<td class="text-left">
-     		<a href="community_update.hr?b_no=${vo.b_no }&b_cate_no=${vo.b_cate_no}" class="btn btn-default">수정</a>
-     		<a href="community_delete.hr?b_no=${vo.b_no }&b_cate_no=${vo.b_cate_no}" class="btn btn-default">삭제</a>
+	     		<a href="community_update.hr?b_no=${vo.b_no }&b_cate_no=${vo.b_cate_no}" class="btn btn-default">수정</a>
+	     		<a href="community_delete.hr?b_no=${vo.b_no }&b_cate_no=${vo.b_cate_no}" class="btn btn-default">삭제</a>
      		</td>
      	
      		<td class="text-right">

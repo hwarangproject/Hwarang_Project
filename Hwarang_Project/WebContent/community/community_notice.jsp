@@ -333,26 +333,33 @@ body {
 {
 list-style: none; display:inline-block; width:3%;
 text-decoration: none;
-
+align: center;
 }
 
 #tdpage
 {
 align: center;
+position: absolute; 
+   width: 100px; 
+   height: 100px; 
+top: 50%;
+   left: 50%;
+   margin: -50px 0 0 -50px;
 
-margin-left: -90px;
+
+/* margin-left: -30px; */
 }
 
 #tbutton
 {
 align: center;
 
-margin-left: -90px;
+/* margin-left: -30px;  */
 }
 
 #pagenum
 {
-color: #FFB9B9;
+color: black;
 }
 
 #subid
@@ -360,6 +367,11 @@ color: #FFB9B9;
 text-decoration: none;
 color: #000000;
 }
+
+/* #ulst
+{
+margin-left:-90px;
+} */
 </style>
 
 
@@ -396,7 +408,7 @@ color: #000000;
 
 				<thead>
 					<tr>
-						<th width=45% class="text-left">제목</th>
+						<th width=45% class="text-center">제목</th>
 						<th width=15% class="text-center">작성자</th>
 						<th width=20% class="text-center">날짜</th>
 						<th width=10% class="text-center">조회수</th>
@@ -405,8 +417,9 @@ color: #000000;
 				<tbody>
 					<c:forEach var="vo" items="${list }">
 						<tr>
-							<td width=45% class="text-left">
-							<a href="../community/community_detail.hr?b_no=${vo.b_no}&b_cate_no=${b_cate_no}" id="subid">${vo.b_subject }</a></td>
+							<td width=45% class="text-left font-weight:bold">
+								<a href="../community/community_detail.hr?b_no=${vo.b_no}&b_cate_no=${b_cate_no}" id="subid">${vo.b_subject }</a>
+							</td>
 							<td width=15% class="text-center">${vo.name }</td>
 							<td width=15% class="text-center">
 							<fmt:formatDate value="${vo.b_regdate }" pattern="yyyy-MM-dd" />
@@ -452,48 +465,46 @@ color: #000000;
 			<form method="get" action="../community/community_notice.hr">
 				<input type="hidden" value="${member_no }" name="member_no">
 			</form>
-
-
-			<table class="table" rules="none" id="tbutton">
-				<tr>
-					<td class="text-center" id="tdpage">
-						<ul class="pagination">
-							<td class="text-center" align="center">
-							<c:if test="${curpage>BLOCK }">
-									<li id="listyle"><a href="../community/community_notice.hr?b_cate_no=${b_cate_no }&page=1">
-										<font style="color: #FFB9B9;">◀◀</font></a>
-									</li>
-									<li id="listyle"><a href="../community/community_notice.hr?b_cate_no=${b_cate_no }&page=${startPage-1 }">
-										<font style="color: #FFB9B9;">◀</font></a>
-									</li>
-							</c:if> <c:set var="type" value="" />
-							
-								<c:forEach var="i" begin="${startPage }" end="${endPage }">
-									<c:if test="${curpage==i }">
-										<c:set var="type" value="class=active" />
-									</c:if>
-									<c:if test="${curpage!=i }">
-										<c:set var="type" value="" />
-									</c:if>
-									<li ${type } id="listyle"><a
-										href="../community/community_notice.hr?b_cate_no=${b_cate_no }&page=${i }" id="pagenum">${i }</a></li>
-								</c:forEach> <c:if test="${endPage<allPage }">
-									<li id="listyle"><a
-										href="../community/community_notice.hr?b_cate_no=${b_cate_no }&page=${endPage+1 }">
-											<font style="color: #FFB9B9;">▶</font>
-									</a></li>
-									<li id="listyle"><a
-										href="../community/community_notice.hr?b_cate_no=${b_cate_no }&page=${allPage }">
-											<font style="color: #FFB9B9;">▶▶</font>
-									</a></li>
-								</c:if>
-							</td>
-						</ul>
-					</td>
-				<tr>
-			</table>
 			
-
+			<div class="container text-center">
+				<ul class="pagination">
+					<c:if test="${curpage>BLOCK }">
+						<li>
+							<a href="../community/community_notice.hr?b_cate_no=${b_cate_no }&page=1">
+								<font style="color: black;">◀◀</font>
+							</a>								
+						</li>
+						<li>
+							<a href="../community/community_notice.hr?b_cate_no=${b_cate_no }&page=${startPage-1 }">
+								<font style="color: black;">◀</font>
+							</a>
+						</li>
+					</c:if>
+					<c:set var="type" value="" />
+					
+					<c:forEach var="i" begin="${startPage }" end="${endPage }">
+						<c:if test="${curpage==i }">
+							<c:set var="type" value="class=active" />
+						</c:if>
+						<c:if test="${curpage!=i }">
+							<c:set var="type" value="" />
+						</c:if>
+						<li ${type }><a
+							href="../community/community_notice.hr?b_cate_no=${b_cate_no }&page=${i }" id="pagenum">${i }</a></li>
+					</c:forEach>
+					
+					<c:if test="${curpage<allPage}">
+						<li>
+							<a href="../community/community_notice.hr?b_cate_no=${b_cate_no }&page=${endPage+1 }">
+							<font style="color: black;">▶</font></a>
+						</li>
+						<li>
+							<a href="../community/community_notice.hr?b_cate_no=${b_cate_no }&page=${allPage }">
+							<font style="color: black;">▶▶</font></a>
+						</li>
+					</c:if>
+				</ul>
+			</div>					
 		</div>
 	</div>
 
